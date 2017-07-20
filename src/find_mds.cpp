@@ -13,7 +13,7 @@
 #define NB_REGISTERS 5
 #define KEEP_INPUTS 0
 
-#define XOR_WEIGHT 4
+#define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
@@ -37,6 +37,7 @@ struct AlgoHasher {
         std::size_t seed = 0;
         for (int i=0; i<NB_REGISTERS; i++) {
             for (int j=0; j<NB_INPUTS; j++) {
+                //seed ^= arr[i][j];
                 boost::hash_combine(seed, arr[i][j]);
             }
         }
@@ -67,8 +68,10 @@ void print_state (algo_state * current_state, int nb_scanned, int nb_tested, int
     int depth = 0;
     algo_state * depth_finder;
     for (depth_finder=current_state; depth_finder->pred != NULL; depth_finder=depth_finder->pred, depth++);
-    printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", current_state->weight, depth, nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
-    
+    if (print_all) {
+        printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", current_state->weight, depth, nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+    }
+        
     if (print_all) {
         int i, input_n;
         printf ("Current state\n");
@@ -85,7 +88,7 @@ void print_state (algo_state * current_state, int nb_scanned, int nb_tested, int
         for (depth_finder=current_state; depth_finder->pred != NULL; depth_finder=depth_finder->pred) {
             printf ("%c (%d, %d)\n", (depth_finder->op->type==XOR?'x':(depth_finder->op->type==MUL?'m':'c')), depth_finder->op->from, depth_finder->op->to);
             if (print_all)
-                print_state(depth_finder->pred, nb_scanned, nb_tested, print_all, false);
+                print_state(depth_finder->pred, nb_scanned, nb_tested, false, false);
         }
      }
      printf ("End of state\n");
@@ -541,7 +544,7 @@ void compute_state (algo_state * current_state) {
             current_state->branch_vals[current_state->op->from][input_n] <<= 1;
             if (current_state->branch_vals[current_state->op->from][input_n] == 0 && not_zero) { // Overflow.
                 printf ("Overflow !! Exiting.\n");
-                exit(1);
+                //exit(1);
             }
         }
     }
@@ -572,10 +575,8 @@ void test_restrictions_MDS (algo_state * current_state) {
 #endif
                     if (test_MDS(current_state->branch_vals, selected_outputs)) {
                         printf ("Found MDS !!!\n");
-                        printf ("Weight is %d, ops are:\n", (int)current_state->weight);
-                        for (pred = current_state; pred->pred != NULL; pred=pred->pred) { // Loop back through all the circuit to find the operations made. Stop before intial state.
-                            printf ("\t%c : (%d,%d)\n", (pred->op->type==XOR?'x':(pred->op->type==MUL?'m':'c')), (int)pred->op->from, (int)pred->op->to);
-                        }
+                        print_state(current_state, 1, 1, true, true);
+                        printf ("Weight is %d\n", (int)current_state->weight);
                         printf ("Selected outputs :\n\t( ");
                         for (i=0; i<NB_INPUTS; i++)
                             printf ("%d ", selected_outputs[i]);
@@ -590,7 +591,9 @@ void test_restrictions_MDS (algo_state * current_state) {
     }
 }
 
-// For every columns having a 0, we will need at least 1 XOR to have an MDS matrix.
+/*
+ * For every columns having a 0, we will need at least 1 XOR to have an MDS matrix.
+ */
 char min_dist_to_MDS (uint32_t ** M) {
     char weight = CHAR_MAX;
     int nb_columns_having_zero = 0;
@@ -657,11 +660,11 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
                         continue;
                     }
                 }
-                compute_id(id, next_state);
+                /*compute_id(id, next_state);
                 if (scanned_states->find(id) != scanned_states->end()) { // Id already scanned.
                     free_state(next_state);
                     continue;
-                }
+                }*/
                 
                 // Computing a bound on the distance to an MDS matrix.
                 next_state->weight_to_MDS = min_dist_to_MDS(current_state->branch_vals);
@@ -693,7 +696,7 @@ int main () {
     
     algo_state * current_state = (algo_state*)malloc(sizeof(algo_state));
     
-    int i;
+    int i, j;
     
     current_state->branch_vals = (uint32_t**) malloc(NB_REGISTERS*sizeof(uint32_t*));
     for (i=0; i<NB_REGISTERS; i++) {
@@ -712,6 +715,8 @@ int main () {
     for (i=0; i<NB_REGISTERS; i++)
         id[i] = (uint32_t*) malloc (NB_INPUTS*sizeof(uint32_t));
     
+    scanned_states.max_load_factor(1);
+    
     while (true) {
         nb_tested++;
         current_state = remaining_states.top(); // Next function to test.
@@ -719,16 +724,25 @@ int main () {
         if (current_state->branch_vals == NULL) { // Computing the current state value from the father's state.
             compute_state(current_state);
         }
-        if (current_state->weight > current_weight) { // Printing when we get to a new weight.
-            printf ("New weight (%d, +%d to MDS)\n", current_state->weight, current_state->weight_to_MDS);
+        if (current_state->weight + current_state->weight_to_MDS > current_weight) { // Printing when we get to a new weight.
+            printf ("New weight : %d (%d, +%d to MDS)\n", current_state->weight + current_state->weight_to_MDS, current_state->weight, current_state->weight_to_MDS);
+            printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
             print_state(current_state, nb_scanned, nb_tested, false, true);
-            current_weight = current_state->weight;
+            current_weight = current_state->weight + current_state->weight_to_MDS;
+            printf ("Scanned size : %lu\n", scanned_states.size());
+            printf ("Remaining size : %lu\n", remaining_states.size());
         }
         compute_id(id, current_state); // Get a unique id invariant under input/output reordering.
         if (scanned_states.find(id) == scanned_states.end()) { // Current state not scanned yet (even up to input/output reordering).
             test_restrictions_MDS(current_state); // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
             // Checking id.
-            scanned_states.insert(id);
+            uint32_t ** id_c = (uint32_t**) malloc (NB_REGISTERS*sizeof(uint32_t*));
+            for (i=0; i<NB_REGISTERS; i++) {
+                id_c[i] = (uint32_t*) malloc (NB_INPUTS*sizeof(uint32_t));
+                for (j=0; j<NB_INPUTS; j++)
+                    id_c[i][j] = id[i][j];
+            }
+            scanned_states.insert(id_c);
             nb_scanned++;
             // Computing all children states.
             spawn_next_states(current_state, &remaining_states, &scanned_states);
