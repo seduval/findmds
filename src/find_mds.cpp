@@ -17,6 +17,8 @@
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
+#define COMPUTE_ID_FIRST
+
 enum op_name {XOR=0, MUL=1, CPY=2};
 
 typedef struct {
@@ -190,7 +192,8 @@ bool test_injective (uint32_t ** M, char selected_outputs[NB_INPUTS]) {
     return true;
 }
 
-char order_permutations[5][120][5] = {
+char order_permutations[6][120][5] = {
+    {{}},
     {{0}},
     {{0, 1}, {1, 0}},
     {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}},
@@ -598,7 +601,7 @@ char min_dist_to_MDS (uint32_t ** M) {
     char weight = CHAR_MAX;
     int nb_columns_having_zero = 0;
     for (int i=0; i<NB_REGISTERS; i++) {
-        for (int j=0; j<NB_REGISTERS; j++) {
+        for (int j=0; j<NB_INPUTS; j++) {
             if (M[i][j] == 0) {
                 nb_columns_having_zero++;
                 break;
@@ -660,12 +663,13 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
                         continue;
                     }
                 }
-                /*compute_id(id, next_state);
+#ifdef COMPUTE_ID_FIRST
+                compute_id(id, next_state);
                 if (scanned_states->find(id) != scanned_states->end()) { // Id already scanned.
                     free_state(next_state);
                     continue;
-                }*/
-                
+                }
+#endif                
                 // Computing a bound on the distance to an MDS matrix.
                 next_state->weight_to_MDS = min_dist_to_MDS(current_state->branch_vals);
                 
@@ -701,11 +705,13 @@ int main () {
     current_state->branch_vals = (uint32_t**) malloc(NB_REGISTERS*sizeof(uint32_t*));
     for (i=0; i<NB_REGISTERS; i++) {
         current_state->branch_vals[i] = (uint32_t*) calloc (NB_INPUTS, sizeof(uint32_t));
-        current_state->branch_vals[i][i] = (i<NB_INPUTS?1:0); // Comment to start with a null state.
+        if (i<NB_INPUTS)
+             current_state->branch_vals[i][i] = 1; // Comment to start with a null state.
     }
     current_state->weight = 0;
     current_state->weight_to_MDS = NB_INPUTS*XOR_WEIGHT;
     current_state->pred = NULL;
+    current_state->op = NULL;
     remaining_states.push(current_state);
     
     uint32_t nb_scanned = 0, nb_tested = 0;
