@@ -19,7 +19,8 @@
 
 #define COMPUTE_ID_FIRST
 
-enum op_name {XOR=0, MUL=1, CPY=2};
+
+enum op_name {XOR=0, MUL=1, CPY=2, NONE=3};
 
 typedef struct {
     enum op_name type;
@@ -31,7 +32,7 @@ typedef struct ALGO_STATE {
     uint32_t ** branch_vals;
     char weight, weight_to_MDS;
     struct ALGO_STATE * pred;
-    algo_op * op;
+    algo_op op;
 } algo_state;
 
 struct AlgoHasher {
@@ -82,13 +83,13 @@ void print_state (algo_state * current_state, int nb_scanned, int nb_tested, int
                 printf ("%d ", current_state->branch_vals[i][input_n]);
             printf ("\n");
         }
-        if (current_state->op != NULL)
-            printf ("Current state op : %c (%d, %d)\n", (current_state->op->type==XOR?'x':(current_state->op->type==MUL?'m':'c')), current_state->op->from, current_state->op->to);
+        if (current_state->op.type != NONE)
+            printf ("Current state op : %c (%d, %d)\n", (current_state->op.type==XOR?'x':(current_state->op.type==MUL?'m':'c')), current_state->op.from, current_state->op.to);
     }
      if (print_pred) {
         printf ("Printing preds\n#############################\n");
         for (depth_finder=current_state; depth_finder->pred != NULL; depth_finder=depth_finder->pred) {
-            printf ("%c (%d, %d)\n", (depth_finder->op->type==XOR?'x':(depth_finder->op->type==MUL?'m':'c')), depth_finder->op->from, depth_finder->op->to);
+            printf ("%c (%d, %d)\n", (depth_finder->op.type==XOR?'x':(depth_finder->op.type==MUL?'m':'c')), depth_finder->op.from, depth_finder->op.to);
             if (print_all)
                 print_state(depth_finder->pred, nb_scanned, nb_tested, false, false);
         }
@@ -514,7 +515,6 @@ void free_state (algo_state * state) {
     for (int i=0; i<NB_REGISTERS; i++)
         free(state->branch_vals[i]);
     free(state->branch_vals);
-    free(state->op);
     free(state);
 }
 
@@ -529,39 +529,39 @@ void compute_state (algo_state * current_state) {
         }
     }
     // Plus operation.
-    if (current_state->op->type==XOR) {
-        if (current_state->op->from < NB_REGISTERS) {
+    if (current_state->op.type==XOR) {
+        if (current_state->op.from < NB_REGISTERS) {
             for (input_n=0; input_n<NB_INPUTS; input_n++) {
-                current_state->branch_vals[current_state->op->to][input_n] ^= current_state->branch_vals[current_state->op->from][input_n];
+                current_state->branch_vals[current_state->op.to][input_n] ^= current_state->branch_vals[current_state->op.from][input_n];
             }
         }
         else {
-            current_state->branch_vals[current_state->op->to][current_state->op->from-NB_REGISTERS] ^= 1;
+            current_state->branch_vals[current_state->op.to][current_state->op.from-NB_REGISTERS] ^= 1;
         }
     }
-    else if (current_state->op->type==MUL) {
+    else if (current_state->op.type==MUL) {
         for (input_n=0; input_n<NB_INPUTS; input_n++) {
             bool not_zero = true;
-            if (current_state->branch_vals[current_state->op->from][input_n] == 0)
+            if (current_state->branch_vals[current_state->op.from][input_n] == 0)
                 not_zero = false;
-            current_state->branch_vals[current_state->op->from][input_n] <<= 1;
-            if (current_state->branch_vals[current_state->op->from][input_n] == 0 && not_zero) { // Overflow.
+            current_state->branch_vals[current_state->op.from][input_n] <<= 1;
+            if (current_state->branch_vals[current_state->op.from][input_n] == 0 && not_zero) { // Overflow.
                 printf ("Overflow !! Exiting.\n");
                 //exit(1);
             }
         }
     }
     else {
-        if (current_state->op->from < NB_REGISTERS) {
+        if (current_state->op.from < NB_REGISTERS) {
             for (input_n=0; input_n<NB_INPUTS; input_n++) {
-                current_state->branch_vals[current_state->op->to][input_n] = current_state->branch_vals[current_state->op->from][input_n];
+                current_state->branch_vals[current_state->op.to][input_n] = current_state->branch_vals[current_state->op.from][input_n];
             }
         }
         else {
             for (input_n=0; input_n<NB_INPUTS; input_n++) {
-                current_state->branch_vals[current_state->op->to][input_n] = 0;
+                current_state->branch_vals[current_state->op.to][input_n] = 0;
             }
-            current_state->branch_vals[current_state->op->to][current_state->op->from-NB_REGISTERS] = 1;
+            current_state->branch_vals[current_state->op.to][current_state->op.from-NB_REGISTERS] = 1;
         }
     }
 }
@@ -624,25 +624,23 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
     for (type_of_op_int=XOR; type_of_op_int<=CPY; type_of_op_int++) {
         // No 2 copies in a row.
         type_of_op = (enum op_name) type_of_op_int;
-        if (current_state->op != NULL && current_state->op->type == CPY && type_of_op == CPY) {
+        if (current_state->op.type == CPY && type_of_op == CPY) {
             continue;
         }
         for (to=0; to<NB_REGISTERS; to++) {
             // After a copy, the copy must be the destination of the operation.
-            if (current_state->op != NULL && current_state->op->type == CPY && current_state->op->to != to)
+            if (current_state->op.type == CPY && current_state->op.to != to)
                 continue;
             for (from=(type_of_op==MUL?to:0); from<(type_of_op==MUL?to+1:NB_REGISTERS+(KEEP_INPUTS?NB_INPUTS:0)); from++) {
                 if (type_of_op!=MUL && to==from)
                     continue;
-                algo_op * new_op = (algo_op*)malloc(sizeof(algo_op));
-                new_op->type = type_of_op;
-                new_op->from = from;
-                new_op->to = to;
                 algo_state * next_state = (algo_state*)malloc(sizeof(algo_state));
                 next_state->pred = current_state;
-                next_state->op = new_op;
                 next_state->weight = current_state->weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
                 next_state->branch_vals = NULL;
+                next_state->op.type = type_of_op;
+                next_state->op.from = from;
+                next_state->op.to = to;
                 
                 /* We filter here 2 things:
                  *  - injectivity (can only change after a copy).
@@ -679,11 +677,11 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
                 (*remaining_states).push(next_state);
                 /*
                 if (current_state->op != NULL)
-                    printf ("Current state op : %c (%d, %d)\n", (current_state->op->type==XOR?'x':(current_state->op->type==MUL?'m':'c')), current_state->op->from, current_state->op->to);
+                    printf ("Current state op : %c (%d, %d)\n", (current_state->op.type==XOR?'x':(current_state->op.type==MUL?'m':'c')), current_state->op.from, current_state->op.to);
                 else printf ("Current state : no op\n");
-                printf ("New state op : %c (%d, %d)\n", (next_state->op->type==XOR?'x':(next_state->op->type==MUL?'m':'c')), next_state->op->from, next_state->op->to);
+                printf ("New state op : %c (%d, %d)\n", (next_state->op.type==XOR?'x':(next_state->op.type==MUL?'m':'c')), next_state->op.from, next_state->op.to);
                 if (current_state->pred != NULL && current_state->pred->op != NULL)
-                    printf ("Pred state op : %c (%d, %d)\n", (current_state->pred->op->type==XOR?'x':(current_state->pred->op->type==MUL?'m':'c')), current_state->pred->op->from, current_state->pred->op->to);
+                    printf ("Pred state op : %c (%d, %d)\n", (current_state->pred->op.type==XOR?'x':(current_state->pred->op.type==MUL?'m':'c')), current_state->pred->op.from, current_state->pred->op.to);
                 else printf ("Pred : origin\n");*/
             }
         }
@@ -711,7 +709,7 @@ int main () {
     current_state->weight = 0;
     current_state->weight_to_MDS = NB_INPUTS*XOR_WEIGHT;
     current_state->pred = NULL;
-    current_state->op = NULL;
+    current_state->op.type = NONE;
     remaining_states.push(current_state);
     
     uint32_t nb_scanned = 0, nb_tested = 0;
