@@ -19,6 +19,8 @@
 
 #define COMPUTE_ID_FIRST
 
+typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
+typedef std::unordered_set<matrix, boost::hash<matrix>> matrix_set;
 
 enum op_name {XOR=0, MUL=1, CPY=2, NONE=3};
 
@@ -34,32 +36,6 @@ typedef struct ALGO_STATE {
     struct ALGO_STATE * pred;
     algo_op op;
 } algo_state;
-
-struct AlgoHasher {
-    std::size_t operator()(uint32_t ** const arr) const {
-        std::size_t seed = 0;
-        for (int i=0; i<NB_REGISTERS; i++) {
-            for (int j=0; j<NB_INPUTS; j++) {
-                //seed ^= arr[i][j];
-                boost::hash_combine(seed, arr[i][j]);
-            }
-        }
-        return seed;
-    }
-};
-
-struct HashComparator {
-  bool operator()(uint32_t ** const a, uint32_t ** const b) const {
-    for (int i=0; i<NB_REGISTERS; i++) {
-        for (int j=0; j<NB_INPUTS; j++) {
-            if (a[i][j] != b[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
-  }
-};
 
 struct QueueComparator {
     bool operator()(const algo_state * a, const algo_state * b) const {
@@ -355,8 +331,9 @@ int fact (int x) {
  * That way, we ensure that all functions that are identical up to input or output reordering have the same id and are treated only once.
  * Maximum is with the following order: most significant coefficient is in M[0][0], second most in M[0][1] etc.
  */
-void compute_id (uint32_t ** id, algo_state * state) {
+matrix compute_id (algo_state * state) {
     int r_n, i_n;
+    matrix id;
     
     for (r_n=0; r_n<NB_REGISTERS; r_n++) {
         for (i_n=0; i_n<NB_INPUTS; i_n++) {
@@ -400,6 +377,7 @@ void compute_id (uint32_t ** id, algo_state * state) {
             }
         }
     }
+    return id;
 }
 
 bool test_MDS (uint32_t ** M, char selected_outputs[NB_INPUTS]) {
@@ -611,13 +589,9 @@ char min_dist_to_MDS (uint32_t ** M) {
     return (nb_columns_having_zero==0?0:(nb_columns_having_zero-(NB_REGISTERS-NB_INPUTS)) * XOR_WEIGHT);
 }
 
-void spawn_next_states (algo_state * current_state, std::priority_queue<algo_state*, std::vector<algo_state*>, QueueComparator> * remaining_states, std::unordered_set<uint32_t**, AlgoHasher, HashComparator> * scanned_states) {
+void spawn_next_states (algo_state * current_state, std::priority_queue<algo_state*, std::vector<algo_state*>, QueueComparator> * remaining_states, matrix_set& scanned_states) {
     int type_of_op_int, to, from, i, j;
     enum op_name type_of_op;
-    
-    uint32_t ** id = (uint32_t**) malloc (NB_REGISTERS*sizeof(uint32_t*));
-    for (i=0; i<NB_REGISTERS; i++)
-        id[i] = (uint32_t*) malloc (NB_INPUTS*sizeof(uint32_t));
     
     char selected_outputs[NB_INPUTS];
     
@@ -662,8 +636,8 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
                     }
                 }
 #ifdef COMPUTE_ID_FIRST
-                compute_id(id, next_state);
-                if (scanned_states->find(id) != scanned_states->end()) { // Id already scanned.
+                matrix id = compute_id(next_state);
+                if (scanned_states.find(id) != scanned_states.end()) { // Id already scanned.
                     free_state(next_state);
                     continue;
                 }
@@ -686,15 +660,11 @@ void spawn_next_states (algo_state * current_state, std::priority_queue<algo_sta
             }
         }
     }
-    
-    for (i=0; i<NB_REGISTERS; i++)
-        free(id[i]);
-    free(id);
 }
 
 int main () {
     std::priority_queue<algo_state*, std::vector<algo_state*>, QueueComparator> remaining_states;
-    std::unordered_set<uint32_t**, AlgoHasher, HashComparator> scanned_states;
+    matrix_set scanned_states;
     
     algo_state * current_state = (algo_state*)malloc(sizeof(algo_state));
     
@@ -714,11 +684,7 @@ int main () {
     
     uint32_t nb_scanned = 0, nb_tested = 0;
     int current_weight = 0;
-    
-    uint32_t ** id = (uint32_t**) malloc (NB_REGISTERS*sizeof(uint32_t*));
-    for (i=0; i<NB_REGISTERS; i++)
-        id[i] = (uint32_t*) malloc (NB_INPUTS*sizeof(uint32_t));
-    
+
     scanned_states.max_load_factor(1);
     
     while (true) {
@@ -736,20 +702,14 @@ int main () {
             printf ("Scanned size : %lu\n", scanned_states.size());
             printf ("Remaining size : %lu\n", remaining_states.size());
         }
-        compute_id(id, current_state); // Get a unique id invariant under input/output reordering.
+        matrix id = compute_id(current_state); // Get a unique id invariant under input/output reordering.
         if (scanned_states.find(id) == scanned_states.end()) { // Current state not scanned yet (even up to input/output reordering).
             test_restrictions_MDS(current_state); // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
             // Checking id.
-            uint32_t ** id_c = (uint32_t**) malloc (NB_REGISTERS*sizeof(uint32_t*));
-            for (i=0; i<NB_REGISTERS; i++) {
-                id_c[i] = (uint32_t*) malloc (NB_INPUTS*sizeof(uint32_t));
-                for (j=0; j<NB_INPUTS; j++)
-                    id_c[i][j] = id[i][j];
-            }
-            scanned_states.insert(id_c);
+            scanned_states.insert(id);
             nb_scanned++;
             // Computing all children states.
-            spawn_next_states(current_state, &remaining_states, &scanned_states);
+            spawn_next_states(current_state, &remaining_states, scanned_states);
         }
         else {
             // Id was already checked, so an equivalent state was already analysed. Freeing.
