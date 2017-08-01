@@ -8,9 +8,8 @@
 #include <boost/functional/hash.hpp>
 #include "wmmintrin.h"
 #include <smmintrin.h>
+#include <algorithm>
 
-#define NB_INPUTS 4
-#define NB_REGISTERS 5
 #define KEEP_INPUTS 0
 
 #define XOR_WEIGHT 2
@@ -32,6 +31,15 @@ matrix identity() {
     }
   }
   return m;
+}
+
+void print_matrix(matrix m) {
+  for (const auto &l : m) {
+    for (const auto &x : l) {
+      printf ("%i ", x);
+    }
+    printf ("\n");
+  }
 }
 
 enum op_name {XOR=0, MUL=1, CPY=2, NONE=3};
@@ -118,7 +126,7 @@ bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
     
     __m128i MM[NB_INPUTS][NB_INPUTS];
     
-    int line1, line2, line3, column1, column2, column3;
+    int line1, column1, column2, column3;
     
     /* Dimension 1 determinants. */
     for (line1=0; line1<NB_INPUTS; line1++) {
@@ -357,50 +365,44 @@ int fact (int x) {
     return x*fact(x-1);
 }
 
+
 /*
  * The id is the maximum of all possible states with permutations of the input/output variables.
  * That way, we ensure that all functions that are identical up to input or output reordering have the same id and are treated only once.
  * Maximum is with the following order: most significant coefficient is in M[0][0], second most in M[0][1] etc.
  */
 matrix compute_id (matrix id) {
-    int r_n, i_n;
-    uint32_t M[NB_REGISTERS][NB_INPUTS];
-    
-    bool is_less, is_more;
-    
-    for (r_n=0; r_n<NB_REGISTERS; r_n++) {
-        for (i_n=0; i_n<NB_INPUTS; i_n++) {
-            M[r_n][i_n] = id[r_n][i_n];
-        }
+    matrix max = id;
+
+    // Look for columns that contain max coefficient
+    int max_cols[NB_INPUTS] = {0};
+    uint32_t max_coeff = 0;
+    for (int i=0; i<NB_REGISTERS; i++) {
+      for (int j=0; j<NB_INPUTS; j++) {
+	if (id[i][j] > max_coeff) {
+	  memset(max_cols, 0, sizeof(max_cols));
+	  max_coeff = id[i][j];
+	}
+	if (id[i][j] == max_coeff) {
+	  max_cols[j] = 1;
+	}
+      }
     }
-    
-    int input_order, output_order;
-    for (input_order=0; input_order<fact(NB_INPUTS); input_order++) {
-        for (output_order=0; output_order<fact(NB_REGISTERS); output_order++) {
-            is_more = 0;
-            is_less = 0;
-            for (r_n=0; r_n<NB_REGISTERS && !(is_more | is_less); r_n++) {
-                for (i_n=0; i_n<NB_INPUTS && !(is_more | is_less); i_n++) {
-                    if (M[order_permutations[NB_REGISTERS][output_order][r_n]][order_permutations[NB_INPUTS][input_order][i_n]] == id[r_n][i_n]) {
-                        continue;
-                    }
-                    if (M[order_permutations[NB_REGISTERS][output_order][r_n]][order_permutations[NB_INPUTS][input_order][i_n]] < id[r_n][i_n]) {
-                        is_less = 1;
-                        continue;
-                    }
-                    is_more = 1;                    
-                }
-            }
-            if (is_more) { // Id of this reordered state is greater than the max, so it becomes the new max.
-                for (r_n=0; r_n<NB_REGISTERS; r_n++) {
-                    for (i_n=0; i_n<NB_INPUTS; i_n++) {
-                        id[r_n][i_n] = M[order_permutations[NB_REGISTERS][output_order][r_n]][order_permutations[NB_INPUTS][input_order][i_n]];
-                    }
-                }
-            }
-        }
+    for (int order=0; order<fact(NB_INPUTS); order++) {
+        if (max_cols[order_permutations[NB_INPUTS][order][0]] == 0)
+	  continue; // Max coefficient not in forst column
+        matrix tmp;
+	for (int i=0; i<NB_REGISTERS; i++) {
+	    for (int j=0; j<NB_INPUTS; j++) {
+	        tmp[i][j] = id[i][order_permutations[NB_INPUTS][order][j]];
+	    }
+	}
+	std::sort(tmp.rbegin(), tmp.rend());
+	if (tmp > max)
+	    max = tmp;
     }
-    return id;
+
+    return max;
 }
 
 bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
@@ -583,7 +585,6 @@ void AlgoState::test_restrictions_MDS () {
  * For every columns having a 0, we will need at least 1 XOR to have an MDS matrix.
  */
 char min_dist_to_MDS (matrix M) {
-    char weight = CHAR_MAX;
     int nb_columns_having_zero = 0;
     for (int i=0; i<NB_REGISTERS; i++) {
         for (int j=0; j<NB_INPUTS; j++) {
@@ -671,7 +672,6 @@ int main () {
 #endif      
 #endif
     AlgoState initial_state = AlgoStateMatrix();
-    int i, j;
     remaining_states.push(initial_state);
     
     uint32_t nb_scanned = 0, nb_tested = 0;
