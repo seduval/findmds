@@ -653,7 +653,7 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
                 }
 #endif                
                 // Computing a bound on the distance to an MDS matrix.
-                next_state.weight_to_MDS = min_dist_to_MDS(branch_vals());
+                next_state.weight_to_MDS = min_dist_to_MDS(bv);
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 
