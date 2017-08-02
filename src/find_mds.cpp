@@ -411,7 +411,9 @@ matrix compute_id (matrix id) {
     return max;
 }
 
-bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
+// With zero == true:  returns smallest zero minor
+// With zero == false: returns largest non-zero minor
+int test_minors (bool zero, matrix M, char selected_outputs[NB_INPUTS]) {
     /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
     __m128i dim2det[NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS]; /* Not optimal in terms of memory, we could do with a [4][3][4][3] since the lines and columns must be different. */
@@ -421,13 +423,15 @@ bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
     __m128i MM[NB_INPUTS][NB_INPUTS];
     
     int line1, line2, line3, column1, column2, column3;    
+    int max = 0;
     
     /* Dimension 1 determinants != 0. */
     for (line1=0; line1<NB_INPUTS; line1++) {
         for (column1=0; column1<NB_INPUTS; column1++) {
-            if (M[selected_outputs[line1]][column1] == 0) {
-                return false;
-            }
+            if (zero && M[selected_outputs[line1]][column1] == 0)
+                return 1;
+            if (!zero && M[selected_outputs[line1]][column1] != 0)
+	      max = std::max(max,1);
             MM[line1][column1] = _mm_set_epi32(0, 0, 0, M[selected_outputs[line1]][column1]);
         }
     }
@@ -440,8 +444,10 @@ bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
                     for (column2=column1+1; column2<NB_INPUTS; column2++) {
                         dim2det[line1][line2][column1][column2] = _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], MM[line2][column2], 0x00) , \
                                                                                         _mm_clmulepi64_si128(MM[line1][column2], MM[line2][column1], 0x00));
-                        if (_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
-                            return false;
+                        if (zero && _mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
+                            return 2;
+                        if (!zero && !_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
+			  max = std::max(max, 2);
                     }
                 }
             }
@@ -459,8 +465,10 @@ bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
                                                                                                 _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], dim2det[line2][line3][column2][column3], 0x00), \
                                                                                                                     _mm_clmulepi64_si128(MM[line1][column2], dim2det[line2][line3][column1][column3], 0x00)), \
                                                                                                 _mm_clmulepi64_si128(MM[line1][column3], dim2det[line2][line3][column1][column2], 0x00));
-                                    if (_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
-                                        return false;
+                                    if (zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
+                                        return 3;
+                                    if (!zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
+				      max = std::max(max, 3);
                                 }
                             }
                         }
@@ -505,13 +513,38 @@ bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
                 mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
                 det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
                 
-                if (_mm_testz_si128(det4, det4))
-                    return false;
+                if (zero && _mm_testz_si128(det4, det4))
+                    return 4;
+                if (!zero && !_mm_testz_si128(det4, det4))
+		  max = std::max(max, 4);
             }
         }
     }
-    return true;
+    if (zero)
+        return NB_INPUTS+1;
+    else
+        return max;
 }
+
+bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
+    return test_minors(true, M, selected_outputs) == NB_INPUTS+1;
+}
+
+int rank (matrix M) {
+    char selected_outputs[NB_INPUTS];
+    int rank = 0;
+    
+    for (selected_outputs[0]=0; selected_outputs[0]<NB_REGISTERS; selected_outputs[0]++)
+        for (selected_outputs[1]=selected_outputs[0]+1; selected_outputs[1]<NB_REGISTERS; selected_outputs[1]++)
+            for (selected_outputs[2]=selected_outputs[1]+1; selected_outputs[2]<NB_REGISTERS; selected_outputs[2]++)
+#if NB_INPUTS>3
+                for (selected_outputs[3]=selected_outputs[2]+1; selected_outputs[3]<NB_REGISTERS; selected_outputs[3]++) // All possible choices of 4 output branches.
+#endif
+		  rank = std::max(rank, test_minors(false, M, selected_outputs));
+
+    return rank;
+}
+
 
 matrix AlgoState::branch_vals() {
     if (op.type == NONE)
@@ -589,18 +622,26 @@ void AlgoState::test_restrictions_MDS () {
 
 /*
  * For every columns having a 0, we will need at least 1 XOR to have an MDS matrix.
+ * More generally, we consider the rank of columns without zeroes
  */
 char min_dist_to_MDS (matrix M) {
+    // Clear columns that contain a zero
     int nb_columns_having_zero = 0;
     for (int i=0; i<NB_REGISTERS; i++) {
+        bool has_zero = false;
         for (int j=0; j<NB_INPUTS; j++) {
             if (M[i][j] == 0) {
-                nb_columns_having_zero++;
+                has_zero = true;
                 break;
             }
         }
+        if (has_zero) {
+            for (int j=0; j<NB_INPUTS; j++)
+	        M[i][j] = 0;
+        }
     }
-    return (nb_columns_having_zero==0?0:(nb_columns_having_zero-(NB_REGISTERS-NB_INPUTS)) * XOR_WEIGHT);
+
+    return XOR_WEIGHT * (NB_INPUTS-rank(M));
 }
 
 void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& scanned_states) {
@@ -657,6 +698,7 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 
+		assert(next_state.queue_weight() >= queue_weight());
 		if (next_state.queue_weight() < MAX_WEIGHT)
                     remaining_states.push(next_state);
                 /*
