@@ -1,3 +1,11 @@
+/* NOTE:
+   This codes makes some assumptions:
+   - NB_REGISTERS = NB_INPUTS + 1 (can be removed?)
+   - NB_INPUTS is 3 or 4
+   - NB_REGISTERS is less than 8
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -5,6 +13,8 @@
 #include <inttypes.h>
 #include <queue>
 #include <unordered_set>
+#include <unordered_map>
+#include <numeric>
 #include <boost/functional/hash.hpp>
 #include "wmmintrin.h"
 #include <smmintrin.h>
@@ -28,22 +38,22 @@ typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
 typedef std::unordered_set<matrix, boost::hash<matrix>> matrix_set;
 
 matrix identity() {
-  matrix m;
-  for (int i=0; i<NB_REGISTERS; i++) {
-    for (int j=0; j<NB_INPUTS; j++) {
-      m[i][j] = i==j? 1: 0;
+    matrix m;
+    for (int i=0; i<NB_REGISTERS; i++) {
+        for (int j=0; j<NB_INPUTS; j++) {
+            m[i][j] = i==j? 1: 0;
+        }
     }
-  }
-  return m;
+    return m;
 }
 
 void print_matrix(matrix m) {
-  for (const auto &l : m) {
-    for (const auto &x : l) {
-      printf ("%i ", x);
+    for (const auto &l : m) {
+        for (const auto &x : l) {
+            printf ("%i ", x);
+        }
+        printf ("\n");
     }
-    printf ("\n");
-  }
 }
 
 enum op_name {XOR=0, MUL=1, CPY=2, NONE=3};
@@ -54,35 +64,35 @@ typedef struct {
 } algo_op;
 
 class AlgoState {
-  AlgoState * pred;
-  algo_op op;
+    AlgoState * pred;
+    algo_op op;
 public:
-  char weight, weight_to_MDS;
+    char weight, weight_to_MDS;
 
-  AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
-  AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
+    AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
+    AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
 
-  virtual matrix branch_vals();
-  void print_state (int nb_scanned, int nb_tested, int print_all, int print_pred);
-  void test_restrictions_MDS ();
-  void spawn_next_states (std::priority_queue<AlgoState>& remaining_states, matrix_set& scanned_states);
-  int queue_weight() const { return weight + weight_to_MDS; }
-  bool operator <(const AlgoState &other) const {
-    return queue_weight() > other.queue_weight();
-  }
+    virtual matrix branch_vals();
+    void print_state (int nb_scanned, int nb_tested, int print_all, int print_pred);
+    void test_restrictions_MDS ();
+    void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
+    int queue_weight() const { return weight + weight_to_MDS; }
+    bool operator <(const AlgoState &other) const {
+        return queue_weight() > other.queue_weight();
+    }
 };
 
 class AlgoStateMatrix : public AlgoState {
-  matrix bv;
+    matrix bv;
 public:
-  AlgoStateMatrix(AlgoState s): AlgoState(s) {
-    bv = AlgoState::branch_vals();
-  }
-  // Default contructor: intial state
-  AlgoStateMatrix(): AlgoState() {
-    bv = identity();
-  }
-  matrix branch_vals() { return bv; }
+    AlgoStateMatrix(AlgoState s): AlgoState(s) {
+        bv = AlgoState::branch_vals();
+    }
+    // Default contructor: intial state
+    AlgoStateMatrix(): AlgoState() {
+        bv = identity();
+    }
+    matrix branch_vals() { return bv; }
 };
 
 typedef std::priority_queue<AlgoState> state_queue;
@@ -97,7 +107,7 @@ void AlgoState::print_state (int nb_scanned, int nb_tested, int print_all, int p
         
     if (print_all) {
         int i, input_n;
-	matrix bv = branch_vals();
+        matrix bv = branch_vals();
         printf ("Current state\n");
         for (i=0; i<NB_REGISTERS; i++) {
             for (input_n=0; input_n<NB_INPUTS; input_n++)
@@ -107,15 +117,15 @@ void AlgoState::print_state (int nb_scanned, int nb_tested, int print_all, int p
         if (op.type != NONE)
             printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
     }
-     if (print_pred) {
+    if (print_pred) {
         printf ("Printing preds\n#############################\n");
         for (depth_finder=this; depth_finder->pred != NULL; depth_finder=depth_finder->pred) {
             printf ("%c (%d, %d)\n", (depth_finder->op.type==XOR?'x':(depth_finder->op.type==MUL?'m':'c')), depth_finder->op.from, depth_finder->op.to);
             if (print_all)
                 depth_finder->pred->print_state(nb_scanned, nb_tested, false, false);
         }
-     }
-     printf ("End of state\n");
+    }
+    printf ("End of state\n");
 }
 
 bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
@@ -148,7 +158,7 @@ bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
         for (column1=0; column1<NB_INPUTS; column1++) {
             for (column2=column1+1; column2<NB_INPUTS; column2++) {
                 dim2det[0][1][column1][column2] = _mm_xor_si128(_mm_clmulepi64_si128(MM[0][column1], MM[1][column2], 0x00) , \
-                                                                                _mm_clmulepi64_si128(MM[0][column2], MM[1][column1], 0x00));
+                                                                _mm_clmulepi64_si128(MM[0][column2], MM[1][column1], 0x00));
                 if (NB_INPUTS==2 && _mm_testz_si128(dim2det[0][1][column1][column2], dim2det[0][1][column1][column2])) // Test if det is zero.
                     return false;
             }
@@ -161,7 +171,7 @@ bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
                     for (column3=column2+1; column3<NB_INPUTS; column3++) {
                         dim3det[0][1][2][column1][column2][column3] = _mm_xor_si128(
                                                                                     _mm_xor_si128(_mm_clmulepi64_si128(MM[2][column1], dim2det[0][1][column2][column3], 0x00), \
-                                                                                                        _mm_clmulepi64_si128(MM[2][column2], dim2det[0][1][column1][column3], 0x00)), \
+                                                                                                  _mm_clmulepi64_si128(MM[2][column2], dim2det[0][1][column1][column3], 0x00)), \
                                                                                     _mm_clmulepi64_si128(MM[2][column3], dim2det[0][1][column1][column2], 0x00));
                         if (NB_INPUTS==3 && _mm_testz_si128(dim3det[0][1][2][column1][column2][column3], dim3det[0][1][2][column1][column2][column3])) // Test if det is zero.
                             return false;
@@ -172,9 +182,9 @@ bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
             if (NB_INPUTS > 3) {
                 /* Dimension 4 determinant != 0. */
                 /* Multiplying a 32-bit word with a 96-bit word takes work.
-                * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
-                * r = (uxw) ^ [(uxv)<<64].
-                */
+                 * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
+                 * r = (uxw) ^ [(uxv)<<64].
+                 */
                 __m128i det4 = _mm_setzero_si128();
                 __m64 zero64 = _mm_setzero_si64();
                 __m128i v, w;
@@ -220,149 +230,149 @@ char order_permutations[6][120][5] = {
     {{0, 1}, {1, 0}},
     {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}},
     {{0, 1, 2, 3},
-    {0, 1, 3, 2},
-    {0, 3, 1, 2},
-    {0, 3, 2, 1},
-    {0, 2, 1, 3},
-    {0, 2, 3, 1},
-    {1, 2, 3, 0},
-    {1, 2, 0, 3},
-    {1, 3, 2, 0},
-    {1, 3, 0, 2},
-    {1, 0, 3, 2},
-    {1, 0, 2, 3},
-    {2, 0, 1, 3},
-    {2, 0, 3, 1},
-    {2, 1, 0, 3},
-    {2, 1, 3, 0},
-    {2, 3, 0, 1},
-    {2, 3, 1, 0},
-    {3, 0, 1, 2},
-    {3, 0, 2, 1},
-    {3, 1, 0, 2},
-    {3, 1, 2, 0},
-    {3, 2, 0, 1},
-    {3, 2, 1, 0}},
+     {0, 1, 3, 2},
+     {0, 3, 1, 2},
+     {0, 3, 2, 1},
+     {0, 2, 1, 3},
+     {0, 2, 3, 1},
+     {1, 2, 3, 0},
+     {1, 2, 0, 3},
+     {1, 3, 2, 0},
+     {1, 3, 0, 2},
+     {1, 0, 3, 2},
+     {1, 0, 2, 3},
+     {2, 0, 1, 3},
+     {2, 0, 3, 1},
+     {2, 1, 0, 3},
+     {2, 1, 3, 0},
+     {2, 3, 0, 1},
+     {2, 3, 1, 0},
+     {3, 0, 1, 2},
+     {3, 0, 2, 1},
+     {3, 1, 0, 2},
+     {3, 1, 2, 0},
+     {3, 2, 0, 1},
+     {3, 2, 1, 0}},
     {{0, 1, 2, 3, 4},
-    {0, 1, 3, 2, 4},
-    {0, 3, 1, 2, 4},
-    {0, 3, 2, 1, 4},
-    {0, 2, 1, 3, 4},
-    {0, 2, 3, 1, 4},
-    {1, 2, 3, 0, 4},
-    {1, 2, 0, 3, 4},
-    {1, 3, 2, 0, 4},
-    {1, 3, 0, 2, 4},
-    {1, 0, 3, 2, 4},
-    {1, 0, 2, 3, 4},
-    {2, 0, 1, 3, 4},
-    {2, 0, 3, 1, 4},
-    {2, 1, 0, 3, 4},
-    {2, 1, 3, 0, 4},
-    {2, 3, 0, 1, 4},
-    {2, 3, 1, 0, 4},
-    {3, 0, 1, 2, 4},
-    {3, 0, 2, 1, 4},
-    {3, 1, 0, 2, 4},
-    {3, 1, 2, 0, 4},
-    {3, 2, 0, 1, 4},
-    {3, 2, 1, 0, 4},
-    {0, 1, 2, 4, 3},
-    {0, 1, 3, 4, 2},
-    {0, 3, 1, 4, 2},
-    {0, 3, 2, 4, 1},
-    {0, 2, 1, 4, 3},
-    {0, 2, 3, 4, 1},
-    {1, 2, 3, 4, 0},
-    {1, 2, 0, 4, 3},
-    {1, 3, 2, 4, 0},
-    {1, 3, 0, 4, 2},
-    {1, 0, 3, 4, 2},
-    {1, 0, 2, 4, 3},
-    {2, 0, 1, 4, 3},
-    {2, 0, 3, 4, 1},
-    {2, 1, 0, 4, 3},
-    {2, 1, 3, 4, 0},
-    {2, 3, 0, 4, 1},
-    {2, 3, 1, 4, 0},
-    {3, 0, 1, 4, 2},
-    {3, 0, 2, 4, 1},
-    {3, 1, 0, 4, 2},
-    {3, 1, 2, 4, 0},
-    {3, 2, 0, 4, 1},
-    {3, 2, 1, 4, 0},
-    {0, 1, 4, 2, 3},
-    {0, 1, 4, 3, 2},
-    {0, 3, 4, 1, 2},
-    {0, 3, 4, 2, 1},
-    {0, 2, 4, 1, 3},
-    {0, 2, 4, 3, 1},
-    {1, 2, 4, 3, 0},
-    {1, 2, 4, 0, 3},
-    {1, 3, 4, 2, 0},
-    {1, 3, 4, 0, 2},
-    {1, 0, 4, 3, 2},
-    {1, 0, 4, 2, 3},
-    {2, 0, 4, 1, 3},
-    {2, 0, 4, 3, 1},
-    {2, 1, 4, 0, 3},
-    {2, 1, 4, 3, 0},
-    {2, 3, 4, 0, 1},
-    {2, 3, 4, 1, 0},
-    {3, 0, 4, 1, 2},
-    {3, 0, 4, 2, 1},
-    {3, 1, 4, 0, 2},
-    {3, 1, 4, 2, 0},
-    {3, 2, 4, 0, 1},
-    {3, 2, 4, 1, 0},
-    {0, 4, 1, 2, 3},
-    {0, 4, 1, 3, 2},
-    {0, 4, 3, 1, 2},
-    {0, 4, 3, 2, 1},
-    {0, 4, 2, 1, 3},
-    {0, 4, 2, 3, 1},
-    {1, 4, 2, 3, 0},
-    {1, 4, 2, 0, 3},
-    {1, 4, 3, 2, 0},
-    {1, 4, 3, 0, 2},
-    {1, 4, 0, 3, 2},
-    {1, 4, 0, 2, 3},
-    {2, 4, 0, 1, 3},
-    {2, 4, 0, 3, 1},
-    {2, 4, 1, 0, 3},
-    {2, 4, 1, 3, 0},
-    {2, 4, 3, 0, 1},
-    {2, 4, 3, 1, 0},
-    {3, 4, 0, 1, 2},
-    {3, 4, 0, 2, 1},
-    {3, 4, 1, 0, 2},
-    {3, 4, 1, 2, 0},
-    {3, 4, 2, 0, 1},
-    {3, 4, 2, 1, 0},
-    {4, 0, 1, 2, 3},
-    {4, 0, 1, 3, 2},
-    {4, 0, 3, 1, 2},
-    {4, 0, 3, 2, 1},
-    {4, 0, 2, 1, 3},
-    {4, 0, 2, 3, 1},
-    {4, 1, 2, 3, 0},
-    {4, 1, 2, 0, 3},
-    {4, 1, 3, 2, 0},
-    {4, 1, 3, 0, 2},
-    {4, 1, 0, 3, 2},
-    {4, 1, 0, 2, 3},
-    {4, 2, 0, 1, 3},
-    {4, 2, 0, 3, 1},
-    {4, 2, 1, 0, 3},
-    {4, 2, 1, 3, 0},
-    {4, 2, 3, 0, 1},
-    {4, 2, 3, 1, 0},
-    {4, 3, 0, 1, 2},
-    {4, 3, 0, 2, 1},
-    {4, 3, 1, 0, 2},
-    {4, 3, 1, 2, 0},
-    {4, 3, 2, 0, 1},
-    {4, 3, 2, 1, 0}}
+     {0, 1, 3, 2, 4},
+     {0, 3, 1, 2, 4},
+     {0, 3, 2, 1, 4},
+     {0, 2, 1, 3, 4},
+     {0, 2, 3, 1, 4},
+     {1, 2, 3, 0, 4},
+     {1, 2, 0, 3, 4},
+     {1, 3, 2, 0, 4},
+     {1, 3, 0, 2, 4},
+     {1, 0, 3, 2, 4},
+     {1, 0, 2, 3, 4},
+     {2, 0, 1, 3, 4},
+     {2, 0, 3, 1, 4},
+     {2, 1, 0, 3, 4},
+     {2, 1, 3, 0, 4},
+     {2, 3, 0, 1, 4},
+     {2, 3, 1, 0, 4},
+     {3, 0, 1, 2, 4},
+     {3, 0, 2, 1, 4},
+     {3, 1, 0, 2, 4},
+     {3, 1, 2, 0, 4},
+     {3, 2, 0, 1, 4},
+     {3, 2, 1, 0, 4},
+     {0, 1, 2, 4, 3},
+     {0, 1, 3, 4, 2},
+     {0, 3, 1, 4, 2},
+     {0, 3, 2, 4, 1},
+     {0, 2, 1, 4, 3},
+     {0, 2, 3, 4, 1},
+     {1, 2, 3, 4, 0},
+     {1, 2, 0, 4, 3},
+     {1, 3, 2, 4, 0},
+     {1, 3, 0, 4, 2},
+     {1, 0, 3, 4, 2},
+     {1, 0, 2, 4, 3},
+     {2, 0, 1, 4, 3},
+     {2, 0, 3, 4, 1},
+     {2, 1, 0, 4, 3},
+     {2, 1, 3, 4, 0},
+     {2, 3, 0, 4, 1},
+     {2, 3, 1, 4, 0},
+     {3, 0, 1, 4, 2},
+     {3, 0, 2, 4, 1},
+     {3, 1, 0, 4, 2},
+     {3, 1, 2, 4, 0},
+     {3, 2, 0, 4, 1},
+     {3, 2, 1, 4, 0},
+     {0, 1, 4, 2, 3},
+     {0, 1, 4, 3, 2},
+     {0, 3, 4, 1, 2},
+     {0, 3, 4, 2, 1},
+     {0, 2, 4, 1, 3},
+     {0, 2, 4, 3, 1},
+     {1, 2, 4, 3, 0},
+     {1, 2, 4, 0, 3},
+     {1, 3, 4, 2, 0},
+     {1, 3, 4, 0, 2},
+     {1, 0, 4, 3, 2},
+     {1, 0, 4, 2, 3},
+     {2, 0, 4, 1, 3},
+     {2, 0, 4, 3, 1},
+     {2, 1, 4, 0, 3},
+     {2, 1, 4, 3, 0},
+     {2, 3, 4, 0, 1},
+     {2, 3, 4, 1, 0},
+     {3, 0, 4, 1, 2},
+     {3, 0, 4, 2, 1},
+     {3, 1, 4, 0, 2},
+     {3, 1, 4, 2, 0},
+     {3, 2, 4, 0, 1},
+     {3, 2, 4, 1, 0},
+     {0, 4, 1, 2, 3},
+     {0, 4, 1, 3, 2},
+     {0, 4, 3, 1, 2},
+     {0, 4, 3, 2, 1},
+     {0, 4, 2, 1, 3},
+     {0, 4, 2, 3, 1},
+     {1, 4, 2, 3, 0},
+     {1, 4, 2, 0, 3},
+     {1, 4, 3, 2, 0},
+     {1, 4, 3, 0, 2},
+     {1, 4, 0, 3, 2},
+     {1, 4, 0, 2, 3},
+     {2, 4, 0, 1, 3},
+     {2, 4, 0, 3, 1},
+     {2, 4, 1, 0, 3},
+     {2, 4, 1, 3, 0},
+     {2, 4, 3, 0, 1},
+     {2, 4, 3, 1, 0},
+     {3, 4, 0, 1, 2},
+     {3, 4, 0, 2, 1},
+     {3, 4, 1, 0, 2},
+     {3, 4, 1, 2, 0},
+     {3, 4, 2, 0, 1},
+     {3, 4, 2, 1, 0},
+     {4, 0, 1, 2, 3},
+     {4, 0, 1, 3, 2},
+     {4, 0, 3, 1, 2},
+     {4, 0, 3, 2, 1},
+     {4, 0, 2, 1, 3},
+     {4, 0, 2, 3, 1},
+     {4, 1, 2, 3, 0},
+     {4, 1, 2, 0, 3},
+     {4, 1, 3, 2, 0},
+     {4, 1, 3, 0, 2},
+     {4, 1, 0, 3, 2},
+     {4, 1, 0, 2, 3},
+     {4, 2, 0, 1, 3},
+     {4, 2, 0, 3, 1},
+     {4, 2, 1, 0, 3},
+     {4, 2, 1, 3, 0},
+     {4, 2, 3, 0, 1},
+     {4, 2, 3, 1, 0},
+     {4, 3, 0, 1, 2},
+     {4, 3, 0, 2, 1},
+     {4, 3, 1, 0, 2},
+     {4, 3, 1, 2, 0},
+     {4, 3, 2, 0, 1},
+     {4, 3, 2, 1, 0}}
 };
 
 int fact (int x) {
@@ -371,6 +381,7 @@ int fact (int x) {
     return x*fact(x-1);
 }
 
+#define _mm_is_zero(x) _mm_testz_si128(x,x)
 
 /*
  * The id is the maximum of all possible states with permutations of the input/output variables.
@@ -384,165 +395,185 @@ matrix compute_id (matrix id) {
     int max_cols[NB_INPUTS] = {0};
     uint32_t max_coeff = 0;
     for (int i=0; i<NB_REGISTERS; i++) {
-      for (int j=0; j<NB_INPUTS; j++) {
-	if (id[i][j] > max_coeff) {
-	  memset(max_cols, 0, sizeof(max_cols));
-	  max_coeff = id[i][j];
-	}
-	if (id[i][j] == max_coeff) {
-	  max_cols[j] = 1;
-	}
-      }
+        for (int j=0; j<NB_INPUTS; j++) {
+            if (id[i][j] > max_coeff) {
+                memset(max_cols, 0, sizeof(max_cols));
+                max_coeff = id[i][j];
+            }
+            if (id[i][j] == max_coeff) {
+                max_cols[j] = 1;
+            }
+        }
     }
     for (int order=0; order<fact(NB_INPUTS); order++) {
         if (max_cols[order_permutations[NB_INPUTS][order][0]] == 0)
-	  continue; // Max coefficient not in forst column
+            continue; // Max coefficient not in forst column
         matrix tmp;
-	for (int i=0; i<NB_REGISTERS; i++) {
-	    for (int j=0; j<NB_INPUTS; j++) {
-	        tmp[i][j] = id[i][order_permutations[NB_INPUTS][order][j]];
-	    }
-	}
-	std::sort(tmp.rbegin(), tmp.rend());
-	if (tmp > max)
-	    max = tmp;
+        for (int i=0; i<NB_REGISTERS; i++) {
+            for (int j=0; j<NB_INPUTS; j++) {
+                tmp[i][j] = id[i][order_permutations[NB_INPUTS][order][j]];
+            }
+        }
+        std::sort(tmp.rbegin(), tmp.rend());
+        if (tmp > max)
+            max = tmp;
     }
 
     return max;
 }
 
-// With zero == true:  returns smallest zero minor
+// With zero == true:  returns smallest zero minor OF BEST SQUARE MATRIX
 // With zero == false: returns largest non-zero minor
-int test_minors (bool zero, matrix M, char selected_outputs[NB_INPUTS]) {
+int test_minors (bool zero, matrix M) {
     /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
-    __m128i dim2det[NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS]; /* Not optimal in terms of memory, we could do with a [4][3][4][3] since the lines and columns must be different. */
-    __m128i dim3det[NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS]; /* Not optimal in terms of memory. Again, lines and columns different, but also we could just store the eliminated lines and columns. */
+    __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
+    __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
+    __m128i dim4det[NB_REGISTERS]; // Indexed by missing column
     
-    
-    __m128i MM[NB_INPUTS][NB_INPUTS];
-    
-    int line1, line2, line3, column1, column2, column3;    
+    __m128i MM[NB_REGISTERS][NB_INPUTS];
+
+    int line1, line2, line3, line4, column1, column2, column3;    
     int max = 0;
+
+    std::array<bool, NB_REGISTERS> maybeMDSwithout;
+    for (int i=0; i<NB_REGISTERS; i++)
+        maybeMDSwithout[i] = true;
     
     /* Dimension 1 determinants != 0. */
-    for (line1=0; line1<NB_INPUTS; line1++) {
+    for (line1=0; line1<NB_REGISTERS; line1++) {
         for (column1=0; column1<NB_INPUTS; column1++) {
-            if (zero && M[selected_outputs[line1]][column1] == 0)
-                return 1;
-            if (!zero && M[selected_outputs[line1]][column1] != 0)
-	      max = std::max(max,1);
-            MM[line1][column1] = _mm_set_epi32(0, 0, 0, M[selected_outputs[line1]][column1]);
+            MM[line1][column1] = _mm_set_epi32(0, 0, 0, M[line1][column1]);
+            if (!zero && M[line1][column1])
+                max = std::max(max, 1);
+            if (zero && !M[line1][column1]) {
+                for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                    if (skip != line1)
+                        maybeMDSwithout[skip] = false;
+                }
+	    }
         }
     }
+    if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+        return 1;
     
     if (NB_INPUTS > 1) {
         /* Dimension 2 determinants != 0. */
-        for (line1=0; line1<NB_INPUTS; line1++) {
-            for (line2=line1+1; line2<NB_INPUTS; line2++) {
+        for (line1=0; line1<NB_REGISTERS; line1++) {
+            for (line2=line1+1; line2<NB_REGISTERS; line2++) {
                 for (column1=0; column1<NB_INPUTS; column1++) {
                     for (column2=column1+1; column2<NB_INPUTS; column2++) {
                         dim2det[line1][line2][column1][column2] = _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], MM[line2][column2], 0x00) , \
-                                                                                        _mm_clmulepi64_si128(MM[line1][column2], MM[line2][column1], 0x00));
-                        if (zero && _mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
-                            return 2;
+                                                                                _mm_clmulepi64_si128(MM[line1][column2], MM[line2][column1], 0x00));
                         if (!zero && !_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
-			  max = std::max(max, 2);
+                            max = std::max(max, 2);
+                        if (zero && _mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) {
+                            for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                if (skip != line1 && skip != line2)
+                                    maybeMDSwithout[skip] = false;
+                            }
+			}
                     }
                 }
             }
         }
+        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+            return 2;
+    }
         
-        if (NB_INPUTS > 2) {
-            /* Dimension 3 determinants != 0. */
-            for (line1=0; line1<NB_INPUTS; line1++) {
-                for (line2=line1+1; line2<NB_INPUTS; line2++) {
-                    for (line3=line2+1; line3<NB_INPUTS; line3++) {
-                        for (column1=0; column1<NB_INPUTS; column1++) {
-                            for (column2=column1+1; column2<NB_INPUTS; column2++) {
-                                for (column3=column2+1; column3<NB_INPUTS; column3++) {
-                                    dim3det[line1][line2][line3][column1][column2][column3] = _mm_xor_si128(
-                                                                                                _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], dim2det[line2][line3][column2][column3], 0x00), \
-                                                                                                                    _mm_clmulepi64_si128(MM[line1][column2], dim2det[line2][line3][column1][column3], 0x00)), \
-                                                                                                _mm_clmulepi64_si128(MM[line1][column3], dim2det[line2][line3][column1][column2], 0x00));
-                                    if (zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
-                                        return 3;
-                                    if (!zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
-				      max = std::max(max, 3);
-                                }
+    if (NB_INPUTS > 2) {
+        /* Dimension 3 determinants != 0. */
+        for (line1=0; line1<NB_REGISTERS; line1++) {
+            for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                for (line3=line2+1; line3<NB_REGISTERS; line3++) {
+                    for (column1=0; column1<NB_INPUTS; column1++) {
+                        for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                            for (column3=column2+1; column3<NB_INPUTS; column3++) {
+                                dim3det[line1][line2][line3][column1][column2][column3] = _mm_xor_si128(
+                                                                                                        _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], dim2det[line2][line3][column2][column3], 0x00), \
+                                                                                                                      _mm_clmulepi64_si128(MM[line1][column2], dim2det[line2][line3][column1][column3], 0x00)), \
+                                                                                                        _mm_clmulepi64_si128(MM[line1][column3], dim2det[line2][line3][column1][column2], 0x00));
+                                if (!zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
+                                    max = std::max(max, 3);
+                                if (zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) {
+                                    for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                        if (skip != line1 && skip != line2 && skip != line3)
+                                            maybeMDSwithout[skip] = false;
+                                    }
+				}
                             }
                         }
                     }
                 }
             }
-            
-            if (NB_INPUTS > 3) {
-                /* Dimension 4 determinant != 0. */
-                /* Multiplying a 32-bit word with a 96-bit word takes work.
-                * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
-                * r = (uxw) ^ [(uxv)<<64].
-                */
-                __m128i det4 = _mm_setzero_si128();
-                __m64 zero64 = _mm_setzero_si64();
-                __m128i v, w;
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][1][2][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][1][2][3], 0));
-                __m128i mul1 = _mm_clmulepi64_si128(MM[0][0], w, 0x00);
-                __m128i mul2 = _mm_clmulepi64_si128(MM[0][0], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][2][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][2][3], 0));
-                mul1 = _mm_clmulepi64_si128(MM[0][1], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[0][1], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][1][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][1][3], 0));
-                mul1 = _mm_clmulepi64_si128(MM[0][2], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[0][2], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][1][2], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[1][2][3][0][1][2], 0));
-                mul1 = _mm_clmulepi64_si128(MM[0][3], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[0][3], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                if (zero && _mm_testz_si128(det4, det4))
-                    return 4;
-                if (!zero && !_mm_testz_si128(det4, det4))
-		  max = std::max(max, 4);
-            }
         }
+
+        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+            return 3;
     }
+    if (NB_INPUTS > 3) {
+        /* Dimension 4 determinant != 0. */
+        for (int skip = 0; skip<NB_REGISTERS; skip++) {
+            int lines[4];
+            for (int i=0; i<4; i++)
+                lines[i] = i<skip? i: i+1;
+
+            /* Multiplying a 32-bit word with a 96-bit word takes work.
+             * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
+             * r = (uxw) ^ [(uxv)<<64].
+             */
+            __m128i det4 = _mm_setzero_si128();
+            __m64 zero64 = _mm_setzero_si64();
+            __m128i v, w;
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][1][2][3], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][1][2][3], 0));
+            __m128i mul1 = _mm_clmulepi64_si128(MM[lines[0]][0], w, 0x00);
+            __m128i mul2 = _mm_clmulepi64_si128(MM[lines[0]][0], v, 0x00);
+            mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
+            det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
+            
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][2][3], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][2][3], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][1], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][1], v, 0x00);
+            mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
+            det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
+            
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][3], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][3], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][2], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][2], v, 0x00);
+            mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
+            det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
+            
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][2], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][2], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][3], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][3], v, 0x00);
+            mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
+            det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
+
+            dim4det[skip] = det4;
+
+            if (!zero && !_mm_testz_si128(det4, det4))
+                max = std::max(max, 4);
+            if (zero && _mm_testz_si128(det4, det4))
+                maybeMDSwithout[skip] = false;
+        }
+
+        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+            return 4;
+    }
+
     if (zero)
         return NB_INPUTS+1;
     else
         return max;
 }
 
-bool test_MDS (matrix M, char selected_outputs[NB_INPUTS]) {
-    return test_minors(true, M, selected_outputs) == NB_INPUTS+1;
-}
-
+// rank is largest non-zero minor
 int rank (matrix M) {
-    char selected_outputs[NB_INPUTS];
-    int rank = 0;
-    
-    for (selected_outputs[0]=0; selected_outputs[0]<NB_REGISTERS; selected_outputs[0]++)
-        for (selected_outputs[1]=selected_outputs[0]+1; selected_outputs[1]<NB_REGISTERS; selected_outputs[1]++)
-            for (selected_outputs[2]=selected_outputs[1]+1; selected_outputs[2]<NB_REGISTERS; selected_outputs[2]++)
-#if NB_INPUTS>3
-                for (selected_outputs[3]=selected_outputs[2]+1; selected_outputs[3]<NB_REGISTERS; selected_outputs[3]++) // All possible choices of 4 output branches.
-#endif
-		  rank = std::max(rank, test_minors(false, M, selected_outputs));
-
-    return rank;
+    return test_minors(false, M);
 }
 
 
@@ -592,31 +623,15 @@ matrix AlgoState::branch_vals() {
     return bv;
 }
 
+
 void AlgoState::test_restrictions_MDS () {
-    char selected_outputs[NB_INPUTS], i;
     matrix bv = branch_vals();
-    
-    for (selected_outputs[0]=0; selected_outputs[0]<NB_REGISTERS; selected_outputs[0]++) {
-        for (selected_outputs[1]=selected_outputs[0]+1; selected_outputs[1]<NB_REGISTERS; selected_outputs[1]++) {
-            for (selected_outputs[2]=selected_outputs[1]+1; selected_outputs[2]<NB_REGISTERS; selected_outputs[2]++) {
-#if NB_INPUTS>3
-                for (selected_outputs[3]=selected_outputs[2]+1; selected_outputs[3]<NB_REGISTERS; selected_outputs[3]++) { // All possible choices of 4 output branches.
-#endif
-                    if (test_MDS(bv, selected_outputs)) {
-                        printf ("Found MDS !!!\n");
-                        print_state(1, 1, true, true);
-                        printf ("Weight is %d\n", (int)weight);
-                        printf ("Selected outputs :\n\t( ");
-                        for (i=0; i<NB_INPUTS; i++)
-                            printf ("%d ", selected_outputs[i]);
-                        printf (")\n");
-                        exit(0);
-                    }
-#if NB_INPUTS>3
-                }
-#endif
-            }
-        }
+
+    if (test_minors(true, bv) == NB_INPUTS+1) {
+        printf ("Found MDS !!!\n");
+        print_state(1, 1, true, true);
+        printf ("Weight is %d\n", (int)weight);
+        exit(0);
     }
 }
 
@@ -637,7 +652,7 @@ char min_dist_to_MDS (matrix M) {
         }
         if (has_zero) {
             for (int j=0; j<NB_INPUTS; j++)
-	        M[i][j] = 0;
+                M[i][j] = 0;
         }
     }
 
@@ -663,8 +678,8 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
             for (from=(type_of_op==MUL?to:0); from<(type_of_op==MUL?to+1:NB_REGISTERS+(KEEP_INPUTS?NB_INPUTS:0)); from++) {
                 if (type_of_op!=MUL && to==from)
                     continue;
-		int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
-		if (new_weight >= MAX_WEIGHT)
+                int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
+                if (new_weight >= MAX_WEIGHT)
                     continue;
 
                 AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0);
@@ -675,7 +690,7 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
                  * Note that the id test at this point can only test if we have already SCANNED a state with the same id as next_state.
                  * We cannot test if another state with the same id is in the queue since we don't store the id in the queue (to save memory).
                  */
-		matrix bv = next_state.branch_vals();
+                matrix bv = next_state.branch_vals();
                 if (type_of_op == CPY) {
                     // Injectivity test assumes that NB_REGISTERS = NB_INPUTS+1;
                     for (i=0, j=0; i<NB_REGISTERS; i++)
@@ -702,13 +717,13 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
 		if (next_state.queue_weight() < MAX_WEIGHT)
                     remaining_states.push(next_state);
                 /*
-                if (op != NULL)
-                    printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
-                else printf ("Current state : no op\n");
-                printf ("New state op : %c (%d, %d)\n", (next_state.op.type==XOR?'x':(next_state.op.type==MUL?'m':'c')), next_state.op.from, next_state.op.to);
-                if (pred != NULL && pred->op != NULL)
-                    printf ("Pred state op : %c (%d, %d)\n", (pred->op.type==XOR?'x':(pred->op.type==MUL?'m':'c')), pred->op.from, pred->op.to);
-                else printf ("Pred : origin\n");*/
+                  if (op != NULL)
+                  printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
+                  else printf ("Current state : no op\n");
+                  printf ("New state op : %c (%d, %d)\n", (next_state.op.type==XOR?'x':(next_state.op.type==MUL?'m':'c')), next_state.op.from, next_state.op.to);
+                  if (pred != NULL && pred->op != NULL)
+                  printf ("Pred state op : %c (%d, %d)\n", (pred->op.type==XOR?'x':(pred->op.type==MUL?'m':'c')), pred->op.from, pred->op.to);
+                  else printf ("Pred : origin\n");*/
             }
         }
     }
@@ -774,3 +789,8 @@ int main () {
     
     //exit(0);
 }
+
+/* Local Variables: */
+/* indent-tabs-mode: nil */
+/* c-basic-offset: 4 */
+/* End: */
