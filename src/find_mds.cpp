@@ -10,11 +10,15 @@
 #include <smmintrin.h>
 #include <algorithm>
 
+#define NB_INPUTS 3
+#define NB_REGISTERS 4
 #define KEEP_INPUTS 0
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
+
+#define MAX_WEIGHT (XOR_WEIGHT * NB_INPUTS * (NB_INPUTS-1))
 
 #define COMPUTE_ID_FIRST
 #define REMEMBER_MATRIX
@@ -55,14 +59,16 @@ class AlgoState {
 public:
   char weight, weight_to_MDS;
 
+  AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
   AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
 
   virtual matrix branch_vals();
   void print_state (int nb_scanned, int nb_tested, int print_all, int print_pred);
   void test_restrictions_MDS ();
   void spawn_next_states (std::priority_queue<AlgoState>& remaining_states, matrix_set& scanned_states);
+  int queue_weight() const { return weight + weight_to_MDS; }
   bool operator <(const AlgoState &other) const {
-    return (this->weight + this->weight_to_MDS) > (other.weight + other.weight_to_MDS);
+    return queue_weight() > other.queue_weight();
   }
 };
 
@@ -73,7 +79,7 @@ public:
     bv = AlgoState::branch_vals();
   }
   // Default contructor: intial state
-  AlgoStateMatrix(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {
+  AlgoStateMatrix(): AlgoState() {
     bv = identity();
   }
   matrix branch_vals() { return bv; }
@@ -616,7 +622,11 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
             for (from=(type_of_op==MUL?to:0); from<(type_of_op==MUL?to+1:NB_REGISTERS+(KEEP_INPUTS?NB_INPUTS:0)); from++) {
                 if (type_of_op!=MUL && to==from)
                     continue;
-                AlgoState next_state(this, (algo_op){type_of_op, from, to}, weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT)), 0);
+		int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
+		if (new_weight >= MAX_WEIGHT)
+                    continue;
+
+                AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0);
                 
                 /* We filter here 2 things:
                  *  - injectivity (can only change after a copy).
@@ -647,7 +657,8 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 
-                remaining_states.push(next_state);
+		if (next_state.queue_weight() < MAX_WEIGHT)
+                    remaining_states.push(next_state);
                 /*
                 if (op != NULL)
                     printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
@@ -679,17 +690,17 @@ int main () {
 
     //    scanned_states.max_load_factor(1);
     
-    while (true) {
+    while (!remaining_states.empty()) {
         nb_tested++;
         AlgoStateMatrix current_state(remaining_states.top()); // Next function to test.
         remaining_states.pop();
-        if (current_state.weight + current_state.weight_to_MDS > current_weight) { // Printing when we get to a new weight.
-            printf ("New weight : %d (%d, +%d to MDS)\n", current_state.weight + current_state.weight_to_MDS, current_state.weight, current_state.weight_to_MDS);
+        if (current_state.queue_weight() != current_weight) { // Printing when we get to a new weight.
+            printf ("New weight : %d (%d, +%d to MDS)\n", current_state.queue_weight(), current_state.weight, current_state.weight_to_MDS);
             printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
-            current_state.print_state(nb_scanned, nb_tested, false, true);
-            current_weight = current_state.weight + current_state.weight_to_MDS;
+            // current_state.print_state(nb_scanned, nb_tested, false, true);
+            current_weight = current_state.queue_weight();
             printf ("Scanned size : %lu\n", scanned_ids.size());
-            printf ("Remaining size : %lu\n", remaining_states.size());
+            // printf ("Remaining size : %lu\n", remaining_states.size());
         }
         matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
         if (scanned_ids.find(id) == scanned_ids.end()) { // Current state not scanned yet (even up to input/output reordering).
