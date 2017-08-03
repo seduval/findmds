@@ -15,13 +15,15 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <numeric>
+#include <tbb/concurrent_queue.h>
+#include <tbb/concurrent_unordered_set.h>
 #include <boost/functional/hash.hpp>
 #include "wmmintrin.h"
 #include <smmintrin.h>
 #include <algorithm>
 
-#define NB_INPUTS 3
-#define NB_REGISTERS 4
+#define NB_INPUTS 4
+#define NB_REGISTERS 5
 #define KEEP_INPUTS 0
 
 #define XOR_WEIGHT 2
@@ -31,11 +33,11 @@
 #define MAX_WEIGHT (XOR_WEIGHT * NB_INPUTS * (NB_INPUTS-1))
 
 #define COMPUTE_ID_FIRST
-#define REMEMBER_MATRIX
+//#define REMEMBER_MATRIX
 
 // uint32_t is considering we won't have more than about 20 multiplications, therefore we need at least 20 bits not to overflow.
 typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
-typedef std::unordered_set<matrix, boost::hash<matrix>> matrix_set;
+typedef tbb::concurrent_unordered_set<matrix, boost::hash<matrix>> matrix_set;
 
 matrix identity() {
     matrix m;
@@ -95,7 +97,7 @@ public:
     matrix branch_vals() { return bv; }
 };
 
-typedef std::priority_queue<AlgoState> state_queue;
+typedef tbb::concurrent_queue<AlgoState> state_queue;
 
 void AlgoState::print_state (int nb_scanned, int nb_tested, int print_all, int print_pred) {
     int depth = 0;
@@ -429,7 +431,6 @@ int test_minors (bool zero, matrix M) {
     
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
     __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
-    __m128i dim4det[NB_REGISTERS]; // Indexed by missing column
     
     __m128i MM[NB_REGISTERS][NB_INPUTS];
 
@@ -553,8 +554,6 @@ int test_minors (bool zero, matrix M) {
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
 
-            dim4det[skip] = det4;
-
             if (!zero && !_mm_testz_si128(det4, det4))
                 max = std::max(max, 4);
             if (zero && _mm_testz_si128(det4, det4))
@@ -641,7 +640,6 @@ void AlgoState::test_restrictions_MDS () {
  */
 char min_dist_to_MDS (matrix M) {
     // Clear columns that contain a zero
-    int nb_columns_having_zero = 0;
     for (int i=0; i<NB_REGISTERS; i++) {
         bool has_zero = false;
         for (int j=0; j<NB_INPUTS; j++) {
@@ -659,7 +657,7 @@ char min_dist_to_MDS (matrix M) {
     return XOR_WEIGHT * (NB_INPUTS-rank(M));
 }
 
-void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& scanned_states) {
+void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& scanned_states) {
     int type_of_op_int, to, from, i, j;
     enum op_name type_of_op;
     
@@ -712,10 +710,9 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
                 next_state.weight_to_MDS = min_dist_to_MDS(bv);
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
-                
-		assert(next_state.queue_weight() >= queue_weight());
-		if (next_state.queue_weight() < MAX_WEIGHT)
-                    remaining_states.push(next_state);
+                assert(next_state.queue_weight() >= queue_weight());
+                if (next_state.queue_weight() < MAX_WEIGHT)
+                    remaining_states[next_state.queue_weight()].push(next_state);
                 /*
                   if (op != NULL)
                   printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
@@ -730,63 +727,58 @@ void AlgoState::spawn_next_states (state_queue& remaining_states, matrix_set& sc
 }
 
 int main () {
-    state_queue remaining_states;
+    state_queue remaining_states[MAX_WEIGHT];
     matrix_set scanned_ids;
-#ifdef SCANNED_CONTAINER
-#ifdef REMEMBER_MATRIX
-    std::deque<AlgoStateMatrix> scanned_states;
-#else
-    std::deque<AlgoState> scanned_states;
-#endif      
-#endif
-    AlgoState initial_state = AlgoStateMatrix();
-    remaining_states.push(initial_state);
-    
-    uint32_t nb_scanned = 0, nb_tested = 0;
-    int current_weight = 0;
 
+    AlgoState initial_state = AlgoStateMatrix();
+    remaining_states[0].push(initial_state);
+    
+    int nb_scanned = 0, nb_tested = 0;
     //    scanned_states.max_load_factor(1);
+
+    for (int current_weight=0; current_weight<MAX_WEIGHT; current_weight++) {
+        printf ("New weight : %d\n", current_weight);
+        printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+        printf ("Scanned size : %lu\n", scanned_ids.size());
+        //                printf ("Remaining size : %lu\n", remaining_states[w].size());
     
-    while (!remaining_states.empty()) {
-        nb_tested++;
-        AlgoStateMatrix current_state(remaining_states.top()); // Next function to test.
-        remaining_states.pop();
-        if (current_state.queue_weight() != current_weight) { // Printing when we get to a new weight.
-            printf ("New weight : %d (%d, +%d to MDS)\n", current_state.queue_weight(), current_state.weight, current_state.weight_to_MDS);
-            printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
-            // current_state.print_state(nb_scanned, nb_tested, false, true);
-            current_weight = current_state.queue_weight();
-            printf ("Scanned size : %lu\n", scanned_ids.size());
-            // printf ("Remaining size : %lu\n", remaining_states.size());
-        }
-        matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
-        if (scanned_ids.find(id) == scanned_ids.end()) { // Current state not scanned yet (even up to input/output reordering).
-            current_state.test_restrictions_MDS(); // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
-            // Checking id.
-            scanned_ids.insert(id);
-            nb_scanned++;
-#ifdef SCANNED_CONTAINER
-	    // Insert into scanned_states
-	    scanned_states.push_back(current_state);
-            // Computing all children states.
-	    scanned_states.back().spawn_next_states(remaining_states, scanned_ids);
-#else
-	    
-	    // Insert into scanned_states
+        int old_nb_scanned = nb_scanned;
+        nb_scanned = 0;
+        int old_nb_tested = nb_tested;
+        nb_tested = 0;
+        
+#pragma omp parallel reduction(+:nb_scanned) reduction(+:nb_tested)
+        {
+            // Next function to test.
+            AlgoState pop_state;
+
+            while (remaining_states[current_weight].try_pop(pop_state)) {
+                AlgoStateMatrix current_state(pop_state);
+                nb_tested++;
+                matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
+                if (scanned_ids.insert(id).second) { // Current state not scanned yet (even up to input/output reordering).
+                    current_state.test_restrictions_MDS(); // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                    // Checking id.
+                    nb_scanned++;
+                    // Insert into scanned_states
 #ifdef REMEMBER_MATRIX
-	    AlgoState *tmp = new AlgoStateMatrix(current_state);
+                    AlgoState *tmp = new AlgoStateMatrix(current_state);
 #else
-	    AlgoState *tmp = new AlgoState(current_state);
+                    AlgoState *tmp = new AlgoState(current_state);
 #endif      
-            // Computing all children states.
-	    tmp->spawn_next_states(remaining_states, scanned_ids);
-#endif
+                    // Computing all children states.
+                    tmp->spawn_next_states(remaining_states, scanned_ids);
+                }
+                else {
+                    // Id was already checked, so an equivalent state was already analysed. Do nothing.
+                }
+            }
         }
-        else {
-            // Id was already checked, so an equivalent state was already analysed. Do nothing.
-        }
+        nb_scanned += old_nb_scanned;
+        nb_tested += old_nb_tested;
     }
-    
+
+   
     //exit(0);
 }
 
