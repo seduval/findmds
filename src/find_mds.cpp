@@ -76,7 +76,7 @@ public:
 
     virtual matrix branch_vals();
     void print_state (int nb_scanned, int nb_tested, int print_all, int print_pred);
-    void test_restrictions_MDS ();
+    bool test_restrictions_MDS ();
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
     int queue_weight() const { return weight + weight_to_MDS; }
     bool operator <(const AlgoState &other) const {
@@ -623,14 +623,16 @@ matrix AlgoState::branch_vals() {
 }
 
 
-void AlgoState::test_restrictions_MDS () {
+bool AlgoState::test_restrictions_MDS () {
     matrix bv = branch_vals();
 
     if (test_minors(true, bv) == NB_INPUTS+1) {
-        printf ("Found MDS !!!\n");
-        print_state(1, 1, true, true);
-        printf ("Weight is %d\n", (int)weight);
-        exit(0);
+#pragma omp critical
+        {
+            printf ("Found MDS !!!\n");
+            print_state(1, 1, true, true);
+            printf ("Weight is %d\n", (int)weight);
+        }
     }
 }
 
@@ -757,9 +759,10 @@ int main () {
                 nb_tested++;
                 matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
                 if (scanned_ids.insert(id).second) { // Current state not scanned yet (even up to input/output reordering).
-                    current_state.test_restrictions_MDS(); // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
-                    // Checking id.
                     nb_scanned++;
+                    if (current_state.test_restrictions_MDS()) // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                        continue;
+                    // Checking id.
                     // Insert into scanned_states
 #ifdef REMEMBER_MATRIX
                     AlgoState *tmp = new AlgoStateMatrix(current_state);
