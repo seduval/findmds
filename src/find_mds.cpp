@@ -5,7 +5,7 @@
    - NB_REGISTERS is less than 8
 */
 
-
+#define __STDC_FORMAT_MACROS 1
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -22,6 +22,21 @@
 #include <smmintrin.h>
 #include <algorithm>
 
+#define stringify(x) stringify_(x)
+#define stringify_(x) #x
+#define CATCH                                                           \
+    catch (const std::exception& ex) {                                  \
+        fprintf(stderr, "Error occured line " stringify(__LINE__)       \
+                ": %s\n", ex.what());                                   \
+        sleep(1);                                                       \
+        exit(-1);                                                       \
+    } catch(...) {                                                      \
+        fprintf(stderr, "Unknown error occured line "                   \
+                stringify(__LINE__) "\n");                              \
+        sleep(1);                                                       \
+        exit(-1);                                                       \
+    }
+
 #define NB_INPUTS 4
 #define NB_REGISTERS 5
 #define KEEP_INPUTS 0
@@ -30,7 +45,7 @@
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
-#define MAX_WEIGHT (XOR_WEIGHT * NB_INPUTS * (NB_INPUTS-1))
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
 
 #define COMPUTE_ID_FIRST
 //#define REMEMBER_MATRIX
@@ -226,7 +241,7 @@ bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
     return true;
 }
 
-char order_permutations[6][120][5] = {
+int order_permutations[6][120][5] = {
     {{}},
     {{0}},
     {{0, 1}, {1, 0}},
@@ -434,7 +449,7 @@ int test_minors (bool zero, matrix M) {
     
     __m128i MM[NB_REGISTERS][NB_INPUTS];
 
-    int line1, line2, line3, line4, column1, column2, column3;    
+    int line1, line2, line3, column1, column2, column3;    
     int max = 0;
 
     std::array<bool, NB_REGISTERS> maybeMDSwithout;
@@ -632,8 +647,11 @@ bool AlgoState::test_restrictions_MDS () {
             printf ("Found MDS !!!\n");
             print_state(1, 1, true, true);
             printf ("Weight is %d\n", (int)weight);
+            fflush(stdout);
         }
+        return true;
     }
+    return false;
 }
 
 /*
@@ -713,8 +731,11 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 assert(next_state.queue_weight() >= queue_weight());
-                if (next_state.queue_weight() < MAX_WEIGHT)
-                    remaining_states[next_state.queue_weight()].push(next_state);
+                if (next_state.queue_weight() < MAX_WEIGHT) {
+                    try {
+                        remaining_states[next_state.queue_weight()].push(next_state);
+                    } CATCH;
+                }
                 /*
                   if (op != NULL)
                   printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
@@ -738,50 +759,60 @@ int main () {
     int nb_scanned = 0, nb_tested = 0;
     //    scanned_states.max_load_factor(1);
 
-    for (int current_weight=0; current_weight<MAX_WEIGHT; current_weight++) {
-        printf ("New weight : %d\n", current_weight);
-        printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
-        printf ("Scanned size : %lu\n", scanned_ids.size());
-        //                printf ("Remaining size : %lu\n", remaining_states[w].size());
-    
-        int old_nb_scanned = nb_scanned;
-        nb_scanned = 0;
-        int old_nb_tested = nb_tested;
-        nb_tested = 0;
+    try {
+        for (int current_weight=0; current_weight<MAX_WEIGHT; current_weight++) {
+            printf ("New weight : %d\n", current_weight);
+            printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+            printf ("Scanned size : %lu\n", scanned_ids.size());
+            //                printf ("Remaining size : %lu\n", remaining_states[w].size());
+            fflush(stdout);
+        
+            int old_nb_scanned = nb_scanned;
+            nb_scanned = 0;
+            int old_nb_tested = nb_tested;
+            nb_tested = 0;
         
 #pragma omp parallel reduction(+:nb_scanned) reduction(+:nb_tested)
-        {
-            // Next function to test.
-            AlgoState pop_state;
+            {
+                // Next function to test.
+                AlgoState pop_state;
 
-            while (remaining_states[current_weight].try_pop(pop_state)) {
-                AlgoStateMatrix current_state(pop_state);
-                nb_tested++;
-                matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
-                if (scanned_ids.insert(id).second) { // Current state not scanned yet (even up to input/output reordering).
-                    nb_scanned++;
-                    if (current_state.test_restrictions_MDS()) // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
-                        continue;
-                    // Checking id.
-                    // Insert into scanned_states
+                while (remaining_states[current_weight].try_pop(pop_state)) {
+                    AlgoStateMatrix current_state(pop_state);
+                    nb_tested++;
+                    matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
+                    bool is_new;
+                    try {
+                        is_new = scanned_ids.insert(id).second;
+                    } CATCH;
+                    if (is_new) { // Current state not scanned yet (even up to input/output reordering).
+                        nb_scanned++;
+                        if (current_state.test_restrictions_MDS()) // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                            continue;
+                        // Checking id.
+                        // Insert into scanned_states
+                        AlgoState *tmp;
+                        try {
 #ifdef REMEMBER_MATRIX
-                    AlgoState *tmp = new AlgoStateMatrix(current_state);
+                            tmp = new AlgoStateMatrix(current_state);
 #else
-                    AlgoState *tmp = new AlgoState(current_state);
-#endif      
-                    // Computing all children states.
-                    tmp->spawn_next_states(remaining_states, scanned_ids);
-                }
-                else {
-                    // Id was already checked, so an equivalent state was already analysed. Do nothing.
+                            tmp = new AlgoState(current_state);
+#endif
+                        } CATCH;
+                        // Computing all children states.
+                        tmp->spawn_next_states(remaining_states, scanned_ids);
+                    }
+                    else {
+                        // Id was already checked, so an equivalent state was already analysed. Do nothing.
+                    }
                 }
             }
+            nb_scanned += old_nb_scanned;
+            nb_tested += old_nb_tested;
         }
-        nb_scanned += old_nb_scanned;
-        nb_tested += old_nb_tested;
-    }
-
-   
+    } CATCH;
+    
+    printf("Reached MAX_WEIGHT\n");
     //exit(0);
 }
 
