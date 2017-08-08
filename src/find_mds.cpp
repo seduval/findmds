@@ -17,6 +17,7 @@
 #include <numeric>
 #include <tbb/concurrent_queue.h>
 #include <tbb/concurrent_unordered_set.h>
+#include <tbb/concurrent_vector.h>
 #include <boost/functional/hash.hpp>
 #include "wmmintrin.h"
 #include <smmintrin.h>
@@ -48,7 +49,6 @@
 #define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
 
 #define COMPUTE_ID_FIRST
-//#define REMEMBER_MATRIX
 
 // uint32_t is considering we won't have more than about 20 multiplications, therefore we need at least 20 bits not to overflow.
 typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
@@ -89,59 +89,50 @@ public:
     AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
     AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
 
-    virtual matrix branch_vals();
-    void print_state (int nb_scanned, int nb_tested, int print_all, int print_pred);
+    matrix branch_vals();
+    void print_state ();
+    void print_op ();
     bool test_restrictions_MDS ();
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
     int queue_weight() const { return weight + weight_to_MDS; }
+    int depth();
     bool operator <(const AlgoState &other) const {
         return queue_weight() > other.queue_weight();
     }
 };
 
-class AlgoStateMatrix : public AlgoState {
-    matrix bv;
-public:
-    AlgoStateMatrix(AlgoState s): AlgoState(s) {
-        bv = AlgoState::branch_vals();
-    }
-    // Default contructor: intial state
-    AlgoStateMatrix(): AlgoState() {
-        bv = identity();
-    }
-    matrix branch_vals() { return bv; }
-};
-
 typedef tbb::concurrent_queue<AlgoState> state_queue;
+typedef tbb::concurrent_vector<AlgoState> state_vector;
+// IMPORTANT: Growing the container does not invalidate existing iterators
 
-void AlgoState::print_state (int nb_scanned, int nb_tested, int print_all, int print_pred) {
-    int depth = 0;
-    AlgoState * depth_finder;
-    for (depth_finder=this; depth_finder->pred != NULL; depth_finder=depth_finder->pred, depth++);
-    if (print_all) {
-        printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", weight, depth, nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+
+int AlgoState::depth () {
+    if (op.type == NONE)
+        return 0;
+    else
+        return 1+pred->depth();
+}
+
+void AlgoState::print_op () {
+    if (op.type == NONE)
+        return;
+
+    pred->print_op();
+    printf ("%c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
+}
+
+
+void AlgoState::print_state () {
+    int i, input_n;
+    matrix bv = branch_vals();
+    printf ("Current state:\n");
+    for (i=0; i<NB_REGISTERS; i++) {
+        for (input_n=0; input_n<NB_INPUTS; input_n++)
+            printf ("%x ", bv[i][input_n]);
+        printf ("\n");
     }
-        
-    if (print_all) {
-        int i, input_n;
-        matrix bv = branch_vals();
-        printf ("Current state\n");
-        for (i=0; i<NB_REGISTERS; i++) {
-            for (input_n=0; input_n<NB_INPUTS; input_n++)
-                printf ("%d ", bv[i][input_n]);
-            printf ("\n");
-        }
-        if (op.type != NONE)
-            printf ("Current state op : %c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
-    }
-    if (print_pred) {
-        printf ("Printing preds\n#############################\n");
-        for (depth_finder=this; depth_finder->pred != NULL; depth_finder=depth_finder->pred) {
-            printf ("%c (%d, %d)\n", (depth_finder->op.type==XOR?'x':(depth_finder->op.type==MUL?'m':'c')), depth_finder->op.from, depth_finder->op.to);
-            if (print_all)
-                depth_finder->pred->print_state(nb_scanned, nb_tested, false, false);
-        }
-    }
+    printf ("Operations:\n");
+    print_op();
     printf ("End of state\n");
 }
 
@@ -638,20 +629,8 @@ matrix AlgoState::branch_vals() {
 }
 
 
-bool AlgoState::test_restrictions_MDS () {
-    matrix bv = branch_vals();
-
-    if (test_minors(true, bv) == NB_INPUTS+1) {
-#pragma omp critical
-        {
-            printf ("Found MDS !!!\n");
-            print_state(1, 1, true, true);
-            printf ("Weight is %d\n", (int)weight);
-            fflush(stdout);
-        }
-        return true;
-    }
-    return false;
+bool test_restrictions_MDS (matrix M) {
+    return test_minors(true, M) == NB_INPUTS+1;
 }
 
 /*
@@ -751,9 +730,10 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
 
 int main () {
     state_queue remaining_states[MAX_WEIGHT];
+    state_vector scanned_states;
     matrix_set scanned_ids;
 
-    AlgoState initial_state = AlgoStateMatrix();
+    AlgoState initial_state;
     remaining_states[0].push(initial_state);
     
     int nb_scanned = 0, nb_tested = 0;
@@ -775,29 +755,34 @@ int main () {
 #pragma omp parallel reduction(+:nb_scanned) reduction(+:nb_tested)
             {
                 // Next function to test.
-                AlgoState pop_state;
+                AlgoState current_state;
 
-                while (remaining_states[current_weight].try_pop(pop_state)) {
-                    AlgoStateMatrix current_state(pop_state);
+                while (remaining_states[current_weight].try_pop(current_state)) {
                     nb_tested++;
-                    matrix id = compute_id(current_state.branch_vals()); // Get a unique id invariant under input/output reordering.
+                    matrix bv = current_state.branch_vals();
+                    matrix id = compute_id(bv); // Get a unique id invariant under input/output reordering.
                     bool is_new;
                     try {
                         is_new = scanned_ids.insert(id).second;
                     } CATCH;
                     if (is_new) { // Current state not scanned yet (even up to input/output reordering).
                         nb_scanned++;
-                        if (current_state.test_restrictions_MDS()) // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                        if (test_restrictions_MDS(bv)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+#pragma omp critical
+                            {
+                                printf ("Found MDS !!! (weight:%i)\n", current_state.weight);
+                                // printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n",
+                                //         current_weight, current_state.depth(), nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+                                current_state.print_state();
+                                fflush(stdout);
+                            }
                             continue;
+                        }
                         // Checking id.
                         // Insert into scanned_states
-                        AlgoState *tmp;
+                        state_vector::iterator tmp;
                         try {
-#ifdef REMEMBER_MATRIX
-                            tmp = new AlgoStateMatrix(current_state);
-#else
-                            tmp = new AlgoState(current_state);
-#endif
+                            tmp = scanned_states.push_back(current_state);
                         } CATCH;
                         // Computing all children states.
                         tmp->spawn_next_states(remaining_states, scanned_ids);
