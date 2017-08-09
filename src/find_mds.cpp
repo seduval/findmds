@@ -101,9 +101,8 @@ public:
 
     matrix branch_vals(bool &overflow);
     matrix branch_vals();
-    void print_state ();
+    void print_state (bool maybeMDSwithout[NB_REGISTERS] = NULL);
     void print_op ();
-    bool test_restrictions_MDS ();
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
     int queue_weight() const { return weight + weight_to_MDS; }
     int depth();
@@ -133,7 +132,7 @@ void AlgoState::print_op () {
 }
 
 
-void AlgoState::print_state () {
+void AlgoState::print_state (bool maybeMDSwithout[NB_REGISTERS]) {
     int i, input_n;
     matrix bv = branch_vals();
     printf ("Current state:\n");
@@ -145,6 +144,8 @@ void AlgoState::print_state () {
             printf ("%x ", bv[i][input_n]);
 #endif
         }
+        if (maybeMDSwithout && maybeMDSwithout[i])
+            printf (" [X]");
         printf ("\n");
     }
     printf ("Operations:\n");
@@ -352,7 +353,7 @@ matrix compute_id (matrix id) {
 
 // With zero == true:  returns smallest zero minor OF BEST SQUARE MATRIX
 // With zero == false: returns largest non-zero minor
-int test_minors (bool zero, matrix M) {
+int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
     /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
@@ -363,7 +364,9 @@ int test_minors (bool zero, matrix M) {
     int line1, line2, line3, column1, column2, column3;    
     int max = 0;
 
-    std::array<bool, NB_REGISTERS> maybeMDSwithout;
+    if (maybeMDSwithout == NULL)
+        maybeMDSwithout = (bool*) alloca(NB_REGISTERS*sizeof(bool));
+
     for (int i=0; i<NB_REGISTERS; i++)
         maybeMDSwithout[i] = true;
     
@@ -381,7 +384,7 @@ int test_minors (bool zero, matrix M) {
 	    }
         }
     }
-    if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+    if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
         return 1;
     
     if (NB_INPUTS > 1) {
@@ -404,7 +407,7 @@ int test_minors (bool zero, matrix M) {
                 }
             }
         }
-        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 2;
     }
         
@@ -435,7 +438,7 @@ int test_minors (bool zero, matrix M) {
             }
         }
 
-        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 3;
     }
     if (NB_INPUTS > 3) {
@@ -486,7 +489,7 @@ int test_minors (bool zero, matrix M) {
                 maybeMDSwithout[skip] = false;
         }
 
-        if (zero && !std::accumulate(maybeMDSwithout.begin(), maybeMDSwithout.end(), 0))
+        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 4;
     }
 
@@ -556,8 +559,8 @@ matrix AlgoState::branch_vals() {
     return branch_vals(ignore_overflow);
 }
 
-bool test_restrictions_MDS (matrix M) {
-    return test_minors(true, M) == NB_INPUTS+1;
+bool test_restrictions_MDS (matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
+    return test_minors(true, M, maybeMDSwithout) == NB_INPUTS+1;
 }
 
 /*
@@ -709,13 +712,14 @@ int main () {
                     } CATCH;
                     if (is_new) { // Current state not scanned yet (even up to input/output reordering).
                         nb_scanned++;
-                        if (test_restrictions_MDS(bv)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                        bool maybeMDSwithout[NB_REGISTERS];
+                        if (test_restrictions_MDS(bv, maybeMDSwithout)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
 #pragma omp critical
                             {
                                 printf ("Found MDS !!! (weight:%i)\n", current_state.weight);
                                 // printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n",
                                 //         current_weight, current_state.depth(), nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
-                                current_state.print_state();
+                                current_state.print_state(maybeMDSwithout);
                                 fflush(stdout);
                             }
                             continue;
