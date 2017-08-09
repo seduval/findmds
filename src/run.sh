@@ -1,5 +1,5 @@
 #! /bin/sh
-module add tbb
+#module add tbb
 rm find_mds
 make
 # Limit available memory
