@@ -38,11 +38,11 @@
         exit(-1);                                                       \
     }
 
-#define NB_INPUTS 4
-#define NB_REGISTERS 5
+#define NB_INPUTS 3
+#define NB_REGISTERS 4
 // Uncomment to activate options
-// #define KEEP_INPUTS
-// #define TRY_DIV
+#define KEEP_INPUTS
+#define TRY_DIV
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
@@ -733,16 +733,16 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                     continue;
                 if (type_of_op == CPY) {
                     // Injectivity test assumes that NB_REGISTERS = NB_INPUTS+1;
+#ifndef KEEP_INPUTS
                     for (i=0, j=0; i<NB_REGISTERS; i++)
                         if (i != to) {
                             selected_outputs[j] = i;
                             j++;
                         }
-#ifndef KEEP_INPUTS
                     if (!test_injective(bv, selected_outputs)) {
                         continue;
-#endif
                     }
+#endif
                 }
 #ifdef COMPUTE_ID_FIRST
                 matrix id = compute_id(bv);
