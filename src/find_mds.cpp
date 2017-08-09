@@ -40,7 +40,9 @@
 
 #define NB_INPUTS 4
 #define NB_REGISTERS 5
-#define KEEP_INPUTS 0
+// Uncomment to activate options
+// #define KEEP_INPUTS
+// #define TRY_DIV
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
@@ -50,15 +52,23 @@
 
 #define COMPUTE_ID_FIRST
 
+
+
+#ifdef TRY_DIV
+#define INIT_VAL 0x10000
+#else
+#define INIT_VAL 1
+#endif
+
 // uint32_t is considering we won't have more than about 20 multiplications, therefore we need at least 20 bits not to overflow.
 typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
 typedef tbb::concurrent_unordered_set<matrix, boost::hash<matrix>> matrix_set;
 
-matrix identity() {
+matrix init_matrix() {
     matrix m;
     for (int i=0; i<NB_REGISTERS; i++) {
         for (int j=0; j<NB_INPUTS; j++) {
-            m[i][j] = i==j? 1: 0;
+            m[i][j] = i==j? INIT_VAL: 0;
         }
     }
     return m;
@@ -89,6 +99,7 @@ public:
     AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
     AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
 
+    matrix branch_vals(bool &overflow);
     matrix branch_vals();
     void print_state ();
     void print_op ();
@@ -127,8 +138,13 @@ void AlgoState::print_state () {
     matrix bv = branch_vals();
     printf ("Current state:\n");
     for (i=0; i<NB_REGISTERS; i++) {
-        for (input_n=0; input_n<NB_INPUTS; input_n++)
+        for (input_n=0; input_n<NB_INPUTS; input_n++) {
+#ifdef TRY_DIV
+            printf ("%x.%04x ", bv[i][input_n]/INIT_VAL, bv[i][input_n]%INIT_VAL);
+#else
             printf ("%x ", bv[i][input_n]);
+#endif
+        }
         printf ("\n");
     }
     printf ("Operations:\n");
@@ -581,10 +597,12 @@ int rank (matrix M) {
     return test_minors(false, M);
 }
 
+#define shift(x,n) ((n)>0? ((x)<<(n)): ((x)>>(-n)))
 
-matrix AlgoState::branch_vals() {
+matrix AlgoState::branch_vals(bool &overflow) {
+    overflow = false;
     if (op.type == NONE)
-        return identity();
+        return init_matrix();
     
     int input_n;
     // Parent state.
@@ -597,18 +615,19 @@ matrix AlgoState::branch_vals() {
             }
         }
         else {
-            bv[op.to][op.from-NB_REGISTERS] ^= 1;
+            bv[op.to][op.from-NB_REGISTERS] ^= INIT_VAL;
         }
     }
     else if (op.type==MUL) {
         for (input_n=0; input_n<NB_INPUTS; input_n++) {
-            bool not_zero = true;
-            if (bv[op.from][input_n] == 0)
-                not_zero = false;
-            bv[op.from][input_n] <<= 1;
-            if (bv[op.from][input_n] == 0 && not_zero) { // Overflow.
-                printf ("Overflow !! Exiting.\n");
-                //exit(1);
+            uint32_t val = bv[op.to][input_n];
+            bv[op.to][input_n] = shift(bv[op.to][input_n], op.from);
+            if (shift(bv[op.to][input_n], -op.from) != val) { // Overflow.
+                printf ("Overflow !!\n");
+                // printf ("Op: MUL(%i,%i)\nPrev:\n", op.from, op.to);
+                // pred->print_state();
+                // printf("\n\n");
+                overflow = true;
             }
         }
     }
@@ -622,12 +641,16 @@ matrix AlgoState::branch_vals() {
             for (input_n=0; input_n<NB_INPUTS; input_n++) {
                 bv[op.to][input_n] = 0;
             }
-            bv[op.to][op.from-NB_REGISTERS] = 1;
+            bv[op.to][op.from-NB_REGISTERS] = INIT_VAL;
         }
     }
     return bv;
 }
 
+matrix AlgoState::branch_vals() {
+    bool ignore_overflow;
+    return branch_vals(ignore_overflow);
+}
 
 bool test_restrictions_MDS (matrix M) {
     return test_minors(true, M) == NB_INPUTS+1;
@@ -672,7 +695,24 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
             // After a copy, the copy must be the destination of the operation.
             if (op.type == CPY && op.to != to)
                 continue;
-            for (from=(type_of_op==MUL?to:0); from<(type_of_op==MUL?to+1:NB_REGISTERS+(KEEP_INPUTS?NB_INPUTS:0)); from++) {
+            int bound[][3] = {
+#ifdef KEEP_INPUTS
+                [XOR]={0, NB_INPUTS+NB_REGISTERS, 1},
+#else
+                [XOR]={0, NB_REGISTERS, 1},
+#endif
+#ifdef TRY_DIV
+                [MUL]={-1, 2, 2},
+#else
+                [MUL]={1, 2, 1},
+#endif
+#ifdef KEEP_INPUTS
+                [CPY]={0, NB_INPUTS+NB_REGISTERS, 1},
+#else
+                [CPY]={0, NB_REGISTERS, 1},
+#endif
+            };
+            for (from=bound[type_of_op][0]; from<bound[type_of_op][1]; from+=bound[type_of_op][2]) {
                 if (type_of_op!=MUL && to==from)
                     continue;
                 int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
@@ -687,7 +727,10 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                  * Note that the id test at this point can only test if we have already SCANNED a state with the same id as next_state.
                  * We cannot test if another state with the same id is in the queue since we don't store the id in the queue (to save memory).
                  */
-                matrix bv = next_state.branch_vals();
+                bool overflow;
+                matrix bv = next_state.branch_vals(overflow);
+                if (overflow)
+                    continue;
                 if (type_of_op == CPY) {
                     // Injectivity test assumes that NB_REGISTERS = NB_INPUTS+1;
                     for (i=0, j=0; i<NB_REGISTERS; i++)
@@ -695,8 +738,10 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                             selected_outputs[j] = i;
                             j++;
                         }
+#ifndef KEEP_INPUTS
                     if (!test_injective(bv, selected_outputs)) {
                         continue;
+#endif
                     }
                 }
 #ifdef COMPUTE_ID_FIRST
