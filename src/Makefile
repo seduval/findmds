@@ -5,7 +5,7 @@ LDLIBS=-ltbb
 LDFLAGS=-Wl,-rpath=tbb-2017_U7/build/linux_release/
 
 
-all: find_mds boost_1_64_0 tbb-2017_U7
+all: boost_1_64_0 tbb-2017_U7 find_mds
 
 boost_1_64_0:
 	echo -e "\e[31;1mDownloading and unpacking Boost 1.64.\nThis will take a few minutes...\e[0m"
