@@ -38,11 +38,11 @@
         exit(-1);                                                       \
     }
 
-#define NB_INPUTS 3
-#define NB_REGISTERS 4
+#define NB_INPUTS 4
+#define NB_REGISTERS 5
 // Uncomment to activate options
-#define KEEP_INPUTS
-#define TRY_DIV
+// #define KEEP_INPUTS
+// #define TRY_DIV
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
@@ -150,102 +150,6 @@ void AlgoState::print_state () {
     printf ("Operations:\n");
     print_op();
     printf ("End of state\n");
-}
-
-bool test_injective (matrix M, char selected_outputs[NB_INPUTS]) {
-    /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. 
-     * This test only happens after adding a copy operation (only operation that can change injectivity).
-     * In that case, the matrix gets 2 identical lines.
-     * We consider that NB_REGISTERS = NB_INPUTS + 1, therefore we are left with a square matrix.
-     * We simply compute its determinant and return if it is 0 or not.
-     */
-    
-    __m128i dim2det[NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS]; /* Not optimal in terms of memory, we could do with a [4][3][4][3] since the lines and columns must be different. */
-    __m128i dim3det[NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS][NB_INPUTS]; /* Not optimal in terms of memory. Again, lines and columns different, but also we could just store the eliminated lines and columns. */
-    
-    
-    __m128i MM[NB_INPUTS][NB_INPUTS];
-    
-    int line1, column1, column2, column3;
-    
-    /* Dimension 1 determinants. */
-    for (line1=0; line1<NB_INPUTS; line1++) {
-        for (column1=0; column1<NB_INPUTS; column1++) {
-            MM[line1][column1] = _mm_set_epi32(0, 0, 0, M[selected_outputs[line1]][column1]);
-            if (NB_INPUTS==1 && M[selected_outputs[line1]][column1] == 0) // Wrong : tests if MDS
-                return false;
-        }
-    }
-    
-    if (NB_INPUTS > 1) {
-        /* Dimension 2 determinants. Not considering the bottom lines, we will use them to build the dimension 3 determinants only.*/
-        for (column1=0; column1<NB_INPUTS; column1++) {
-            for (column2=column1+1; column2<NB_INPUTS; column2++) {
-                dim2det[0][1][column1][column2] = _mm_xor_si128(_mm_clmulepi64_si128(MM[0][column1], MM[1][column2], 0x00) , \
-                                                                _mm_clmulepi64_si128(MM[0][column2], MM[1][column1], 0x00));
-                if (NB_INPUTS==2 && _mm_testz_si128(dim2det[0][1][column1][column2], dim2det[0][1][column1][column2])) // Test if det is zero.
-                    return false;
-            }
-        }
-        
-        if (NB_INPUTS > 2) {
-            /* Dimension 3 determinants. Not considering the top line, we will use it to build the dimension 4 determinant only.*/
-            for (column1=0; column1<NB_INPUTS; column1++) {
-                for (column2=column1+1; column2<NB_INPUTS; column2++) {
-                    for (column3=column2+1; column3<NB_INPUTS; column3++) {
-                        dim3det[0][1][2][column1][column2][column3] = _mm_xor_si128(
-                                                                                    _mm_xor_si128(_mm_clmulepi64_si128(MM[2][column1], dim2det[0][1][column2][column3], 0x00), \
-                                                                                                  _mm_clmulepi64_si128(MM[2][column2], dim2det[0][1][column1][column3], 0x00)), \
-                                                                                    _mm_clmulepi64_si128(MM[2][column3], dim2det[0][1][column1][column2], 0x00));
-                        if (NB_INPUTS==3 && _mm_testz_si128(dim3det[0][1][2][column1][column2][column3], dim3det[0][1][2][column1][column2][column3])) // Test if det is zero.
-                            return false;
-                    }
-                }
-            }
-            
-            if (NB_INPUTS > 3) {
-                /* Dimension 4 determinant != 0. */
-                /* Multiplying a 32-bit word with a 96-bit word takes work.
-                 * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
-                 * r = (uxw) ^ [(uxv)<<64].
-                 */
-                __m128i det4 = _mm_setzero_si128();
-                __m64 zero64 = _mm_setzero_si64();
-                __m128i v, w;
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][1][2][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][1][2][3], 0));
-                __m128i mul1 = _mm_clmulepi64_si128(MM[3][0], w, 0x00);
-                __m128i mul2 = _mm_clmulepi64_si128(MM[3][0], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][2][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][2][3], 0));
-                mul1 = _mm_clmulepi64_si128(MM[3][1], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[3][1], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][1][3], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][1][3], 0));
-                mul1 = _mm_clmulepi64_si128(MM[3][2], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[3][2], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][1][2], 1));
-                w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[0][1][2][0][1][2], 0));
-                mul1 = _mm_clmulepi64_si128(MM[3][3], w, 0x00);
-                mul2 = _mm_clmulepi64_si128(MM[3][3], v, 0x00);
-                mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
-                det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
-                
-                if (_mm_testz_si128(det4, det4))
-                    return false;
-            }
-        }
-    }
-    return true;
 }
 
 int order_permutations[6][120][5] = {
@@ -680,11 +584,9 @@ char min_dist_to_MDS (matrix M) {
 }
 
 void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& scanned_states) {
-    int type_of_op_int, to, from, i, j;
+    int type_of_op_int, to, from;
     enum op_name type_of_op;
-    
-    char selected_outputs[NB_INPUTS];
-    
+   
     for (type_of_op_int=XOR; type_of_op_int<=CPY; type_of_op_int++) {
         // No 2 copies in a row.
         type_of_op = (enum op_name) type_of_op_int;
@@ -734,12 +636,7 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 if (type_of_op == CPY) {
                     // Injectivity test assumes that NB_REGISTERS = NB_INPUTS+1;
 #ifndef KEEP_INPUTS
-                    for (i=0, j=0; i<NB_REGISTERS; i++)
-                        if (i != to) {
-                            selected_outputs[j] = i;
-                            j++;
-                        }
-                    if (!test_injective(bv, selected_outputs)) {
+                    if (rank(bv) != NB_INPUTS) {
                         continue;
                     }
 #endif
