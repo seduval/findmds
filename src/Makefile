@@ -16,6 +16,7 @@ tbb-2017_U7:
 	echo -e "\e[31;1mDownloading and compiling TBB 2017_U7.\nThis will take a few minutes...\e[0m"
 	wget -c https://github.com/01org/tbb/archive/2017_U7.tar.gz
 	tar xf 2017_U7.tar.gz
+	patch -d tbb-2017_U7 -p1 < TBB_increase_memory.patch
 	make -C tbb-2017_U7 work_dir=build/linux MAKE="make RTM_KEY=''" # Old 'as' on cluster doesn't support rtm
 
 clean:

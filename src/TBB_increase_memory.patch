@@ -1,0 +1,12 @@
+diff -u -r tbb-2017_U7.orig/src/tbbmalloc/backref.cpp tbb-2017_U7/src/tbbmalloc/backref.cpp
+--- tbb-2017_U7.orig/src/tbbmalloc/backref.cpp	2017-06-07 09:54:02.000000000 +0200
++++ tbb-2017_U7/src/tbbmalloc/backref.cpp	2017-08-10 11:15:04.000000000 +0200
+@@ -66,7 +66,7 @@
+  * On 32-bit systems there is ~4K back pointers in a slab block, so ~64MB can be addressed.
+  * The master array of 8KB holds 2K pointers to leaves, so ~128 GB can addressed.
+  */
+-    static const size_t bytes = sizeof(uintptr_t)>4? 256*1024 : 8*1024;
++    static const size_t bytes = 1024*1024; // Increase up to 4TB?
+     static const int dataSz;
+ /* space is reserved for master table and 4 leaves
+    taking into account VirtualAlloc allocation granularity */
