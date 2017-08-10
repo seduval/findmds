@@ -724,6 +724,9 @@ int main () {
                             }
                             continue;
                         }
+                        if (current_state.weight == MAX_WEIGHT-1)
+                            continue; // If it's not MDS, adding free operations will not make it MDS
+                        
                         // Checking id.
                         // Insert into scanned_states
                         state_vector::iterator tmp;
