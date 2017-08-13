@@ -86,7 +86,7 @@ void print_matrix(matrix m) {
 enum op_name {XOR=0, MUL=1, CPY=2, NONE=3};
 
 typedef struct {
-    enum op_name type;
+    char type;
     char from, to;
 } algo_op;
 
@@ -673,7 +673,28 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
     }
 }
 
+#define PRINT_PARAM(x) #x "=" stringify(x)
 int main () {
+    printf ("Parameters:"
+            " " PRINT_PARAM(MAX_WEIGHT)
+            " " PRINT_PARAM(NB_INPUTS)
+            " " PRINT_PARAM(NB_REGISTERS)
+            " " PRINT_PARAM(XOR_WEIGHT)
+            " " PRINT_PARAM(MUL_WEIGHT)
+            " " PRINT_PARAM(CPY_WEIGHT)
+            "\n");
+    printf ("Size: AlgoState:%i algo_op:%i matrix:%i\n",
+            (int)sizeof(AlgoState), (int)sizeof(algo_op),
+            (int)sizeof(matrix));
+    printf ("Options:"
+#ifdef KEEP_INPUTS
+            " KEEP_INPUTS"
+#endif
+#ifdef TRY_DIV
+            " TRY_DIV"
+#endif
+            "\n");
+
     state_queue remaining_states[MAX_WEIGHT];
     state_vector scanned_states;
     matrix_set scanned_ids;
