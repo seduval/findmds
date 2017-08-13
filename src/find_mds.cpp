@@ -565,13 +565,19 @@ int AlgoState::depth(int* outputs) const {
     int d = pred->depth(outputs);
     switch (op.type) {
     case XOR:
-        outputs[(int)op.to] = std::max(outputs[(int)op.to], outputs[(int)op.from])+1;
+        if (op.from < NB_REGISTERS)
+            outputs[(int)op.to] = std::max(outputs[(int)op.to], outputs[(int)op.from])+1;
+        else
+            outputs[(int)op.to]++;
         break;
     case MUL:
         outputs[(int)op.to]++;
         break;
     case CPY:
-        outputs[(int)op.to] = outputs[(int)op.from];
+        if (op.from < NB_REGISTERS)
+            outputs[(int)op.to] = outputs[(int)op.from];
+        else
+            outputs[(int)op.to] = 0;
         break;
     default:
         assert(0);
