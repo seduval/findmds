@@ -737,20 +737,20 @@ int main () {
     AlgoState initial_state;
     remaining_states[0].push(initial_state);
     
-    int nb_scanned = 0, nb_tested = 0;
+    uint64_t nb_scanned = 0, nb_tested = 0;
     //    scanned_states.max_load_factor(1);
 
     try {
         for (int current_weight=0; current_weight<MAX_QUEUE_WEIGHT; current_weight++) {
             printf ("New weight : %d\n", current_weight);
-            printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
+            printf ("Number of distinct ids : %" PRIu64 "/%" PRIu64 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
             printf ("Scanned size : %lu\n", scanned_ids.size());
             //                printf ("Remaining size : %lu\n", remaining_states[w].size());
             fflush(stdout);
         
-            int old_nb_scanned = nb_scanned;
+            uint64_t old_nb_scanned = nb_scanned;
             nb_scanned = 0;
-            int old_nb_tested = nb_tested;
+            uint64_t old_nb_tested = nb_tested;
             nb_tested = 0;
         
 #pragma omp parallel reduction(+:nb_scanned) reduction(+:nb_tested)
