@@ -49,10 +49,11 @@
 #define CPY_WEIGHT 0
 
 #define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_DEPTH  10
 
 #define COMPUTE_ID_FIRST
 
-
+#define MAX_QUEUE_WEIGHT (MAX_WEIGHT*MAX_DEPTH)
 
 #ifdef TRY_DIV
 #define INIT_VAL 0x10000
@@ -104,8 +105,10 @@ public:
     void print_state (bool maybeMDSwithout[NB_REGISTERS] = NULL);
     void print_op ();
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
-    int queue_weight() const { return weight + weight_to_MDS; }
-    int depth();
+    int queue_weight() const {
+        return (weight + weight_to_MDS)*MAX_DEPTH + depth();
+    }
+    int depth(int *outputs = NULL) const;
     bool operator <(const AlgoState &other) const {
         return queue_weight() > other.queue_weight();
     }
@@ -115,13 +118,6 @@ typedef tbb::concurrent_queue<AlgoState> state_queue;
 typedef tbb::concurrent_vector<AlgoState> state_vector;
 // IMPORTANT: Growing the container does not invalidate existing iterators
 
-
-int AlgoState::depth () {
-    if (op.type == NONE)
-        return 0;
-    else
-        return 1+pred->depth();
-}
 
 void AlgoState::print_op () {
     if (op.type == NONE)
@@ -554,6 +550,36 @@ matrix AlgoState::branch_vals(bool &overflow) {
     return bv;
 }
 
+
+int AlgoState::depth(int* outputs) const {
+    if (op.type == NONE) {
+        if (outputs)
+            for (int i=0; i<NB_REGISTERS; i++)
+                outputs[i] = 0;
+        return 0;
+    }
+
+    int my_outputs[NB_REGISTERS];
+    if (!outputs)
+        outputs = my_outputs;
+    int d = pred->depth(outputs);
+    switch (op.type) {
+    case XOR:
+        outputs[(int)op.to] = std::max(outputs[(int)op.to], outputs[(int)op.from])+1;
+        break;
+    case MUL:
+        outputs[(int)op.to]++;
+        break;
+    case CPY:
+        outputs[(int)op.to] = outputs[(int)op.from];
+        break;
+    default:
+        assert(0);
+    }
+    int m = *std::max_element(outputs, outputs+NB_REGISTERS);
+    return std::max(d,m);
+}
+
 matrix AlgoState::branch_vals() {
     bool ignore_overflow;
     return branch_vals(ignore_overflow);
@@ -623,6 +649,8 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
                 if (new_weight >= MAX_WEIGHT)
                     continue;
+                if (depth() >= MAX_DEPTH)
+                    continue;
 
                 AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0);
                 
@@ -655,7 +683,7 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 
                 // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 assert(next_state.queue_weight() >= queue_weight());
-                if (next_state.queue_weight() < MAX_WEIGHT) {
+                if (next_state.queue_weight() < MAX_QUEUE_WEIGHT) {
                     try {
                         remaining_states[next_state.queue_weight()].push(next_state);
                     } CATCH;
@@ -677,6 +705,7 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
 int main () {
     printf ("Parameters:"
             " " PRINT_PARAM(MAX_WEIGHT)
+            " " PRINT_PARAM(MAX_DEPTH)
             " " PRINT_PARAM(NB_INPUTS)
             " " PRINT_PARAM(NB_REGISTERS)
             " " PRINT_PARAM(XOR_WEIGHT)
@@ -695,7 +724,7 @@ int main () {
 #endif
             "\n");
 
-    state_queue remaining_states[MAX_WEIGHT];
+    state_queue remaining_states[MAX_QUEUE_WEIGHT];
     state_vector scanned_states;
     matrix_set scanned_ids;
 
@@ -706,7 +735,7 @@ int main () {
     //    scanned_states.max_load_factor(1);
 
     try {
-        for (int current_weight=0; current_weight<MAX_WEIGHT; current_weight++) {
+        for (int current_weight=0; current_weight<MAX_QUEUE_WEIGHT; current_weight++) {
             printf ("New weight : %d\n", current_weight);
             printf ("Number of distinct ids : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
             printf ("Scanned size : %lu\n", scanned_ids.size());
@@ -737,7 +766,7 @@ int main () {
                         if (test_restrictions_MDS(bv, maybeMDSwithout)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
 #pragma omp critical
                             {
-                                printf ("Found MDS !!! (weight:%i)\n", current_state.weight);
+                                printf ("Found MDS !!! (weight:%i) (depth:%i)\n", current_state.weight, current_state.depth());
                                 // printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n",
                                 //         current_weight, current_state.depth(), nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
                                 current_state.print_state(maybeMDSwithout);
