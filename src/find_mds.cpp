@@ -26,6 +26,47 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 
+/***********************************************************************
+ *                         CONFIGURATION                               *
+ ***********************************************************************/
+
+#define NB_INPUTS 4
+#define NB_REGISTERS 5
+
+#define XOR_WEIGHT 2
+#define MUL_WEIGHT 1
+#define CPY_WEIGHT 0
+
+// Note: MAX is excluded
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_DEPTH  7
+
+// Optimize depth first, rather than weight
+#define DEPTH_FIRST
+
+// Uncomment to activate options
+// #define KEEP_INPUTS
+// #define TRY_DIV
+
+// You should leave this on
+#define COMPUTE_ID_FIRST
+
+/***********************************************************************
+ *                       END CONFIGURATION                             *
+ ***********************************************************************/
+
+#define MAX_QUEUE_WEIGHT (MAX_WEIGHT*MAX_DEPTH)
+
+#ifdef TRY_DIV
+#define INIT_VAL 0x10000
+#else
+#define INIT_VAL 1
+#endif
+
+// uint32_t is considering we won't have more than about 20 multiplications, therefore we need at least 20 bits not to overflow.
+typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
+typedef tbb::concurrent_unordered_set<matrix, boost::hash<matrix>> matrix_set;
+
 #define stringify(x) stringify_(x)
 #define stringify_(x) #x
 #define CATCH                                                           \
@@ -40,34 +81,6 @@
         sleep(1);                                                       \
         exit(-1);                                                       \
     }
-
-#define NB_INPUTS 4
-#define NB_REGISTERS 5
-// Uncomment to activate options
-// #define KEEP_INPUTS
-// #define TRY_DIV
-
-#define XOR_WEIGHT 2
-#define MUL_WEIGHT 1
-#define CPY_WEIGHT 0
-
-// Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
-#define MAX_DEPTH  7
-
-#define COMPUTE_ID_FIRST
-
-#define MAX_QUEUE_WEIGHT (MAX_WEIGHT*MAX_DEPTH)
-
-#ifdef TRY_DIV
-#define INIT_VAL 0x10000
-#else
-#define INIT_VAL 1
-#endif
-
-// uint32_t is considering we won't have more than about 20 multiplications, therefore we need at least 20 bits not to overflow.
-typedef std::array<std::array<uint32_t, NB_INPUTS>, NB_REGISTERS> matrix;
-typedef tbb::concurrent_unordered_set<matrix, boost::hash<matrix>> matrix_set;
 
 matrix init_matrix() {
     matrix m;
@@ -786,7 +799,12 @@ int main () {
     //    scanned_states.max_load_factor(1);
 
     try {
-        for (int current_weight=0; current_weight<MAX_QUEUE_WEIGHT; current_weight++) {
+        for (int cw=0; cw<MAX_QUEUE_WEIGHT; cw++) {
+#ifdef DEPTH_FIRST
+            int current_weight = (cw/MAX_WEIGHT) + (cw%MAX_WEIGHT)*MAX_DEPTH;
+#else
+            int current_weight = cw;
+#endif
             printf ("New weight : %d.%d\n", current_weight/MAX_DEPTH, current_weight%MAX_DEPTH);
             printf ("Number of distinct ids : %" PRIu64 "/%" PRIu64 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
             printf ("Scanned size : %lu\n", scanned_ids.size());
