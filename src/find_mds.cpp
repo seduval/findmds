@@ -23,6 +23,9 @@
 #include <smmintrin.h>
 #include <algorithm>
 
+#include <sys/time.h>
+#include <sys/resource.h>
+
 #define stringify(x) stringify_(x)
 #define stringify_(x) #x
 #define CATCH                                                           \
@@ -48,8 +51,9 @@
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
+// Note: MAX is excluded
 #define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
-#define MAX_DEPTH  10
+#define MAX_DEPTH  7
 
 #define COMPUTE_ID_FIRST
 
@@ -106,7 +110,9 @@ public:
     void print_op ();
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
     int queue_weight() const {
-        return (weight + weight_to_MDS)*MAX_DEPTH + depth();
+        int d = depth();
+        assert(d < MAX_DEPTH);
+        return (weight + weight_to_MDS)*MAX_DEPTH + d;
     }
     int depth(int *outputs = NULL) const;
     bool operator <(const AlgoState &other) const {
@@ -707,6 +713,41 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
     }
 }
 
+typedef struct {
+    state_queue *remaining_states;
+    state_vector* scanned_states;
+    matrix_set *scanned_ids;
+    
+} mem_thr_param;
+
+void* memory_printer(void *p) {
+    mem_thr_param *param = (mem_thr_param*) p;
+    struct rusage usage;
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    time_t init_time = ts.tv_sec;
+    for (;;) {
+        sleep(30);
+        getrusage(RUSAGE_SELF, &usage);
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        unsigned long long remaining1 = 0;
+        unsigned long long remaining = 0;
+        int first = -1;
+        for (int i=0; i<MAX_QUEUE_WEIGHT; i++) {
+            size_t s = param->remaining_states[i].unsafe_size();
+            if (s && first == -1)
+                first=i, remaining1 = s;
+            remaining += s;
+        }
+        fprintf (stderr, "Time: %6llus, Mem: %4.1fGB - scanned: %11llu [%11llu] - remaining: %11llu [%11llu@%i.%i] - user time: %llus\n",
+                 (unsigned long long) ts.tv_sec - init_time, (double)usage.ru_maxrss/1024/1024,
+                 (unsigned long long) param->scanned_states->size(), (unsigned long long) param->scanned_ids->size(),
+                 remaining, remaining1, first/MAX_DEPTH, first%MAX_DEPTH, (unsigned long long) usage.ru_utime.tv_sec);
+        fflush(stderr);
+    }
+    return NULL;
+}
+
 #define PRINT_PARAM(x) #x "=" stringify(x)
 int main () {
     printf ("Parameters:"
@@ -734,6 +775,10 @@ int main () {
     state_vector scanned_states;
     matrix_set scanned_ids;
 
+    pthread_t mem_thr;
+    mem_thr_param param = {remaining_states, &scanned_states, &scanned_ids};
+    pthread_create(&mem_thr, NULL, memory_printer, &param);
+
     AlgoState initial_state;
     remaining_states[0].push(initial_state);
     
@@ -742,7 +787,7 @@ int main () {
 
     try {
         for (int current_weight=0; current_weight<MAX_QUEUE_WEIGHT; current_weight++) {
-            printf ("New weight : %d\n", current_weight);
+            printf ("New weight : %d.%d\n", current_weight/MAX_DEPTH, current_weight%MAX_DEPTH);
             printf ("Number of distinct ids : %" PRIu64 "/%" PRIu64 "(1/%.1f)\n", nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
             printf ("Scanned size : %lu\n", scanned_ids.size());
             //                printf ("Remaining size : %lu\n", remaining_states[w].size());
@@ -769,7 +814,7 @@ int main () {
                     if (is_new) { // Current state not scanned yet (even up to input/output reordering).
                         nb_scanned++;
                         bool maybeMDSwithout[NB_REGISTERS];
-                        if (test_restrictions_MDS(bv, maybeMDSwithout)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                        if (current_state.weight_to_MDS == 0 && test_restrictions_MDS(bv, maybeMDSwithout)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
 #pragma omp critical
                             {
                                 printf ("Found MDS !!! (weight:%i) (depth:%i)\n", current_state.weight, current_state.depth());
