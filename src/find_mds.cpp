@@ -661,10 +661,10 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 int new_weight = weight + (type_of_op==XOR?XOR_WEIGHT:(type_of_op==MUL?MUL_WEIGHT:CPY_WEIGHT));
                 if (new_weight >= MAX_WEIGHT)
                     continue;
-                if (depth() >= MAX_DEPTH)
-                    continue;
 
                 AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0);
+                if (next_state.depth() >= MAX_DEPTH)
+                    continue;
                 
                 /* We filter here 2 things:
                  *  - injectivity (can only change after a copy).
