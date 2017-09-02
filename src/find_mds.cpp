@@ -746,7 +746,12 @@ void* memory_printer(void *p) {
         unsigned long long remaining1 = 0;
         unsigned long long remaining = 0;
         int first = -1;
-        for (int i=0; i<MAX_QUEUE_WEIGHT; i++) {
+        for (int ii=0; ii<MAX_QUEUE_WEIGHT; ii++) {
+#ifdef DEPTH_FIRST
+            int i = (ii/MAX_WEIGHT) + (ii%MAX_WEIGHT)*MAX_DEPTH;
+#else
+            int i = ii;
+#endif
             size_t s = param->remaining_states[i].unsafe_size();
             if (s && first == -1)
                 first=i, remaining1 = s;
@@ -776,6 +781,9 @@ int main () {
             (int)sizeof(AlgoState), (int)sizeof(algo_op),
             (int)sizeof(matrix));
     printf ("Options:"
+#ifdef DEPTH_FIRST
+            " DEPTH_FIRST"
+#endif
 #ifdef KEEP_INPUTS
             " KEEP_INPUTS"
 #endif
