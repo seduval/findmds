@@ -50,6 +50,7 @@
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
+#define PRINT_ALL_MDS
 
 /***********************************************************************
  *                       END CONFIGURATION                             *
@@ -95,7 +96,7 @@ matrix init_matrix() {
 void print_matrix(matrix m) {
     for (const auto &l : m) {
         for (const auto &x : l) {
-            printf ("%i ", x);
+            printf ("%2i ", x);
         }
         printf ("\n");
     }
@@ -706,7 +707,6 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 // Computing a bound on the distance to an MDS matrix.
                 next_state.weight_to_MDS = min_dist_to_MDS(bv);
                 
-                // next_state.branch_vals will be STORED later, when next_state will be treated (as the new current_state). That way, we don't need to store the branch_vals for all this node's sons (77 sons).
                 assert(next_state.queue_weight() >= queue_weight());
                 if (next_state.queue_weight() < MAX_QUEUE_WEIGHT) {
                     try {
@@ -804,7 +804,6 @@ int main () {
     remaining_states[0].push(initial_state);
     
     uint64_t nb_scanned = 0, nb_tested = 0;
-    //    scanned_states.max_load_factor(1);
 
     try {
         for (int cw=0; cw<MAX_QUEUE_WEIGHT; cw++) {
