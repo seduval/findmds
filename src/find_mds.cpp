@@ -47,6 +47,7 @@
 // Uncomment to activate options
 // #define KEEP_INPUTS
 // #define TRY_DIV
+// #define INDEP_MUL
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
@@ -113,10 +114,10 @@ class AlgoState {
     AlgoState * pred;
     algo_op op;
 public:
-    char weight, weight_to_MDS;
+    char weight, weight_to_MDS, nb_mul;
 
-    AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT) {};
-    AlgoState(AlgoState *_pred, algo_op _op, char _weight, char _weight_to_MDS): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS) {};
+    AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT, 0) {};
+    AlgoState(AlgoState *_pred, algo_op _op, int _weight, int _weight_to_MDS, int _nb_mul): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS), nb_mul(_nb_mul) {};
 
     matrix branch_vals(bool &overflow);
     matrix branch_vals();
@@ -129,6 +130,7 @@ public:
         return (weight + weight_to_MDS)*MAX_DEPTH + d;
     }
     int depth(int *outputs = NULL) const;
+    int next_mul() const;
     bool operator <(const AlgoState &other) const {
         return queue_weight() > other.queue_weight();
     }
@@ -520,7 +522,9 @@ int rank (matrix M) {
     return test_minors(false, M);
 }
 
-#define shift(x,n) ((n)>0? ((x)<<(n)): ((x)>>(-n)))
+#define shift(x,n) ((n)>0? shiftl(x,n): shiftr(x,-n))
+#define shiftl(x,n) ((n)>=32? 0: ((x)<<(n)))
+#define shiftr(x,n) ((n)>=32? 0: ((x)>>(n)))
 
 matrix AlgoState::branch_vals(bool &overflow) {
     overflow = false;
@@ -546,7 +550,7 @@ matrix AlgoState::branch_vals(bool &overflow) {
             uint32_t val = bv[op.to][input_n];
             bv[op.to][input_n] = shift(bv[op.to][input_n], op.from);
             if (shift(bv[op.to][input_n], -op.from) != val) { // Overflow.
-                printf ("Overflow !!\n");
+                fprintf (stderr, "Overflow !!\n");
                 // printf ("Op: MUL(%i,%i)\nPrev:\n", op.from, op.to);
                 // pred->print_state();
                 // printf("\n\n");
@@ -570,6 +574,16 @@ matrix AlgoState::branch_vals(bool &overflow) {
     return bv;
 }
 
+int AlgoState::next_mul() const {
+    // Eg, with NB_INPUTS == 2, we need products of two terms for determinant:
+    // [1,a,aa,b,ba,baa,bb,bba,bbaa,c,...]
+    //  0 1    3                    9
+
+    int res = 1;
+    for (int i=0; i<nb_mul; i++)
+        res *= (NB_INPUTS+1);
+    return res;
+}
 
 int AlgoState::depth(int* outputs) const {
     if (op.type == NONE) {
@@ -660,6 +674,8 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
 #endif
 #ifdef TRY_DIV
                 [MUL]={-1, 2, 2},
+#elif defined(INDEP_MUL)
+                [MUL]={next_mul(), next_mul()+1, 1},
 #else
                 [MUL]={1, 2, 1},
 #endif
@@ -676,7 +692,7 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 if (new_weight >= MAX_WEIGHT)
                     continue;
 
-                AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0);
+                AlgoState next_state(this, (algo_op){type_of_op, (char)from, (char)to}, new_weight, 0, nb_mul+(type_of_op==MUL));
                 if (next_state.depth() >= MAX_DEPTH)
                     continue;
                 
