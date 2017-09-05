@@ -121,8 +121,8 @@ public:
 
     matrix branch_vals(bool &overflow);
     matrix branch_vals();
-    void print_state (bool maybeMDSwithout[NB_REGISTERS] = NULL);
-    void print_op ();
+    void print_state (bool maybeMDSwithout[NB_REGISTERS] = NULL, FILE* stream=stdout);
+    void print_op (FILE *stream=stdout);
     void spawn_next_states (tbb::concurrent_queue<AlgoState>* remaining_states, matrix_set& scanned_states);
     int queue_weight() const {
         int d = depth();
@@ -141,34 +141,34 @@ typedef tbb::concurrent_vector<AlgoState> state_vector;
 // IMPORTANT: Growing the container does not invalidate existing iterators
 
 
-void AlgoState::print_op () {
+void AlgoState::print_op (FILE *stream) {
     if (op.type == NONE)
         return;
 
-    pred->print_op();
-    printf ("%c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
+    pred->print_op(stream);
+    fprintf (stream, "%c (%d, %d)\n", (op.type==XOR?'x':(op.type==MUL?'m':'c')), op.from, op.to);
 }
 
 
-void AlgoState::print_state (bool maybeMDSwithout[NB_REGISTERS]) {
+void AlgoState::print_state (bool maybeMDSwithout[NB_REGISTERS], FILE *stream) {
     int i, input_n;
     matrix bv = branch_vals();
     printf ("Current state:\n");
     for (i=0; i<NB_REGISTERS; i++) {
         for (input_n=0; input_n<NB_INPUTS; input_n++) {
 #ifdef TRY_DIV
-            printf ("%x.%04x ", bv[i][input_n]/INIT_VAL, bv[i][input_n]%INIT_VAL);
+            fprintf (stream, "%x.%04x ", bv[i][input_n]/INIT_VAL, bv[i][input_n]%INIT_VAL);
 #else
-            printf ("%x ", bv[i][input_n]);
+            fprintf (stream, "%x ", bv[i][input_n]);
 #endif
         }
         if (maybeMDSwithout && maybeMDSwithout[i])
-            printf (" [X]");
-        printf ("\n");
+            fprintf (stream, " [X]");
+        fprintf (stream, "\n");
     }
-    printf ("Operations:\n");
-    print_op();
-    printf ("End of state\n");
+    fprintf (stream, "Operations:\n");
+    print_op(stream);
+    fprintf (stream, "End of state\n");
 }
 
 int order_permutations[6][120][5] = {
@@ -551,9 +551,9 @@ matrix AlgoState::branch_vals(bool &overflow) {
             bv[op.to][input_n] = shift(bv[op.to][input_n], op.from);
             if (shift(bv[op.to][input_n], -op.from) != val) { // Overflow.
                 fprintf (stderr, "Overflow !!\n");
-                // printf ("Op: MUL(%i,%i)\nPrev:\n", op.from, op.to);
-                // pred->print_state();
-                // printf("\n\n");
+                fprintf (stderr, "Op: MUL(%i,%i)\nPrev:\n", op.from, op.to);
+                pred->print_state(NULL, stderr);
+                fprintf(stderr, "\n\n");
                 overflow = true;
             }
         }
@@ -662,6 +662,11 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
         if (op.type == CPY && type_of_op == CPY) {
             continue;
         }
+#ifdef INDEP_MUL
+        if (op.type == MUL && next_mul() >= 32)
+            continue;
+#endif
+
         for (to=0; to<NB_REGISTERS; to++) {
             // After a copy, the copy must be the destination of the operation.
             if (op.type == CPY && op.to != to)
@@ -805,6 +810,9 @@ int main () {
 #endif
 #ifdef TRY_DIV
             " TRY_DIV"
+#endif
+#ifdef INDEP_MUL
+            " INDEP_MUL"
 #endif
             "\n");
 
