@@ -30,16 +30,16 @@
  *                         CONFIGURATION                               *
  ***********************************************************************/
 
-#define NB_INPUTS 4
-#define NB_REGISTERS 5
+#define NB_INPUTS 3
+#define NB_REGISTERS 4
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
-#define MAX_DEPTH  7
+#define MAX_WEIGHT (1 + 5*XOR_WEIGHT + 2*MUL_WEIGHT)
+#define MAX_DEPTH  4
 
 // Optimize depth first, rather than weight
 #define DEPTH_FIRST
@@ -47,7 +47,7 @@
 // Uncomment to activate options
 // #define KEEP_INPUTS
 // #define TRY_DIV
-// #define INDEP_MUL
+ #define INDEP_MUL
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
@@ -548,7 +548,7 @@ matrix AlgoState::branch_vals(bool &overflow) {
     else if (op.type==MUL) {
         for (input_n=0; input_n<NB_INPUTS; input_n++) {
             uint32_t val = bv[op.to][input_n];
-            bv[op.to][input_n] = shift(bv[op.to][input_n], op.from);
+            bv[op.to][input_n] = shift(bv[op.to][input_n], op.from); // op.from stores the shift value.
             if (shift(bv[op.to][input_n], -op.from) != val) { // Overflow.
                 fprintf (stderr, "Overflow !!\n");
                 fprintf (stderr, "Op: MUL(%i,%i)\nPrev:\n", op.from, op.to);
