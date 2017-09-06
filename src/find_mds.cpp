@@ -663,7 +663,7 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
             continue;
         }
 #ifdef INDEP_MUL
-        if (op.type == MUL && next_mul() >= 32)
+        if (type_of_op == MUL && next_mul() > 32)
             continue;
 #endif
 
