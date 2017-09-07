@@ -47,7 +47,8 @@
 // Uncomment to activate options
 // #define KEEP_INPUTS
 // #define TRY_DIV
- #define INDEP_MUL
+// #define INDEP_MUL
+#define DIFFERENT_MUL
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
@@ -681,6 +682,8 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
                 [MUL]={-1, 2, 2},
 #elif defined(INDEP_MUL)
                 [MUL]={next_mul(), next_mul()+1, 1},
+#elif defined(DIFFERENT_MUL)
+                [MUL]={-2, 2, 1},
 #else
                 [MUL]={1, 2, 1},
 #endif
