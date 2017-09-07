@@ -872,7 +872,6 @@ int main () {
                                 current_state.print_state(maybeMDSwithout);
                                 fflush(stdout);
                             }
-                            continue;
                         }
                         if (current_state.weight == MAX_WEIGHT-1)
                             continue; // If it's not MDS, adding free operations will not make it MDS
