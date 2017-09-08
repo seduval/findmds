@@ -46,7 +46,7 @@
 
 // Uncomment to activate options
 // #define KEEP_INPUTS
-// #define TRY_DIV
+ #define TRY_DIV
 // #define INDEP_MUL
 #define DIFFERENT_MUL
 
@@ -59,6 +59,11 @@
  ***********************************************************************/
 
 #define MAX_QUEUE_WEIGHT (MAX_WEIGHT*MAX_DEPTH)
+
+
+#ifdef DIFFERENT_MUL
+#define TRY_DIV
+#endif
 
 #ifdef TRY_DIV
 #define INIT_VAL 0x10000
@@ -154,7 +159,7 @@ void AlgoState::print_op (FILE *stream) {
 void AlgoState::print_state (bool maybeMDSwithout[NB_REGISTERS], FILE *stream) {
     int i, input_n;
     matrix bv = branch_vals();
-    printf ("Current state:\n");
+    fprintf (stream, "Current state:\n");
     for (i=0; i<NB_REGISTERS; i++) {
         for (input_n=0; input_n<NB_INPUTS; input_n++) {
 #ifdef TRY_DIV
@@ -678,12 +683,12 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
 #else
                 [XOR]={0, NB_REGISTERS, 1},
 #endif
-#ifdef TRY_DIV
-                [MUL]={-1, 2, 2},
+#ifdef DIFFERENT_MUL
+                [MUL]={-2, 2, 1},
 #elif defined(INDEP_MUL)
                 [MUL]={next_mul(), next_mul()+1, 1},
-#elif defined(DIFFERENT_MUL)
-                [MUL]={-2, 2, 1},
+#elif defined(TRY_DIV)
+                [MUL]={-1, 2, 2},
 #else
                 [MUL]={1, 2, 1},
 #endif
@@ -813,6 +818,9 @@ int main () {
 #endif
 #ifdef TRY_DIV
             " TRY_DIV"
+#endif
+#ifdef DIFFERENT_MUL
+            " DIFFERENT_MUL"
 #endif
 #ifdef INDEP_MUL
             " INDEP_MUL"
