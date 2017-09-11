@@ -1,7 +1,5 @@
 #! /bin/sh
-#module add tbb
+module add gcc/5.3.0
 rm find_mds
 make
-# Limit available memory
-ulimit -v `vmstat | tail -1 | awk '{ print int(0.99*($4+$5+$6)) }'`
 ./find_mds

@@ -1,0 +1,255 @@
+Time:     30s, Mem:  1.6GB - scanned:     3876273 [    3876273] - remaining:    42132209 [    3160743@18.4] - user time: 358s
+Time:     60s, Mem:  3.1GB - scanned:     7316953 [    7316953] - remaining:    82115287 [   12949463@18.5] - user time: 713s
+Time:     90s, Mem:  4.6GB - scanned:    10320652 [   10320652] - remaining:   125260960 [   19610508@18.5] - user time: 1061s
+Time:    120s, Mem:  5.7GB - scanned:    15389260 [   15389260] - remaining:   140728265 [    2572224@19.3] - user time: 1419s
+Time:    150s, Mem:  7.5GB - scanned:    18259565 [   18259565] - remaining:   187508794 [   15463128@19.4] - user time: 1774s
+Time:    180s, Mem:  8.9GB - scanned:    20482761 [   20482762] - remaining:   238461747 [   19360088@19.4] - user time: 2132s
+Time:    210s, Mem: 10.1GB - scanned:    24792936 [   24792936] - remaining:   259094854 [   49647366@19.5] - user time: 2489s
+Time:    240s, Mem: 11.3GB - scanned:    28232271 [   28232271] - remaining:   299221327 [   56895416@19.5] - user time: 2841s
+Time:    270s, Mem: 12.6GB - scanned:    32321653 [   32321653] - remaining:   337128574 [   62026243@19.5] - user time: 3195s
+Time:    300s, Mem: 14.5GB - scanned:    35211091 [   35211093] - remaining:   374918942 [   66522395@19.5] - user time: 3552s
+Time:    330s, Mem: 15.9GB - scanned:    38306757 [   38306757] - remaining:   415914068 [   69871841@19.5] - user time: 3909s
+Time:    360s, Mem: 17.2GB - scanned:    41313684 [   41313684] - remaining:   461984328 [   77995993@19.5] - user time: 4267s
+Time:    390s, Mem: 18.5GB - scanned:    44580105 [   44580105] - remaining:   505024512 [   85030217@19.5] - user time: 4625s
+Time:    420s, Mem: 19.8GB - scanned:    47406768 [   47406768] - remaining:   544823434 [   89118452@19.5] - user time: 4983s
+Time:    450s, Mem: 21.0GB - scanned:    52686440 [   52686440] - remaining:   568775317 [   79093925@19.5] - user time: 5340s
+Time:    480s, Mem: 21.7GB - scanned:    59468897 [   59468897] - remaining:   553457763 [   36616415@19.5] - user time: 5698s
+Time:    510s, Mem: 22.5GB - scanned:    65212638 [   65212638] - remaining:   542285517 [    4338326@20.3] - user time: 6057s
+Time:    540s, Mem: 24.4GB - scanned:    68256692 [   68256692] - remaining:   555375898 [   38904996@20.4] - user time: 6415s
+Time:    570s, Mem: 25.2GB - scanned:    70718629 [   70718629] - remaining:   577673935 [   45855467@20.4] - user time: 6764s
+Time:    600s, Mem: 26.2GB - scanned:    73405120 [   73405120] - remaining:   600272052 [   51800935@20.4] - user time: 7116s
+Time:    630s, Mem: 27.0GB - scanned:    76143793 [   76143793] - remaining:   619244683 [   55704661@20.4] - user time: 7471s
+Time:    660s, Mem: 27.6GB - scanned:    78409718 [   78409718] - remaining:   635286986 [   55393331@20.4] - user time: 7829s
+Time:    690s, Mem: 28.3GB - scanned:    80752173 [   80752173] - remaining:   656439581 [   60150513@20.4] - user time: 8187s
+Time:    720s, Mem: 29.1GB - scanned:    83146122 [   83146122] - remaining:   678016116 [   65711585@20.4] - user time: 8545s
+Time:    750s, Mem: 29.8GB - scanned:    86613691 [   86613691] - remaining:   687817644 [   60760199@20.4] - user time: 8902s
+Time:    780s, Mem: 30.5GB - scanned:    93140197 [   93140197] - remaining:   664539545 [   20833098@20.4] - user time: 9261s
+Time:    810s, Mem: 30.9GB - scanned:    97006138 [   97006138] - remaining:   659625757 [  211612139@20.5] - user time: 9621s
+Time:    840s, Mem: 31.2GB - scanned:    99903584 [   99903584] - remaining:   681893930 [  222893585@20.5] - user time: 9980s
+Time:    870s, Mem: 31.9GB - scanned:   103862362 [  103862362] - remaining:   695034516 [  225878118@20.5] - user time: 10339s
+Time:    900s, Mem: 32.7GB - scanned:   107474025 [  107474025] - remaining:   714603285 [  235012933@20.5] - user time: 10696s
+Time:    930s, Mem: 33.5GB - scanned:   111440262 [  111440262] - remaining:   731379867 [  242235803@20.5] - user time: 11054s
+Time:    960s, Mem: 34.3GB - scanned:   115312834 [  115312834] - remaining:   748799907 [  249750892@20.5] - user time: 11407s
+Time:    990s, Mem: 35.1GB - scanned:   119779868 [  119779868] - remaining:   763604210 [  255123415@20.5] - user time: 11764s
+Time:   1020s, Mem: 35.9GB - scanned:   123936035 [  123936035] - remaining:   780621666 [  261756225@20.5] - user time: 12122s
+Time:   1050s, Mem: 36.8GB - scanned:   129317869 [  129317869] - remaining:   792042748 [  263933623@20.5] - user time: 12474s
+Time:   1080s, Mem: 37.5GB - scanned:   132668492 [  132668492] - remaining:   808012719 [  270027175@20.5] - user time: 12832s
+Time:   1110s, Mem: 40.8GB - scanned:   135533946 [  135533946] - remaining:   828262838 [  279405528@20.5] - user time: 13189s
+Time:   1140s, Mem: 41.1GB - scanned:   138533492 [  138533492] - remaining:   849265456 [  289276103@20.5] - user time: 13542s
+Time:   1170s, Mem: 42.2GB - scanned:   141914902 [  141914902] - remaining:   855394874 [  286857015@20.5] - user time: 13901s
+Time:   1200s, Mem: 42.9GB - scanned:   145310252 [  145310252] - remaining:   860098809 [  282997431@20.5] - user time: 14261s
+Time:   1230s, Mem: 43.5GB - scanned:   148536660 [  148536660] - remaining:   869101391 [  282704152@20.5] - user time: 14619s
+Time:   1260s, Mem: 44.2GB - scanned:   151929719 [  151929719] - remaining:   881946549 [  285950844@20.5] - user time: 14978s
+Time:   1290s, Mem: 44.9GB - scanned:   155098084 [  155098084] - remaining:   896436082 [  290591022@20.5] - user time: 15329s
+Time:   1320s, Mem: 45.6GB - scanned:   158774309 [  158774309] - remaining:   909077124 [  294026109@20.5] - user time: 15687s
+Time:   1350s, Mem: 46.0GB - scanned:   162108629 [  162108629] - remaining:   925428971 [  300980402@20.5] - user time: 16037s
+Time:   1380s, Mem: 46.0GB - scanned:   164983827 [  164983827] - remaining:   943074530 [  309007661@20.5] - user time: 16372s
+Time:   1410s, Mem: 46.0GB - scanned:   167254508 [  167254508] - remaining:   957695970 [  315966024@20.5] - user time: 16640s
+Time:   1440s, Mem: 46.0GB - scanned:   169315331 [  169315331] - remaining:   970313384 [  321716468@20.5] - user time: 16875s
+Time:   1470s, Mem: 46.0GB - scanned:   171126984 [  171126984] - remaining:   981042727 [  326298759@20.5] - user time: 17091s
+Time:   1500s, Mem: 46.0GB - scanned:   173248279 [  173248279] - remaining:   992896399 [  331206627@20.5] - user time: 17330s
+Time:   1530s, Mem: 46.0GB - scanned:   175982811 [  175982811] - remaining:  1004632308 [  336063897@20.5] - user time: 17605s
+Time:   1560s, Mem: 46.0GB - scanned:   177715319 [  177715319] - remaining:  1011759455 [  339012732@20.5] - user time: 17785s
+Time:   1590s, Mem: 46.0GB - scanned:   178688729 [  178688729] - remaining:  1015341882 [  340434266@20.5] - user time: 17900s
+Time:   1620s, Mem: 46.0GB - scanned:   179924187 [  179924187] - remaining:  1020767398 [  342913242@20.5] - user time: 18041s
+Time:   1650s, Mem: 46.0GB - scanned:   180463083 [  180463083] - remaining:  1023071213 [  343936650@20.5] - user time: 18120s
+Time:   1680s, Mem: 46.0GB - scanned:   181161767 [  181161767] - remaining:  1025880248 [  345140581@20.5] - user time: 18212s
+Time:   1710s, Mem: 46.0GB - scanned:   181879459 [  181879459] - remaining:  1028815102 [  346548226@20.5] - user time: 18301s
+Time:   1740s, Mem: 46.0GB - scanned:   182727639 [  182727639] - remaining:  1033007948 [  348593740@20.5] - user time: 18409s
+Time:   1770s, Mem: 46.0GB - scanned:   183728462 [  183728462] - remaining:  1038537009 [  351372345@20.5] - user time: 18534s
+Time:   1800s, Mem: 46.0GB - scanned:   185087072 [  185087072] - remaining:  1045073086 [  354481722@20.5] - user time: 18688s
+Time:   1830s, Mem: 46.0GB - scanned:   186115799 [  186115799] - remaining:  1049495811 [  356558619@20.5] - user time: 18808s
+Time:   1860s, Mem: 46.0GB - scanned:   186401157 [  186401157] - remaining:  1050705355 [  357159939@20.5] - user time: 18862s
+Time:   1890s, Mem: 46.0GB - scanned:   186608151 [  186608151] - remaining:  1051632071 [  357632667@20.5] - user time: 18908s
+Time:   1920s, Mem: 46.0GB - scanned:   186882012 [  186882012] - remaining:  1052808951 [  358228295@20.5] - user time: 18960s
+Time:   1950s, Mem: 46.0GB - scanned:   187144645 [  187144645] - remaining:  1053889595 [  358786881@20.5] - user time: 19013s
+Time:   1980s, Mem: 46.0GB - scanned:   187632357 [  187632357] - remaining:  1055816246 [  359710935@20.5] - user time: 19087s
+Time:   2010s, Mem: 46.0GB - scanned:   187836777 [  187836777] - remaining:  1056517484 [  359926482@20.5] - user time: 19139s
+Time:   2040s, Mem: 46.0GB - scanned:   188922750 [  188922750] - remaining:  1060516573 [  359860608@20.5] - user time: 19302s
+Time:   2070s, Mem: 46.0GB - scanned:   190155034 [  190155034] - remaining:  1065912422 [  360546342@20.5] - user time: 19474s
+Time:   2100s, Mem: 46.0GB - scanned:   191086794 [  191086794] - remaining:  1070969436 [  362099063@20.5] - user time: 19616s
+Time:   2130s, Mem: 46.0GB - scanned:   191740973 [  191740973] - remaining:  1073279982 [  362059362@20.5] - user time: 19726s
+Time:   2160s, Mem: 46.0GB - scanned:   192338580 [  192338580] - remaining:  1074632888 [  361302411@20.5] - user time: 19827s
+Time:   2190s, Mem: 46.0GB - scanned:   193008569 [  193008569] - remaining:  1076317335 [  360430991@20.5] - user time: 19938s
+Time:   2220s, Mem: 46.0GB - scanned:   194427207 [  194427207] - remaining:  1085593663 [  364354108@20.5] - user time: 20134s
+Time:   2250s, Mem: 46.0GB - scanned:   195532852 [  195532852] - remaining:  1092610514 [  367154065@20.5] - user time: 20290s
+Time:   2280s, Mem: 46.0GB - scanned:   196718013 [  196718013] - remaining:  1099722359 [  369765629@20.5] - user time: 20448s
+Time:   2310s, Mem: 46.0GB - scanned:   197419139 [  197419139] - remaining:  1104308967 [  371685792@20.5] - user time: 20557s
+Time:   2340s, Mem: 46.0GB - scanned:   198062536 [  198062536] - remaining:  1107333942 [  372243467@20.5] - user time: 20660s
+Time:   2370s, Mem: 46.0GB - scanned:   198434509 [  198434509] - remaining:  1109258243 [  372733191@20.5] - user time: 20729s
+Time:   2400s, Mem: 46.0GB - scanned:   198693068 [  198693068] - remaining:  1110509744 [  372997298@20.5] - user time: 20782s
+Time:   2430s, Mem: 46.0GB - scanned:   198904387 [  198904387] - remaining:  1111706663 [  373401597@20.5] - user time: 20834s
+Time:   2460s, Mem: 46.0GB - scanned:   199089086 [  199089086] - remaining:  1112699506 [  373704084@20.5] - user time: 20882s
+Time:   2490s, Mem: 46.0GB - scanned:   199244513 [  199244513] - remaining:  1113449852 [  373857337@20.5] - user time: 20924s
+Time:   2520s, Mem: 46.0GB - scanned:   199381673 [  199381673] - remaining:  1114291086 [  374172209@20.5] - user time: 20963s
+Time:   2550s, Mem: 46.0GB - scanned:   199569077 [  199569077] - remaining:  1115360896 [  374528999@20.5] - user time: 21006s
+Time:   2580s, Mem: 46.0GB - scanned:   199781051 [  199781051] - remaining:  1116717952 [  375074119@20.5] - user time: 21054s
+Time:   2610s, Mem: 46.0GB - scanned:   199934445 [  199934445] - remaining:  1117599347 [  375364908@20.5] - user time: 21094s
+Time:   2640s, Mem: 46.0GB - scanned:   200082787 [  200082787] - remaining:  1118473537 [  375679299@20.5] - user time: 21132s
+Time:   2670s, Mem: 46.0GB - scanned:   200323951 [  200323951] - remaining:  1119916684 [  376212946@20.5] - user time: 21184s
+Time:   2700s, Mem: 46.0GB - scanned:   200466556 [  200466556] - remaining:  1120742570 [  376493939@20.5] - user time: 21216s
+Time:   2730s, Mem: 46.0GB - scanned:   200567504 [  200567504] - remaining:  1121304942 [  376676364@20.5] - user time: 21243s
+Time:   2760s, Mem: 46.0GB - scanned:   200711242 [  200711242] - remaining:  1122146226 [  376981908@20.5] - user time: 21284s
+Time:   2790s, Mem: 46.0GB - scanned:   200804058 [  200804058] - remaining:  1122182131 [  376685797@20.5] - user time: 21320s
+Time:   2820s, Mem: 46.0GB - scanned:   200925179 [  200925179] - remaining:  1121890716 [  376264083@20.5] - user time: 21353s
+Time:   2850s, Mem: 46.0GB - scanned:   201049425 [  201049425] - remaining:  1121616708 [  375878016@20.5] - user time: 21382s
+Time:   2880s, Mem: 46.0GB - scanned:   201232398 [  201232398] - remaining:  1121249155 [  375344718@20.5] - user time: 21415s
+Time:   2910s, Mem: 46.0GB - scanned:   201406417 [  201406417] - remaining:  1120749111 [  374679123@20.5] - user time: 21452s
+Time:   2940s, Mem: 46.0GB - scanned:   201511020 [  201511020] - remaining:  1120392099 [  374203143@20.5] - user time: 21486s
+Time:   2970s, Mem: 46.0GB - scanned:   201651293 [  201651293] - remaining:  1119981350 [  373632707@20.5] - user time: 21521s
+Time:   3000s, Mem: 46.0GB - scanned:   201779520 [  201779520] - remaining:  1119502815 [  373014617@20.5] - user time: 21558s
+Time:   3030s, Mem: 46.0GB - scanned:   201881453 [  201881453] - remaining:  1119222912 [  372620459@20.5] - user time: 21593s
+Time:   3060s, Mem: 46.0GB - scanned:   201964322 [  201964322] - remaining:  1118948380 [  372262326@20.5] - user time: 21626s
+Time:   3090s, Mem: 46.0GB - scanned:   202086392 [  202086392] - remaining:  1118396749 [  371560727@20.5] - user time: 21662s
+Time:   3120s, Mem: 46.0GB - scanned:   202282361 [  202282361] - remaining:  1117900863 [  370839522@20.5] - user time: 21701s
+Time:   3150s, Mem: 46.0GB - scanned:   202408242 [  202408242] - remaining:  1117481820 [  370283002@20.5] - user time: 21738s
+Time:   3180s, Mem: 46.0GB - scanned:   202626992 [  202626992] - remaining:  1116941232 [  369438296@20.5] - user time: 21779s
+Time:   3210s, Mem: 46.0GB - scanned:   202783275 [  202783275] - remaining:  1116469549 [  368764609@20.5] - user time: 21813s
+Time:   3240s, Mem: 46.0GB - scanned:   203112686 [  203112686] - remaining:  1115258834 [  367142460@20.5] - user time: 21858s
+Time:   3270s, Mem: 46.0GB - scanned:   203586273 [  203586273] - remaining:  1113959622 [  365228044@20.5] - user time: 21910s
+Time:   3300s, Mem: 46.0GB - scanned:   203865636 [  203865636] - remaining:  1113233149 [  364073021@20.5] - user time: 21954s
+Time:   3330s, Mem: 46.0GB - scanned:   204170327 [  204170327] - remaining:  1112607438 [  363017537@20.5] - user time: 21997s
+Time:   3360s, Mem: 46.0GB - scanned:   204347967 [  204347967] - remaining:  1112256974 [  362448904@20.5] - user time: 22033s
+Time:   3390s, Mem: 46.0GB - scanned:   204726034 [  204726034] - remaining:  1111590052 [  361296716@20.5] - user time: 22072s
+Time:   3420s, Mem: 46.0GB - scanned:   205036202 [  205036202] - remaining:  1109778197 [  359112576@20.5] - user time: 22109s
+Time:   3450s, Mem: 46.0GB - scanned:   205322470 [  205322470] - remaining:  1108694871 [  357702631@20.5] - user time: 22139s
+Time:   3480s, Mem: 46.0GB - scanned:   205868314 [  205868314] - remaining:  1106326732 [  354881089@20.5] - user time: 22179s
+Time:   3510s, Mem: 46.0GB - scanned:   206397626 [  206397626] - remaining:  1104600547 [  352722611@20.5] - user time: 22216s
+Time:   3540s, Mem: 46.0GB - scanned:   206880638 [  206880638] - remaining:  1103008429 [  350744738@20.5] - user time: 22251s
+Time:   3570s, Mem: 46.0GB - scanned:   207487221 [  207487221] - remaining:  1100018494 [  347321086@20.5] - user time: 22291s
+Time:   3600s, Mem: 46.0GB - scanned:   208065409 [  208065409] - remaining:  1097688475 [  344611381@20.5] - user time: 22328s
+Time:   3630s, Mem: 46.0GB - scanned:   208580479 [  208580479] - remaining:  1095402367 [  341962800@20.5] - user time: 22363s
+Time:   3660s, Mem: 46.0GB - scanned:   209025081 [  209025081] - remaining:  1093585504 [  339823222@20.5] - user time: 22396s
+Time:   3690s, Mem: 46.0GB - scanned:   209318450 [  209318450] - remaining:  1091753063 [  337784334@20.5] - user time: 22427s
+Time:   3720s, Mem: 46.0GB - scanned:   209595422 [  209595422] - remaining:  1090367485 [  336192719@20.5] - user time: 22455s
+Time:   3750s, Mem: 46.0GB - scanned:   210147133 [  210147133] - remaining:  1089109632 [  334366763@20.5] - user time: 22501s
+Time:   3780s, Mem: 46.0GB - scanned:   210682534 [  210682534] - remaining:  1087829447 [  332642301@20.5] - user time: 22539s
+Time:   3810s, Mem: 46.0GB - scanned:   211338344 [  211338344] - remaining:  1086378563 [  330713149@20.5] - user time: 22574s
+Time:   3840s, Mem: 46.0GB - scanned:   211885527 [  211885527] - remaining:  1085330933 [  329178317@20.5] - user time: 22613s
+Time:   3870s, Mem: 46.0GB - scanned:   212446917 [  212446917] - remaining:  1084199856 [  327569530@20.5] - user time: 22652s
+Time:   3900s, Mem: 46.0GB - scanned:   212960006 [  212960006] - remaining:  1083087702 [  325997661@20.5] - user time: 22692s
+Time:   3930s, Mem: 46.0GB - scanned:   213704951 [  213704951] - remaining:  1081439666 [  323816529@20.5] - user time: 22736s
+Time:   3960s, Mem: 46.0GB - scanned:   214246965 [  214246965] - remaining:  1080337484 [  322327312@20.5] - user time: 22774s
+Time:   3990s, Mem: 46.0GB - scanned:   214797205 [  214797205] - remaining:  1079285656 [  320722217@20.5] - user time: 22819s
+Time:   4020s, Mem: 46.0GB - scanned:   215476522 [  215476522] - remaining:  1078086155 [  318704541@20.5] - user time: 22875s
+Time:   4050s, Mem: 46.0GB - scanned:   216158205 [  216158205] - remaining:  1076746824 [  316627041@20.5] - user time: 22924s
+Time:   4080s, Mem: 46.0GB - scanned:   216655068 [  216655068] - remaining:  1075737839 [  315081837@20.5] - user time: 22967s
+Time:   4110s, Mem: 46.0GB - scanned:   217326907 [  217326907] - remaining:  1074421772 [  313129999@20.5] - user time: 23012s
+Time:   4140s, Mem: 46.0GB - scanned:   217890517 [  217890517] - remaining:  1073427251 [  311462150@20.5] - user time: 23059s
+Time:   4170s, Mem: 46.0GB - scanned:   218354981 [  218354981] - remaining:  1072382977 [  309979663@20.5] - user time: 23094s
+Time:   4200s, Mem: 46.0GB - scanned:   218966284 [  218966284] - remaining:  1070984703 [  308046376@20.5] - user time: 23132s
+Time:   4230s, Mem: 46.0GB - scanned:   219481553 [  219481553] - remaining:  1069693210 [  306303338@20.5] - user time: 23169s
+Time:   4260s, Mem: 46.0GB - scanned:   220149393 [  220149393] - remaining:  1068396393 [  304563625@20.5] - user time: 23205s
+Time:   4290s, Mem: 46.0GB - scanned:   220789193 [  220789193] - remaining:  1067413363 [  302976310@20.5] - user time: 23250s
+Time:   4320s, Mem: 46.0GB - scanned:   221480141 [  221480141] - remaining:  1066062103 [  301140681@20.5] - user time: 23289s
+Time:   4350s, Mem: 46.0GB - scanned:   222152270 [  222152270] - remaining:  1064670622 [  299129126@20.5] - user time: 23334s
+Time:   4380s, Mem: 46.0GB - scanned:   222606180 [  222606180] - remaining:  1063500400 [  297413580@20.5] - user time: 23373s
+./run.sh: line 5:  1525 Bus error               ./find_mds
+/tmp/ccIlGp5K.s: Assembler messages:
+/tmp/ccIlGp5K.s:10194: Error: no such instruction: `shlx %eax,%ecx,%eax'
+/tmp/ccIlGp5K.s:10199: Error: no such instruction: `shrx %edi,%eax,%eax'
+/tmp/ccIlGp5K.s:10265: Error: no such instruction: `shrx %esi,%ecx,%eax'
+/tmp/ccIlGp5K.s:10271: Error: no such instruction: `shlx %esi,%eax,%eax'
+/tmp/ccIlGp5K.s:10335: Error: no such instruction: `vpbroadcastd %xmm1,%ymm1'
+/tmp/ccIlGp5K.s:10336: Error: suffix or operands invalid for `vpaddd'
+/tmp/ccIlGp5K.s:10339: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:10340: Error: suffix or operands invalid for `vpaddd'
+/tmp/ccIlGp5K.s:10344: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm2'
+/tmp/ccIlGp5K.s:10345: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:10347: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm2'
+/tmp/ccIlGp5K.s:10348: Error: suffix or operands invalid for `vpalignr'
+/tmp/ccIlGp5K.s:10349: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:10350: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm1'
+/tmp/ccIlGp5K.s:10351: Error: suffix or operands invalid for `vpalignr'
+/tmp/ccIlGp5K.s:10352: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:15121: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:15125: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm2'
+/tmp/ccIlGp5K.s:15126: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:15127: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm2'
+/tmp/ccIlGp5K.s:15128: Error: suffix or operands invalid for `vpalignr'
+/tmp/ccIlGp5K.s:15129: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:15130: Error: no such instruction: `vperm2i128 $33,%ymm1,%ymm0,%ymm1'
+/tmp/ccIlGp5K.s:15131: Error: suffix or operands invalid for `vpalignr'
+/tmp/ccIlGp5K.s:15132: Error: suffix or operands invalid for `vpmulld'
+/tmp/ccIlGp5K.s:16693: Error: no such instruction: `shlx %eax,%ecx,%eax'
+/tmp/ccIlGp5K.s:16698: Error: no such instruction: `shrx %edi,%eax,%eax'
+/tmp/ccIlGp5K.s:16777: Error: no such instruction: `shrx %esi,%ecx,%eax'
+/tmp/ccIlGp5K.s:16783: Error: no such instruction: `shlx %esi,%eax,%eax'
+/tmp/ccIlGp5K.s:17621: Error: no such instruction: `shlx %r13,%r12,%rcx'
+/tmp/ccIlGp5K.s:20576: Error: no such instruction: `shlx %r12,%rdx,%r12'
+/tmp/ccIlGp5K.s:20629: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:20820: Error: no such instruction: `shlx %r15,%rax,%r15'
+/tmp/ccIlGp5K.s:21221: Error: no such instruction: `shlx %rcx,%rdx,%rdx'
+/tmp/ccIlGp5K.s:21348: Error: no such instruction: `shlx %rbx,%rdx,%rbx'
+/tmp/ccIlGp5K.s:21388: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:21559: Error: no such instruction: `shlx %rbp,%rax,%rax'
+/tmp/ccIlGp5K.s:22034: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:23280: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:23355: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:24262: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:30741: Error: no such instruction: `shlx %rbp,%rax,%rax'
+/tmp/ccIlGp5K.s:31736: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:31775: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:31953: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:32395: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:32531: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:32571: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:32731: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:33650: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:33754: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:33905: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:33945: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:34105: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:34506: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:34825: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:34865: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:35025: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:35583: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:35895: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:35935: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:36095: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:36468: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:36508: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:36668: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:37040: Error: no such instruction: `shlx %rcx,%rdx,%rcx'
+/tmp/ccIlGp5K.s:37090: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:37249: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:37588: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:37635: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:37794: Error: no such instruction: `shlx %r9,%rax,%rax'
+/tmp/ccIlGp5K.s:38270: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:38417: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:38754: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:38898: Error: no such instruction: `shlx %rsi,%rax,%rax'
+/tmp/ccIlGp5K.s:40875: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:41567: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:41607: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:41749: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:42183: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:42413: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:42446: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:42588: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:43045: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:43175: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:43208: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:43350: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:43731: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:43937: Error: no such instruction: `shlx %rsi,%rcx,%rcx'
+/tmp/ccIlGp5K.s:44144: Error: no such instruction: `shlx %rax,%rdx,%rax'
+/tmp/ccIlGp5K.s:44177: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:44319: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:44701: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:45007: Error: no such instruction: `shlx %r15,%rdx,%r15'
+/tmp/ccIlGp5K.s:45048: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:45189: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:45499: Error: no such instruction: `shlx %r12,%rdx,%r12'
+/tmp/ccIlGp5K.s:45540: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:45713: Error: no such instruction: `shlx %rcx,%rax,%rax'
+/tmp/ccIlGp5K.s:46086: Error: no such instruction: `shlx %rbx,%rdx,%rbx'
+/tmp/ccIlGp5K.s:46127: Error: no such instruction: `shlx %rax,%rdx,%rdx'
+/tmp/ccIlGp5K.s:46299: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:46723: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:46915: Error: no such instruction: `shlx %rdx,%rax,%rax'
+/tmp/ccIlGp5K.s:47077: Error: no such instruction: `shlx %rdx,%rax,%rax'
+make: *** [find_mds] Error 1
+./run.sh: line 5: ./find_mds: No such file or directory
