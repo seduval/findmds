@@ -30,29 +30,31 @@
  *                         CONFIGURATION                               *
  ***********************************************************************/
 
-#define NB_INPUTS 3
-#define NB_REGISTERS 4
+#define NB_INPUTS 4
+#define NB_REGISTERS 5
 
 #define XOR_WEIGHT 8
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 5*XOR_WEIGHT + 1*MUL_WEIGHT)
-#define MAX_DEPTH  5
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_DEPTH  7
 
 // Optimize depth first, rather than weight
 //#define DEPTH_FIRST
 
 // Uncomment to activate options
- #define KEEP_INPUTS
- #define TRY_DIV
+// #define KEEP_INPUTS
+// #define TRY_DIV
 // #define INDEP_MUL
-#define DIFFERENT_MUL
+// #define DIFFERENT_MUL
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
 #define PRINT_ALL_MDS
+
+#define SLEEP_TIME 30
 
 /***********************************************************************
  *                       END CONFIGURATION                             *
@@ -769,7 +771,7 @@ void* memory_printer(void *p) {
     clock_gettime(CLOCK_MONOTONIC, &ts);
     time_t init_time = ts.tv_sec;
     for (;;) {
-        sleep(30);
+        sleep(SLEEP_TIME);
         getrusage(RUSAGE_SELF, &usage);
         clock_gettime(CLOCK_MONOTONIC, &ts);
         unsigned long long remaining1 = 0;
@@ -786,7 +788,7 @@ void* memory_printer(void *p) {
                 first=i, remaining1 = s;
             remaining += s;
         }
-        fprintf (stderr, "Time: %6llus, Mem: %4.1fGB - scanned: %11llu [%11llu] - remaining: %11llu [%11llu@%i.%i] - user time: %llus\n",
+        fprintf (stderr, "Time: %6llus, Mem: %4.3fGB - scanned: %11llu [%11llu] - remaining: %11llu [%11llu@%i.%i] - user time: %llus\n",
                  (unsigned long long) ts.tv_sec - init_time, (double)usage.ru_maxrss/1024/1024,
                  (unsigned long long) param->scanned_states->size(), (unsigned long long) param->scanned_ids->size(),
                  remaining, remaining1, first/MAX_DEPTH, first%MAX_DEPTH, (unsigned long long) usage.ru_utime.tv_sec);
@@ -907,6 +909,7 @@ int main () {
     } CATCH;
     
     printf("Reached MAX_WEIGHT\n");
+    sleep(SLEEP_TIME);
     //exit(0);
 }
 
