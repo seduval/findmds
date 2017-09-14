@@ -68,3 +68,4 @@ Time:   2011s, Mem: 46.0GB - scanned:   267967311 [  278800728] - remaining:    
 Time:   2041s, Mem: 46.0GB - scanned:   267967311 [  278800728] - remaining:           0 [          0@0.-1] - user time: 16028s
 Time:   2071s, Mem: 46.0GB - scanned:   267967311 [  278800728] - remaining:           0 [          0@0.-1] - user time: 16058s
 Time:   2101s, Mem: 46.0GB - scanned:   267967311 [  278800728] - remaining:           0 [          0@0.-1] - user time: 16083s
+## OAR [2017-09-11 23:50:58] Job 74289 KILLED ##

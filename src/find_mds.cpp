@@ -33,13 +33,13 @@
 #define NB_INPUTS 4
 #define NB_REGISTERS 5
 
-#define XOR_WEIGHT 8
+#define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 9*XOR_WEIGHT + 3*MUL_WEIGHT)
-#define MAX_DEPTH 6
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 5*MUL_WEIGHT)
+#define MAX_DEPTH 4
 
 // Optimize depth first, rather than weight
 // #define DEPTH_FIRST
@@ -48,7 +48,7 @@
 // #define KEEP_INPUTS
 // #define TRY_DIV
 // #define INDEP_MUL
-// #define DIFFERENT_MUL
+ #define DIFFERENT_MUL
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
@@ -62,10 +62,6 @@
 
 #define MAX_QUEUE_WEIGHT (MAX_WEIGHT*MAX_DEPTH)
 
-
-#ifdef DIFFERENT_MUL
-#define TRY_DIV
-#endif
 
 #ifdef TRY_DIV
 #define INIT_VAL 0x10000
@@ -685,14 +681,22 @@ void AlgoState::spawn_next_states (state_queue* remaining_states, matrix_set& sc
 #else
                 [XOR]={0, NB_REGISTERS, 1},
 #endif
+#ifdef INDEP_MUL
+		[MUL]={next_mul(), next_mul()+1, 1},
+#else
 #ifdef DIFFERENT_MUL
-                [MUL]={-2, 2, 1},
-#elif defined(INDEP_MUL)
-                [MUL]={next_mul(), next_mul()+1, 1},
-#elif defined(TRY_DIV)
-                [MUL]={-1, 2, 2},
+#ifdef TRY_DIV
+                [MUL]={-2, 3, 1},
+#else
+		[MUL]={1, 3, 1},
+#endif
+#else
+#ifdef TRY_DIV
+		[MUL]={-1, 2, 2},
 #else
                 [MUL]={1, 2, 1},
+#endif
+#endif
 #endif
 #ifdef KEEP_INPUTS
                 [CPY]={0, NB_INPUTS+NB_REGISTERS, 1},
