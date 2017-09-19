@@ -1,6 +1,5 @@
 /* NOTE:
    This codes makes some assumptions:
-   - NB_REGISTERS = NB_INPUTS + 1 (can be removed?)
    - NB_INPUTS is 3 or 4
    - NB_REGISTERS is less than 8
 */
@@ -31,24 +30,24 @@
  ***********************************************************************/
 
 #define NB_INPUTS 4
-#define NB_REGISTERS 5
+#define NB_REGISTERS (NB_INPUTS+1)
 
 #define XOR_WEIGHT 2
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 6*MUL_WEIGHT)
-#define MAX_DEPTH 4
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_DEPTH 7
 
 // Optimize depth first, rather than weight
-// #define DEPTH_FIRST
+// #define DEPTH_FIRST      // Should not matter if the maxima are well set.
 
 // Uncomment to activate options
-// #define KEEP_INPUTS
-// #define TRY_DIV
-// #define INDEP_MUL
- #define DIFFERENT_MUL
+// #define KEEP_INPUTS      // RO_IN in the article
+// #define TRY_DIV          // INV in the article
+// #define INDEP_MUL        // INDEP
+// #define DIFFERENT_MUL    // MAX_POW=2 in the article
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
