@@ -1,0 +1,1537 @@
+g++ -Wall -Wextra -I boost_1_64_0 -march=native -std=gnu++0x -O3 -g -fopenmp -gstabs+ -g3 -I tbb-2017_U7/include -L tbb-2017_U7/build/linux_release/  -Wl,-rpath=tbb-2017_U7/build/linux_release/  find_mds.cpp  -ltbb -o find_mds
+Parameters: MAX_WEIGHT=(1 + 9*2 + 3*1) MAX_DEPTH=6 NB_INPUTS=4 NB_REGISTERS=5 XOR_WEIGHT=2 MUL_WEIGHT=1 CPY_WEIGHT=0
+Size: AlgoState:16 algo_op:3 matrix:80
+Options:
+New weight : 0.0
+Number of distinct ids : 0/0(1/0.0)
+Scanned size : 0
+New weight : 0.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.4
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.5
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.1
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 8.2
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 8.3
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 8.4
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 8.5
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 9.0
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 9.1
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 9.2
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 9.3
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 9.4
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 9.5
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 10.0
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 10.1
+Number of distinct ids : 6/18(1/3.0)
+Scanned size : 6
+New weight : 10.2
+Number of distinct ids : 15/63(1/4.2)
+Scanned size : 15
+New weight : 10.3
+Number of distinct ids : 20/71(1/3.5)
+Scanned size : 20
+New weight : 10.4
+Number of distinct ids : 20/71(1/3.5)
+Scanned size : 20
+New weight : 10.5
+Number of distinct ids : 20/71(1/3.5)
+Scanned size : 20
+New weight : 11.0
+Number of distinct ids : 20/71(1/3.5)
+Scanned size : 20
+New weight : 11.1
+Number of distinct ids : 20/71(1/3.5)
+Scanned size : 20
+New weight : 11.2
+Number of distinct ids : 37/139(1/3.8)
+Scanned size : 37
+New weight : 11.3
+Number of distinct ids : 68/216(1/3.2)
+Scanned size : 68
+New weight : 11.4
+Number of distinct ids : 74/234(1/3.2)
+Scanned size : 74
+New weight : 11.5
+Number of distinct ids : 74/234(1/3.2)
+Scanned size : 74
+New weight : 12.0
+Number of distinct ids : 74/234(1/3.2)
+Scanned size : 74
+New weight : 12.1
+Number of distinct ids : 74/234(1/3.2)
+Scanned size : 74
+New weight : 12.2
+Number of distinct ids : 107/342(1/3.2)
+Scanned size : 107
+New weight : 12.3
+Number of distinct ids : 213/718(1/3.4)
+Scanned size : 213
+New weight : 12.4
+Number of distinct ids : 290/956(1/3.3)
+Scanned size : 290
+New weight : 12.5
+Number of distinct ids : 297/977(1/3.3)
+Scanned size : 297
+New weight : 13.0
+Number of distinct ids : 297/977(1/3.3)
+Scanned size : 297
+New weight : 13.1
+Number of distinct ids : 297/977(1/3.3)
+Scanned size : 297
+New weight : 13.2
+Number of distinct ids : 340/1141(1/3.4)
+Scanned size : 340
+New weight : 13.3
+Number of distinct ids : 747/2750(1/3.7)
+Scanned size : 747
+New weight : 13.4
+Number of distinct ids : 1240/4713(1/3.8)
+Scanned size : 1240
+New weight : 13.5
+Number of distinct ids : 1773/6518(1/3.7)
+Scanned size : 1773
+New weight : 14.0
+Number of distinct ids : 2490/9116(1/3.7)
+Scanned size : 2490
+New weight : 14.1
+Number of distinct ids : 2490/9116(1/3.7)
+Scanned size : 2490
+New weight : 14.2
+Number of distinct ids : 2539/9295(1/3.7)
+Scanned size : 2539
+New weight : 14.3
+Number of distinct ids : 3668/13953(1/3.8)
+Scanned size : 3668
+New weight : 14.4
+Number of distinct ids : 5982/23311(1/3.9)
+Scanned size : 5982
+New weight : 14.5
+Number of distinct ids : 10101/38607(1/3.8)
+Scanned size : 10101
+New weight : 15.0
+Number of distinct ids : 20438/75935(1/3.7)
+Scanned size : 20438
+New weight : 15.1
+Number of distinct ids : 20438/75935(1/3.7)
+Scanned size : 20438
+New weight : 15.2
+Number of distinct ids : 20473/76058(1/3.7)
+Scanned size : 20473
+New weight : 15.3
+Number of distinct ids : 23544/88856(1/3.8)
+Scanned size : 23544
+New weight : 15.4
+Number of distinct ids : 33278/129411(1/3.9)
+Scanned size : 33278
+New weight : 15.5
+Number of distinct ids : 55283/216077(1/3.9)
+Scanned size : 55283
+New weight : 16.0
+Number of distinct ids : 117539/450231(1/3.8)
+Scanned size : 117539
+New weight : 16.1
+Number of distinct ids : 117539/450231(1/3.8)
+Scanned size : 117539
+New weight : 16.2
+Number of distinct ids : 117550/450264(1/3.8)
+Scanned size : 117550
+New weight : 16.3
+Number of distinct ids : 124471/479455(1/3.9)
+Scanned size : 124471
+New weight : 16.4
+Number of distinct ids : 164656/648181(1/3.9)
+Scanned size : 164656
+New weight : 16.5
+Number of distinct ids : 281317/1109496(1/3.9)
+Scanned size : 281317
+New weight : 17.0
+Number of distinct ids : 643576/2481751(1/3.9)
+Scanned size : 643576
+New weight : 17.1
+Number of distinct ids : 643576/2481751(1/3.9)
+Scanned size : 643576
+New weight : 17.2
+Number of distinct ids : 643580/2481755(1/3.9)
+Scanned size : 643580
+New weight : 17.3
+Number of distinct ids : 656543/2537548(1/3.9)
+Scanned size : 656543
+New weight : 17.4
+Number of distinct ids : 785392/3095368(1/3.9)
+Scanned size : 785392
+New weight : 17.5
+Number of distinct ids : 1329210/5263029(1/4.0)
+Scanned size : 1329210
+New weight : 18.0
+Number of distinct ids : 3297568/12706129(1/3.9)
+Scanned size : 3297568
+New weight : 18.1
+Number of distinct ids : 3297568/12706129(1/3.9)
+Scanned size : 3297568
+New weight : 18.2
+Number of distinct ids : 3297568/12706129(1/3.9)
+Scanned size : 3297568
+New weight : 18.3
+Number of distinct ids : 3321700/12806078(1/3.9)
+Scanned size : 3321700
+New weight : 18.4
+Number of distinct ids : 3722461/14558457(1/3.9)
+Scanned size : 3722461
+New weight : 18.5
+Number of distinct ids : 5868611/23272190(1/4.0)
+Scanned size : 5868611
+New weight : 19.0
+Number of distinct ids : 15073450/58534604(1/3.9)
+Scanned size : 15073450
+New weight : 19.1
+Number of distinct ids : 15073450/58534604(1/3.9)
+Scanned size : 15073450
+New weight : 19.2
+Number of distinct ids : 15073450/58534604(1/3.9)
+Scanned size : 15073450
+New weight : 19.3
+Number of distinct ids : 15106549/58668503(1/3.9)
+Scanned size : 15106549
+New weight : 19.4
+Number of distinct ids : 16220353/63504831(1/3.9)
+Scanned size : 16220353
+New weight : 19.5
+Number of distinct ids : 24518636/96877021(1/4.0)
+Scanned size : 24518636
+New weight : 20.0
+Number of distinct ids : 65109653/252322863(1/3.9)
+Scanned size : 65109653
+New weight : 20.1
+Number of distinct ids : 65109653/252322863(1/3.9)
+Scanned size : 65109653
+New weight : 20.2
+Number of distinct ids : 65109653/252322863(1/3.9)
+Scanned size : 65109653
+New weight : 20.3
+Number of distinct ids : 65153142/252484802(1/3.9)
+Scanned size : 65153142
+New weight : 20.4
+Number of distinct ids : 67802938/264065557(1/3.9)
+Scanned size : 67802938
+New weight : 20.5
+Number of distinct ids : 96124171/377845736(1/3.9)
+Scanned size : 96124171
+New weight : 21.0
+Number of distinct ids : 266598568/1023326720(1/3.8)
+Scanned size : 266598568
+New weight : 21.1
+Number of distinct ids : 266598568/1023326720(1/3.8)
+Scanned size : 266598568
+New weight : 21.2
+Number of distinct ids : 266598568/1023326720(1/3.8)
+Scanned size : 266598568
+New weight : 21.3
+Number of distinct ids : 266644877/1023481711(1/3.8)
+Scanned size : 266644877
+New weight : 21.4
+Number of distinct ids : 272600539/1048777395(1/3.8)
+Scanned size : 272600539
+New weight : 21.5
+Number of distinct ids : 359184901/1390281405(1/3.9)
+Scanned size : 359184901
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 2 1  [X]
+1 4 6 1 
+3 1 3 2 
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+x (2, 0)
+c (0, 2)
+x (4, 2)
+m (1, 1)
+m (1, 1)
+x (0, 1)
+m (1, 3)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 4 6 1 
+0 4 4 0  [X]
+3 1 3 2 
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+x (2, 0)
+c (0, 2)
+x (4, 2)
+m (1, 1)
+m (1, 1)
+x (1, 0)
+m (1, 3)
+x (0, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+3 1 3 2 
+1 4 6 1 
+0 0 2 0  [X]
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 1)
+m (1, 1)
+m (1, 2)
+x (2, 0)
+x (0, 1)
+x (4, 0)
+m (1, 3)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 1  [X]
+1 4 6 1 
+3 1 3 2 
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 1)
+m (1, 1)
+m (1, 2)
+x (0, 2)
+x (2, 1)
+x (4, 2)
+m (1, 3)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 1 6 1 
+1 2 1 3 
+0 0 1 0  [X]
+6 1 4 3 
+1 3 3 2 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (1, 4)
+m (1, 1)
+x (2, 0)
+x (0, 3)
+x (3, 1)
+m (1, 0)
+m (1, 0)
+x (4, 0)
+x (1, 4)
+m (1, 3)
+x (0, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 0  [X]
+1 2 1 3 
+4 1 6 1 
+6 1 4 3 
+1 3 3 2 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (1, 4)
+m (1, 1)
+x (0, 2)
+x (2, 3)
+x (3, 1)
+m (1, 2)
+m (1, 2)
+x (4, 2)
+x (1, 4)
+m (1, 3)
+x (2, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 1 1 6 
+6 3 1 4 
+1 3 2 1 
+1 2 3 3 
+0 0 0 0  [X]
+Operations:
+x (3, 0)
+m (1, 3)
+x (1, 2)
+x (2, 3)
+m (1, 2)
+x (0, 1)
+x (1, 2)
+m (1, 0)
+m (1, 0)
+x (3, 0)
+x (2, 3)
+m (1, 1)
+x (0, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 1 6 1 
+6 3 4 1 
+1 3 1 2 
+0 0 0 1  [X]
+1 2 3 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (2, 0)
+c (1, 2)
+x (3, 2)
+x (2, 4)
+m (1, 2)
+x (0, 1)
+x (1, 2)
+m (1, 0)
+m (1, 0)
+x (4, 0)
+x (2, 4)
+m (1, 1)
+x (0, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 1 3 
+1 3 3 2 
+4 1 6 1 
+0 0 0 1  [X]
+6 1 4 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 2)
+c (1, 0)
+m (1, 0)
+x (4, 1)
+c (2, 4)
+x (3, 4)
+x (4, 0)
+m (1, 2)
+m (1, 2)
+x (1, 2)
+x (0, 1)
+m (1, 4)
+x (2, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+0 2 0 2  [X]
+1 3 3 2 
+4 1 6 1 
+6 1 4 3 
+1 2 1 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 2)
+c (1, 0)
+m (1, 0)
+x (4, 1)
+x (2, 3)
+c (3, 4)
+x (0, 4)
+m (1, 2)
+m (1, 2)
+x (1, 2)
+x (4, 1)
+m (1, 3)
+x (2, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+3 1 3 2 
+0 1 1 0  [X]
+1 4 6 1 
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+x (2, 0)
+c (1, 2)
+m (1, 2)
+m (1, 2)
+x (0, 2)
+x (4, 0)
+m (1, 3)
+x (2, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+3 1 3 2 
+0 2 2 0  [X]
+1 4 6 1 
+1 6 4 3 
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+m (1, 1)
+x (2, 0)
+c (1, 2)
+m (1, 2)
+x (0, 2)
+x (4, 0)
+m (1, 3)
+x (2, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 6 4 3 
+1 4 6 1 
+3 1 3 2 
+0 1 1 1  [X]
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+x (2, 0)
+c (0, 2)
+x (4, 2)
+m (1, 1)
+m (1, 1)
+x (0, 1)
+c (3, 0)
+m (1, 0)
+x (1, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 6 4 3 
+1 4 6 1 
+3 1 3 2 
+0 2 2 2  [X]
+2 1 1 3 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (2, 1)
+x (1, 3)
+x (3, 4)
+m (1, 2)
+x (2, 0)
+c (0, 2)
+x (4, 2)
+m (1, 1)
+m (1, 1)
+x (0, 1)
+m (1, 3)
+c (1, 0)
+x (3, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+2 4 5 6 
+2 2 3 1 
+2 0 1 2  [X]
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+x (3, 2)
+m (1, 2)
+x (2, 3)
+x (3, 0)
+x (1, 3)
+m (1, 2)
+x (4, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+0 4 4 4  [X]
+2 2 3 1 
+2 4 5 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+x (3, 2)
+m (1, 2)
+x (2, 3)
+x (3, 0)
+x (1, 3)
+m (1, 2)
+x (2, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 1 3 6 
+5 1 2 7 
+0 1 1 0  [X]
+3 2 3 2 
+1 2 2 1 
+Operations:
+x (3, 0)
+x (2, 3)
+x (1, 2)
+c (2, 4)
+m (1, 4)
+x (0, 4)
+x (0, 1)
+m (1, 0)
+x (3, 0)
+c (0, 3)
+x (4, 3)
+m (1, 0)
+x (0, 1)
+x (2, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 0 2 6  [X]
+5 1 2 7 
+4 1 3 6 
+3 2 3 2 
+1 2 2 1 
+Operations:
+x (3, 0)
+x (2, 3)
+x (1, 2)
+c (2, 4)
+m (1, 4)
+x (0, 4)
+x (0, 1)
+m (1, 0)
+x (3, 0)
+c (0, 3)
+x (4, 3)
+m (1, 0)
+x (0, 1)
+x (0, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+5 1 2 7 
+1 1 0 1  [X]
+4 1 3 6 
+3 2 3 2 
+1 2 2 1 
+Operations:
+x (3, 0)
+x (2, 3)
+x (1, 2)
+c (2, 4)
+m (1, 4)
+x (0, 4)
+x (0, 1)
+m (1, 0)
+x (3, 0)
+c (0, 3)
+x (4, 3)
+m (1, 0)
+x (0, 2)
+x (1, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 2 
+3 1 4 2 
+0 2 2 2  [X]
+2 2 6 1 
+2 1 5 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 3)
+x (3, 4)
+m (1, 4)
+x (1, 2)
+x (4, 3)
+x (2, 4)
+m (1, 2)
+x (2, 0)
+x (3, 1)
+x (0, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 0  [X]
+3 1 4 2 
+1 2 2 2 
+2 2 6 1 
+2 1 5 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 3)
+x (3, 4)
+m (1, 4)
+x (1, 2)
+x (4, 3)
+x (2, 4)
+m (1, 2)
+x (0, 2)
+x (3, 1)
+x (2, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 1 2 3 
+2 4 2 1 
+1 3 3 2 
+0 0 0 1  [X]
+2 5 1 2 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (1, 2)
+m (1, 1)
+x (0, 1)
+x (2, 4)
+x (1, 2)
+m (1, 1)
+x (3, 1)
+x (4, 0)
+x (1, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 1 2 3 
+2 4 2 0  [X]
+1 3 3 2 
+2 4 2 1 
+2 5 1 2 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (1, 2)
+m (1, 1)
+x (0, 1)
+x (2, 4)
+x (1, 2)
+m (1, 1)
+x (1, 3)
+x (4, 0)
+x (3, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 2 
+3 1 4 2 
+2 2 6 1 
+3 0 4 3  [X]
+2 1 5 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 3)
+x (3, 4)
+m (1, 4)
+x (1, 2)
+x (4, 3)
+x (2, 4)
+m (1, 2)
+x (2, 0)
+c (3, 2)
+x (0, 2)
+x (3, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 2 
+0 1 0 1  [X]
+2 2 6 1 
+3 1 4 2 
+2 1 5 3 
+Operations:
+c (2, 4)
+m (1, 4)
+x (3, 1)
+x (0, 3)
+x (3, 4)
+m (1, 4)
+x (1, 2)
+x (4, 3)
+x (2, 4)
+m (1, 2)
+x (2, 0)
+c (3, 2)
+x (0, 2)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 1 2 3 
+2 5 1 2 
+1 3 3 2 
+2 4 2 1 
+0 1 3 3  [X]
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (1, 2)
+m (1, 1)
+x (0, 1)
+x (2, 4)
+x (1, 2)
+m (1, 1)
+x (1, 3)
+c (4, 1)
+x (3, 1)
+x (4, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 1 0  [X]
+1 1 2 3 
+1 3 3 2 
+2 4 2 1 
+2 5 1 2 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (1, 2)
+m (1, 1)
+x (0, 1)
+x (2, 4)
+x (1, 2)
+m (1, 1)
+x (1, 3)
+c (4, 1)
+x (0, 1)
+x (3, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+2 2 3 1 
+0 1 0 1  [X]
+4 1 3 5 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+m (1, 4)
+x (3, 2)
+x (2, 4)
+m (1, 2)
+x (3, 2)
+x (2, 0)
+x (1, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+0 2 2 2  [X]
+2 2 3 1 
+4 1 3 5 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+m (1, 4)
+x (3, 2)
+x (2, 4)
+m (1, 2)
+x (2, 3)
+x (3, 0)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 4 4 3 
+3 4 6 1 
+2 1 3 2 
+2 3 1 3 
+3 0 2 3  [X]
+Operations:
+x (3, 0)
+c (0, 4)
+x (2, 4)
+m (1, 4)
+x (2, 1)
+c (4, 2)
+x (1, 2)
+m (1, 1)
+x (3, 1)
+c (2, 3)
+x (1, 3)
+m (1, 1)
+x (0, 4)
+x (1, 0)
+x (4, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 4 4 3 
+0 4 4 2  [X]
+2 1 3 2 
+2 3 1 3 
+3 4 6 1 
+Operations:
+x (3, 0)
+c (0, 4)
+x (2, 4)
+m (1, 4)
+x (2, 1)
+c (4, 2)
+x (1, 2)
+m (1, 1)
+x (3, 1)
+c (2, 3)
+x (1, 3)
+m (1, 1)
+x (0, 4)
+x (1, 0)
+x (1, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 1  [X]
+1 4 4 3 
+2 1 3 2 
+2 3 1 3 
+3 4 6 1 
+Operations:
+x (3, 0)
+c (0, 4)
+x (2, 4)
+m (1, 4)
+x (2, 1)
+c (4, 2)
+x (1, 2)
+m (1, 1)
+x (3, 1)
+c (2, 3)
+x (1, 3)
+m (1, 1)
+x (0, 4)
+x (1, 4)
+x (0, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 3 
+6 1 2 4 
+0 0 1 0  [X]
+2 3 2 1 
+4 2 1 4 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 4)
+x (2, 1)
+x (3, 1)
+m (1, 1)
+x (1, 0)
+x (4, 1)
+x (1, 3)
+m (1, 4)
+x (4, 1)
+x (2, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 3 
+6 1 2 4 
+4 2 1 4 
+2 3 2 1 
+4 2 0 4  [X]
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 4)
+x (2, 1)
+x (3, 1)
+m (1, 1)
+x (1, 0)
+x (4, 1)
+x (1, 3)
+m (1, 4)
+x (4, 1)
+x (4, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 3 
+2 3 2 0  [X]
+4 2 1 4 
+2 3 2 1 
+6 1 2 4 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 4)
+x (2, 1)
+x (3, 1)
+m (1, 1)
+x (1, 0)
+x (4, 1)
+x (1, 3)
+m (1, 4)
+x (4, 2)
+x (1, 4)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 2 5 1 
+1 1 3 3 
+3 1 1 2 
+5 2 7 3 
+0 0 1 1  [X]
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (0, 2)
+m (1, 0)
+x (1, 0)
+x (2, 3)
+x (0, 2)
+x (3, 1)
+m (1, 0)
+x (0, 3)
+x (4, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+4 2 4 0  [X]
+1 1 3 3 
+3 1 1 2 
+5 2 7 3 
+4 2 5 1 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (0, 2)
+m (1, 0)
+x (1, 0)
+x (2, 3)
+x (0, 2)
+x (3, 1)
+m (1, 0)
+x (0, 4)
+x (0, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+5 2 7 3 
+1 1 3 3 
+3 1 1 2 
+1 0 3 3  [X]
+4 2 5 1 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (0, 2)
+m (1, 0)
+x (1, 0)
+x (2, 3)
+x (0, 2)
+x (3, 1)
+m (1, 0)
+x (0, 4)
+x (3, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 1 
+0 2 2 0  [X]
+5 2 1 7 
+3 3 2 2 
+4 3 1 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (4, 3)
+c (3, 4)
+m (1, 4)
+x (2, 1)
+x (0, 2)
+x (4, 2)
+x (1, 4)
+m (1, 1)
+x (1, 0)
+x (0, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 1  [X]
+1 2 2 1 
+5 2 1 7 
+3 3 2 2 
+4 3 1 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (4, 3)
+c (3, 4)
+m (1, 4)
+x (2, 1)
+x (0, 2)
+x (4, 2)
+x (1, 4)
+m (1, 1)
+x (0, 1)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 3 
+2 3 2 1 
+4 2 1 4 
+0 0 0 1  [X]
+6 1 2 4 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 4)
+x (2, 1)
+x (3, 1)
+m (1, 1)
+x (1, 0)
+x (4, 1)
+m (1, 4)
+x (4, 2)
+x (1, 4)
+x (3, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+5 2 7 3 
+0 1 0 0  [X]
+3 1 1 2 
+1 1 3 3 
+4 2 5 1 
+Operations:
+c (2, 4)
+x (3, 4)
+x (2, 0)
+c (4, 2)
+m (1, 2)
+x (0, 2)
+m (1, 0)
+x (1, 0)
+x (2, 3)
+x (0, 2)
+m (1, 0)
+x (0, 4)
+x (3, 0)
+x (1, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+0 3 2 3  [X]
+2 2 3 1 
+4 1 3 5 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+m (1, 4)
+x (3, 2)
+x (2, 4)
+m (1, 2)
+x (3, 2)
+c (2, 3)
+x (1, 3)
+x (2, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 1  [X]
+2 1 1 2 
+2 2 3 1 
+1 3 2 2 
+4 1 3 5 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+m (1, 4)
+x (3, 2)
+x (2, 4)
+m (1, 2)
+x (3, 2)
+c (2, 3)
+x (0, 3)
+x (1, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+0 1 0 0  [X]
+2 4 5 6 
+2 2 3 1 
+2 1 1 2 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (3, 2)
+m (1, 2)
+x (2, 3)
+x (3, 0)
+m (1, 2)
+x (4, 2)
+x (1, 4)
+x (4, 3)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 3 2 2 
+2 1 1 2 
+2 2 3 1 
+0 3 2 3  [X]
+2 4 5 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+x (3, 2)
+m (1, 2)
+x (2, 3)
+x (3, 0)
+m (1, 2)
+x (2, 4)
+c (3, 2)
+x (1, 2)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 2 2 1 
+3 3 2 2 
+5 2 1 7 
+2 1 0 3  [X]
+4 3 1 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (4, 3)
+c (3, 4)
+m (1, 4)
+x (2, 1)
+x (0, 2)
+x (4, 2)
+x (1, 4)
+m (1, 1)
+x (1, 0)
+c (0, 1)
+x (3, 1)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+2 3 1 3 
+0 2 2 1  [X]
+2 1 3 2 
+1 4 4 3 
+3 4 6 1 
+Operations:
+x (3, 0)
+c (0, 4)
+x (2, 4)
+m (1, 4)
+x (2, 1)
+c (4, 2)
+x (1, 2)
+m (1, 1)
+x (3, 1)
+c (1, 3)
+m (1, 3)
+x (0, 4)
+x (3, 4)
+x (0, 3)
+c (1, 0)
+x (2, 0)
+End of state
+Found MDS !!! (weight:21) (depth:5)
+Current state:
+1 0 0 1  [X]
+2 1 1 2 
+2 2 3 1 
+1 3 2 2 
+2 4 5 6 
+Operations:
+x (3, 0)
+c (0, 4)
+m (1, 4)
+x (1, 3)
+x (2, 4)
+x (4, 1)
+x (3, 2)
+m (1, 2)
+x (2, 3)
+m (1, 2)
+x (2, 4)
+c (3, 2)
+x (1, 2)
+x (0, 3)
+End of state
+Reached MAX_WEIGHT

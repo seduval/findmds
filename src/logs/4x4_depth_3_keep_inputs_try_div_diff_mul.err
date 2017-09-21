@@ -1,0 +1,1317 @@
+Time:     30s, Mem: 4.710GB - scanned:     6355742 [    6355742] - remaining:   147477592 [   30330787@16.3] - user time: 1364s
+Time:     60s, Mem: 10.002GB - scanned:    12398812 [   12398812] - remaining:   341614559 [   61821828@16.3] - user time: 2781s
+Time:     90s, Mem: 13.339GB - scanned:    19975616 [   19975616] - remaining:   415143274 [   23736765@17.2] - user time: 4207s
+Time:    120s, Mem: 18.641GB - scanned:    25890878 [   25890878] - remaining:   608116158 [  153891392@17.3] - user time: 5609s
+Time:    150s, Mem: 24.319GB - scanned:    31582470 [   31582470] - remaining:   831227665 [  202990473@17.3] - user time: 7023s
+Time:    180s, Mem: 30.720GB - scanned:    37636976 [   37636976] - remaining:  1047113793 [  254213451@17.3] - user time: 8436s
+Time:    210s, Mem: 34.377GB - scanned:    42623027 [   42623027] - remaining:  1187719244 [  256372402@17.3] - user time: 9858s
+Time:    240s, Mem: 39.084GB - scanned:    48301415 [   48301415] - remaining:  1368488422 [  286269847@17.3] - user time: 11265s
+Time:    270s, Mem: 41.790GB - scanned:    59554091 [   59554092] - remaining:  1398425295 [  218065465@17.3] - user time: 12671s
+Time:    300s, Mem: 48.200GB - scanned:    69681353 [   69681353] - remaining:  1333553416 [  105310221@17.3] - user time: 14039s
+Time:    330s, Mem: 48.200GB - scanned:    76895780 [   76895780] - remaining:  1272255723 [   33631786@18.2] - user time: 15410s
+Time:    360s, Mem: 49.513GB - scanned:    81293919 [   81293919] - remaining:  1506238990 [   49816937@18.2] - user time: 16834s
+Time:    390s, Mem: 52.290GB - scanned:    86426542 [   86426542] - remaining:  1579648633 [    4477520@18.2] - user time: 18142s
+Time:    420s, Mem: 57.968GB - scanned:    91242888 [   91242888] - remaining:  1805721730 [  560256229@18.3] - user time: 19537s
+Time:    450s, Mem: 63.913GB - scanned:    96346155 [   96346155] - remaining:  2042806233 [  608590132@18.3] - user time: 20950s
+Time:    480s, Mem: 69.729GB - scanned:   101452675 [  101452675] - remaining:  2274402572 [  654676116@18.3] - user time: 22365s
+Time:    510s, Mem: 74.900GB - scanned:   107303530 [  107303530] - remaining:  2474843659 [  699116995@18.3] - user time: 23783s
+Time:    540s, Mem: 80.275GB - scanned:   113153134 [  113153134] - remaining:  2683850180 [  744946740@18.3] - user time: 25197s
+Time:    570s, Mem: 85.503GB - scanned:   119459476 [  119459476] - remaining:  2884876773 [  790953452@18.3] - user time: 26614s
+Time:    600s, Mem: 90.985GB - scanned:   125046761 [  125046761] - remaining:  3099689261 [  836344597@18.3] - user time: 28032s
+Time:    630s, Mem: 96.365GB - scanned:   130716036 [  130716036] - remaining:  3309298007 [  882281848@18.3] - user time: 29449s
+Time:    660s, Mem: 110.946GB - scanned:   137316062 [  137316062] - remaining:  3503324324 [  929028306@18.3] - user time: 30858s
+Time:    690s, Mem: 110.946GB - scanned:   143331161 [  143331161] - remaining:  3708169891 [  975288933@18.3] - user time: 32259s
+Time:    720s, Mem: 115.464GB - scanned:   149719989 [  149719989] - remaining:  3917182938 [ 1023103494@18.3] - user time: 33677s
+Time:    750s, Mem: 121.271GB - scanned:   155947449 [  155947449] - remaining:  4140805495 [ 1085206921@18.3] - user time: 35093s
+Time:    780s, Mem: 125.279GB - scanned:   160914369 [  160914369] - remaining:  4295669157 [ 1090470399@18.3] - user time: 36506s
+Time:    810s, Mem: 128.442GB - scanned:   165850964 [  165850964] - remaining:  4419887034 [ 1078056391@18.3] - user time: 37929s
+Time:    840s, Mem: 130.523GB - scanned:   170599380 [  170599380] - remaining:  4493471285 [ 1052164133@18.3] - user time: 39327s
+Time:    870s, Mem: 134.660GB - scanned:   176518829 [  176518829] - remaining:  4648349857 [ 1075527818@18.3] - user time: 40728s
+Time:    900s, Mem: 137.084GB - scanned:   181136251 [  181136251] - remaining:  4735723753 [ 1057881254@18.3] - user time: 42106s
+Time:    930s, Mem: 141.544GB - scanned:   187424727 [  187424727] - remaining:  4903970063 [ 1075037206@18.3] - user time: 43527s
+Time:    960s, Mem: 146.712GB - scanned:   193442774 [  193442774] - remaining:  5101658947 [ 1116055653@18.3] - user time: 44946s
+Time:    990s, Mem: 151.666GB - scanned:   199924505 [  199924505] - remaining:  5288051950 [ 1155711180@18.3] - user time: 46366s
+Time:   1020s, Mem: 155.424GB - scanned:   204749045 [  204749045] - remaining:  5437379600 [ 1182557160@18.3] - user time: 47765s
+Time:   1050s, Mem: 160.148GB - scanned:   210766840 [  210766840] - remaining:  5618745337 [ 1228070833@18.3] - user time: 49176s
+Time:   1080s, Mem: 162.957GB - scanned:   224333074 [  224333075] - remaining:  5642830277 [ 1146698844@18.3] - user time: 50535s
+Time:   1110s, Mem: 164.478GB - scanned:   235835643 [  235835643] - remaining:  5594029688 [ 1034433077@18.3] - user time: 51821s
+Time:   1140s, Mem: 165.780GB - scanned:   248150459 [  248150459] - remaining:  5527965377 [  920390572@18.3] - user time: 53081s
+Time:   1170s, Mem: 166.967GB - scanned:   259393127 [  259393127] - remaining:  5460246044 [  807657616@18.3] - user time: 54342s
+Time:   1200s, Mem: 190.939GB - scanned:   268435557 [  268435557] - remaining:  5381226226 [  696965789@18.3] - user time: 55568s
+Time:   1230s, Mem: 190.939GB - scanned:   279922122 [  279922122] - remaining:  5326990136 [  593912255@18.3] - user time: 56842s
+Time:   1260s, Mem: 190.939GB - scanned:   287738254 [  287738254] - remaining:  5270335939 [  497525146@18.3] - user time: 58095s
+Time:   1290s, Mem: 190.939GB - scanned:   290177969 [  290177969] - remaining:  5174313214 [  392434123@18.3] - user time: 59257s
+Time:   1320s, Mem: 190.939GB - scanned:   295260192 [  295260192] - remaining:  5088706667 [  288062037@18.3] - user time: 60454s
+Time:   1350s, Mem: 190.939GB - scanned:   300941626 [  300941626] - remaining:  5005457813 [  182649823@18.3] - user time: 61657s
+Time:   1380s, Mem: 190.939GB - scanned:   306306508 [  306306508] - remaining:  4930764390 [   82492277@18.3] - user time: 62883s
+Time:   1410s, Mem: 190.939GB - scanned:   312719730 [  312719730] - remaining:  4913933516 [   71397302@19.2] - user time: 64174s
+Time:   1440s, Mem: 190.939GB - scanned:   316971712 [  316971712] - remaining:  5132588004 [   78943285@19.2] - user time: 65600s
+Time:   1470s, Mem: 190.939GB - scanned:   321301339 [  321301339] - remaining:  5359216166 [   91111491@19.2] - user time: 67034s
+Time:   1500s, Mem: 190.939GB - scanned:   325079090 [  325079090] - remaining:  5527236811 [   74329987@19.2] - user time: 68455s
+Time:   1530s, Mem: 190.939GB - scanned:   332251095 [  332251095] - remaining:  5577378643 [ 2068216646@19.3] - user time: 69872s
+Time:   1560s, Mem: 193.842GB - scanned:   337270099 [  337270099] - remaining:  5811227631 [ 2117778327@19.3] - user time: 71287s
+Time:   1590s, Mem: 199.774GB - scanned:   342311963 [  342311963] - remaining:  6047391581 [ 2166305777@19.3] - user time: 72702s
+Time:   1620s, Mem: 205.591GB - scanned:   347299336 [  347299336] - remaining:  6278796128 [ 2212450401@19.3] - user time: 74117s
+Time:   1650s, Mem: 211.380GB - scanned:   352369022 [  352369022] - remaining:  6509510713 [ 2256856490@19.3] - user time: 75530s
+Time:   1680s, Mem: 217.096GB - scanned:   357419038 [  357419038] - remaining:  6736620823 [ 2297208592@19.3] - user time: 76945s
+Time:   1710s, Mem: 222.864GB - scanned:   362444785 [  362444785] - remaining:  6966327211 [ 2342886198@19.3] - user time: 78360s
+Time:   1740s, Mem: 228.397GB - scanned:   367404796 [  367404796] - remaining:  7186168044 [ 2383948284@19.3] - user time: 79751s
+Time:   1770s, Mem: 234.035GB - scanned:   372472295 [  372472295] - remaining:  7410034903 [ 2425154340@19.3] - user time: 81166s
+Time:   1800s, Mem: 239.185GB - scanned:   377644464 [  377644464] - remaining:  7612972303 [ 2463382916@19.3] - user time: 82585s
+Time:   1830s, Mem: 244.225GB - scanned:   383380216 [  383380216] - remaining:  7807753885 [ 2505099211@19.3] - user time: 84003s
+Time:   1860s, Mem: 249.475GB - scanned:   389260559 [  389260559] - remaining:  8010227122 [ 2551918020@19.3] - user time: 85421s
+Time:   1890s, Mem: 254.621GB - scanned:   395149788 [  395149788] - remaining:  8208516554 [ 2596028031@19.3] - user time: 86840s
+Time:   1920s, Mem: 259.723GB - scanned:   401064061 [  401064061] - remaining:  8404521827 [ 2636834084@19.3] - user time: 88259s
+Time:   1950s, Mem: 264.170GB - scanned:   407059616 [  407059616] - remaining:  8574728177 [ 2672455949@19.3] - user time: 89676s
+Time:   1980s, Mem: 269.114GB - scanned:   413446641 [  413446641] - remaining:  8763432659 [ 2712657423@19.3] - user time: 91098s
+Time:   2010s, Mem: 274.421GB - scanned:   419012743 [  419012743] - remaining:  8970636681 [ 2751407787@19.3] - user time: 92517s
+Time:   2040s, Mem: 279.722GB - scanned:   424904496 [  424904496] - remaining:  9176019085 [ 2799079319@19.3] - user time: 93923s
+Time:   2070s, Mem: 284.811GB - scanned:   430769873 [  430769873] - remaining:  9372071306 [ 2839048888@19.3] - user time: 95341s
+Time:   2100s, Mem: 289.935GB - scanned:   436631267 [  436631267] - remaining:  9569183566 [ 2879883462@19.3] - user time: 96761s
+Time:   2130s, Mem: 295.029GB - scanned:   442962358 [  442962358] - remaining:  9763758266 [ 2924069607@19.3] - user time: 98168s
+Time:   2160s, Mem: 299.920GB - scanned:   449527382 [  449527382] - remaining:  9948098064 [ 2965336602@19.3] - user time: 99586s
+Time:   2190s, Mem: 304.657GB - scanned:   456391573 [  456391573] - remaining: 10124778323 [ 3002170862@19.3] - user time: 101009s
+Time:   2220s, Mem: 309.631GB - scanned:   462508183 [  462508183] - remaining: 10315190358 [ 3043843236@19.3] - user time: 102429s
+Time:   2250s, Mem: 314.631GB - scanned:   468910975 [  468910975] - remaining: 10505425883 [ 3089486580@19.3] - user time: 103848s
+Time:   2280s, Mem: 319.503GB - scanned:   474729997 [  474729997] - remaining: 10693501383 [ 3128807066@19.3] - user time: 105266s
+Time:   2310s, Mem: 324.814GB - scanned:   480188973 [  480188973] - remaining: 10901288992 [ 3171496306@19.3] - user time: 106676s
+Time:   2340s, Mem: 330.029GB - scanned:   485779348 [  485779348] - remaining: 11103921757 [ 3213673759@19.3] - user time: 108090s
+Time:   2370s, Mem: 335.025GB - scanned:   491420061 [  491420061] - remaining: 11297162520 [ 3249405885@19.3] - user time: 109509s
+Time:   2400s, Mem: 340.267GB - scanned:   496902291 [  496902291] - remaining: 11501541824 [ 3292306334@19.3] - user time: 110928s
+Time:   2430s, Mem: 345.454GB - scanned:   502647962 [  502647962] - remaining: 11702312227 [ 3335097837@19.3] - user time: 112347s
+Time:   2460s, Mem: 350.473GB - scanned:   508671844 [  508671844] - remaining: 11894619020 [ 3376203567@19.3] - user time: 113766s
+Time:   2490s, Mem: 355.448GB - scanned:   515061323 [  515061323] - remaining: 12082837945 [ 3418682790@19.3] - user time: 115186s
+Time:   2520s, Mem: 360.386GB - scanned:   521473906 [  521473906] - remaining: 12269425194 [ 3461926500@19.3] - user time: 116606s
+Time:   2550s, Mem: 365.097GB - scanned:   528580708 [  528580708] - remaining: 12443146505 [ 3506455937@19.3] - user time: 118027s
+Time:   2580s, Mem: 370.008GB - scanned:   534855976 [  534855976] - remaining: 12629809214 [ 3553796344@19.3] - user time: 119447s
+Time:   2610s, Mem: 417.816GB - scanned:   541592428 [  541592428] - remaining: 12794691809 [ 3589421055@19.3] - user time: 120835s
+Time:   2640s, Mem: 417.816GB - scanned:   547952545 [  547952545] - remaining: 12972900214 [ 3616363073@19.3] - user time: 122225s
+Time:   2670s, Mem: 417.816GB - scanned:   554231145 [  554231145] - remaining: 13167897399 [ 3660544509@19.3] - user time: 123639s
+Time:   2700s, Mem: 417.816GB - scanned:   560703870 [  560703870] - remaining: 13367486974 [ 3699793500@19.3] - user time: 125055s
+Time:   2730s, Mem: 417.816GB - scanned:   567408615 [  567408615] - remaining: 13556236446 [ 3734032800@19.3] - user time: 126473s
+Time:   2760s, Mem: 417.816GB - scanned:   573571109 [  573571109] - remaining: 13745275600 [ 3773271966@19.3] - user time: 127868s
+Time:   2790s, Mem: 417.816GB - scanned:   579546366 [  579546366] - remaining: 13965981248 [ 3833922246@19.3] - user time: 129284s
+Time:   2820s, Mem: 423.452GB - scanned:   585696962 [  585696962] - remaining: 14184022900 [ 3885429490@19.3] - user time: 130699s
+Time:   2850s, Mem: 428.613GB - scanned:   592753801 [  592753801] - remaining: 14370690647 [ 3923593988@19.3] - user time: 132117s
+Time:   2880s, Mem: 434.244GB - scanned:   598695723 [  598695723] - remaining: 14585052672 [ 3977450625@19.3] - user time: 133532s
+Time:   2910s, Mem: 439.957GB - scanned:   604846218 [  604846218] - remaining: 14802716819 [ 4037526042@19.3] - user time: 134947s
+Time:   2940s, Mem: 445.637GB - scanned:   611178451 [  611178451] - remaining: 15019769647 [ 4097759595@19.3] - user time: 136360s
+Time:   2970s, Mem: 450.878GB - scanned:   618042509 [  618042509] - remaining: 15216280276 [ 4148936452@19.3] - user time: 137778s
+Time:   3000s, Mem: 455.491GB - scanned:   623544035 [  623544035] - remaining: 15393206584 [ 4186124256@19.3] - user time: 139184s
+Time:   3030s, Mem: 459.340GB - scanned:   628884978 [  628884978] - remaining: 15535808616 [ 4204715619@19.3] - user time: 140590s
+Time:   3060s, Mem: 463.280GB - scanned:   634724276 [  634724276] - remaining: 15679563635 [ 4223510114@19.3] - user time: 141989s
+Time:   3090s, Mem: 466.376GB - scanned:   638766464 [  638766464] - remaining: 15801697390 [ 4206067612@19.3] - user time: 143383s
+Time:   3120s, Mem: 470.307GB - scanned:   643374931 [  643374931] - remaining: 15954880467 [ 4209507413@19.3] - user time: 144792s
+Time:   3150s, Mem: 471.017GB - scanned:   646284652 [  646284652] - remaining: 15986406763 [ 4167729196@19.3] - user time: 146128s
+Time:   3180s, Mem: 473.404GB - scanned:   651076156 [  651076156] - remaining: 16080645097 [ 4142975279@19.3] - user time: 147547s
+Time:   3210s, Mem: 475.623GB - scanned:   655572384 [  655572384] - remaining: 16161063688 [ 4118053709@19.3] - user time: 148938s
+Time:   3240s, Mem: 476.927GB - scanned:   659259650 [  659259650] - remaining: 16198644804 [ 4086529503@19.3] - user time: 150295s
+Time:   3270s, Mem: 478.315GB - scanned:   663572707 [  663572707] - remaining: 16244991298 [ 4058791264@19.3] - user time: 151681s
+Time:   3300s, Mem: 480.035GB - scanned:   668100018 [  668100018] - remaining: 16305351882 [ 4031763214@19.3] - user time: 153076s
+Time:   3330s, Mem: 482.661GB - scanned:   673579580 [  673579580] - remaining: 16400514685 [ 4015342512@19.3] - user time: 154495s
+Time:   3360s, Mem: 484.143GB - scanned:   677862452 [  677862452] - remaining: 16446812671 [ 3987228208@19.3] - user time: 155861s
+Time:   3390s, Mem: 487.775GB - scanned:   684523260 [  684523260] - remaining: 16579869441 [ 3990727740@19.3] - user time: 157286s
+Time:   3420s, Mem: 491.757GB - scanned:   690752731 [  690752731] - remaining: 16727684202 [ 4008584438@19.3] - user time: 158711s
+Time:   3450s, Mem: 495.693GB - scanned:   697343973 [  697343973] - remaining: 16871597905 [ 4019556425@19.3] - user time: 160135s
+Time:   3480s, Mem: 499.818GB - scanned:   703501747 [  703501747] - remaining: 17024584515 [ 4040855750@19.3] - user time: 161558s
+Time:   3510s, Mem: 504.242GB - scanned:   709481361 [  709481361] - remaining: 17186079658 [ 4070184201@19.3] - user time: 162978s
+Time:   3540s, Mem: 508.261GB - scanned:   714888336 [  714888336] - remaining: 17335795738 [ 4095697622@19.3] - user time: 164387s
+Time:   3570s, Mem: 510.681GB - scanned:   719133497 [  719133497] - remaining: 17420706183 [ 4081722430@19.3] - user time: 165764s
+Time:   3600s, Mem: 510.853GB - scanned:   720780767 [  720780767] - remaining: 17392613880 [ 4022919290@19.3] - user time: 167059s
+Time:   3630s, Mem: 511.675GB - scanned:   725107815 [  725107815] - remaining: 17440136000 [ 3990624970@19.3] - user time: 168443s
+Time:   3660s, Mem: 515.515GB - scanned:   731569153 [  731569153] - remaining: 17583525831 [ 3992666119@19.3] - user time: 169867s
+Time:   3690s, Mem: 519.525GB - scanned:   738062724 [  738062724] - remaining: 17733380653 [ 4000206210@19.3] - user time: 171290s
+Time:   3720s, Mem: 524.381GB - scanned:   744025524 [  744025524] - remaining: 17915465110 [ 4029111331@19.3] - user time: 172709s
+Time:   3750s, Mem: 528.535GB - scanned:   750737123 [  750737123] - remaining: 18066739123 [ 4042997685@19.3] - user time: 174131s
+Time:   3780s, Mem: 532.865GB - scanned:   757318306 [  757318306] - remaining: 18225068176 [ 4060984353@19.3] - user time: 175554s
+Time:   3810s, Mem: 537.486GB - scanned:   763629447 [  763629447] - remaining: 18398439707 [ 4089405615@19.3] - user time: 176976s
+Time:   3840s, Mem: 542.694GB - scanned:   769514707 [  769514707] - remaining: 18596838272 [ 4136273967@19.3] - user time: 178380s
+Time:   3870s, Mem: 547.319GB - scanned:   776239568 [  776239568] - remaining: 18767771030 [ 4169770615@19.3] - user time: 179801s
+Time:   3900s, Mem: 551.886GB - scanned:   783161282 [  783161282] - remaining: 18933498885 [ 4205014361@19.3] - user time: 181223s
+Time:   3930s, Mem: 556.422GB - scanned:   789872726 [  789872726] - remaining: 19099518599 [ 4239584611@19.3] - user time: 182645s
+Time:   3960s, Mem: 561.097GB - scanned:   796645675 [  796645675] - remaining: 19271843142 [ 4271375399@19.3] - user time: 184067s
+Time:   3990s, Mem: 565.594GB - scanned:   803522956 [  803522956] - remaining: 19435172940 [ 4299741716@19.3] - user time: 185490s
+Time:   4020s, Mem: 569.483GB - scanned:   808419702 [  808419702] - remaining: 19586065745 [ 4326564119@19.3] - user time: 186892s
+Time:   4050s, Mem: 571.943GB - scanned:   812086658 [  812086658] - remaining: 19676115707 [ 4326839869@19.3] - user time: 188261s
+Time:   4080s, Mem: 573.703GB - scanned:   815918822 [  815918822] - remaining: 19755553030 [ 4325128751@19.3] - user time: 189612s
+Time:   4110s, Mem: 578.314GB - scanned:   821919339 [  821919339] - remaining: 19934603118 [ 4372896866@19.3] - user time: 191032s
+Time:   4140s, Mem: 582.424GB - scanned:   827770827 [  827770827] - remaining: 20089205776 [ 4408596638@19.3] - user time: 192436s
+Time:   4170s, Mem: 586.175GB - scanned:   833741152 [  833741152] - remaining: 20232849045 [ 4437491769@19.3] - user time: 193845s
+Time:   4200s, Mem: 591.148GB - scanned:   840240283 [  840240283] - remaining: 20421097925 [ 4490547634@19.3] - user time: 195265s
+Time:   4230s, Mem: 592.689GB - scanned:   846939350 [  846939350] - remaining: 20439410020 [ 4444004928@19.3] - user time: 196575s
+Time:   4260s, Mem: 594.413GB - scanned:   857481617 [  857481617] - remaining: 20435034333 [ 4373981813@19.3] - user time: 197862s
+Time:   4290s, Mem: 596.563GB - scanned:   869161116 [  869161116] - remaining: 20438559884 [ 4302745442@19.3] - user time: 199151s
+Time:   4320s, Mem: 597.883GB - scanned:   877587766 [  877587767] - remaining: 20424058571 [ 4234341092@19.3] - user time: 200426s
+Time:   4350s, Mem: 599.411GB - scanned:   886224887 [  886224887] - remaining: 20408793725 [ 4163030342@19.3] - user time: 201712s
+Time:   4380s, Mem: 600.019GB - scanned:   891984277 [  891984277] - remaining: 20377438764 [ 4094233678@19.3] - user time: 202982s
+Time:   4410s, Mem: 600.522GB - scanned:   896717221 [  896717221] - remaining: 20334567296 [ 4024790192@19.3] - user time: 204250s
+Time:   4440s, Mem: 601.385GB - scanned:   904837606 [  904837606] - remaining: 20296563487 [ 3955852316@19.3] - user time: 205499s
+Time:   4470s, Mem: 602.439GB - scanned:   914905542 [  914905542] - remaining: 20266576129 [ 3886916003@19.3] - user time: 206763s
+Time:   4500s, Mem: 603.250GB - scanned:   922564556 [  922564556] - remaining: 20226460741 [ 3816856993@19.3] - user time: 208027s
+Time:   4530s, Mem: 604.073GB - scanned:   930396355 [  930396355] - remaining: 20185482300 [ 3745671721@19.3] - user time: 209295s
+Time:   4560s, Mem: 604.569GB - scanned:   935093074 [  935093074] - remaining: 20125429389 [ 3671495775@19.3] - user time: 210566s
+Time:   4590s, Mem: 605.411GB - scanned:   943062999 [  943062999] - remaining: 20081710076 [ 3599640646@19.3] - user time: 211835s
+Time:   4620s, Mem: 606.160GB - scanned:   950161782 [  950161782] - remaining: 20040120200 [ 3528282302@19.3] - user time: 213102s
+Time:   4650s, Mem: 607.011GB - scanned:   958210648 [  958210648] - remaining: 19999056519 [ 3456108826@19.3] - user time: 214373s
+Time:   4680s, Mem: 607.901GB - scanned:   966656244 [  966656244] - remaining: 19962183741 [ 3386177952@19.3] - user time: 215638s
+Time:   4710s, Mem: 608.839GB - scanned:   975541467 [  975541467] - remaining: 19915769711 [ 3314876185@19.3] - user time: 216902s
+Time:   4740s, Mem: 609.674GB - scanned:   983461465 [  983461465] - remaining: 19868643212 [ 3244038992@19.3] - user time: 218171s
+Time:   4770s, Mem: 610.386GB - scanned:   990200665 [  990200665] - remaining: 19837931603 [ 3180886950@19.3] - user time: 219443s
+Time:   4800s, Mem: 611.113GB - scanned:   997098900 [  997098900] - remaining: 19805655534 [ 3117082039@19.3] - user time: 220716s
+Time:   4830s, Mem: 611.602GB - scanned:  1001715573 [ 1001715573] - remaining: 19761339312 [ 3048869194@19.3] - user time: 221987s
+Time:   4860s, Mem: 612.274GB - scanned:  1008095493 [ 1008095493] - remaining: 19716289155 [ 2976433954@19.3] - user time: 223254s
+Time:   4890s, Mem: 612.786GB - scanned:  1012947358 [ 1012947358] - remaining: 19663768993 [ 2903395374@19.3] - user time: 224525s
+Time:   4920s, Mem: 613.338GB - scanned:  1018151761 [ 1018151761] - remaining: 19613462605 [ 2831955911@19.3] - user time: 225791s
+Time:   4950s, Mem: 613.752GB - scanned:  1022077419 [ 1022077419] - remaining: 19553675090 [ 2758193409@19.3] - user time: 227059s
+Time:   4980s, Mem: 614.039GB - scanned:  1024798540 [ 1024798540] - remaining: 19485292254 [ 2681726820@19.3] - user time: 228330s
+Time:   5010s, Mem: 614.695GB - scanned:  1031030958 [ 1031030958] - remaining: 19427969833 [ 2608526800@19.3] - user time: 229600s
+Time:   5040s, Mem: 615.258GB - scanned:  1036331532 [ 1036331532] - remaining: 19380481705 [ 2540899758@19.3] - user time: 230862s
+Time:   5070s, Mem: 616.244GB - scanned:  1045677367 [ 1045677367] - remaining: 19336831121 [ 2468768495@19.3] - user time: 232134s
+Time:   5100s, Mem: 617.143GB - scanned:  1054207855 [ 1054207855] - remaining: 19297178703 [ 2396466456@19.3] - user time: 233410s
+Time:   5130s, Mem: 617.980GB - scanned:  1061959368 [ 1061959368] - remaining: 19253590481 [ 2325506210@19.3] - user time: 234677s
+Time:   5160s, Mem: 619.078GB - scanned:  1072529239 [ 1072529239] - remaining: 19229779923 [ 2255713562@19.3] - user time: 235958s
+Time:   5190s, Mem: 712.885GB - scanned:  1075082306 [ 1075082306] - remaining: 19170571376 [ 2185092601@19.3] - user time: 237189s
+Time:   5220s, Mem: 712.885GB - scanned:  1082733590 [ 1082733590] - remaining: 19125682617 [ 2114686493@19.3] - user time: 238456s
+Time:   5250s, Mem: 712.885GB - scanned:  1088851292 [ 1088851292] - remaining: 19089077973 [ 2049218905@19.3] - user time: 239722s
+Time:   5280s, Mem: 712.885GB - scanned:  1096282358 [ 1096282358] - remaining: 19077561400 [ 1992362189@19.3] - user time: 241003s
+Time:   5310s, Mem: 712.885GB - scanned:  1098811098 [ 1098811098] - remaining: 19016097939 [ 1920090243@19.3] - user time: 242272s
+Time:   5340s, Mem: 712.885GB - scanned:  1106106373 [ 1106106373] - remaining: 18985418588 [ 1857162424@19.3] - user time: 243540s
+Time:   5370s, Mem: 712.885GB - scanned:  1109586564 [ 1109586564] - remaining: 18945366630 [ 1793592619@19.3] - user time: 244812s
+Time:   5400s, Mem: 712.885GB - scanned:  1113157184 [ 1113157184] - remaining: 18891798666 [ 1724328102@19.3] - user time: 246079s
+Time:   5430s, Mem: 712.885GB - scanned:  1114764170 [ 1114764170] - remaining: 18830850418 [ 1653040459@19.3] - user time: 247346s
+Time:   5460s, Mem: 712.885GB - scanned:  1115823769 [ 1115823769] - remaining: 18757653416 [ 1575761719@19.3] - user time: 248616s
+Time:   5490s, Mem: 712.885GB - scanned:  1116897935 [ 1116897935] - remaining: 18682875302 [ 1497760751@19.3] - user time: 249886s
+Time:   5520s, Mem: 712.885GB - scanned:  1118713268 [ 1118713268] - remaining: 18612933133 [ 1421686460@19.3] - user time: 251155s
+Time:   5550s, Mem: 712.885GB - scanned:  1121009099 [ 1121009099] - remaining: 18542485667 [ 1345609870@19.3] - user time: 252425s
+Time:   5580s, Mem: 712.885GB - scanned:  1123979512 [ 1123979512] - remaining: 18477686956 [ 1271379137@19.3] - user time: 253694s
+Time:   5610s, Mem: 712.885GB - scanned:  1126583418 [ 1126583418] - remaining: 18411413284 [ 1196778988@19.3] - user time: 254964s
+Time:   5640s, Mem: 712.885GB - scanned:  1129229146 [ 1129229146] - remaining: 18347433929 [ 1122976839@19.3] - user time: 256226s
+Time:   5670s, Mem: 712.885GB - scanned:  1131291194 [ 1131291194] - remaining: 18289084758 [ 1052518040@19.3] - user time: 257497s
+Time:   5700s, Mem: 712.885GB - scanned:  1134758447 [ 1134758447] - remaining: 18222957833 [  975992652@19.3] - user time: 258769s
+Time:   5730s, Mem: 712.885GB - scanned:  1139124173 [ 1139124173] - remaining: 18164541274 [  900973121@19.3] - user time: 260039s
+Time:   5760s, Mem: 712.885GB - scanned:  1141477390 [ 1141477390] - remaining: 18093953069 [  824791970@19.3] - user time: 261308s
+Time:   5790s, Mem: 712.885GB - scanned:  1143927644 [ 1143927644] - remaining: 18030439599 [  750243387@19.3] - user time: 262577s
+Time:   5820s, Mem: 712.885GB - scanned:  1146005738 [ 1146005738] - remaining: 17958905227 [  672918557@19.3] - user time: 263847s
+Time:   5850s, Mem: 712.885GB - scanned:  1150292605 [ 1150292605] - remaining: 17901439250 [  602436036@19.3] - user time: 265111s
+Time:   5880s, Mem: 712.885GB - scanned:  1153937926 [ 1153937926] - remaining: 17844329889 [  531904959@19.3] - user time: 266376s
+Time:   5910s, Mem: 712.885GB - scanned:  1155364816 [ 1155364816] - remaining: 17781967636 [  460923577@19.3] - user time: 267646s
+Time:   5940s, Mem: 712.885GB - scanned:  1155818118 [ 1155818118] - remaining: 17709742136 [  384358242@19.3] - user time: 268914s
+Time:   5970s, Mem: 712.885GB - scanned:  1160342729 [ 1160342729] - remaining: 17658812600 [  314108549@19.3] - user time: 270181s
+Time:   6000s, Mem: 712.885GB - scanned:  1164823636 [ 1164823636] - remaining: 17611474733 [  247789494@19.3] - user time: 271445s
+Time:   6030s, Mem: 712.885GB - scanned:  1168849383 [ 1168849383] - remaining: 17559288268 [  179174844@19.3] - user time: 272710s
+Time:   6060s, Mem: 712.885GB - scanned:  1170813927 [ 1170813927] - remaining: 17506696257 [  112283907@19.3] - user time: 273978s
+Time:   6090s, Mem: 712.885GB - scanned:  1176101394 [ 1176101394] - remaining: 17483771447 [   50457697@19.3] - user time: 275271s
+Time:   6120s, Mem: 712.885GB - scanned:  1182310946 [ 1182310946] - remaining: 17482912796 [  129088330@20.2] - user time: 276590s
+Time:   6150s, Mem: 712.885GB - scanned:  1186633095 [ 1186633095] - remaining: 17564993823 [  133294509@20.2] - user time: 277981s
+Time:   6180s, Mem: 712.885GB - scanned:  1191154283 [ 1191154283] - remaining: 17648492615 [  138975586@20.2] - user time: 279419s
+Time:   6210s, Mem: 712.885GB - scanned:  1195709999 [ 1195709999] - remaining: 17728307214 [  146609141@20.2] - user time: 280855s
+Time:   6240s, Mem: 712.885GB - scanned:  1200272583 [ 1200272583] - remaining: 17808454523 [  156231569@20.2] - user time: 282284s
+Time:   6270s, Mem: 712.885GB - scanned:  1204375716 [ 1204375716] - remaining: 17855740831 [  139513440@20.2] - user time: 283719s
+Time:   6300s, Mem: 712.885GB - scanned:  1210269653 [ 1210269653] - remaining: 17876129275 [  102346263@20.2] - user time: 285142s
+Time:   6330s, Mem: 712.885GB - scanned:  1217417358 [ 1217417358] - remaining: 17812321700 [ 7668887532@20.3] - user time: 286506s
+Time:   6360s, Mem: 712.885GB - scanned:  1222678070 [ 1222678070] - remaining: 17934630463 [ 7720574860@20.3] - user time: 287944s
+Time:   6390s, Mem: 712.885GB - scanned:  1227961752 [ 1227961752] - remaining: 18053660663 [ 7767777409@20.3] - user time: 289381s
+Time:   6420s, Mem: 712.885GB - scanned:  1233399133 [ 1233399133] - remaining: 18181998389 [ 7820511089@20.3] - user time: 290819s
+Time:   6450s, Mem: 712.885GB - scanned:  1238832303 [ 1238832303] - remaining: 18301977882 [ 7866396726@20.3] - user time: 292257s
+Time:   6480s, Mem: 712.885GB - scanned:  1243972766 [ 1243972766] - remaining: 18414927901 [ 7914122747@20.3] - user time: 293659s
+Time:   6510s, Mem: 712.885GB - scanned:  1249160811 [ 1249160811] - remaining: 18510059583 [ 7948013808@20.3] - user time: 295068s
+Time:   6540s, Mem: 712.885GB - scanned:  1254488983 [ 1254488983] - remaining: 18631001697 [ 7999759235@20.3] - user time: 296504s
+Time:   6570s, Mem: 712.885GB - scanned:  1259899342 [ 1259899342] - remaining: 18740247600 [ 8041088049@20.3] - user time: 297943s
+Time:   6600s, Mem: 712.885GB - scanned:  1265315784 [ 1265315784] - remaining: 18846237856 [ 8081993752@20.3] - user time: 299380s
+Time:   6630s, Mem: 712.885GB - scanned:  1270574477 [ 1270574477] - remaining: 18970155823 [ 8136542384@20.3] - user time: 300802s
+Time:   6660s, Mem: 712.885GB - scanned:  1275810844 [ 1275810844] - remaining: 19067329272 [ 8172546402@20.3] - user time: 302197s
+Time:   6690s, Mem: 712.885GB - scanned:  1281260801 [ 1281260801] - remaining: 19165194747 [ 8210026722@20.3] - user time: 303635s
+Time:   6720s, Mem: 712.885GB - scanned:  1286660146 [ 1286660146] - remaining: 19260943396 [ 8245761484@20.3] - user time: 305067s
+Time:   6750s, Mem: 712.885GB - scanned:  1292063146 [ 1292063146] - remaining: 19365624461 [ 8288798119@20.3] - user time: 306495s
+Time:   6780s, Mem: 712.885GB - scanned:  1297427489 [ 1297427489] - remaining: 19475867999 [ 8334932419@20.3] - user time: 307922s
+Time:   6810s, Mem: 712.885GB - scanned:  1302783730 [ 1302783730] - remaining: 19599228715 [ 8391194565@20.3] - user time: 309347s
+Time:   6840s, Mem: 712.885GB - scanned:  1308165085 [ 1308165085] - remaining: 19696828419 [ 8429247974@20.3] - user time: 310768s
+Time:   6870s, Mem: 712.885GB - scanned:  1313646068 [ 1313646068] - remaining: 19785679369 [ 8463566461@20.3] - user time: 312199s
+Time:   6900s, Mem: 712.885GB - scanned:  1319055644 [ 1319055644] - remaining: 19883001000 [ 8504843885@20.3] - user time: 313623s
+Time:   6930s, Mem: 712.885GB - scanned:  1324528627 [ 1324528627] - remaining: 19982851174 [ 8545854932@20.3] - user time: 315052s
+Time:   6960s, Mem: 712.885GB - scanned:  1329686075 [ 1329686075] - remaining: 20087192058 [ 8586138823@20.3] - user time: 316481s
+Time:   6990s, Mem: 712.885GB - scanned:  1335486689 [ 1335486689] - remaining: 20182914167 [ 8624317910@20.3] - user time: 317911s
+Time:   7020s, Mem: 712.885GB - scanned:  1341578131 [ 1341578131] - remaining: 20287267166 [ 8667205025@20.3] - user time: 319340s
+Time:   7050s, Mem: 712.885GB - scanned:  1347728030 [ 1347728030] - remaining: 20401269578 [ 8716491149@20.3] - user time: 320768s
+Time:   7080s, Mem: 712.885GB - scanned:  1353907140 [ 1353907140] - remaining: 20511261730 [ 8763233992@20.3] - user time: 322196s
+Time:   7110s, Mem: 712.885GB - scanned:  1360033770 [ 1360033770] - remaining: 20616018600 [ 8807067328@20.3] - user time: 323625s
+Time:   7140s, Mem: 712.885GB - scanned:  1366027903 [ 1366027903] - remaining: 20703775832 [ 8838966862@20.3] - user time: 325054s
+Time:   7170s, Mem: 714.560GB - scanned:  1372324335 [ 1372324336] - remaining: 20820588834 [ 8895313826@20.3] - user time: 326482s
+Time:   7200s, Mem: 717.629GB - scanned:  1378549085 [ 1378549085] - remaining: 20925851090 [ 8941480104@20.3] - user time: 327911s
+Time:   7230s, Mem: 720.627GB - scanned:  1384622076 [ 1384622076] - remaining: 21029335958 [ 8986263711@20.3] - user time: 329339s
+Time:   7260s, Mem: 723.463GB - scanned:  1390845860 [ 1390845860] - remaining: 21124092521 [ 9026216999@20.3] - user time: 330768s
+Time:   7290s, Mem: 726.324GB - scanned:  1396441559 [ 1396441559] - remaining: 21224582692 [ 9072974430@20.3] - user time: 332114s
+Time:   7320s, Mem: 729.255GB - scanned:  1402638161 [ 1402638161] - remaining: 21325945662 [ 9117316982@20.3] - user time: 333543s
+Time:   7350s, Mem: 732.100GB - scanned:  1409008731 [ 1409008732] - remaining: 21421259004 [ 9159084171@20.3] - user time: 334973s
+Time:   7380s, Mem: 734.941GB - scanned:  1415312180 [ 1415312180] - remaining: 21515689789 [ 9200434176@20.3] - user time: 336402s
+Time:   7410s, Mem: 737.587GB - scanned:  1421608858 [ 1421608858] - remaining: 21603522619 [ 9236896639@20.3] - user time: 337832s
+Time:   7440s, Mem: 740.507GB - scanned:  1427747282 [ 1427747282] - remaining: 21703440180 [ 9282771588@20.3] - user time: 339250s
+Time:   7470s, Mem: 743.575GB - scanned:  1433881333 [ 1433881333] - remaining: 21810562863 [ 9330874921@20.3] - user time: 340678s
+Time:   7500s, Mem: 746.092GB - scanned:  1440201241 [ 1440201241] - remaining: 21896653040 [ 9365227032@20.3] - user time: 342108s
+Time:   7530s, Mem: 748.563GB - scanned:  1447011162 [ 1447011162] - remaining: 21979369560 [ 9396810381@20.3] - user time: 343538s
+Time:   7560s, Mem: 751.127GB - scanned:  1454008514 [ 1454008515] - remaining: 22061548784 [ 9428889303@20.3] - user time: 344968s
+Time:   7590s, Mem: 753.570GB - scanned:  1460737065 [ 1460737065] - remaining: 22143412300 [ 9457759853@20.3] - user time: 346398s
+Time:   7620s, Mem: 756.748GB - scanned:  1466898142 [ 1466898142] - remaining: 22255541378 [ 9502364804@20.3] - user time: 347826s
+Time:   7650s, Mem: 759.798GB - scanned:  1473482707 [ 1473482707] - remaining: 22360133427 [ 9542951911@20.3] - user time: 349254s
+Time:   7680s, Mem: 762.674GB - scanned:  1479565578 [ 1479565578] - remaining: 22458762964 [ 9577988185@20.3] - user time: 350683s
+Time:   7710s, Mem: 765.624GB - scanned:  1486451380 [ 1486451380] - remaining: 22557972808 [ 9617399100@20.3] - user time: 352113s
+Time:   7740s, Mem: 768.755GB - scanned:  1493234093 [ 1493234093] - remaining: 22665045362 [ 9660310453@20.3] - user time: 353537s
+Time:   7770s, Mem: 771.737GB - scanned:  1500438347 [ 1500438347] - remaining: 22764678062 [ 9698218187@20.3] - user time: 354966s
+Time:   7800s, Mem: 774.547GB - scanned:  1507779388 [ 1507779388] - remaining: 22855421972 [ 9733743274@20.3] - user time: 356396s
+Time:   7830s, Mem: 777.099GB - scanned:  1515052380 [ 1515052380] - remaining: 22938360209 [ 9758604551@20.3] - user time: 357824s
+Time:   7860s, Mem: 780.026GB - scanned:  1520646123 [ 1520646123] - remaining: 23040719474 [ 9798197904@20.3] - user time: 359251s
+Time:   7890s, Mem: 783.213GB - scanned:  1526855867 [ 1526855867] - remaining: 23152558869 [ 9848926257@20.3] - user time: 360679s
+Time:   7920s, Mem: 786.212GB - scanned:  1533111306 [ 1533111306] - remaining: 23255387715 [ 9892915441@20.3] - user time: 362107s
+Time:   7950s, Mem: 789.127GB - scanned:  1539275143 [ 1539275143] - remaining: 23354448793 [ 9932914250@20.3] - user time: 363536s
+Time:   7980s, Mem: 791.940GB - scanned:  1545329979 [ 1545329979] - remaining: 23449624792 [ 9970509247@20.3] - user time: 364965s
+Time:   8010s, Mem: 794.811GB - scanned:  1552128754 [ 1552128754] - remaining: 23544243441 [10012080433@20.3] - user time: 366395s
+Time:   8040s, Mem: 797.751GB - scanned:  1558420494 [ 1558420494] - remaining: 23644844103 [10056146094@20.3] - user time: 367805s
+Time:   8070s, Mem: 800.643GB - scanned:  1564778761 [ 1564778761] - remaining: 23741860387 [10096035200@20.3] - user time: 369236s
+Time:   8100s, Mem: 803.314GB - scanned:  1571217142 [ 1571217142] - remaining: 23829607357 [10129122513@20.3] - user time: 370666s
+Time:   8130s, Mem: 806.094GB - scanned:  1577614480 [ 1577614480] - remaining: 23921838817 [10166691692@20.3] - user time: 372095s
+Time:   8160s, Mem: 809.120GB - scanned:  1583610488 [ 1583610488] - remaining: 24027592641 [10213479256@20.3] - user time: 373523s
+Time:   8190s, Mem: 812.232GB - scanned:  1589966379 [ 1589966379] - remaining: 24135247537 [10259082446@20.3] - user time: 374951s
+Time:   8220s, Mem: 815.431GB - scanned:  1596760510 [ 1596760510] - remaining: 24244933929 [10308934745@20.3] - user time: 376379s
+Time:   8250s, Mem: 818.307GB - scanned:  1603562039 [ 1603562040] - remaining: 24339236013 [10346966896@20.3] - user time: 377808s
+Time:   8280s, Mem: 821.232GB - scanned:  1610335187 [ 1610335187] - remaining: 24436180370 [10387602668@20.3] - user time: 379237s
+Time:   8310s, Mem: 824.100GB - scanned:  1617686837 [ 1617686837] - remaining: 24528203956 [10428098875@20.3] - user time: 380667s
+Time:   8340s, Mem: 827.010GB - scanned:  1624676458 [ 1624676458] - remaining: 24624462957 [10469118382@20.3] - user time: 382095s
+Time:   8370s, Mem: 829.850GB - scanned:  1631475190 [ 1631475190] - remaining: 24718907971 [10505960420@20.3] - user time: 383525s
+Time:   8400s, Mem: 832.767GB - scanned:  1638815433 [ 1638815433] - remaining: 24814778151 [10543997236@20.3] - user time: 384954s
+Time:   8430s, Mem: 835.533GB - scanned:  1646287612 [ 1646287612] - remaining: 24903053492 [10576089345@20.3] - user time: 386384s
+Time:   8460s, Mem: 838.220GB - scanned:  1654301154 [ 1654301154] - remaining: 24985252714 [10605889347@20.3] - user time: 387814s
+Time:   8490s, Mem: 841.065GB - scanned:  1660864622 [ 1660864622] - remaining: 25079717419 [10644787282@20.3] - user time: 389244s
+Time:   8520s, Mem: 843.551GB - scanned:  1668242615 [ 1668242615] - remaining: 25155453335 [10667553395@20.3] - user time: 390674s
+Time:   8550s, Mem: 846.425GB - scanned:  1674649127 [ 1674649127] - remaining: 25252136513 [10707011456@20.3] - user time: 392104s
+Time:   8580s, Mem: 849.174GB - scanned:  1681125871 [ 1681125871] - remaining: 25342541715 [10741275332@20.3] - user time: 393533s
+Time:   8610s, Mem: 852.068GB - scanned:  1687700944 [ 1687700944] - remaining: 25440392946 [10782666828@20.3] - user time: 394962s
+Time:   8640s, Mem: 855.244GB - scanned:  1693862099 [ 1693862099] - remaining: 25551280035 [10834883336@20.3] - user time: 396380s
+Time:   8670s, Mem: 858.265GB - scanned:  1700291934 [ 1700291934] - remaining: 25655839082 [10881219049@20.3] - user time: 397809s
+Time:   8700s, Mem: 861.363GB - scanned:  1706575178 [ 1706575178] - remaining: 25763207103 [10928843886@20.3] - user time: 399237s
+Time:   8730s, Mem: 864.372GB - scanned:  1713095946 [ 1713095946] - remaining: 25866334205 [10975040243@20.3] - user time: 400666s
+Time:   8760s, Mem: 866.755GB - scanned:  1721202958 [ 1721202958] - remaining: 25934403447 [10993172001@20.3] - user time: 402098s
+Time:   8790s, Mem: 869.740GB - scanned:  1727689948 [ 1727689948] - remaining: 26035764066 [11037355065@20.3] - user time: 403526s
+Time:   8820s, Mem: 872.770GB - scanned:  1733487455 [ 1733487455] - remaining: 26143263046 [11086120220@20.3] - user time: 404955s
+Time:   8850s, Mem: 875.321GB - scanned:  1740153314 [ 1740153314] - remaining: 26225657182 [11115894109@20.3] - user time: 406386s
+Time:   8880s, Mem: 878.691GB - scanned:  1746161607 [ 1746161607] - remaining: 26346785060 [11175247563@20.3] - user time: 407812s
+Time:   8910s, Mem: 882.075GB - scanned:  1752198477 [ 1752198477] - remaining: 26468475201 [11235079507@20.3] - user time: 409238s
+Time:   8940s, Mem: 885.132GB - scanned:  1759139511 [ 1759139511] - remaining: 26572622833 [11280174474@20.3] - user time: 410664s
+Time:   8970s, Mem: 887.968GB - scanned:  1766321121 [ 1766321121] - remaining: 26664880888 [11319366517@20.3] - user time: 412093s
+Time:   9000s, Mem: 891.058GB - scanned:  1772459867 [ 1772459867] - remaining: 26773734385 [11368671739@20.3] - user time: 413521s
+Time:   9030s, Mem: 894.112GB - scanned:  1778542227 [ 1778542227] - remaining: 26881489344 [11414536366@20.3] - user time: 414949s
+Time:   9060s, Mem: 896.669GB - scanned:  1785044405 [ 1785044405] - remaining: 26966270237 [11443920647@20.3] - user time: 416380s
+Time:   9090s, Mem: 899.493GB - scanned:  1790875307 [ 1790875307] - remaining: 27063556877 [11486151429@20.3] - user time: 417809s
+Time:   9120s, Mem: 902.182GB - scanned:  1796601177 [ 1796601177] - remaining: 27155320467 [11527187016@20.3] - user time: 419201s
+Time:   9150s, Mem: 904.907GB - scanned:  1802707274 [ 1802707274] - remaining: 27246281699 [11567666395@20.3] - user time: 420630s
+Time:   9180s, Mem: 907.407GB - scanned:  1808734581 [ 1808734581] - remaining: 27327767501 [11599687795@20.3] - user time: 422061s
+Time:   9210s, Mem: 910.131GB - scanned:  1814543829 [ 1814543829] - remaining: 27420487741 [11640296797@20.3] - user time: 423492s
+Time:   9240s, Mem: 912.775GB - scanned:  1820491906 [ 1820491906] - remaining: 27508824766 [11679042757@20.3] - user time: 424888s
+Time:   9270s, Mem: 915.080GB - scanned:  1826514045 [ 1826514045] - remaining: 27582094154 [11704640163@20.3] - user time: 426321s
+Time:   9300s, Mem: 917.776GB - scanned:  1832406032 [ 1832406032] - remaining: 27673103115 [11744961220@20.3] - user time: 427751s
+Time:   9330s, Mem: 920.452GB - scanned:  1838258000 [ 1838258000] - remaining: 27763231183 [11782167022@20.3] - user time: 429181s
+Time:   9360s, Mem: 923.373GB - scanned:  1844022541 [ 1844022541] - remaining: 27863881499 [11827340896@20.3] - user time: 430610s
+Time:   9390s, Mem: 926.231GB - scanned:  1850073343 [ 1850073343] - remaining: 27961826983 [11870244361@20.3] - user time: 432040s
+Time:   9420s, Mem: 929.002GB - scanned:  1856248875 [ 1856248875] - remaining: 28053937061 [11910778521@20.3] - user time: 433470s
+Time:   9450s, Mem: 931.621GB - scanned:  1862374343 [ 1862374343] - remaining: 28140931249 [11945560889@20.3] - user time: 434901s
+Time:   9480s, Mem: 934.701GB - scanned:  1868981455 [ 1868981455] - remaining: 28244552208 [11993014256@20.3] - user time: 436328s
+Time:   9510s, Mem: 937.494GB - scanned:  1875674532 [ 1875674532] - remaining: 28335769434 [12030648065@20.3] - user time: 437758s
+Time:   9540s, Mem: 940.134GB - scanned:  1882271271 [ 1882271271] - remaining: 28420741286 [12065261664@20.3] - user time: 439187s
+Time:   9570s, Mem: 942.971GB - scanned:  1889328747 [ 1889328748] - remaining: 28512159604 [12107412597@20.3] - user time: 440618s
+Time:   9600s, Mem: 945.758GB - scanned:  1896081028 [ 1896081028] - remaining: 28603134385 [12146953877@20.3] - user time: 442048s
+Time:   9630s, Mem: 948.203GB - scanned:  1902936875 [ 1902936875] - remaining: 28678357114 [12175750948@20.3] - user time: 443479s
+Time:   9660s, Mem: 951.064GB - scanned:  1909570999 [ 1909570999] - remaining: 28772456995 [12219294427@20.3] - user time: 444908s
+Time:   9690s, Mem: 953.989GB - scanned:  1916489523 [ 1916489523] - remaining: 28867486485 [12262312041@20.3] - user time: 446338s
+Time:   9720s, Mem: 956.920GB - scanned:  1923730036 [ 1923730036] - remaining: 28962272618 [12304617328@20.3] - user time: 447768s
+Time:   9750s, Mem: 959.786GB - scanned:  1930621265 [ 1930621265] - remaining: 29055811895 [12347049605@20.3] - user time: 449197s
+Time:   9780s, Mem: 962.484GB - scanned:  1937568723 [ 1937568723] - remaining: 29142112236 [12384732911@20.3] - user time: 450627s
+Time:   9810s, Mem: 965.354GB - scanned:  1944510710 [ 1944510710] - remaining: 29235988344 [12425682925@20.3] - user time: 452058s
+Time:   9840s, Mem: 968.168GB - scanned:  1952252183 [ 1952252183] - remaining: 29323131087 [12466448950@20.3] - user time: 453472s
+Time:   9870s, Mem: 970.806GB - scanned:  1960149628 [ 1960149628] - remaining: 29401975294 [12499026614@20.3] - user time: 454903s
+Time:   9900s, Mem: 973.601GB - scanned:  1966849317 [ 1966849317] - remaining: 29494000361 [12542613597@20.3] - user time: 456332s
+Time:   9930s, Mem: 976.205GB - scanned:  1974045513 [ 1974045513] - remaining: 29575274760 [12573914035@20.3] - user time: 457762s
+Time:   9960s, Mem: 979.038GB - scanned:  1980621199 [ 1980621199] - remaining: 29669185616 [12617472218@20.3] - user time: 459192s
+Time:   9990s, Mem: 981.906GB - scanned:  1987152428 [ 1987152428] - remaining: 29765243978 [12661903742@20.3] - user time: 460621s
+Time:  10020s, Mem: 985.096GB - scanned:  1993397612 [ 1993397612] - remaining: 29876818329 [12720263427@20.3] - user time: 462048s
+Time:  10050s, Mem: 988.088GB - scanned:  2000453222 [ 2000453222] - remaining: 29975661899 [12767688530@20.3] - user time: 463477s
+Time:  10080s, Mem: 990.775GB - scanned:  2007181896 [ 2007181896] - remaining: 30063150296 [12808341378@20.3] - user time: 464873s
+Time:  10110s, Mem: 993.858GB - scanned:  2013501987 [ 2013501987] - remaining: 30169966504 [12862703618@20.3] - user time: 466303s
+Time:  10140s, Mem: 996.820GB - scanned:  2020182613 [ 2020182613] - remaining: 30269161053 [12909760320@20.3] - user time: 467729s
+Time:  10170s, Mem: 999.574GB - scanned:  2026984194 [ 2026984194] - remaining: 30358461004 [12948300621@20.3] - user time: 469158s
+Time:  10200s, Mem: 1002.194GB - scanned:  2034186890 [ 2034186890] - remaining: 30439983000 [12982475913@20.3] - user time: 470589s
+Time:  10230s, Mem: 1004.827GB - scanned:  2041705249 [ 2041705249] - remaining: 30518911275 [13014762162@20.3] - user time: 472020s
+Time:  10260s, Mem: 1007.037GB - scanned:  2048701085 [ 2048701085] - remaining: 30583239892 [13034333479@20.3] - user time: 473453s
+Time:  10290s, Mem: 1009.423GB - scanned:  2055484569 [ 2055484569] - remaining: 30656403571 [13060892994@20.3] - user time: 474883s
+Time:  10320s, Mem: 1011.936GB - scanned:  2061982728 [ 2061982728] - remaining: 30736287017 [13093733287@20.3] - user time: 476294s
+Time:  10350s, Mem: 1014.466GB - scanned:  2068497167 [ 2068497167] - remaining: 30816710951 [13125369891@20.3] - user time: 477725s
+Time:  10380s, Mem: 1016.676GB - scanned:  2075742170 [ 2075742170] - remaining: 30880244062 [13146878963@20.3] - user time: 479144s
+Time:  10410s, Mem: 1019.188GB - scanned:  2082171050 [ 2082171050] - remaining: 30960135331 [13177883131@20.3] - user time: 480570s
+Time:  10440s, Mem: 1021.567GB - scanned:  2088312817 [ 2088312817] - remaining: 31035731453 [13206522525@20.3] - user time: 481992s
+Time:  10470s, Mem: 1024.194GB - scanned:  2095011641 [ 2095011641] - remaining: 31119887615 [13240628565@20.3] - user time: 483423s
+Time:  10500s, Mem: 1027.076GB - scanned:  2101227023 [ 2101227023] - remaining: 31217455607 [13286911156@20.3] - user time: 484853s
+Time:  10530s, Mem: 1029.854GB - scanned:  2107795743 [ 2107795743] - remaining: 31308811492 [13329008972@20.3] - user time: 486283s
+Time:  10560s, Mem: 1032.775GB - scanned:  2113563585 [ 2113563585] - remaining: 31409858558 [13375163419@20.3] - user time: 487699s
+Time:  10590s, Mem: 1035.599GB - scanned:  2119450774 [ 2119450774] - remaining: 31505212768 [13416290520@20.3] - user time: 489128s
+Time:  10620s, Mem: 1038.216GB - scanned:  2126068363 [ 2126068363] - remaining: 31589641888 [13451901390@20.3] - user time: 490559s
+Time:  10650s, Mem: 1040.629GB - scanned:  2133319902 [ 2133319902] - remaining: 31662045242 [13480825213@20.3] - user time: 491991s
+Time:  10680s, Mem: 1042.991GB - scanned:  2140431507 [ 2140431507] - remaining: 31732678002 [13506930754@20.3] - user time: 493423s
+Time:  10710s, Mem: 1045.811GB - scanned:  2146647285 [ 2146647285] - remaining: 31827192719 [13548979412@20.3] - user time: 494853s
+Time:  10740s, Mem: 1230.526GB - scanned:  2152009885 [ 2152009885] - remaining: 31911858874 [13586642559@20.3] - user time: 496179s
+Time:  10770s, Mem: 1230.526GB - scanned:  2158777036 [ 2158777036] - remaining: 31991942027 [13618210767@20.3] - user time: 497602s
+Time:  10800s, Mem: 1230.526GB - scanned:  2165135607 [ 2165135607] - remaining: 32106353577 [13675694845@20.3] - user time: 499022s
+Time:  10830s, Mem: 1230.526GB - scanned:  2171300909 [ 2171300909] - remaining: 32226514290 [13737387136@20.3] - user time: 500441s
+Time:  10860s, Mem: 1230.526GB - scanned:  2177808396 [ 2177808396] - remaining: 32339935099 [13792161340@20.3] - user time: 501863s
+Time:  10890s, Mem: 1230.526GB - scanned:  2184392917 [ 2184392917] - remaining: 32448536545 [13844047342@20.3] - user time: 503284s
+Time:  10920s, Mem: 1230.526GB - scanned:  2190454605 [ 2190454605] - remaining: 32566850716 [13901674236@20.3] - user time: 504706s
+Time:  10950s, Mem: 1230.526GB - scanned:  2196660344 [ 2196660344] - remaining: 32678564361 [13956600067@20.3] - user time: 506129s
+Time:  10980s, Mem: 1230.526GB - scanned:  2203001765 [ 2203001765] - remaining: 32788361617 [14008927195@20.3] - user time: 507553s
+Time:  11010s, Mem: 1230.526GB - scanned:  2210351010 [ 2210351010] - remaining: 32883788679 [14051577239@20.3] - user time: 508978s
+Time:  11040s, Mem: 1230.526GB - scanned:  2218180928 [ 2218180928] - remaining: 32962728310 [14081357259@20.3] - user time: 510398s
+Time:  11070s, Mem: 1230.526GB - scanned:  2225106645 [ 2225106645] - remaining: 33058448417 [14124298504@20.3] - user time: 511826s
+Time:  11100s, Mem: 1230.526GB - scanned:  2232906180 [ 2232906180] - remaining: 33140506021 [14159141650@20.3] - user time: 513255s
+Time:  11130s, Mem: 1230.526GB - scanned:  2240135800 [ 2240135800] - remaining: 33233368441 [14203181613@20.3] - user time: 514684s
+Time:  11160s, Mem: 1230.526GB - scanned:  2247019761 [ 2247019761] - remaining: 33342784436 [14255336233@20.3] - user time: 516111s
+Time:  11190s, Mem: 1230.526GB - scanned:  2253354151 [ 2253354151] - remaining: 33462462699 [14314177747@20.3] - user time: 517536s
+Time:  11220s, Mem: 1230.526GB - scanned:  2260052159 [ 2260052160] - remaining: 33563972661 [14359242164@20.3] - user time: 518964s
+Time:  11250s, Mem: 1230.526GB - scanned:  2267766092 [ 2267766092] - remaining: 33640547847 [14387288197@20.3] - user time: 520395s
+Time:  11280s, Mem: 1230.526GB - scanned:  2273867051 [ 2273867051] - remaining: 33773775969 [14459552679@20.3] - user time: 521819s
+Time:  11310s, Mem: 1230.526GB - scanned:  2280288790 [ 2280288790] - remaining: 33898695358 [14524902149@20.3] - user time: 523244s
+Time:  11340s, Mem: 1230.526GB - scanned:  2286693988 [ 2286693988] - remaining: 34023755485 [14590853257@20.3] - user time: 524666s
+Time:  11370s, Mem: 1230.526GB - scanned:  2293356463 [ 2293356463] - remaining: 34143190204 [14652297430@20.3] - user time: 526093s
+Time:  11400s, Mem: 1230.526GB - scanned:  2301200742 [ 2301200742] - remaining: 34245193179 [14701012427@20.3] - user time: 527520s
+Time:  11430s, Mem: 1230.526GB - scanned:  2308520257 [ 2308520257] - remaining: 34352681179 [14753864055@20.3] - user time: 528948s
+Time:  11460s, Mem: 1230.526GB - scanned:  2316033288 [ 2316033288] - remaining: 34454510060 [14803049600@20.3] - user time: 530372s
+Time:  11490s, Mem: 1230.526GB - scanned:  2323283852 [ 2323283852] - remaining: 34545484041 [14844166086@20.3] - user time: 531802s
+Time:  11520s, Mem: 1230.526GB - scanned:  2330656463 [ 2330656463] - remaining: 34646965352 [14893839431@20.3] - user time: 533230s
+Time:  11550s, Mem: 1230.526GB - scanned:  2338427822 [ 2338427822] - remaining: 34751621214 [14945096314@20.3] - user time: 534659s
+Time:  11580s, Mem: 1230.526GB - scanned:  2346609779 [ 2346609779] - remaining: 34837071221 [14981364508@20.3] - user time: 536089s
+Time:  11610s, Mem: 1230.526GB - scanned:  2353558070 [ 2353558070] - remaining: 34944779712 [15033498704@20.3] - user time: 537515s
+Time:  11640s, Mem: 1230.526GB - scanned:  2360725308 [ 2360725308] - remaining: 35036592741 [15074544756@20.3] - user time: 538933s
+Time:  11670s, Mem: 1230.526GB - scanned:  2367483433 [ 2367483433] - remaining: 35134935695 [15119607275@20.3] - user time: 540362s
+Time:  11700s, Mem: 1230.526GB - scanned:  2371724941 [ 2371724941] - remaining: 35180060269 [15121862384@20.3] - user time: 541796s
+Time:  11730s, Mem: 1230.526GB - scanned:  2377033422 [ 2377033422] - remaining: 35252881762 [15146130329@20.3] - user time: 543226s
+Time:  11760s, Mem: 1230.526GB - scanned:  2382093843 [ 2382093843] - remaining: 35292521000 [15141869493@20.3] - user time: 544661s
+Time:  11790s, Mem: 1230.526GB - scanned:  2388486332 [ 2388486332] - remaining: 35372059381 [15171382901@20.3] - user time: 546092s
+Time:  11820s, Mem: 1230.526GB - scanned:  2394976692 [ 2394976692] - remaining: 35462000278 [15209600917@20.3] - user time: 547520s
+Time:  11850s, Mem: 1230.526GB - scanned:  2401802230 [ 2401802230] - remaining: 35543154203 [15240709035@20.3] - user time: 548950s
+Time:  11880s, Mem: 1230.526GB - scanned:  2409800799 [ 2409800799] - remaining: 35629282786 [15276893833@20.3] - user time: 550380s
+Time:  11910s, Mem: 1230.526GB - scanned:  2413524979 [ 2413524979] - remaining: 35608524260 [15225731344@20.3] - user time: 551816s
+Time:  11940s, Mem: 1230.526GB - scanned:  2418066892 [ 2418066892] - remaining: 35622793958 [15201032815@20.3] - user time: 553252s
+Time:  11970s, Mem: 1230.526GB - scanned:  2423543356 [ 2423543356] - remaining: 35678504457 [15211468716@20.3] - user time: 554688s
+Time:  12000s, Mem: 1230.526GB - scanned:  2427716400 [ 2427716400] - remaining: 35704698521 [15197620111@20.3] - user time: 556124s
+Time:  12030s, Mem: 1230.526GB - scanned:  2430143045 [ 2430143045] - remaining: 35656883332 [15131366608@20.3] - user time: 557562s
+Time:  12060s, Mem: 1230.526GB - scanned:  2433264481 [ 2433264481] - remaining: 35606684166 [15057089937@20.3] - user time: 559001s
+Time:  12090s, Mem: 1230.526GB - scanned:  2437626066 [ 2437626066] - remaining: 35591455651 [15010739691@20.3] - user time: 560439s
+Time:  12120s, Mem: 1230.526GB - scanned:  2442959739 [ 2442959739] - remaining: 35583835340 [14965607222@20.3] - user time: 561877s
+Time:  12150s, Mem: 1230.526GB - scanned:  2448120708 [ 2448120708] - remaining: 35601445701 [14944718262@20.3] - user time: 563315s
+Time:  12180s, Mem: 1230.526GB - scanned:  2454048423 [ 2454048423] - remaining: 35618226995 [14921241834@20.3] - user time: 564753s
+Time:  12210s, Mem: 1230.526GB - scanned:  2459016228 [ 2459016228] - remaining: 35627443685 [14894259171@20.3] - user time: 566191s
+Time:  12240s, Mem: 1230.526GB - scanned:  2463059675 [ 2463059675] - remaining: 35610832300 [14853152814@20.3] - user time: 567620s
+Time:  12270s, Mem: 1230.526GB - scanned:  2467494486 [ 2467494486] - remaining: 35579469313 [14797595118@20.3] - user time: 569057s
+Time:  12300s, Mem: 1230.526GB - scanned:  2472727940 [ 2472727940] - remaining: 35564268915 [14752736585@20.3] - user time: 570495s
+Time:  12330s, Mem: 1230.526GB - scanned:  2476549136 [ 2476549136] - remaining: 35544325186 [14710950055@20.3] - user time: 571933s
+Time:  12360s, Mem: 1230.526GB - scanned:  2480649140 [ 2480649140] - remaining: 35521599361 [14665195245@20.3] - user time: 573371s
+Time:  12390s, Mem: 1230.526GB - scanned:  2485910626 [ 2485910626] - remaining: 35525102212 [14638128985@20.3] - user time: 574809s
+Time:  12420s, Mem: 1230.526GB - scanned:  2491738814 [ 2491738814] - remaining: 35528563425 [14609338946@20.3] - user time: 576247s
+Time:  12450s, Mem: 1230.526GB - scanned:  2497372025 [ 2497372025] - remaining: 35525571026 [14573465682@20.3] - user time: 577685s
+Time:  12480s, Mem: 1230.526GB - scanned:  2502532019 [ 2502532019] - remaining: 35508899700 [14526644467@20.3] - user time: 579123s
+Time:  12510s, Mem: 1230.526GB - scanned:  2508895831 [ 2508895831] - remaining: 35512227147 [14499398121@20.3] - user time: 580561s
+Time:  12540s, Mem: 1230.526GB - scanned:  2514722109 [ 2514722109] - remaining: 35528149682 [14478904400@20.3] - user time: 581997s
+Time:  12570s, Mem: 1230.526GB - scanned:  2520126467 [ 2520126467] - remaining: 35549400145 [14466091870@20.3] - user time: 583435s
+Time:  12600s, Mem: 1230.526GB - scanned:  2524599830 [ 2524599830] - remaining: 35551329349 [14438753510@20.3] - user time: 584873s
+Time:  12630s, Mem: 1230.526GB - scanned:  2530121150 [ 2530121150] - remaining: 35546862866 [14403124291@20.3] - user time: 586273s
+Time:  12660s, Mem: 1230.526GB - scanned:  2535890498 [ 2535890498] - remaining: 35557223991 [14380473452@20.3] - user time: 587687s
+Time:  12690s, Mem: 1230.526GB - scanned:  2542035264 [ 2542035264] - remaining: 35582313118 [14366811317@20.3] - user time: 589125s
+Time:  12720s, Mem: 1230.526GB - scanned:  2548272307 [ 2548272307] - remaining: 35603068284 [14347072339@20.3] - user time: 590563s
+Time:  12750s, Mem: 1230.526GB - scanned:  2551382921 [ 2551382921] - remaining: 35549049487 [14275951626@20.3] - user time: 592001s
+Time:  12780s, Mem: 1230.526GB - scanned:  2555172175 [ 2555172175] - remaining: 35512871455 [14221287717@20.3] - user time: 593439s
+Time:  12810s, Mem: 1231.003GB - scanned:  2561224023 [ 2561224023] - remaining: 35525670171 [14201730320@20.3] - user time: 594877s
+Time:  12840s, Mem: 1231.720GB - scanned:  2567999017 [ 2567999017] - remaining: 35570471828 [14207856283@20.3] - user time: 596312s
+Time:  12870s, Mem: 1232.530GB - scanned:  2575638423 [ 2575638423] - remaining: 35598035644 [14199846227@20.3] - user time: 597749s
+Time:  12900s, Mem: 1233.283GB - scanned:  2582732752 [ 2582732752] - remaining: 35623614419 [14190156722@20.3] - user time: 599159s
+Time:  12930s, Mem: 1234.017GB - scanned:  2589652881 [ 2589652881] - remaining: 35659470198 [14188642025@20.3] - user time: 600567s
+Time:  12960s, Mem: 1234.741GB - scanned:  2596487783 [ 2596487783] - remaining: 35709677079 [14198420665@20.3] - user time: 602005s
+Time:  12990s, Mem: 1235.466GB - scanned:  2603328777 [ 2603328777] - remaining: 35755843515 [14204067155@20.3] - user time: 603443s
+Time:  13020s, Mem: 1236.292GB - scanned:  2611145763 [ 2611145763] - remaining: 35775518830 [14191232787@20.3] - user time: 604881s
+Time:  13050s, Mem: 1236.994GB - scanned:  2617769523 [ 2617769523] - remaining: 35821605489 [14196742386@20.3] - user time: 606319s
+Time:  13080s, Mem: 1237.744GB - scanned:  2624821154 [ 2624821154] - remaining: 35862642840 [14199525755@20.3] - user time: 607757s
+Time:  13110s, Mem: 1239.288GB - scanned:  2631315071 [ 2631315071] - remaining: 35932228326 [14223928361@20.3] - user time: 609192s
+Time:  13140s, Mem: 1241.236GB - scanned:  2636910767 [ 2636910767] - remaining: 35990453623 [14245713696@20.3] - user time: 610445s
+Time:  13170s, Mem: 1242.349GB - scanned:  2639732979 [ 2639732979] - remaining: 36025063527 [14259083086@20.3] - user time: 611272s
+Time:  13200s, Mem: 1243.293GB - scanned:  2642650828 [ 2642650828] - remaining: 36053991785 [14266653874@20.3] - user time: 612098s
+Time:  13230s, Mem: 1244.291GB - scanned:  2645569800 [ 2645569800] - remaining: 36084296388 [14276714093@20.3] - user time: 612923s
+Time:  13260s, Mem: 1244.928GB - scanned:  2649270655 [ 2649270655] - remaining: 36096230265 [14272368648@20.3] - user time: 613739s
+Time:  13290s, Mem: 1245.688GB - scanned:  2652467853 [ 2652467853] - remaining: 36114280806 [14273390859@20.3] - user time: 614559s
+Time:  13320s, Mem: 1246.234GB - scanned:  2656190910 [ 2656190910] - remaining: 36124514642 [14268469339@20.3] - user time: 615383s
+Time:  13350s, Mem: 1247.195GB - scanned:  2659421337 [ 2659421337] - remaining: 36151020797 [14274888618@20.3] - user time: 616211s
+Time:  13380s, Mem: 1248.219GB - scanned:  2662321784 [ 2662321784] - remaining: 36183141102 [14286195917@20.3] - user time: 617032s
+Time:  13410s, Mem: 1249.143GB - scanned:  2665155485 [ 2665155485] - remaining: 36212043629 [14294541569@20.3] - user time: 617849s
+Time:  13440s, Mem: 1249.957GB - scanned:  2668554072 [ 2668554072] - remaining: 36234710337 [14299099404@20.3] - user time: 618678s
+Time:  13470s, Mem: 1251.024GB - scanned:  2671648242 [ 2671648242] - remaining: 36268473745 [14312929000@20.3] - user time: 619504s
+Time:  13500s, Mem: 1252.284GB - scanned:  2674369553 [ 2674369553] - remaining: 36311088246 [14332250798@20.3] - user time: 620339s
+Time:  13530s, Mem: 1253.474GB - scanned:  2677151531 [ 2677151531] - remaining: 36351759860 [14349631548@20.3] - user time: 621175s
+Time:  13560s, Mem: 1254.733GB - scanned:  2679959767 [ 2679959767] - remaining: 36391045267 [14366844644@20.3] - user time: 622010s
+Time:  13590s, Mem: 1256.005GB - scanned:  2682744916 [ 2682744916] - remaining: 36429391111 [14383680749@20.3] - user time: 622848s
+Time:  13620s, Mem: 1257.228GB - scanned:  2685648489 [ 2685648489] - remaining: 36465583650 [14399074097@20.3] - user time: 623689s
+Time:  13650s, Mem: 1258.217GB - scanned:  2688924496 [ 2688924496] - remaining: 36493054022 [14407325139@20.3] - user time: 624513s
+Time:  13680s, Mem: 1259.190GB - scanned:  2692218564 [ 2692218564] - remaining: 36521154846 [14416649808@20.3] - user time: 625338s
+Time:  13710s, Mem: 1260.068GB - scanned:  2695501483 [ 2695501483] - remaining: 36542955407 [14421201827@20.3] - user time: 626167s
+Time:  13740s, Mem: 1260.993GB - scanned:  2698820347 [ 2698820347] - remaining: 36567446236 [14427686529@20.3] - user time: 626999s
+Time:  13770s, Mem: 1262.229GB - scanned:  2701678201 [ 2701678201] - remaining: 36608478162 [14446401556@20.3] - user time: 627831s
+Time:  13800s, Mem: 1263.239GB - scanned:  2704864919 [ 2704864919] - remaining: 36639335957 [14457781967@20.3] - user time: 628648s
+Time:  13830s, Mem: 1264.375GB - scanned:  2707854236 [ 2707854236] - remaining: 36675462968 [14473340946@20.3] - user time: 629480s
+Time:  13860s, Mem: 1265.530GB - scanned:  2710441258 [ 2710441258] - remaining: 36710207818 [14486936136@20.3] - user time: 630319s
+Time:  13890s, Mem: 1266.424GB - scanned:  2713112902 [ 2713112902] - remaining: 36732849355 [14491496743@20.3] - user time: 631171s
+Time:  13920s, Mem: 1267.568GB - scanned:  2716159748 [ 2716159748] - remaining: 36767076807 [14505642485@20.3] - user time: 632002s
+Time:  13950s, Mem: 1268.467GB - scanned:  2719126380 [ 2719126380] - remaining: 36791565008 [14512299697@20.3] - user time: 632853s
+Time:  13980s, Mem: 1269.474GB - scanned:  2722201029 [ 2722201029] - remaining: 36820943608 [14522285639@20.3] - user time: 633686s
+Time:  14010s, Mem: 1270.639GB - scanned:  2725370194 [ 2725370194] - remaining: 36857493296 [14539136414@20.3] - user time: 634518s
+Time:  14040s, Mem: 1270.883GB - scanned:  2727236235 [ 2727236235] - remaining: 36835887642 [14505315634@20.3] - user time: 635392s
+Time:  14070s, Mem: 1271.175GB - scanned:  2730016861 [ 2730016861] - remaining: 36857845227 [14506146384@20.3] - user time: 636207s
+Time:  14100s, Mem: 1271.636GB - scanned:  2732303972 [ 2732303972] - remaining: 36855937448 [14487192830@20.3] - user time: 637066s
+Time:  14130s, Mem: 1271.763GB - scanned:  2733487093 [ 2733487093] - remaining: 36801290174 [14425441058@20.3] - user time: 638018s
+Time:  14160s, Mem: 1271.913GB - scanned:  2734898091 [ 2734898091] - remaining: 36754696183 [14370847709@20.3] - user time: 638957s
+Time:  14190s, Mem: 1272.152GB - scanned:  2737180511 [ 2737180511] - remaining: 36682024896 [14286778230@20.3] - user time: 640373s
+Time:  14220s, Mem: 1272.640GB - scanned:  2741790007 [ 2741790007] - remaining: 36645751247 [14224643871@20.3] - user time: 641811s
+Time:  14250s, Mem: 1273.089GB - scanned:  2746034431 [ 2746034431] - remaining: 36620243029 [14174017924@20.3] - user time: 643249s
+Time:  14280s, Mem: 1273.534GB - scanned:  2750260155 [ 2750260155] - remaining: 36605617797 [14134091717@20.3] - user time: 644687s
+Time:  14310s, Mem: 1274.168GB - scanned:  2756261836 [ 2756261836] - remaining: 36593552077 [14094650944@20.3] - user time: 646125s
+Time:  14340s, Mem: 1274.909GB - scanned:  2763287626 [ 2763287626] - remaining: 36621512963 [14085382179@20.3] - user time: 647563s
+Time:  14370s, Mem: 1275.651GB - scanned:  2770314335 [ 2770314335] - remaining: 36657747574 [14082591200@20.3] - user time: 649001s
+Time:  14400s, Mem: 1276.374GB - scanned:  2777171115 [ 2777171115] - remaining: 36706543105 [14090778780@20.3] - user time: 650439s
+Time:  14430s, Mem: 1277.064GB - scanned:  2783682045 [ 2783682045] - remaining: 36757501341 [14099657725@20.3] - user time: 651877s
+Time:  14460s, Mem: 1277.881GB - scanned:  2791444701 [ 2791444701] - remaining: 36782601594 [14091239292@20.3] - user time: 653315s
+Time:  14490s, Mem: 1278.636GB - scanned:  2798581827 [ 2798581827] - remaining: 36824422556 [14093488702@20.3] - user time: 654753s
+Time:  14520s, Mem: 1279.380GB - scanned:  2805647489 [ 2805647489] - remaining: 36867234012 [14097668047@20.3] - user time: 656191s
+Time:  14550s, Mem: 1281.050GB - scanned:  2812204109 [ 2812204109] - remaining: 36935143115 [14122040840@20.3] - user time: 657626s
+Time:  14580s, Mem: 1283.301GB - scanned:  2818674029 [ 2818674029] - remaining: 37005273376 [14147344749@20.3] - user time: 659059s
+Time:  14610s, Mem: 1285.399GB - scanned:  2825142154 [ 2825142154] - remaining: 37070033118 [14169272543@20.3] - user time: 660492s
+Time:  14640s, Mem: 1287.127GB - scanned:  2832779244 [ 2832779244] - remaining: 37113698619 [14176667900@20.3] - user time: 661925s
+Time:  14670s, Mem: 1288.920GB - scanned:  2840339550 [ 2840339550] - remaining: 37160669780 [14186355887@20.3] - user time: 663359s
+Time:  14700s, Mem: 1290.588GB - scanned:  2847805080 [ 2847805080] - remaining: 37200685494 [14192838832@20.3] - user time: 664745s
+Time:  14730s, Mem: 1291.781GB - scanned:  2852948107 [ 2852948108] - remaining: 37231370203 [14198367115@20.3] - user time: 665818s
+Time:  14760s, Mem: 1293.641GB - scanned:  2860404741 [ 2860404741] - remaining: 37278596747 [14209070685@20.3] - user time: 667252s
+Time:  14790s, Mem: 1295.298GB - scanned:  2868060284 [ 2868060284] - remaining: 37318224553 [14215297660@20.3] - user time: 668688s
+Time:  14820s, Mem: 1297.260GB - scanned:  2875069170 [ 2875069170] - remaining: 37375005882 [14231481024@20.3] - user time: 670121s
+Time:  14850s, Mem: 1298.734GB - scanned:  2882724667 [ 2882724667] - remaining: 37409796458 [14232844753@20.3] - user time: 671557s
+Time:  14880s, Mem: 1300.668GB - scanned:  2889915435 [ 2889915435] - remaining: 37465264231 [14248896764@20.3] - user time: 672991s
+Time:  14910s, Mem: 1303.479GB - scanned:  2896193042 [ 2896193042] - remaining: 37557451504 [14293586942@20.3] - user time: 674421s
+Time:  14940s, Mem: 1306.445GB - scanned:  2902702575 [ 2902702575] - remaining: 37654470092 [14341946235@20.3] - user time: 675847s
+Time:  14970s, Mem: 1309.261GB - scanned:  2909106638 [ 2909106638] - remaining: 37745558454 [14386571466@20.3] - user time: 677278s
+Time:  15000s, Mem: 1311.857GB - scanned:  2916010489 [ 2916010489] - remaining: 37826035745 [14425072634@20.3] - user time: 678709s
+Time:  15030s, Mem: 1314.275GB - scanned:  2923426278 [ 2923426278] - remaining: 37898051931 [14455195537@20.3] - user time: 680141s
+Time:  15060s, Mem: 1316.801GB - scanned:  2930645945 [ 2930645945] - remaining: 37973968698 [14491113572@20.3] - user time: 681573s
+Time:  15090s, Mem: 1319.047GB - scanned:  2938071738 [ 2938071738] - remaining: 38036909531 [14517559518@20.3] - user time: 683005s
+Time:  15120s, Mem: 1321.576GB - scanned:  2944899093 [ 2944899093] - remaining: 38114970340 [14553589618@20.3] - user time: 684418s
+Time:  15150s, Mem: 1324.286GB - scanned:  2951939957 [ 2951939957] - remaining: 38199205381 [14594605493@20.3] - user time: 685849s
+Time:  15180s, Mem: 1326.467GB - scanned:  2959531387 [ 2959531387] - remaining: 38259394504 [14617992134@20.3] - user time: 687282s
+Time:  15210s, Mem: 1328.954GB - scanned:  2966625141 [ 2966625141] - remaining: 38335335573 [14652066762@20.3] - user time: 688714s
+Time:  15240s, Mem: 1331.069GB - scanned:  2974198228 [ 2974198228] - remaining: 38393647450 [14675989930@20.3] - user time: 690133s
+Time:  15270s, Mem: 1333.249GB - scanned:  2981926928 [ 2981926929] - remaining: 38452173200 [14700959829@20.3] - user time: 691565s
+Time:  15300s, Mem: 1335.265GB - scanned:  2989597984 [ 2989597984] - remaining: 38506086654 [14720323730@20.3] - user time: 692997s
+Time:  15330s, Mem: 1337.614GB - scanned:  2996873149 [ 2996873149] - remaining: 38573374473 [14749526360@20.3] - user time: 694430s
+Time:  15360s, Mem: 1339.818GB - scanned:  3004328107 [ 3004328107] - remaining: 38635409921 [14774575128@20.3] - user time: 695862s
+Time:  15390s, Mem: 1342.479GB - scanned:  3011031002 [ 3011031002] - remaining: 38721580528 [14817027978@20.3] - user time: 697292s
+Time:  15420s, Mem: 1344.734GB - scanned:  3015773210 [ 3015773210] - remaining: 38797806568 [14848834724@20.3] - user time: 698722s
+Time:  15450s, Mem: 1345.848GB - scanned:  3019737086 [ 3019737086] - remaining: 38829137215 [14844623349@20.3] - user time: 700157s
+Time:  15480s, Mem: 1347.608GB - scanned:  3024561376 [ 3024561376] - remaining: 38889373262 [14864278026@20.3] - user time: 701590s
+Time:  15510s, Mem: 1349.318GB - scanned:  3029912701 [ 3029912702] - remaining: 38948449397 [14885097405@20.3] - user time: 703023s
+Time:  15540s, Mem: 1350.111GB - scanned:  3033532990 [ 3033532990] - remaining: 38945486638 [14858157673@20.3] - user time: 704455s
+Time:  15570s, Mem: 1351.184GB - scanned:  3039222093 [ 3039222093] - remaining: 39005767941 [14878128640@20.3] - user time: 705891s
+Time:  15600s, Mem: 1354.013GB - scanned:  3045768009 [ 3045768009] - remaining: 39101733967 [14927903167@20.3] - user time: 707322s
+Time:  15630s, Mem: 1356.241GB - scanned:  3051674926 [ 3051674926] - remaining: 39163848910 [14952404904@20.3] - user time: 708754s
+Time:  15660s, Mem: 1357.488GB - scanned:  3056966143 [ 3056966143] - remaining: 39212480373 [14966356697@20.3] - user time: 710189s
+Time:  15690s, Mem: 1358.506GB - scanned:  3061936779 [ 3061936779] - remaining: 39248285423 [14969711006@20.3] - user time: 711625s
+Time:  15720s, Mem: 1360.678GB - scanned:  3068129380 [ 3068129380] - remaining: 39322115416 [15003348341@20.3] - user time: 713057s
+Time:  15750s, Mem: 1363.630GB - scanned:  3074438853 [ 3074438853] - remaining: 39426043572 [15060069039@20.3] - user time: 714485s
+Time:  15780s, Mem: 1366.720GB - scanned:  3081041322 [ 3081041322] - remaining: 39532240503 [15118707938@20.3] - user time: 715912s
+Time:  15810s, Mem: 1369.221GB - scanned:  3088383187 [ 3088383187] - remaining: 39609864564 [15157365084@20.3] - user time: 717344s
+Time:  15840s, Mem: 1372.106GB - scanned:  3095247373 [ 3095247373] - remaining: 39706530685 [15209386560@20.3] - user time: 718764s
+Time:  15870s, Mem: 1374.883GB - scanned:  3102415821 [ 3102415821] - remaining: 39796000877 [15257149463@20.3] - user time: 720194s
+Time:  15900s, Mem: 1376.208GB - scanned:  3107523409 [ 3107523409] - remaining: 39827438061 [15258824979@20.3] - user time: 721629s
+Time:  15930s, Mem: 1378.110GB - scanned:  3114398502 [ 3114398502] - remaining: 39892777805 [15289020969@20.3] - user time: 723061s
+Time:  15960s, Mem: 1380.372GB - scanned:  3121635515 [ 3121635515] - remaining: 39962887055 [15323620134@20.3] - user time: 724494s
+Time:  15990s, Mem: 1383.414GB - scanned:  3128472138 [ 3128472139] - remaining: 40065705275 [15382961762@20.3] - user time: 725923s
+Time:  16020s, Mem: 1386.422GB - scanned:  3135275698 [ 3135275698] - remaining: 40166733599 [15440736394@20.3] - user time: 727352s
+Time:  16050s, Mem: 1389.174GB - scanned:  3142600194 [ 3142600194] - remaining: 40254628265 [15488669595@20.3] - user time: 728783s
+Time:  16080s, Mem: 1390.508GB - scanned:  3146957497 [ 3146957497] - remaining: 40270731200 [15479090990@20.3] - user time: 730218s
+Time:  16110s, Mem: 1391.932GB - scanned:  3160451287 [ 3160451287] - remaining: 40203718584 [15373856502@20.3] - user time: 731653s
+Time:  16140s, Mem: 1393.627GB - scanned:  3176492673 [ 3176492673] - remaining: 40133728841 [15260047738@20.3] - user time: 733086s
+Time:  16170s, Mem: 1395.766GB - scanned:  3196767465 [ 3196767465] - remaining: 40064524283 [15140705264@20.3] - user time: 734518s
+Time:  16200s, Mem: 1397.856GB - scanned:  3216561651 [ 3216561651] - remaining: 39994683302 [15021727441@20.3] - user time: 735952s
+Time:  16230s, Mem: 1398.820GB - scanned:  3225698196 [ 3225698196] - remaining: 39917467177 [14919782034@20.3] - user time: 737388s
+Time:  16260s, Mem: 1400.701GB - scanned:  3243510981 [ 3243510981] - remaining: 39836869160 [14798272673@20.3] - user time: 738822s
+Time:  16290s, Mem: 1401.769GB - scanned:  3253537746 [ 3253537746] - remaining: 39748753878 [14685797648@20.3] - user time: 740257s
+Time:  16320s, Mem: 1402.710GB - scanned:  3262542660 [ 3262542660] - remaining: 39660815488 [14575399430@20.3] - user time: 741693s
+Time:  16350s, Mem: 1403.744GB - scanned:  3272333649 [ 3272333649] - remaining: 39570551739 [14462106469@20.3] - user time: 743128s
+Time:  16380s, Mem: 1404.819GB - scanned:  3282512251 [ 3282512251] - remaining: 39476978133 [14349166929@20.3] - user time: 744563s
+Time:  16410s, Mem: 1406.405GB - scanned:  3297550201 [ 3297550201] - remaining: 39382223563 [14227804973@20.3] - user time: 745997s
+Time:  16440s, Mem: 1408.228GB - scanned:  3314801442 [ 3314801442] - remaining: 39284757114 [14100148240@20.3] - user time: 747422s
+Time:  16470s, Mem: 1409.793GB - scanned:  3329627708 [ 3329627708] - remaining: 39185634325 [13977157670@20.3] - user time: 748856s
+Time:  16500s, Mem: 1411.813GB - scanned:  3348635792 [ 3348635792] - remaining: 39089789586 [13851194508@20.3] - user time: 750263s
+Time:  16530s, Mem: 1413.880GB - scanned:  3368327099 [ 3368327099] - remaining: 38991690707 [13722919877@20.3] - user time: 751696s
+Time:  16560s, Mem: 1414.936GB - scanned:  3378339598 [ 3378339598] - remaining: 38890057157 [13604355217@20.3] - user time: 753131s
+Time:  16590s, Mem: 1416.531GB - scanned:  3393464887 [ 3393464887] - remaining: 38784135299 [13476377061@20.3] - user time: 754564s
+Time:  16620s, Mem: 1417.638GB - scanned:  3403939350 [ 3403939350] - remaining: 38681494708 [13357318156@20.3] - user time: 755999s
+Time:  16650s, Mem: 1418.227GB - scanned:  3409516309 [ 3409516309] - remaining: 38572237437 [13241502452@20.3] - user time: 757435s
+Time:  16680s, Mem: 1419.386GB - scanned:  3420496313 [ 3420496313] - remaining: 38463313158 [13121203811@20.3] - user time: 758870s
+Time:  16710s, Mem: 1420.482GB - scanned:  3430882429 [ 3430882429] - remaining: 38358336755 [12999481447@20.3] - user time: 760305s
+Time:  16740s, Mem: 1421.818GB - scanned:  3443428870 [ 3443428870] - remaining: 38252814579 [12873831662@20.3] - user time: 761735s
+Time:  16770s, Mem: 1423.426GB - scanned:  3458772292 [ 3458772292] - remaining: 38144894315 [12745244221@20.3] - user time: 763168s
+Time:  16800s, Mem: 1424.982GB - scanned:  3473510846 [ 3473510846] - remaining: 38033269161 [12618281426@20.3] - user time: 764601s
+Time:  16830s, Mem: 1425.952GB - scanned:  3482686210 [ 3482686212] - remaining: 37938302748 [12503903772@20.3] - user time: 766037s
+Time:  16860s, Mem: 1427.542GB - scanned:  3497764931 [ 3497764931] - remaining: 37831447026 [12372858738@20.3] - user time: 767470s
+Time:  16890s, Mem: 1429.258GB - scanned:  3514021558 [ 3514021558] - remaining: 37722251193 [12240317037@20.3] - user time: 768904s
+Time:  16920s, Mem: 1430.474GB - scanned:  3525538602 [ 3525538602] - remaining: 37614940538 [12115590283@20.3] - user time: 770327s
+Time:  16950s, Mem: 1431.751GB - scanned:  3537645002 [ 3537645002] - remaining: 37512829061 [11995045712@20.3] - user time: 771754s
+Time:  16980s, Mem: 1432.873GB - scanned:  3548271420 [ 3548271420] - remaining: 37407197852 [11873475491@20.3] - user time: 773189s
+Time:  17010s, Mem: 1434.700GB - scanned:  3565565778 [ 3565565778] - remaining: 37294621549 [11740563677@20.3] - user time: 774621s
+Time:  17040s, Mem: 1435.749GB - scanned:  3575507266 [ 3575507266] - remaining: 37184035905 [11619784592@20.3] - user time: 776036s
+Time:  17070s, Mem: 1436.553GB - scanned:  3583114425 [ 3583114425] - remaining: 37074583772 [11501420233@20.3] - user time: 777471s
+Time:  17100s, Mem: 1438.448GB - scanned:  3601065046 [ 3601065046] - remaining: 36976638791 [11379843311@20.3] - user time: 778904s
+Time:  17130s, Mem: 1439.759GB - scanned:  3613477550 [ 3613477550] - remaining: 36882076995 [11264408456@20.3] - user time: 780338s
+Time:  17160s, Mem: 1441.465GB - scanned:  3629641857 [ 3629641857] - remaining: 36800995999 [11152638147@20.3] - user time: 781771s
+Time:  17190s, Mem: 1443.210GB - scanned:  3646174122 [ 3646174122] - remaining: 36726840586 [11046897973@20.3] - user time: 783206s
+Time:  17220s, Mem: 1443.773GB - scanned:  3651485301 [ 3651485301] - remaining: 36634601642 [10944490537@20.3] - user time: 784643s
+Time:  17250s, Mem: 1445.380GB - scanned:  3666728825 [ 3666728825] - remaining: 36547812996 [10830862656@20.3] - user time: 786077s
+Time:  17280s, Mem: 1446.718GB - scanned:  3679398095 [ 3679398095] - remaining: 36475422247 [10731129476@20.3] - user time: 787512s
+Time:  17310s, Mem: 1448.070GB - scanned:  3692218990 [ 3692218990] - remaining: 36399873805 [10628112241@20.3] - user time: 788947s
+Time:  17340s, Mem: 1448.768GB - scanned:  3698811279 [ 3698811280] - remaining: 36306523818 [10522235420@20.3] - user time: 790380s
+Time:  17370s, Mem: 1449.946GB - scanned:  3709963618 [ 3709963618] - remaining: 36230481184 [10423048350@20.3] - user time: 791816s
+Time:  17400s, Mem: 1450.298GB - scanned:  3713318533 [ 3713318533] - remaining: 36139583547 [10322666877@20.3] - user time: 793253s
+Time:  17430s, Mem: 1451.237GB - scanned:  3722190045 [ 3722190045] - remaining: 36035773841 [10202719295@20.3] - user time: 794688s
+Time:  17460s, Mem: 1452.284GB - scanned:  3732120307 [ 3732120307] - remaining: 35924043477 [10075860292@20.3] - user time: 796123s
+Time:  17490s, Mem: 1453.224GB - scanned:  3740955613 [ 3740955613] - remaining: 35814245625 [ 9952168183@20.3] - user time: 797559s
+Time:  17520s, Mem: 1453.945GB - scanned:  3747849949 [ 3747849949] - remaining: 35707303557 [ 9833156942@20.3] - user time: 798995s
+Time:  17550s, Mem: 1455.097GB - scanned:  3758787071 [ 3758787071] - remaining: 35593938605 [ 9703824194@20.3] - user time: 800431s
+Time:  17580s, Mem: 1455.546GB - scanned:  3763029685 [ 3763029685] - remaining: 35478159985 [ 9583158553@20.3] - user time: 801868s
+Time:  17610s, Mem: 1456.010GB - scanned:  3767345038 [ 3767345038] - remaining: 35363198657 [ 9463731065@20.3] - user time: 803304s
+Time:  17640s, Mem: 1456.368GB - scanned:  3770835888 [ 3770835888] - remaining: 35248601841 [ 9345362260@20.3] - user time: 804734s
+Time:  17670s, Mem: 1457.197GB - scanned:  3778692540 [ 3778692540] - remaining: 35134240320 [ 9221226491@20.3] - user time: 806170s
+Time:  17700s, Mem: 1458.189GB - scanned:  3788077153 [ 3788077153] - remaining: 35017743853 [ 9095533302@20.3] - user time: 807606s
+Time:  17730s, Mem: 1459.367GB - scanned:  3799248128 [ 3799248129] - remaining: 34907085896 [ 8972184912@20.3] - user time: 809041s
+Time:  17760s, Mem: 1460.214GB - scanned:  3807267666 [ 3807267666] - remaining: 34803582942 [ 8855130427@20.3] - user time: 810477s
+Time:  17790s, Mem: 1461.375GB - scanned:  3818270736 [ 3818270736] - remaining: 34710387497 [ 8741931677@20.3] - user time: 811913s
+Time:  17820s, Mem: 1462.148GB - scanned:  3825610113 [ 3825610113] - remaining: 34618552740 [ 8636267905@20.3] - user time: 813350s
+Time:  17850s, Mem: 1462.823GB - scanned:  3831946031 [ 3831946031] - remaining: 34529282360 [ 8533598029@20.3] - user time: 814787s
+Time:  17880s, Mem: 1463.735GB - scanned:  3840633486 [ 3840633486] - remaining: 34413381240 [ 8409962690@20.3] - user time: 816222s
+Time:  17910s, Mem: 1465.878GB - scanned:  3860933357 [ 3860933358] - remaining: 34310493074 [ 8281217996@20.3] - user time: 817654s
+Time:  17940s, Mem: 1467.130GB - scanned:  3872801022 [ 3872801022] - remaining: 34201356333 [ 8156837947@20.3] - user time: 819056s
+Time:  17970s, Mem: 1469.410GB - scanned:  3894232444 [ 3894232444] - remaining: 34107322897 [ 8029583948@20.3] - user time: 820487s
+Time:  18000s, Mem: 1469.803GB - scanned:  3898135576 [ 3898135576] - remaining: 33994779878 [ 7911558752@20.3] - user time: 821924s
+Time:  18030s, Mem: 1471.025GB - scanned:  3909688094 [ 3909688095] - remaining: 33884118296 [ 7787446965@20.3] - user time: 823358s
+Time:  18060s, Mem: 1472.442GB - scanned:  3923108217 [ 3923108217] - remaining: 33777552417 [ 7659292069@20.3] - user time: 824792s
+Time:  18090s, Mem: 1474.280GB - scanned:  3940518049 [ 3940518049] - remaining: 33693313731 [ 7543151438@20.3] - user time: 826226s
+Time:  18120s, Mem: 1475.625GB - scanned:  3953269545 [ 3953269545] - remaining: 33613729477 [ 7435756075@20.3] - user time: 827660s
+Time:  18150s, Mem: 1475.908GB - scanned:  3955933848 [ 3955933848] - remaining: 33505310606 [ 7322347234@20.3] - user time: 829097s
+Time:  18180s, Mem: 1475.974GB - scanned:  3956530222 [ 3956530222] - remaining: 33393612871 [ 7208970522@20.3] - user time: 830535s
+Time:  18210s, Mem: 1476.992GB - scanned:  3966222562 [ 3966222562] - remaining: 33293813766 [ 7095269524@20.3] - user time: 831970s
+Time:  18240s, Mem: 1478.502GB - scanned:  3980523226 [ 3980523226] - remaining: 33200168510 [ 6979414640@20.3] - user time: 833396s
+Time:  18270s, Mem: 1479.854GB - scanned:  3993332364 [ 3993332364] - remaining: 33102383863 [ 6861207038@20.3] - user time: 834831s
+Time:  18300s, Mem: 1480.913GB - scanned:  4003364164 [ 4003364164] - remaining: 33022766639 [ 6759075093@20.3] - user time: 836266s
+Time:  18330s, Mem: 1482.076GB - scanned:  4014396011 [ 4014396011] - remaining: 32950169933 [ 6661295231@20.3] - user time: 837701s
+Time:  18360s, Mem: 1482.409GB - scanned:  4017545441 [ 4017545441] - remaining: 32866767215 [ 6566757286@20.3] - user time: 839138s
+Time:  18390s, Mem: 1482.503GB - scanned:  4018406328 [ 4018406328] - remaining: 32757110405 [ 6454451960@20.3] - user time: 840575s
+Time:  18420s, Mem: 1483.656GB - scanned:  4029345534 [ 4029345534] - remaining: 32666737145 [ 6344454393@20.3] - user time: 842010s
+Time:  18450s, Mem: 1484.948GB - scanned:  4041553657 [ 4041553657] - remaining: 32583956412 [ 6239909981@20.3] - user time: 843445s
+Time:  18480s, Mem: 1486.095GB - scanned:  4052425153 [ 4052425153] - remaining: 32515362289 [ 6148119647@20.3] - user time: 844881s
+Time:  18510s, Mem: 1487.556GB - scanned:  4066293189 [ 4066293189] - remaining: 32436029083 [ 6042179720@20.3] - user time: 846315s
+Time:  18540s, Mem: 1488.503GB - scanned:  4075261850 [ 4075261850] - remaining: 32368125876 [ 5952465018@20.3] - user time: 847740s
+Time:  18570s, Mem: 1489.083GB - scanned:  4080757297 [ 4080757297] - remaining: 32281315916 [ 5851311615@20.3] - user time: 849177s
+Time:  18600s, Mem: 1489.165GB - scanned:  4081517908 [ 4081517908] - remaining: 32167534306 [ 5734976878@20.3] - user time: 850613s
+Time:  18630s, Mem: 1489.836GB - scanned:  4087887204 [ 4087887204] - remaining: 32071472505 [ 5625296383@20.3] - user time: 852049s
+Time:  18660s, Mem: 1490.472GB - scanned:  4093841684 [ 4093841684] - remaining: 31981851467 [ 5522169591@20.3] - user time: 853486s
+Time:  18690s, Mem: 1490.831GB - scanned:  4097300845 [ 4097300845] - remaining: 31887602555 [ 5418755539@20.3] - user time: 854923s
+Time:  18720s, Mem: 1491.031GB - scanned:  4099206615 [ 4099206615] - remaining: 31773114805 [ 5300953818@20.3] - user time: 856359s
+Time:  18750s, Mem: 1491.113GB - scanned:  4099976220 [ 4099976220] - remaining: 31657611491 [ 5184227046@20.3] - user time: 857797s
+Time:  18780s, Mem: 1491.149GB - scanned:  4100304006 [ 4100304006] - remaining: 31541363007 [ 5067317712@20.3] - user time: 859233s
+Time:  18810s, Mem: 1491.373GB - scanned:  4102439506 [ 4102439506] - remaining: 31423561986 [ 4947308152@20.3] - user time: 860670s
+Time:  18840s, Mem: 1491.651GB - scanned:  4105075195 [ 4105075195] - remaining: 31308038766 [ 4828930816@20.3] - user time: 862083s
+Time:  18870s, Mem: 1491.956GB - scanned:  4107955973 [ 4107955973] - remaining: 31195479419 [ 4710451374@20.3] - user time: 863520s
+Time:  18900s, Mem: 1492.064GB - scanned:  4108954294 [ 4108954294] - remaining: 31079511601 [ 4593040770@20.3] - user time: 864955s
+Time:  18930s, Mem: 1492.301GB - scanned:  4111115017 [ 4111115017] - remaining: 30963127633 [ 4474498533@20.3] - user time: 866392s
+Time:  18960s, Mem: 1492.593GB - scanned:  4113967857 [ 4113967857] - remaining: 30848662251 [ 4357176404@20.3] - user time: 867829s
+Time:  18990s, Mem: 1493.031GB - scanned:  4118109467 [ 4118109467] - remaining: 30732672818 [ 4236759637@20.3] - user time: 869266s
+Time:  19020s, Mem: 1493.573GB - scanned:  4123242101 [ 4123242101] - remaining: 30616584157 [ 4114194829@20.3] - user time: 870702s
+Time:  19050s, Mem: 1493.812GB - scanned:  4125540042 [ 4125540042] - remaining: 30499883128 [ 3994342150@20.3] - user time: 872138s
+Time:  19080s, Mem: 1494.129GB - scanned:  4128530603 [ 4128530603] - remaining: 30382492297 [ 3873571087@20.3] - user time: 873574s
+Time:  19110s, Mem: 1494.715GB - scanned:  4134078550 [ 4134078550] - remaining: 30269203097 [ 3750690000@20.3] - user time: 875009s
+Time:  19140s, Mem: 1494.842GB - scanned:  4135268192 [ 4135268192] - remaining: 30154858160 [ 3633299253@20.3] - user time: 876443s
+Time:  19170s, Mem: 1495.328GB - scanned:  4139879639 [ 4139879639] - remaining: 30042430247 [ 3514201403@20.3] - user time: 877856s
+Time:  19200s, Mem: 1495.590GB - scanned:  4142364917 [ 4142364917] - remaining: 29935145612 [ 3400308289@20.3] - user time: 879292s
+Time:  19230s, Mem: 1496.234GB - scanned:  4148481029 [ 4148481029] - remaining: 29849929423 [ 3300503510@20.3] - user time: 880728s
+Time:  19260s, Mem: 1496.345GB - scanned:  4149523025 [ 4149523025] - remaining: 29736456417 [ 3185074689@20.3] - user time: 882165s
+Time:  19290s, Mem: 1496.731GB - scanned:  4153173489 [ 4153173489] - remaining: 29621572445 [ 3066398446@20.3] - user time: 883601s
+Time:  19320s, Mem: 1497.314GB - scanned:  4158698401 [ 4158698401] - remaining: 29509978166 [ 2948178507@20.3] - user time: 885038s
+Time:  19350s, Mem: 1497.743GB - scanned:  4162771648 [ 4162771648] - remaining: 29397560099 [ 2830246438@20.3] - user time: 886474s
+Time:  19380s, Mem: 1497.991GB - scanned:  4165059399 [ 4165059399] - remaining: 29280210025 [ 2710762386@20.3] - user time: 887910s
+Time:  19410s, Mem: 1498.641GB - scanned:  4171259945 [ 4171259948] - remaining: 29162709165 [ 2587312773@20.3] - user time: 889346s
+Time:  19440s, Mem: 1498.928GB - scanned:  4173969980 [ 4173969980] - remaining: 29048305712 [ 2469186557@20.3] - user time: 890773s
+Time:  19470s, Mem: 1499.001GB - scanned:  4174671686 [ 4174671686] - remaining: 28932759812 [ 2352023975@20.3] - user time: 892209s
+Time:  19500s, Mem: 1499.051GB - scanned:  4175082783 [ 4175082783] - remaining: 28815469005 [ 2233846767@20.3] - user time: 893646s
+Time:  19530s, Mem: 1499.752GB - scanned:  4181689924 [ 4181689924] - remaining: 28702517452 [ 2112379011@20.3] - user time: 895082s
+Time:  19560s, Mem: 1500.443GB - scanned:  4188292765 [ 4188292765] - remaining: 28588486874 [ 1989877713@20.3] - user time: 896518s
+Time:  19590s, Mem: 1500.908GB - scanned:  4192713536 [ 4192713536] - remaining: 28479445057 [ 1874038955@20.3] - user time: 897954s
+Time:  19620s, Mem: 1501.346GB - scanned:  4196866136 [ 4196866136] - remaining: 28369893307 [ 1757876660@20.3] - user time: 899390s
+Time:  19650s, Mem: 1501.546GB - scanned:  4198720131 [ 4198720131] - remaining: 28267688018 [ 1648868355@20.3] - user time: 900827s
+Time:  19680s, Mem: 1501.661GB - scanned:  4199846300 [ 4199846300] - remaining: 28155201203 [ 1532658995@20.3] - user time: 902265s
+Time:  19710s, Mem: 1501.764GB - scanned:  4200816512 [ 4200816512] - remaining: 28040726591 [ 1415159682@20.3] - user time: 903702s
+Time:  19740s, Mem: 1502.197GB - scanned:  4204911307 [ 4204911307] - remaining: 27937280872 [ 1301642472@20.3] - user time: 905136s
+Time:  19770s, Mem: 1502.674GB - scanned:  4209427154 [ 4209427154] - remaining: 27835991445 [ 1189378336@20.3] - user time: 906573s
+Time:  19800s, Mem: 1503.344GB - scanned:  4215785471 [ 4215785471] - remaining: 27730473288 [ 1072442823@20.3] - user time: 908009s
+Time:  19830s, Mem: 1504.112GB - scanned:  4223042250 [ 4223042250] - remaining: 27633269124 [  960944717@20.3] - user time: 909445s
+Time:  19860s, Mem: 1504.729GB - scanned:  4228899231 [ 4228899231] - remaining: 27532503986 [  849237624@20.3] - user time: 910882s
+Time:  19890s, Mem: 1505.244GB - scanned:  4233782703 [ 4233782703] - remaining: 27441864980 [  746321065@20.3] - user time: 912318s
+Time:  19920s, Mem: 1505.872GB - scanned:  4239644443 [ 4239644443] - remaining: 27338644555 [  632979512@20.3] - user time: 913755s
+Time:  19950s, Mem: 1506.217GB - scanned:  4242985638 [ 4242985638] - remaining: 27249759967 [  532776004@20.3] - user time: 915192s
+Time:  19980s, Mem: 1506.526GB - scanned:  4245910653 [ 4245910653] - remaining: 27155751973 [  430263508@20.3] - user time: 916629s
+Time:  20010s, Mem: 1506.931GB - scanned:  4249752747 [ 4249752747] - remaining: 27077241580 [  332488981@20.3] - user time: 918066s
+Time:  20040s, Mem: 1507.887GB - scanned:  4258803256 [ 4258803256] - remaining: 27006680830 [  234694102@20.3] - user time: 919489s
+Time:  20070s, Mem: 1509.365GB - scanned:  4272796084 [ 4272796085] - remaining: 26948150089 [  140950470@20.3] - user time: 920924s
+Time:  20100s, Mem: 1510.649GB - scanned:  4284959452 [ 4284959449] - remaining: 26867528012 [   33081243@20.3] - user time: 922359s
+Time:  20130s, Mem: 1511.162GB - scanned:  4289808846 [ 4289808846] - remaining: 26849377668 [  207378803@21.2] - user time: 923797s
+Time:  20160s, Mem: 1511.605GB - scanned:  4294015682 [ 4294015682] - remaining: 26854233437 [  205939806@21.2] - user time: 925235s
+Time:  20190s, Mem: 1877.354GB - scanned:  4297438495 [ 4297438495] - remaining: 26857252969 [  202743288@21.2] - user time: 926479s
+Time:  20220s, Mem: 1877.354GB - scanned:  4301841098 [ 4301841098] - remaining: 26869209159 [  206336731@21.2] - user time: 927912s
+Time:  20250s, Mem: 1877.354GB - scanned:  4306204448 [ 4306204448] - remaining: 26878287006 [  206967206@21.2] - user time: 929345s
+Time:  20280s, Mem: 1877.354GB - scanned:  4310625017 [ 4310625017] - remaining: 26892175441 [  212156610@21.2] - user time: 930779s
+Time:  20310s, Mem: 1877.354GB - scanned:  4315102429 [ 4315102429] - remaining: 26909303161 [  220154407@21.2] - user time: 932214s
+Time:  20340s, Mem: 1877.354GB - scanned:  4319576314 [ 4319576314] - remaining: 26921797760 [  223898839@21.2] - user time: 933649s
+Time:  20370s, Mem: 1877.354GB - scanned:  4324113655 [ 4324113655] - remaining: 26941058775 [  234387659@21.2] - user time: 935084s
+Time:  20400s, Mem: 1877.354GB - scanned:  4327594142 [ 4327594142] - remaining: 26903783870 [  190114691@21.2] - user time: 936461s
+Time:  20430s, Mem: 1877.354GB - scanned:  4331389882 [ 4331389882] - remaining: 26875743233 [  154721962@21.2] - user time: 937877s
+Time:  20460s, Mem: 1877.354GB - scanned:  4341789721 [ 4341789721] - remaining: 26826758507 [   97598706@21.2] - user time: 939300s
+Time:  20490s, Mem: 1877.354GB - scanned:  4346775667 [ 4346775667] - remaining: 26735987003 [26735987003@21.3] - user time: 940628s
+Time:  20520s, Mem: 1877.354GB - scanned:  4352399908 [ 4352399908] - remaining: 26789231496 [26789231496@21.3] - user time: 942064s
+Time:  20550s, Mem: 1877.354GB - scanned:  4357622115 [ 4357622115] - remaining: 26831289829 [26831289829@21.3] - user time: 943500s
+Time:  20580s, Mem: 1877.354GB - scanned:  4362527660 [ 4362527660] - remaining: 26866437383 [26866437383@21.3] - user time: 944895s
+Time:  20610s, Mem: 1877.354GB - scanned:  4367575399 [ 4367575399] - remaining: 26902884279 [26902884279@21.3] - user time: 946292s
+Time:  20640s, Mem: 1877.354GB - scanned:  4373049382 [ 4373049382] - remaining: 26945212987 [26945212987@21.3] - user time: 947717s
+Time:  20670s, Mem: 1877.354GB - scanned:  4378465876 [ 4378465876] - remaining: 26993780037 [26993780037@21.3] - user time: 949154s
+Time:  20700s, Mem: 1877.354GB - scanned:  4383910651 [ 4383910651] - remaining: 27037297595 [27037297595@21.3] - user time: 950591s
+Time:  20730s, Mem: 1877.354GB - scanned:  4389372519 [ 4389372519] - remaining: 27077811373 [27077811373@21.3] - user time: 952028s
+Time:  20760s, Mem: 1877.354GB - scanned:  4394783257 [ 4394783257] - remaining: 27122457826 [27122457826@21.3] - user time: 953465s
+Time:  20790s, Mem: 1877.354GB - scanned:  4400176040 [ 4400176040] - remaining: 27158470960 [27158470960@21.3] - user time: 954903s
+Time:  20820s, Mem: 1877.354GB - scanned:  4405651942 [ 4405651943] - remaining: 27193507845 [27193507845@21.3] - user time: 956340s
+Time:  20850s, Mem: 1877.354GB - scanned:  4411231958 [ 4411231958] - remaining: 27233714658 [27233714658@21.3] - user time: 957777s
+Time:  20880s, Mem: 1877.354GB - scanned:  4416496049 [ 4416496049] - remaining: 27271169267 [27271169267@21.3] - user time: 959215s
+Time:  20910s, Mem: 1877.354GB - scanned:  4422039465 [ 4422039465] - remaining: 27316924455 [27316924455@21.3] - user time: 960653s
+Time:  20940s, Mem: 1877.354GB - scanned:  4427561496 [ 4427561496] - remaining: 27355639594 [27355639594@21.3] - user time: 962075s
+Time:  20970s, Mem: 1877.354GB - scanned:  4433116453 [ 4433116453] - remaining: 27399171038 [27399171038@21.3] - user time: 963513s
+Time:  21000s, Mem: 1877.354GB - scanned:  4438628294 [ 4438628294] - remaining: 27438239769 [27438239769@21.3] - user time: 964951s
+Time:  21030s, Mem: 1877.354GB - scanned:  4444126437 [ 4444126437] - remaining: 27468024994 [27468024994@21.3] - user time: 966388s
+Time:  21060s, Mem: 1877.354GB - scanned:  4449408373 [ 4449408373] - remaining: 27503597898 [27503597898@21.3] - user time: 967816s
+Time:  21090s, Mem: 1877.354GB - scanned:  4454969832 [ 4454969832] - remaining: 27545574722 [27545574722@21.3] - user time: 969254s
+Time:  21120s, Mem: 1877.354GB - scanned:  4460386369 [ 4460386369] - remaining: 27594987221 [27594987221@21.3] - user time: 970692s
+Time:  21150s, Mem: 1877.354GB - scanned:  4465827862 [ 4465827862] - remaining: 27643926871 [27643926871@21.3] - user time: 972127s
+Time:  21180s, Mem: 1877.354GB - scanned:  4471249843 [ 4471249843] - remaining: 27688105038 [27688105038@21.3] - user time: 973565s
+Time:  21210s, Mem: 1877.354GB - scanned:  4476681950 [ 4476681950] - remaining: 27735763955 [27735763955@21.3] - user time: 975003s
+Time:  21240s, Mem: 1877.354GB - scanned:  4482235118 [ 4482235118] - remaining: 27773317532 [27773317532@21.3] - user time: 976437s
+Time:  21270s, Mem: 1877.354GB - scanned:  4487794758 [ 4487794758] - remaining: 27815947072 [27815947072@21.3] - user time: 977863s
+Time:  21300s, Mem: 1877.354GB - scanned:  4493305765 [ 4493305765] - remaining: 27853089823 [27853089823@21.3] - user time: 979301s
+Time:  21330s, Mem: 1877.354GB - scanned:  4498812280 [ 4498812280] - remaining: 27878017013 [27878017013@21.3] - user time: 980739s
+Time:  21360s, Mem: 1877.354GB - scanned:  4504283212 [ 4504283212] - remaining: 27910850004 [27910850004@21.3] - user time: 982177s
+Time:  21390s, Mem: 1877.354GB - scanned:  4509806532 [ 4509806532] - remaining: 27944379556 [27944379556@21.3] - user time: 983615s
+Time:  21420s, Mem: 1877.354GB - scanned:  4515238259 [ 4515238259] - remaining: 27990942498 [27990942498@21.3] - user time: 985053s
+Time:  21450s, Mem: 1877.354GB - scanned:  4520748878 [ 4520748878] - remaining: 28026061109 [28026061109@21.3] - user time: 986491s
+Time:  21480s, Mem: 1877.354GB - scanned:  4526273846 [ 4526273846] - remaining: 28072513208 [28072513208@21.3] - user time: 987929s
+Time:  21510s, Mem: 1877.354GB - scanned:  4531753734 [ 4531753734] - remaining: 28114650969 [28114650969@21.3] - user time: 989367s
+Time:  21540s, Mem: 1877.354GB - scanned:  4537191131 [ 4537191131] - remaining: 28159969244 [28159969244@21.3] - user time: 990802s
+Time:  21570s, Mem: 1877.354GB - scanned:  4542748567 [ 4542748567] - remaining: 28207910054 [28207910054@21.3] - user time: 992240s
+Time:  21600s, Mem: 1877.354GB - scanned:  4548237617 [ 4548237617] - remaining: 28261849154 [28261849154@21.3] - user time: 993678s
+Time:  21630s, Mem: 1877.354GB - scanned:  4553876178 [ 4553876178] - remaining: 28297816950 [28297816950@21.3] - user time: 995116s
+Time:  21660s, Mem: 1877.354GB - scanned:  4559260394 [ 4559260394] - remaining: 28326368652 [28326368652@21.3] - user time: 996522s
+Time:  21690s, Mem: 1877.354GB - scanned:  4564711190 [ 4564711190] - remaining: 28363439165 [28363439165@21.3] - user time: 997933s
+Time:  21720s, Mem: 1877.354GB - scanned:  4570291802 [ 4570291802] - remaining: 28391817588 [28391817588@21.3] - user time: 999371s
+Time:  21750s, Mem: 1877.354GB - scanned:  4575803284 [ 4575803284] - remaining: 28423406049 [28423406049@21.3] - user time: 1000795s
+Time:  21780s, Mem: 1877.354GB - scanned:  4581255490 [ 4581255490] - remaining: 28462206691 [28462206691@21.3] - user time: 1002217s
+Time:  21810s, Mem: 1877.354GB - scanned:  4586746916 [ 4586746916] - remaining: 28502410187 [28502410187@21.3] - user time: 1003643s
+Time:  21840s, Mem: 1877.354GB - scanned:  4592152107 [ 4592152107] - remaining: 28538300154 [28538300154@21.3] - user time: 1005040s
+Time:  21870s, Mem: 1877.354GB - scanned:  4597692659 [ 4597692659] - remaining: 28587147733 [28587147733@21.3] - user time: 1006478s
+Time:  21900s, Mem: 1877.354GB - scanned:  4602907213 [ 4602907213] - remaining: 28622730292 [28622730292@21.3] - user time: 1007916s
+Time:  21930s, Mem: 1877.354GB - scanned:  4608388424 [ 4608388424] - remaining: 28657015634 [28657015634@21.3] - user time: 1009352s
+Time:  21960s, Mem: 1877.354GB - scanned:  4614385272 [ 4614385272] - remaining: 28687190302 [28687190302@21.3] - user time: 1010784s
+Time:  21990s, Mem: 1877.354GB - scanned:  4620420407 [ 4620420407] - remaining: 28720312625 [28720312625@21.3] - user time: 1012192s
+Time:  22020s, Mem: 1877.354GB - scanned:  4626796833 [ 4626796833] - remaining: 28757815830 [28757815830@21.3] - user time: 1013630s
+Time:  22050s, Mem: 1877.354GB - scanned:  4633150683 [ 4633150683] - remaining: 28804504372 [28804504372@21.3] - user time: 1015067s
+Time:  22080s, Mem: 1877.354GB - scanned:  4639469492 [ 4639469492] - remaining: 28853148345 [28853148345@21.3] - user time: 1016505s
+Time:  22110s, Mem: 1877.354GB - scanned:  4645785898 [ 4645785898] - remaining: 28899130794 [28899130794@21.3] - user time: 1017942s
+Time:  22140s, Mem: 1877.354GB - scanned:  4651892035 [ 4651892035] - remaining: 28942650215 [28942650215@21.3] - user time: 1019340s
+Time:  22170s, Mem: 1877.354GB - scanned:  4658231978 [ 4658231978] - remaining: 28985559529 [28985559529@21.3] - user time: 1020777s
+Time:  22200s, Mem: 1877.354GB - scanned:  4664605879 [ 4664605879] - remaining: 29026617670 [29026617670@21.3] - user time: 1022215s
+Time:  22230s, Mem: 1877.354GB - scanned:  4670673629 [ 4670673629] - remaining: 29074424178 [29074424178@21.3] - user time: 1023642s
+Time:  22260s, Mem: 1877.354GB - scanned:  4676880865 [ 4676880865] - remaining: 29116206127 [29116206127@21.3] - user time: 1025080s
+Time:  22290s, Mem: 1877.354GB - scanned:  4683101120 [ 4683101120] - remaining: 29158658690 [29158658690@21.3] - user time: 1026518s
+Time:  22320s, Mem: 1877.354GB - scanned:  4689403750 [ 4689403750] - remaining: 29199904085 [29199904085@21.3] - user time: 1027956s
+Time:  22350s, Mem: 1877.354GB - scanned:  4695834864 [ 4695834865] - remaining: 29248996388 [29248996388@21.3] - user time: 1029394s
+Time:  22380s, Mem: 1877.354GB - scanned:  4702300558 [ 4702300558] - remaining: 29297880370 [29297880370@21.3] - user time: 1030832s
+Time:  22410s, Mem: 1877.354GB - scanned:  4708730139 [ 4708730139] - remaining: 29342495879 [29342495879@21.3] - user time: 1032270s
+Time:  22440s, Mem: 1877.354GB - scanned:  4713976004 [ 4713976004] - remaining: 29376683434 [29376683434@21.3] - user time: 1033488s
+Time:  22470s, Mem: 1877.354GB - scanned:  4716859469 [ 4716859469] - remaining: 29396785053 [29396785053@21.3] - user time: 1034302s
+Time:  22500s, Mem: 1877.354GB - scanned:  4719738883 [ 4719738883] - remaining: 29417827190 [29417827190@21.3] - user time: 1035140s
+Time:  22530s, Mem: 1877.354GB - scanned:  4722468551 [ 4722468551] - remaining: 29430361657 [29430361657@21.3] - user time: 1035951s
+Time:  22560s, Mem: 1877.354GB - scanned:  4725231231 [ 4725231231] - remaining: 29445573306 [29445573306@21.3] - user time: 1036765s
+Time:  22590s, Mem: 1877.354GB - scanned:  4728139155 [ 4728139155] - remaining: 29469499574 [29469499574@21.3] - user time: 1037601s
+Time:  22620s, Mem: 1877.354GB - scanned:  4731007708 [ 4731007708] - remaining: 29491228435 [29491228435@21.3] - user time: 1038422s
+Time:  22650s, Mem: 1877.354GB - scanned:  4733919652 [ 4733919652] - remaining: 29512325678 [29512325678@21.3] - user time: 1039245s
+Time:  22680s, Mem: 1877.354GB - scanned:  4736791748 [ 4736791748] - remaining: 29531955149 [29531955149@21.3] - user time: 1040060s
+Time:  22710s, Mem: 1877.354GB - scanned:  4739708086 [ 4739708086] - remaining: 29551243574 [29551243574@21.3] - user time: 1040877s
+Time:  22740s, Mem: 1877.354GB - scanned:  4742624819 [ 4742624819] - remaining: 29569358310 [29569358310@21.3] - user time: 1041693s
+Time:  22770s, Mem: 1877.354GB - scanned:  4745569973 [ 4745569973] - remaining: 29592408056 [29592408056@21.3] - user time: 1042529s
+Time:  22800s, Mem: 1877.354GB - scanned:  4749437577 [ 4749437577] - remaining: 29623795549 [29623795549@21.3] - user time: 1043525s
+Time:  22830s, Mem: 1877.354GB - scanned:  4755865898 [ 4755865898] - remaining: 29668864016 [29668864016@21.3] - user time: 1044963s
+Time:  22860s, Mem: 1877.354GB - scanned:  4762242548 [ 4762242548] - remaining: 29717607811 [29717607811@21.3] - user time: 1046400s
+Time:  22890s, Mem: 1877.354GB - scanned:  4768669545 [ 4768669545] - remaining: 29760996925 [29760996925@21.3] - user time: 1047838s
+Time:  22920s, Mem: 1877.354GB - scanned:  4775219852 [ 4775219852] - remaining: 29805068774 [29805068774@21.3] - user time: 1049276s
+Time:  22950s, Mem: 1877.354GB - scanned:  4781489368 [ 4781489368] - remaining: 29840034796 [29840034796@21.3] - user time: 1050694s
+Time:  22980s, Mem: 1877.354GB - scanned:  4787709180 [ 4787709180] - remaining: 29873998215 [29873998215@21.3] - user time: 1052132s
+Time:  23010s, Mem: 1877.354GB - scanned:  4793907367 [ 4793907367] - remaining: 29912901643 [29912901643@21.3] - user time: 1053570s
+Time:  23040s, Mem: 1877.354GB - scanned:  4800325032 [ 4800325032] - remaining: 29953525030 [29953525030@21.3] - user time: 1054994s
+Time:  23070s, Mem: 1877.354GB - scanned:  4806263019 [ 4806263019] - remaining: 29985945097 [29985945097@21.3] - user time: 1056356s
+Time:  23100s, Mem: 1877.354GB - scanned:  4812548513 [ 4812548513] - remaining: 30037054124 [30037054124@21.3] - user time: 1057793s
+Time:  23130s, Mem: 1877.354GB - scanned:  4818832595 [ 4818832595] - remaining: 30080621104 [30080621104@21.3] - user time: 1059231s
+Time:  23160s, Mem: 1877.354GB - scanned:  4825058021 [ 4825058021] - remaining: 30132281491 [30132281491@21.3] - user time: 1060669s
+Time:  23190s, Mem: 1877.354GB - scanned:  4831350225 [ 4831350225] - remaining: 30181683971 [30181683971@21.3] - user time: 1062107s
+Time:  23220s, Mem: 1877.354GB - scanned:  4837644580 [ 4837644580] - remaining: 30232289804 [30232289804@21.3] - user time: 1063544s
+Time:  23250s, Mem: 1877.354GB - scanned:  4844099568 [ 4844099568] - remaining: 30273905466 [30273905466@21.3] - user time: 1064982s
+Time:  23280s, Mem: 1877.354GB - scanned:  4850697311 [ 4850697311] - remaining: 30320809311 [30320809311@21.3] - user time: 1066420s
+Time:  23310s, Mem: 1877.354GB - scanned:  4857270470 [ 4857270470] - remaining: 30364357627 [30364357627@21.3] - user time: 1067858s
+Time:  23340s, Mem: 1877.354GB - scanned:  4863755807 [ 4863755807] - remaining: 30401462844 [30401462844@21.3] - user time: 1069295s
+Time:  23370s, Mem: 1877.354GB - scanned:  4870035238 [ 4870035238] - remaining: 30422814979 [30422814979@21.3] - user time: 1070707s
+Time:  23400s, Mem: 1877.354GB - scanned:  4876506396 [ 4876506396] - remaining: 30461161712 [30461161712@21.3] - user time: 1072145s
+Time:  23430s, Mem: 1877.354GB - scanned:  4882994395 [ 4882994395] - remaining: 30496288726 [30496288726@21.3] - user time: 1073583s
+Time:  23460s, Mem: 1877.354GB - scanned:  4889104616 [ 4889104616] - remaining: 30527576272 [30527576272@21.3] - user time: 1074950s
+Time:  23490s, Mem: 1877.354GB - scanned:  4895482033 [ 4895482034] - remaining: 30578546306 [30578546306@21.3] - user time: 1076388s
+Time:  23520s, Mem: 1877.354GB - scanned:  4901920642 [ 4901920642] - remaining: 30624875146 [30624875146@21.3] - user time: 1077826s
+Time:  23550s, Mem: 1877.354GB - scanned:  4908358776 [ 4908358776] - remaining: 30663188810 [30663188810@21.3] - user time: 1079263s
+Time:  23580s, Mem: 1877.354GB - scanned:  4914757624 [ 4914757624] - remaining: 30707777098 [30707777098@21.3] - user time: 1080701s
+Time:  23610s, Mem: 1877.354GB - scanned:  4921101434 [ 4921101434] - remaining: 30752052332 [30752052332@21.3] - user time: 1082139s
+Time:  23640s, Mem: 1877.354GB - scanned:  4927368569 [ 4927368569] - remaining: 30804318697 [30804318697@21.3] - user time: 1083568s
+Time:  23670s, Mem: 1877.354GB - scanned:  4933670169 [ 4933670169] - remaining: 30850530451 [30850530451@21.3] - user time: 1085005s
+Time:  23700s, Mem: 1877.354GB - scanned:  4940042054 [ 4940042054] - remaining: 30901286157 [30901286157@21.3] - user time: 1086436s
+Time:  23730s, Mem: 1877.354GB - scanned:  4946253828 [ 4946253828] - remaining: 30922425599 [30922425599@21.3] - user time: 1087874s
+Time:  23760s, Mem: 1877.354GB - scanned:  4953194537 [ 4953194537] - remaining: 30951100612 [30951100612@21.3] - user time: 1089311s
+Time:  23790s, Mem: 1877.354GB - scanned:  4960021260 [ 4960021260] - remaining: 30977839037 [30977839037@21.3] - user time: 1090725s
+Time:  23820s, Mem: 1877.354GB - scanned:  4966832061 [ 4966832061] - remaining: 31004647100 [31004647100@21.3] - user time: 1092163s
+Time:  23850s, Mem: 1877.354GB - scanned:  4973934426 [ 4973934426] - remaining: 31035600763 [31035600763@21.3] - user time: 1093600s
+Time:  23880s, Mem: 1877.354GB - scanned:  4981359564 [ 4981359564] - remaining: 31077600163 [31077600163@21.3] - user time: 1095037s
+Time:  23910s, Mem: 1877.354GB - scanned:  4988823187 [ 4988823187] - remaining: 31112291507 [31112291507@21.3] - user time: 1096475s
+Time:  23940s, Mem: 1877.354GB - scanned:  4996010654 [ 4996010654] - remaining: 31148030616 [31148030616@21.3] - user time: 1097911s
+Time:  23970s, Mem: 1877.354GB - scanned:  5003083091 [ 5003083091] - remaining: 31178461653 [31178461653@21.3] - user time: 1099348s
+Time:  24000s, Mem: 1877.354GB - scanned:  5010367797 [ 5010367797] - remaining: 31213557136 [31213557136@21.3] - user time: 1100785s
+Time:  24030s, Mem: 1877.354GB - scanned:  5017812876 [ 5017812876] - remaining: 31249040185 [31249040185@21.3] - user time: 1102223s
+Time:  24060s, Mem: 1877.354GB - scanned:  5024851687 [ 5024851687] - remaining: 31276603355 [31276603355@21.3] - user time: 1103625s
+Time:  24090s, Mem: 1877.354GB - scanned:  5032184942 [ 5032184942] - remaining: 31306849409 [31306849409@21.3] - user time: 1105063s
+Time:  24120s, Mem: 1877.354GB - scanned:  5039325445 [ 5039325445] - remaining: 31344140347 [31344140347@21.3] - user time: 1106500s
+Time:  24150s, Mem: 1877.354GB - scanned:  5046124589 [ 5046124589] - remaining: 31355080700 [31355080700@21.3] - user time: 1107938s
+Time:  24180s, Mem: 1877.354GB - scanned:  5053470532 [ 5053470532] - remaining: 31378970852 [31378970852@21.3] - user time: 1109375s
+Time:  24210s, Mem: 1877.354GB - scanned:  5060360774 [ 5060360774] - remaining: 31407680920 [31407680920@21.3] - user time: 1110813s
+Time:  24240s, Mem: 1877.354GB - scanned:  5067870531 [ 5067870531] - remaining: 31431001073 [31431001073@21.3] - user time: 1112238s
+Time:  24270s, Mem: 1877.354GB - scanned:  5076044138 [ 5076044138] - remaining: 31459319545 [31459319545@21.3] - user time: 1113676s
+Time:  24300s, Mem: 1877.354GB - scanned:  5082324275 [ 5082324275] - remaining: 31499158776 [31499158776@21.3] - user time: 1115081s
+Time:  24330s, Mem: 1877.354GB - scanned:  5088629189 [ 5088629189] - remaining: 31540106524 [31540106524@21.3] - user time: 1116520s
+Time:  24360s, Mem: 1877.354GB - scanned:  5094761475 [ 5094761475] - remaining: 31577323018 [31577323018@21.3] - user time: 1117919s
+Time:  24390s, Mem: 1877.354GB - scanned:  5101102863 [ 5101102863] - remaining: 31613875744 [31613875744@21.3] - user time: 1119357s
+Time:  24420s, Mem: 1877.354GB - scanned:  5107434803 [ 5107434803] - remaining: 31649388449 [31649388449@21.3] - user time: 1120795s
+Time:  24450s, Mem: 1877.354GB - scanned:  5113823263 [ 5113823263] - remaining: 31683693618 [31683693618@21.3] - user time: 1122233s
+Time:  24480s, Mem: 1877.354GB - scanned:  5120610417 [ 5120610417] - remaining: 31727965347 [31727965347@21.3] - user time: 1123671s
+Time:  24510s, Mem: 1877.354GB - scanned:  5127694691 [ 5127694691] - remaining: 31770896870 [31770896870@21.3] - user time: 1125108s
+Time:  24540s, Mem: 1877.354GB - scanned:  5134766749 [ 5134766749] - remaining: 31814198316 [31814198316@21.3] - user time: 1126544s
+Time:  24570s, Mem: 1877.354GB - scanned:  5141832268 [ 5141832268] - remaining: 31856742788 [31856742788@21.3] - user time: 1127982s
+Time:  24600s, Mem: 1877.354GB - scanned:  5148854898 [ 5148854898] - remaining: 31894052538 [31894052538@21.3] - user time: 1129419s
+Time:  24630s, Mem: 1877.354GB - scanned:  5156322950 [ 5156322950] - remaining: 31929386587 [31929386587@21.3] - user time: 1130857s
+Time:  24660s, Mem: 1877.354GB - scanned:  5162533718 [ 5162533718] - remaining: 31959302539 [31959302539@21.3] - user time: 1132295s
+Time:  24690s, Mem: 1877.354GB - scanned:  5168920655 [ 5168920655] - remaining: 31994363511 [31994363511@21.3] - user time: 1133733s
+Time:  24720s, Mem: 1877.354GB - scanned:  5175941925 [ 5175941925] - remaining: 32033407735 [32033407735@21.3] - user time: 1135171s
+Time:  24750s, Mem: 1877.354GB - scanned:  5182910671 [ 5182910671] - remaining: 32068563349 [32068563349@21.3] - user time: 1136608s
+Time:  24780s, Mem: 1877.354GB - scanned:  5189868886 [ 5189868886] - remaining: 32098178035 [32098178035@21.3] - user time: 1138047s
+Time:  24810s, Mem: 1877.354GB - scanned:  5197384158 [ 5197384158] - remaining: 32130946065 [32130946065@21.3] - user time: 1139485s
+Time:  24840s, Mem: 1877.354GB - scanned:  5203713943 [ 5203713943] - remaining: 32171495380 [32171495380@21.3] - user time: 1140882s
+Time:  24870s, Mem: 1877.354GB - scanned:  5210600372 [ 5210600372] - remaining: 32209856963 [32209856963@21.3] - user time: 1142319s
+Time:  24900s, Mem: 1877.354GB - scanned:  5217451335 [ 5217451335] - remaining: 32244404112 [32244404112@21.3] - user time: 1143757s
+Time:  24930s, Mem: 1877.354GB - scanned:  5224388510 [ 5224388510] - remaining: 32279560669 [32279560669@21.3] - user time: 1145195s
+Time:  24960s, Mem: 1877.354GB - scanned:  5231453100 [ 5231453100] - remaining: 32316085682 [32316085682@21.3] - user time: 1146633s
+Time:  24990s, Mem: 1877.354GB - scanned:  5239191480 [ 5239191480] - remaining: 32354820549 [32354820549@21.3] - user time: 1148062s
+Time:  25020s, Mem: 1877.354GB - scanned:  5247193112 [ 5247193112] - remaining: 32391199116 [32391199116@21.3] - user time: 1149499s
+Time:  25050s, Mem: 1877.354GB - scanned:  5255050342 [ 5255050342] - remaining: 32428279476 [32428279476@21.3] - user time: 1150936s
+Time:  25080s, Mem: 1877.354GB - scanned:  5262894809 [ 5262894810] - remaining: 32465343965 [32465343965@21.3] - user time: 1152374s
+Time:  25110s, Mem: 1877.354GB - scanned:  5271215941 [ 5271215941] - remaining: 32497502592 [32497502592@21.3] - user time: 1153809s
+Time:  25140s, Mem: 1877.354GB - scanned:  5278676698 [ 5278676698] - remaining: 32531670004 [32531670004@21.3] - user time: 1155246s
+Time:  25170s, Mem: 1877.354GB - scanned:  5286691728 [ 5286691728] - remaining: 32561008828 [32561008828@21.3] - user time: 1156684s
+Time:  25200s, Mem: 1877.354GB - scanned:  5294491626 [ 5294491626] - remaining: 32593546802 [32593546802@21.3] - user time: 1158121s
+Time:  25230s, Mem: 1877.354GB - scanned:  5303169952 [ 5303169952] - remaining: 32613330732 [32613330732@21.3] - user time: 1159559s
+Time:  25260s, Mem: 1877.354GB - scanned:  5310320510 [ 5310320510] - remaining: 32649926700 [32649926700@21.3] - user time: 1160997s
+Time:  25290s, Mem: 1877.354GB - scanned:  5318696038 [ 5318696038] - remaining: 32666632731 [32666632731@21.3] - user time: 1162434s
+Time:  25320s, Mem: 1877.354GB - scanned:  5325266645 [ 5325266645] - remaining: 32710965491 [32710965491@21.3] - user time: 1163872s
+Time:  25350s, Mem: 1877.354GB - scanned:  5332446564 [ 5332446564] - remaining: 32744094009 [32744094009@21.3] - user time: 1165310s
+Time:  25380s, Mem: 1877.354GB - scanned:  5339885330 [ 5339885330] - remaining: 32772638108 [32772638108@21.3] - user time: 1166748s
+Time:  25410s, Mem: 1877.354GB - scanned:  5346864485 [ 5346864485] - remaining: 32815090717 [32815090717@21.3] - user time: 1168185s
+Time:  25440s, Mem: 1877.354GB - scanned:  5353655477 [ 5353655477] - remaining: 32856954312 [32856954312@21.3] - user time: 1169612s
+Time:  25470s, Mem: 1877.354GB - scanned:  5362111152 [ 5362111152] - remaining: 32873536287 [32873536287@21.3] - user time: 1171049s
+Time:  25500s, Mem: 1877.354GB - scanned:  5368946115 [ 5368946115] - remaining: 32903269415 [32903269415@21.3] - user time: 1172486s
+Time:  25530s, Mem: 1877.354GB - scanned:  5375488812 [ 5375490852] - remaining: 32924880474 [32924880474@21.3] - user time: 1173924s
+Time:  25560s, Mem: 1877.354GB - scanned:  5381603439 [ 5381605479] - remaining: 32969438891 [32969438891@21.3] - user time: 1175362s
+Time:  25590s, Mem: 1877.354GB - scanned:  5388184487 [ 5388186527] - remaining: 33009188863 [33009188863@21.3] - user time: 1176800s
+Time:  25620s, Mem: 1877.354GB - scanned:  5394710697 [ 5394712737] - remaining: 33062184707 [33062184707@21.3] - user time: 1178238s
+Time:  25650s, Mem: 1877.354GB - scanned:  5401375982 [ 5401378022] - remaining: 33112412246 [33112412246@21.3] - user time: 1179675s
+Time:  25680s, Mem: 1877.354GB - scanned:  5408299144 [ 5408301184] - remaining: 33158372094 [33158372094@21.3] - user time: 1181113s
+Time:  25710s, Mem: 1877.354GB - scanned:  5414623452 [ 5414625492] - remaining: 33200104501 [33200104501@21.3] - user time: 1182551s
+Time:  25740s, Mem: 1877.354GB - scanned:  5420970885 [ 5420972925] - remaining: 33234159136 [33234159136@21.3] - user time: 1183988s
+Time:  25770s, Mem: 1877.354GB - scanned:  5427259895 [ 5427261935] - remaining: 33256116253 [33256116253@21.3] - user time: 1185427s
+Time:  25800s, Mem: 1877.354GB - scanned:  5433333809 [ 5433335849] - remaining: 33290558865 [33290558865@21.3] - user time: 1186865s
+Time:  25830s, Mem: 1877.354GB - scanned:  5440076330 [ 5440078370] - remaining: 33336467312 [33336467312@21.3] - user time: 1188303s
+Time:  25860s, Mem: 1877.354GB - scanned:  5447186398 [ 5447188438] - remaining: 33383130757 [33383130757@21.3] - user time: 1189741s
+Time:  25890s, Mem: 1877.354GB - scanned:  5454118554 [ 5454120594] - remaining: 33420475677 [33420475677@21.3] - user time: 1191178s
+Time:  25920s, Mem: 1877.354GB - scanned:  5460801096 [ 5460803136] - remaining: 33460898049 [33460898049@21.3] - user time: 1192574s
+Time:  25950s, Mem: 1877.354GB - scanned:  5467546475 [ 5467548515] - remaining: 33488793030 [33488793030@21.3] - user time: 1194012s
+Time:  25980s, Mem: 1877.354GB - scanned:  5474504775 [ 5474506815] - remaining: 33529407434 [33529407434@21.3] - user time: 1195450s
+Time:  26010s, Mem: 1877.354GB - scanned:  5480927116 [ 5480929156] - remaining: 33576542111 [33576542111@21.3] - user time: 1196854s
+Time:  26040s, Mem: 1877.354GB - scanned:  5487470695 [ 5487472735] - remaining: 33621579724 [33621579724@21.3] - user time: 1198277s
+Time:  26070s, Mem: 1877.354GB - scanned:  5493878950 [ 5493880990] - remaining: 33661778355 [33661778355@21.3] - user time: 1199715s
+Time:  26100s, Mem: 1877.354GB - scanned:  5500461650 [ 5500463690] - remaining: 33691174196 [33691174196@21.3] - user time: 1201153s
+Time:  26130s, Mem: 1877.354GB - scanned:  5507287404 [ 5507289444] - remaining: 33734105503 [33734105503@21.3] - user time: 1202591s
+Time:  26160s, Mem: 1877.354GB - scanned:  5514082952 [ 5514084993] - remaining: 33765037908 [33765037908@21.3] - user time: 1204029s
+Time:  26190s, Mem: 1877.354GB - scanned:  5520863598 [ 5520865638] - remaining: 33799227153 [33799227153@21.3] - user time: 1205467s
+Time:  26220s, Mem: 1877.354GB - scanned:  5527779052 [ 5527781093] - remaining: 33835238581 [33835238581@21.3] - user time: 1206905s
+Time:  26250s, Mem: 1877.354GB - scanned:  5534664633 [ 5534666673] - remaining: 33873877899 [33873877899@21.3] - user time: 1208343s
+Time:  26280s, Mem: 1877.354GB - scanned:  5541502950 [ 5541504990] - remaining: 33898255638 [33898255638@21.3] - user time: 1209781s
+Time:  26310s, Mem: 1877.354GB - scanned:  5547817812 [ 5547819852] - remaining: 33934000774 [33934000774@21.3] - user time: 1211219s
+Time:  26340s, Mem: 1877.354GB - scanned:  5554080076 [ 5554082116] - remaining: 33970384665 [33970384665@21.3] - user time: 1212635s
+Time:  26370s, Mem: 1877.354GB - scanned:  5560372003 [ 5560374043] - remaining: 34010448504 [34010448504@21.3] - user time: 1214074s
+Time:  26400s, Mem: 1877.354GB - scanned:  5566864296 [ 5566866336] - remaining: 34051125001 [34051125001@21.3] - user time: 1215512s
+Time:  26430s, Mem: 1877.354GB - scanned:  5573240027 [ 5573242067] - remaining: 34094113489 [34094113489@21.3] - user time: 1216947s
+Time:  26460s, Mem: 1877.354GB - scanned:  5579772059 [ 5579774099] - remaining: 34137208396 [34137208396@21.3] - user time: 1218385s
+Time:  26490s, Mem: 1877.354GB - scanned:  5586609713 [ 5586611753] - remaining: 34181842745 [34181842745@21.3] - user time: 1219822s
+Time:  26520s, Mem: 1877.354GB - scanned:  5593561258 [ 5593563298] - remaining: 34226728727 [34226728727@21.3] - user time: 1221260s
+Time:  26550s, Mem: 1877.354GB - scanned:  5600557285 [ 5600559325] - remaining: 34274117427 [34274117427@21.3] - user time: 1222698s
+Time:  26580s, Mem: 1877.354GB - scanned:  5607807943 [ 5607809983] - remaining: 34324321643 [34324321643@21.3] - user time: 1224136s
+Time:  26610s, Mem: 1877.354GB - scanned:  5615359503 [ 5615361543] - remaining: 34367790409 [34367790409@21.3] - user time: 1225573s
+Time:  26640s, Mem: 1877.354GB - scanned:  5622244050 [ 5622246090] - remaining: 34407780084 [34407780084@21.3] - user time: 1227005s
+Time:  26670s, Mem: 1877.354GB - scanned:  5629136986 [ 5629139026] - remaining: 34441862475 [34441862475@21.3] - user time: 1228443s
+Time:  26700s, Mem: 1877.354GB - scanned:  5635998383 [ 5636000423] - remaining: 34476179434 [34476179434@21.3] - user time: 1229881s
+Time:  26730s, Mem: 1877.354GB - scanned:  5643612025 [ 5643614065] - remaining: 34517442370 [34517442370@21.3] - user time: 1231319s
+Time:  26760s, Mem: 1877.354GB - scanned:  5651147234 [ 5651149274] - remaining: 34557778465 [34557778465@21.3] - user time: 1232757s
+Time:  26790s, Mem: 1877.354GB - scanned:  5658780087 [ 5658782127] - remaining: 34588873055 [34588873055@21.3] - user time: 1234194s
+Time:  26820s, Mem: 1877.354GB - scanned:  5666122391 [ 5666124431] - remaining: 34626529443 [34626529443@21.3] - user time: 1235632s
+Time:  26850s, Mem: 1877.354GB - scanned:  5673360587 [ 5673362627] - remaining: 34665840650 [34665840650@21.3] - user time: 1237070s
+Time:  26880s, Mem: 1877.354GB - scanned:  5680575102 [ 5680577142] - remaining: 34700972508 [34700972508@21.3] - user time: 1238508s
+Time:  26910s, Mem: 1877.354GB - scanned:  5687846010 [ 5687848051] - remaining: 34739746003 [34739746003@21.3] - user time: 1239945s
+Time:  26940s, Mem: 1877.354GB - scanned:  5695262700 [ 5695264740] - remaining: 34780457658 [34780457658@21.3] - user time: 1241382s
+Time:  26970s, Mem: 1877.354GB - scanned:  5702817727 [ 5702819767] - remaining: 34819574348 [34819574348@21.3] - user time: 1242820s
+Time:  27000s, Mem: 1877.354GB - scanned:  5710499975 [ 5710502015] - remaining: 34855809421 [34855809421@21.3] - user time: 1244257s
+Time:  27030s, Mem: 1877.354GB - scanned:  5717674036 [ 5717676076] - remaining: 34886500532 [34886500532@21.3] - user time: 1245695s
+Time:  27060s, Mem: 1877.354GB - scanned:  5724773154 [ 5724775194] - remaining: 34919972765 [34919972765@21.3] - user time: 1247133s
+Time:  27090s, Mem: 1877.354GB - scanned:  5732152793 [ 5732154833] - remaining: 34955734793 [34955734793@21.3] - user time: 1248569s
+Time:  27120s, Mem: 1877.354GB - scanned:  5739639777 [ 5739641817] - remaining: 34982202414 [34982202414@21.3] - user time: 1250007s
+Time:  27150s, Mem: 1877.354GB - scanned:  5747026042 [ 5747028082] - remaining: 35020145085 [35020145085@21.3] - user time: 1251444s
+Time:  27180s, Mem: 1877.354GB - scanned:  5754626781 [ 5754628821] - remaining: 35056570582 [35056570582@21.3] - user time: 1252882s
+Time:  27210s, Mem: 1877.354GB - scanned:  5761997056 [ 5761999096] - remaining: 35097512799 [35097512799@21.3] - user time: 1254319s
+Time:  27240s, Mem: 1877.354GB - scanned:  5769320180 [ 5769322220] - remaining: 35132100632 [35132100632@21.3] - user time: 1255749s
+Time:  27270s, Mem: 1877.354GB - scanned:  5777063182 [ 5777065222] - remaining: 35163851643 [35163851643@21.3] - user time: 1257187s
+Time:  27300s, Mem: 1877.354GB - scanned:  5785111028 [ 5785113068] - remaining: 35200678183 [35200678183@21.3] - user time: 1258624s
+Time:  27330s, Mem: 1877.354GB - scanned:  5793576788 [ 5793578828] - remaining: 35231939075 [35231939075@21.3] - user time: 1260061s
+Time:  27360s, Mem: 1877.354GB - scanned:  5802074391 [ 5802076431] - remaining: 35260987995 [35260987995@21.3] - user time: 1261482s
+Time:  27390s, Mem: 1877.354GB - scanned:  5810262767 [ 5810264807] - remaining: 35289080500 [35289080500@21.3] - user time: 1262920s
+Time:  27420s, Mem: 1877.354GB - scanned:  5817429914 [ 5817431954] - remaining: 35328786267 [35328786267@21.3] - user time: 1264358s
+Time:  27450s, Mem: 1877.354GB - scanned:  5824503268 [ 5824505308] - remaining: 35370768303 [35370768303@21.3] - user time: 1265795s
+Time:  27480s, Mem: 1877.354GB - scanned:  5832105803 [ 5832107843] - remaining: 35397224795 [35397224795@21.3] - user time: 1267233s
+Time:  27510s, Mem: 1877.354GB - scanned:  5839785642 [ 5839787682] - remaining: 35429170872 [35429170872@21.3] - user time: 1268671s
+Time:  27540s, Mem: 1877.354GB - scanned:  5847786164 [ 5847788204] - remaining: 35456960530 [35456960530@21.3] - user time: 1270108s
+Time:  27570s, Mem: 1877.354GB - scanned:  5856341732 [ 5856343772] - remaining: 35482831058 [35482831058@21.3] - user time: 1271546s
+Time:  27600s, Mem: 1877.354GB - scanned:  5864813094 [ 5864815134] - remaining: 35504933269 [35504933269@21.3] - user time: 1272983s
+Time:  27630s, Mem: 1877.354GB - scanned:  5872003263 [ 5872005303] - remaining: 35534778216 [35534778216@21.3] - user time: 1274421s
+Time:  27660s, Mem: 1877.354GB - scanned:  5879113631 [ 5879115671] - remaining: 35559365195 [35559365195@21.3] - user time: 1275826s
+Time:  27690s, Mem: 1877.354GB - scanned:  5887211621 [ 5887213661] - remaining: 35573088319 [35573088319@21.3] - user time: 1277264s
+Time:  27720s, Mem: 1877.354GB - scanned:  5894328769 [ 5894330809] - remaining: 35597577935 [35597577935@21.3] - user time: 1278697s
+Time:  27750s, Mem: 1877.354GB - scanned:  5901208515 [ 5901210555] - remaining: 35628628377 [35628628377@21.3] - user time: 1280134s
+Time:  27780s, Mem: 1877.354GB - scanned:  5908298272 [ 5908300312] - remaining: 35658472921 [35658472921@21.3] - user time: 1281572s
+Time:  27810s, Mem: 1877.354GB - scanned:  5914977208 [ 5914979248] - remaining: 35686824990 [35686824990@21.3] - user time: 1283010s
+Time:  27840s, Mem: 1877.354GB - scanned:  5922691632 [ 5922693672] - remaining: 35705698669 [35705698669@21.3] - user time: 1284443s
+Time:  27870s, Mem: 1877.354GB - scanned:  5929434575 [ 5929436615] - remaining: 35748528776 [35748528776@21.3] - user time: 1285881s
+Time:  27900s, Mem: 1877.354GB - scanned:  5936510606 [ 5936512646] - remaining: 35788804452 [35788804452@21.3] - user time: 1287318s
+Time:  27930s, Mem: 1877.354GB - scanned:  5943554299 [ 5943556339] - remaining: 35830209512 [35830209512@21.3] - user time: 1288756s
+Time:  27960s, Mem: 1877.354GB - scanned:  5950229951 [ 5950231991] - remaining: 35872779711 [35872779711@21.3] - user time: 1290194s
+Time:  27990s, Mem: 1877.354GB - scanned:  5957024585 [ 5957026625] - remaining: 35915965112 [35915965112@21.3] - user time: 1291631s
+Time:  28020s, Mem: 1877.354GB - scanned:  5964085803 [ 5964087843] - remaining: 35951955713 [35951955713@21.3] - user time: 1293069s
+Time:  28050s, Mem: 1877.354GB - scanned:  5971496769 [ 5971498809] - remaining: 35983460613 [35983460613@21.3] - user time: 1294507s
+Time:  28080s, Mem: 1877.354GB - scanned:  5978594878 [ 5978596918] - remaining: 36018794478 [36018794478@21.3] - user time: 1295944s
+Time:  28110s, Mem: 1877.354GB - scanned:  5984679621 [ 5984681661] - remaining: 36063150675 [36063150675@21.3] - user time: 1297372s
+Time:  28140s, Mem: 1877.354GB - scanned:  5991021565 [ 5991023605] - remaining: 36101046599 [36101046599@21.3] - user time: 1298808s
+Time:  28170s, Mem: 1877.354GB - scanned:  5997222692 [ 5997224732] - remaining: 36143353471 [36143353471@21.3] - user time: 1300236s
+Time:  28200s, Mem: 1877.354GB - scanned:  6004508091 [ 6004510131] - remaining: 36177546526 [36177546526@21.3] - user time: 1301674s
+Time:  28230s, Mem: 1877.354GB - scanned:  6013019241 [ 6013021281] - remaining: 36191934365 [36191934365@21.3] - user time: 1303112s
+Time:  28260s, Mem: 1877.354GB - scanned:  6020816775 [ 6020818815] - remaining: 36207723931 [36207723931@21.3] - user time: 1304550s
+Time:  28290s, Mem: 1877.354GB - scanned:  6028316426 [ 6028318466] - remaining: 36238631585 [36238631585@21.3] - user time: 1305987s
+Time:  28320s, Mem: 1877.354GB - scanned:  6035329086 [ 6035331126] - remaining: 36274425524 [36274425524@21.3] - user time: 1307425s
+Time:  28350s, Mem: 1877.354GB - scanned:  6042135927 [ 6042137967] - remaining: 36312996261 [36312996261@21.3] - user time: 1308863s
+Time:  28380s, Mem: 1877.354GB - scanned:  6048542824 [ 6048544864] - remaining: 36354325856 [36354325856@21.3] - user time: 1310302s
+Time:  28410s, Mem: 1877.354GB - scanned:  6054670959 [ 6054672999] - remaining: 36393103113 [36393103113@21.3] - user time: 1311740s
+Time:  28440s, Mem: 1877.354GB - scanned:  6060866533 [ 6060868573] - remaining: 36432642697 [36432642697@21.3] - user time: 1313169s
+Time:  28470s, Mem: 1877.354GB - scanned:  6067065007 [ 6067067047] - remaining: 36471811690 [36471811690@21.3] - user time: 1314607s
+Time:  28500s, Mem: 1877.354GB - scanned:  6073360819 [ 6073362859] - remaining: 36504112768 [36504112768@21.3] - user time: 1316045s
+Time:  28530s, Mem: 1877.354GB - scanned:  6081123992 [ 6081126032] - remaining: 36519800113 [36519800113@21.3] - user time: 1317484s
+Time:  28560s, Mem: 1877.354GB - scanned:  6088083195 [ 6088085235] - remaining: 36558825957 [36558825957@21.3] - user time: 1318922s
+Time:  28590s, Mem: 1877.354GB - scanned:  6094674886 [ 6094676926] - remaining: 36607148155 [36607148155@21.3] - user time: 1320360s
+Time:  28620s, Mem: 1877.354GB - scanned:  6101401457 [ 6101403497] - remaining: 36658386747 [36658386747@21.3] - user time: 1321798s
+Time:  28650s, Mem: 1877.354GB - scanned:  6107847288 [ 6107849328] - remaining: 36713217746 [36713217746@21.3] - user time: 1323236s
+Time:  28680s, Mem: 1877.354GB - scanned:  6114303593 [ 6114305633] - remaining: 36763509262 [36763509262@21.3] - user time: 1324674s
+Time:  28710s, Mem: 1877.354GB - scanned:  6120834410 [ 6120836450] - remaining: 36815667355 [36815667355@21.3] - user time: 1326112s
+Time:  28740s, Mem: 1877.354GB - scanned:  6127873816 [ 6127875856] - remaining: 36857763874 [36857763874@21.3] - user time: 1327550s
+Time:  28770s, Mem: 1877.354GB - scanned:  6134483155 [ 6134485195] - remaining: 36912247250 [36912247250@21.3] - user time: 1328988s
+Time:  28800s, Mem: 1877.354GB - scanned:  6140671883 [ 6140673923] - remaining: 36969153657 [36969153657@21.3] - user time: 1330426s
+Time:  28830s, Mem: 1877.354GB - scanned:  6146813366 [ 6146815406] - remaining: 37023957025 [37023957025@21.3] - user time: 1331865s
+Time:  28860s, Mem: 1877.354GB - scanned:  6152973768 [ 6152975808] - remaining: 37076875572 [37076875572@21.3] - user time: 1333303s
+Time:  28890s, Mem: 1877.354GB - scanned:  6159160114 [ 6159162154] - remaining: 37125734809 [37125734809@21.3] - user time: 1334741s
+Time:  28920s, Mem: 1877.354GB - scanned:  6165508866 [ 6165510906] - remaining: 37173923425 [37173923425@21.3] - user time: 1336180s
+Time:  28950s, Mem: 1877.354GB - scanned:  6171665547 [ 6171667587] - remaining: 37224254989 [37224254989@21.3] - user time: 1337618s
+Time:  28980s, Mem: 1877.354GB - scanned:  6178039349 [ 6178041389] - remaining: 37272423922 [37272423922@21.3] - user time: 1339056s
+Time:  29010s, Mem: 1877.354GB - scanned:  6185919901 [ 6185921941] - remaining: 37306267720 [37306267720@21.3] - user time: 1340494s
+Time:  29040s, Mem: 1877.354GB - scanned:  6194884212 [ 6194886252] - remaining: 37324633358 [37324633358@21.3] - user time: 1341930s
+Time:  29070s, Mem: 1877.354GB - scanned:  6201977273 [ 6201979313] - remaining: 37369885469 [37369885469@21.3] - user time: 1343368s
+Time:  29100s, Mem: 1877.354GB - scanned:  6208692671 [ 6208694711] - remaining: 37414537224 [37414537224@21.3] - user time: 1344806s
+Time:  29130s, Mem: 1877.354GB - scanned:  6216713177 [ 6216737153] - remaining: 37434555082 [37434555082@21.3] - user time: 1346243s
+Time:  29160s, Mem: 1877.354GB - scanned:  6223765850 [ 6223810818] - remaining: 37466575162 [37466575162@21.3] - user time: 1347681s
+Time:  29190s, Mem: 1877.354GB - scanned:  6231079569 [ 6231124537] - remaining: 37500286056 [37500286056@21.3] - user time: 1349119s
+Time:  29220s, Mem: 1877.354GB - scanned:  6237664914 [ 6237709882] - remaining: 37546457946 [37546457946@21.3] - user time: 1350556s
+Time:  29250s, Mem: 1877.354GB - scanned:  6244064875 [ 6244109843] - remaining: 37599733968 [37599733968@21.3] - user time: 1351994s
+Time:  29280s, Mem: 1877.354GB - scanned:  6250344860 [ 6250389828] - remaining: 37649892376 [37649892376@21.3] - user time: 1353427s
+Time:  29310s, Mem: 1877.354GB - scanned:  6256387002 [ 6256431970] - remaining: 37697604282 [37697604282@21.3] - user time: 1354865s
+Time:  29340s, Mem: 1877.354GB - scanned:  6262539267 [ 6262584235] - remaining: 37745085025 [37745085025@21.3] - user time: 1356301s
+Time:  29370s, Mem: 1877.354GB - scanned:  6268471095 [ 6268516063] - remaining: 37791104162 [37791104162@21.3] - user time: 1357739s
+Time:  29400s, Mem: 1877.354GB - scanned:  6276238769 [ 6276283737] - remaining: 37811650028 [37811650028@21.3] - user time: 1359177s
+Time:  29430s, Mem: 1877.354GB - scanned:  6282933621 [ 6282978589] - remaining: 37857022876 [37857022876@21.3] - user time: 1360615s
+Time:  29460s, Mem: 1877.354GB - scanned:  6289245482 [ 6289290450] - remaining: 37916736183 [37916736183@21.3] - user time: 1362053s
+Time:  29490s, Mem: 1877.354GB - scanned:  6295813824 [ 6295858792] - remaining: 37969284352 [37969284352@21.3] - user time: 1363491s
+Time:  29520s, Mem: 1877.354GB - scanned:  6302956136 [ 6303001104] - remaining: 38012961149 [38012961149@21.3] - user time: 1364929s
+Time:  29550s, Mem: 1877.354GB - scanned:  6309254738 [ 6309299706] - remaining: 38072560188 [38072560188@21.3] - user time: 1366367s
+Time:  29580s, Mem: 1877.354GB - scanned:  6315383404 [ 6315428372] - remaining: 38131389644 [38131389644@21.3] - user time: 1367790s
+Time:  29610s, Mem: 1877.354GB - scanned:  6321914485 [ 6321959453] - remaining: 38185849624 [38185849624@21.3] - user time: 1369228s
+Time:  29640s, Mem: 1877.354GB - scanned:  6328351909 [ 6328396877] - remaining: 38237389060 [38237389060@21.3] - user time: 1370650s
+Time:  29670s, Mem: 1877.354GB - scanned:  6335784828 [ 6335829796] - remaining: 38276512092 [38276512092@21.3] - user time: 1372087s
+Time:  29700s, Mem: 1877.354GB - scanned:  6343810726 [ 6343855694] - remaining: 38294881449 [38294881449@21.3] - user time: 1373497s
+Time:  29730s, Mem: 1877.354GB - scanned:  6352079348 [ 6352199232] - remaining: 38318979299 [38318979299@21.3] - user time: 1374934s
+Time:  29760s, Mem: 1877.354GB - scanned:  6358819857 [ 6358939741] - remaining: 38373954790 [38373954790@21.3] - user time: 1376372s
+Time:  29790s, Mem: 1877.354GB - scanned:  6366449695 [ 6366600131] - remaining: 38408451311 [38408451311@21.3] - user time: 1377809s
+Time:  29820s, Mem: 1877.354GB - scanned:  6373144739 [ 6373306099] - remaining: 38454257686 [38454257686@21.3] - user time: 1379247s
+Time:  29850s, Mem: 1877.354GB - scanned:  6380102626 [ 6380263986] - remaining: 38488988208 [38488988208@21.3] - user time: 1380685s
+Time:  29880s, Mem: 1877.354GB - scanned:  6387325046 [ 6387490630] - remaining: 38523453040 [38523453040@21.3] - user time: 1382123s
+Time:  29910s, Mem: 1877.354GB - scanned:  6393556572 [ 6393722156] - remaining: 38568787361 [38568787361@21.3] - user time: 1383560s
+Time:  29940s, Mem: 1877.354GB - scanned:  6399819012 [ 6399984596] - remaining: 38618902955 [38618902955@21.3] - user time: 1384995s
+Time:  29970s, Mem: 1877.354GB - scanned:  6406358534 [ 6406524118] - remaining: 38664640042 [38664640042@21.3] - user time: 1386433s
+Time:  30000s, Mem: 1877.354GB - scanned:  6413742528 [ 6413908112] - remaining: 38692290730 [38692290730@21.3] - user time: 1387870s
+Time:  30030s, Mem: 1877.354GB - scanned:  6421293426 [ 6421472970] - remaining: 38714157495 [38714157495@21.3] - user time: 1389308s
+Time:  30060s, Mem: 1877.354GB - scanned:  6427868521 [ 6428064141] - remaining: 38745383475 [38745383475@21.3] - user time: 1390744s
+Time:  30090s, Mem: 1877.354GB - scanned:  6436024975 [ 6436250319] - remaining: 38756343810 [38756343810@21.3] - user time: 1392181s
+Time:  30120s, Mem: 1877.354GB - scanned:  6442135344 [ 6442361912] - remaining: 38797441079 [38797441079@21.3] - user time: 1393620s
+Time:  30150s, Mem: 1877.354GB - scanned:  6448166309 [ 6448392877] - remaining: 38829717984 [38829717984@21.3] - user time: 1395058s
+Time:  30180s, Mem: 1877.354GB - scanned:  6454251374 [ 6454477942] - remaining: 38876703865 [38876703865@21.3] - user time: 1396496s
+Time:  30210s, Mem: 1877.354GB - scanned:  6460306805 [ 6460533373] - remaining: 38920979905 [38920979905@21.3] - user time: 1397934s
+Time:  30240s, Mem: 1877.354GB - scanned:  6466412696 [ 6466639264] - remaining: 38957124716 [38957124716@21.3] - user time: 1399371s
+Time:  30270s, Mem: 1877.354GB - scanned:  6472676166 [ 6472902734] - remaining: 38986977684 [38986977684@21.3] - user time: 1400809s
+Time:  30300s, Mem: 1877.354GB - scanned:  6478990177 [ 6479216745] - remaining: 39019371265 [39019371265@21.3] - user time: 1402248s
+Time:  30330s, Mem: 1877.354GB - scanned:  6485289379 [ 6485515948] - remaining: 39055272835 [39055272835@21.3] - user time: 1403686s
+Time:  30360s, Mem: 1877.354GB - scanned:  6491338978 [ 6491565546] - remaining: 39088095645 [39088095645@21.3] - user time: 1405124s
+Time:  30390s, Mem: 1877.354GB - scanned:  6497420758 [ 6497647326] - remaining: 39134167011 [39134167011@21.3] - user time: 1406562s
+Time:  30420s, Mem: 1877.354GB - scanned:  6503579573 [ 6503806141] - remaining: 39168622241 [39168622241@21.3] - user time: 1408000s
+Time:  30450s, Mem: 1877.354GB - scanned:  6509749268 [ 6509975836] - remaining: 39197622918 [39197622918@21.3] - user time: 1409438s
+Time:  30480s, Mem: 1877.354GB - scanned:  6516060717 [ 6516287285] - remaining: 39226684258 [39226684258@21.3] - user time: 1410876s
+Time:  30510s, Mem: 1877.354GB - scanned:  6522340695 [ 6522567263] - remaining: 39260149045 [39260149045@21.3] - user time: 1412314s
+Time:  30540s, Mem: 1877.354GB - scanned:  6528589498 [ 6528816066] - remaining: 39282084069 [39282084069@21.3] - user time: 1413752s
+Time:  30570s, Mem: 1877.354GB - scanned:  6534557491 [ 6534784059] - remaining: 39314752392 [39314752392@21.3] - user time: 1415190s
+Time:  30600s, Mem: 1877.354GB - scanned:  6540664371 [ 6540890939] - remaining: 39358359028 [39358359028@21.3] - user time: 1416629s
+Time:  30630s, Mem: 1877.354GB - scanned:  6546897183 [ 6547123751] - remaining: 39387201740 [39387201740@21.3] - user time: 1418067s
+Time:  30660s, Mem: 1877.354GB - scanned:  6552985430 [ 6553211998] - remaining: 39418788474 [39418788474@21.3] - user time: 1419505s
+Time:  30690s, Mem: 1877.354GB - scanned:  6558970001 [ 6559196569] - remaining: 39460462105 [39460462105@21.3] - user time: 1420943s
+Time:  30720s, Mem: 1877.354GB - scanned:  6564917277 [ 6565143845] - remaining: 39512034659 [39512034659@21.3] - user time: 1422381s
+Time:  30750s, Mem: 1877.354GB - scanned:  6571180476 [ 6571407044] - remaining: 39560434594 [39560434594@21.3] - user time: 1423819s
+Time:  30780s, Mem: 1877.354GB - scanned:  6577332112 [ 6577558680] - remaining: 39597054800 [39597054800@21.3] - user time: 1425257s
+Time:  30810s, Mem: 1877.354GB - scanned:  6583491725 [ 6583718293] - remaining: 39637715661 [39637715661@21.3] - user time: 1426695s
+Time:  30840s, Mem: 1877.354GB - scanned:  6589748514 [ 6589975082] - remaining: 39677902942 [39677902942@21.3] - user time: 1428126s
+Time:  30870s, Mem: 1877.354GB - scanned:  6596063452 [ 6596290020] - remaining: 39706807402 [39706807402@21.3] - user time: 1429564s
+Time:  30900s, Mem: 1877.354GB - scanned:  6602391139 [ 6602617707] - remaining: 39743783264 [39743783264@21.3] - user time: 1431002s
+Time:  30930s, Mem: 1877.354GB - scanned:  6609224279 [ 6609450847] - remaining: 39793765271 [39793765271@21.3] - user time: 1432440s
+Time:  30960s, Mem: 1877.354GB - scanned:  6616005272 [ 6616231840] - remaining: 39834761863 [39834761863@21.3] - user time: 1433878s
+Time:  30990s, Mem: 1877.354GB - scanned:  6623150243 [ 6623376811] - remaining: 39888460566 [39888460566@21.3] - user time: 1435315s
+Time:  31020s, Mem: 1877.354GB - scanned:  6630487395 [ 6630713963] - remaining: 39934382020 [39934382020@21.3] - user time: 1436753s
+Time:  31050s, Mem: 1877.354GB - scanned:  6637231483 [ 6637458051] - remaining: 39972635610 [39972635610@21.3] - user time: 1438191s
+Time:  31080s, Mem: 1877.354GB - scanned:  6644002975 [ 6644229543] - remaining: 39989833923 [39989833923@21.3] - user time: 1439629s
+Time:  31110s, Mem: 1877.354GB - scanned:  6650690630 [ 6650917198] - remaining: 40020237542 [40020237542@21.3] - user time: 1441067s
+Time:  31140s, Mem: 1877.354GB - scanned:  6657845957 [ 6658072525] - remaining: 40071113812 [40071113812@21.3] - user time: 1442503s
+Time:  31170s, Mem: 1877.354GB - scanned:  6665010758 [ 6665237326] - remaining: 40110276382 [40110276382@21.3] - user time: 1443941s
+Time:  31200s, Mem: 1877.354GB - scanned:  6672179530 [ 6672406098] - remaining: 40149578565 [40149578565@21.3] - user time: 1445379s
+Time:  31230s, Mem: 1877.354GB - scanned:  6679325892 [ 6679552460] - remaining: 40172730352 [40172730352@21.3] - user time: 1446816s
+Time:  31260s, Mem: 1877.354GB - scanned:  6686647283 [ 6686873851] - remaining: 40206595508 [40206595508@21.3] - user time: 1448251s
+Time:  31290s, Mem: 1877.354GB - scanned:  6693524121 [ 6693750689] - remaining: 40256305898 [40256305898@21.3] - user time: 1449688s
+Time:  31320s, Mem: 1877.354GB - scanned:  6700422528 [ 6700649096] - remaining: 40298465776 [40298465776@21.3] - user time: 1451126s
+Time:  31350s, Mem: 1877.354GB - scanned:  6707565770 [ 6707792338] - remaining: 40329113451 [40329113451@21.3] - user time: 1452564s
+Time:  31380s, Mem: 1877.354GB - scanned:  6714706284 [ 6714932852] - remaining: 40360064277 [40360064277@21.3] - user time: 1454001s
+Time:  31410s, Mem: 1877.354GB - scanned:  6721853702 [ 6722080270] - remaining: 40387438407 [40387438407@21.3] - user time: 1455440s
+Time:  31440s, Mem: 1877.354GB - scanned:  6729143378 [ 6729369946] - remaining: 40419293877 [40419293877@21.3] - user time: 1456872s
+Time:  31470s, Mem: 1877.354GB - scanned:  6736158260 [ 6736384828] - remaining: 40448323689 [40448323689@21.3] - user time: 1458310s
+Time:  31500s, Mem: 1877.354GB - scanned:  6742925059 [ 6743151627] - remaining: 40484048849 [40484048849@21.3] - user time: 1459747s
+Time:  31530s, Mem: 1877.354GB - scanned:  6749776448 [ 6750003016] - remaining: 40521993507 [40521993507@21.3] - user time: 1461184s
+Time:  31560s, Mem: 1878.359GB - scanned:  6756738876 [ 6756965444] - remaining: 40566525878 [40566525878@21.3] - user time: 1462619s
+Time:  31590s, Mem: 1879.828GB - scanned:  6764145453 [ 6764372021] - remaining: 40608068594 [40608068594@21.3] - user time: 1464054s
+Time:  31620s, Mem: 1881.296GB - scanned:  6771714297 [ 6771940865] - remaining: 40643660839 [40643660839@21.3] - user time: 1465466s
+Time:  31650s, Mem: 1882.733GB - scanned:  6778807783 [ 6779034351] - remaining: 40677176636 [40677176636@21.3] - user time: 1466901s
+Time:  31680s, Mem: 1884.185GB - scanned:  6786237904 [ 6786464472] - remaining: 40707102549 [40707102549@21.3] - user time: 1468335s
+Time:  31710s, Mem: 1885.930GB - scanned:  6793831837 [ 6794058405] - remaining: 40747138774 [40747138774@21.3] - user time: 1469769s
+Time:  31740s, Mem: 1887.737GB - scanned:  6801116815 [ 6801343383] - remaining: 40790781125 [40790781125@21.3] - user time: 1471200s
+Time:  31770s, Mem: 1889.393GB - scanned:  6808638586 [ 6808865154] - remaining: 40827175788 [40827175788@21.3] - user time: 1472635s
+Time:  31800s, Mem: 1891.021GB - scanned:  6816603300 [ 6816829868] - remaining: 40859478085 [40859478085@21.3] - user time: 1474069s
+Time:  31830s, Mem: 1892.877GB - scanned:  6824620396 [ 6824846964] - remaining: 40900097752 [40900097752@21.3] - user time: 1475503s
+Time:  31860s, Mem: 1894.651GB - scanned:  6833019333 [ 6833245901] - remaining: 40935395985 [40935395985@21.3] - user time: 1476938s
+Time:  31890s, Mem: 1896.383GB - scanned:  6841144490 [ 6841371058] - remaining: 40970376021 [40970376021@21.3] - user time: 1478373s
+Time:  31920s, Mem: 1898.008GB - scanned:  6847844374 [ 6848070942] - remaining: 41007708259 [41007708259@21.3] - user time: 1479807s
+Time:  31950s, Mem: 1899.907GB - scanned:  6855100764 [ 6855327332] - remaining: 41054637065 [41054637065@21.3] - user time: 1481240s
+Time:  31980s, Mem: 1901.587GB - scanned:  6862330520 [ 6862557088] - remaining: 41092154779 [41092154779@21.3] - user time: 1482675s
+Time:  32010s, Mem: 1903.150GB - scanned:  6869692671 [ 6869919239] - remaining: 41123782182 [41123782182@21.3] - user time: 1484111s
+Time:  32040s, Mem: 1904.840GB - scanned:  6877130583 [ 6877357151] - remaining: 41160567524 [41160567524@21.3] - user time: 1485536s
+Time:  32070s, Mem: 1906.457GB - scanned:  6884576010 [ 6884802578] - remaining: 41194681844 [41194681844@21.3] - user time: 1486971s
+Time:  32100s, Mem: 1907.776GB - scanned:  6891993386 [ 6892219954] - remaining: 41217061534 [41217061534@21.3] - user time: 1488408s
+Time:  32130s, Mem: 1909.396GB - scanned:  6898927924 [ 6899154492] - remaining: 41254588199 [41254588199@21.3] - user time: 1489843s
+Time:  32160s, Mem: 1911.281GB - scanned:  6905888999 [ 6906115567] - remaining: 41303247002 [41303247002@21.3] - user time: 1491276s
+Time:  32190s, Mem: 1913.111GB - scanned:  6913522516 [ 6913749084] - remaining: 41346272505 [41346272505@21.3] - user time: 1492709s
+Time:  32220s, Mem: 1914.855GB - scanned:  6921401044 [ 6921627612] - remaining: 41384375070 [41384375070@21.3] - user time: 1494143s
+Time:  32250s, Mem: 1916.592GB - scanned:  6929249832 [ 6929476400] - remaining: 41422048350 [41422048350@21.3] - user time: 1495578s
+Time:  32280s, Mem: 1918.174GB - scanned:  6937681310 [ 6937907878] - remaining: 41449717065 [41449717065@21.3] - user time: 1497013s
+Time:  32310s, Mem: 1919.841GB - scanned:  6945816313 [ 6946042882] - remaining: 41480344969 [41480344969@21.3] - user time: 1498448s
+Time:  32340s, Mem: 1921.580GB - scanned:  6953769657 [ 6953996225] - remaining: 41515376730 [41515376730@21.3] - user time: 1499882s
+Time:  32370s, Mem: 1923.000GB - scanned:  6961879120 [ 6962105688] - remaining: 41539873823 [41539873823@21.3] - user time: 1501317s
+Time:  32400s, Mem: 1924.526GB - scanned:  6970646902 [ 6970873470] - remaining: 41565393460 [41565393460@21.3] - user time: 1502752s
+Time:  32430s, Mem: 1926.008GB - scanned:  6978913337 [ 6979139905] - remaining: 41591200282 [41591200282@21.3] - user time: 1504188s
+Time:  32460s, Mem: 1927.517GB - scanned:  6985862803 [ 6986089371] - remaining: 41624894913 [41624894913@21.3] - user time: 1505623s
+Time:  32490s, Mem: 1929.018GB - scanned:  6992776820 [ 6993003388] - remaining: 41658391838 [41658391838@21.3] - user time: 1507058s
+Time:  32520s, Mem: 1930.133GB - scanned:  7000623008 [ 7000849576] - remaining: 41671357990 [41671357990@21.3] - user time: 1508494s
+Time:  32550s, Mem: 1931.486GB - scanned:  7008310835 [ 7008537403] - remaining: 41695073057 [41695073057@21.3] - user time: 1509930s
+Time:  32580s, Mem: 1932.891GB - scanned:  7015589246 [ 7015815814] - remaining: 41722791187 [41722791187@21.3] - user time: 1511366s
+Time:  32610s, Mem: 1934.380GB - scanned:  7022424599 [ 7022651167] - remaining: 41755673058 [41755673058@21.3] - user time: 1512801s
+Time:  32640s, Mem: 1935.869GB - scanned:  7029636239 [ 7029862807] - remaining: 41787177373 [41787177373@21.3] - user time: 1514228s
+Time:  32670s, Mem: 1937.355GB - scanned:  7036413647 [ 7036640215] - remaining: 41819989822 [41819989822@21.3] - user time: 1515664s
+Time:  32700s, Mem: 1938.661GB - scanned:  7043707475 [ 7043934043] - remaining: 41843747992 [41843747992@21.3] - user time: 1517100s
+Time:  32730s, Mem: 1940.186GB - scanned:  7051056091 [ 7051282659] - remaining: 41876171743 [41876171743@21.3] - user time: 1518535s
+Time:  32760s, Mem: 1941.950GB - scanned:  7057805304 [ 7058031872] - remaining: 41921609461 [41921609461@21.3] - user time: 1519969s
+Time:  32790s, Mem: 1943.763GB - scanned:  7064758870 [ 7064985438] - remaining: 41968370221 [41968370221@21.3] - user time: 1521396s
+Time:  32820s, Mem: 1945.614GB - scanned:  7071628434 [ 7071855002] - remaining: 42017081405 [42017081405@21.3] - user time: 1522829s
+Time:  32850s, Mem: 1947.420GB - scanned:  7078268192 [ 7078494760] - remaining: 42065207946 [42065207946@21.3] - user time: 1524262s
+Time:  32880s, Mem: 1949.255GB - scanned:  7084890847 [ 7085117415] - remaining: 42114527967 [42114527967@21.3] - user time: 1525696s
+Time:  32910s, Mem: 1950.843GB - scanned:  7092162841 [ 7092389409] - remaining: 42150229924 [42150229924@21.3] - user time: 1527132s
+Time:  32940s, Mem: 1952.451GB - scanned:  7099563939 [ 7099790507] - remaining: 42186125831 [42186125831@21.3] - user time: 1528565s
+Time:  32970s, Mem: 1954.265GB - scanned:  7106253580 [ 7106480148] - remaining: 42234221240 [42234221240@21.3] - user time: 1529999s
+Time:  33000s, Mem: 1956.011GB - scanned:  7112658174 [ 7112884742] - remaining: 42280518120 [42280518120@21.3] - user time: 1531433s
+Time:  33030s, Mem: 1957.781GB - scanned:  7119102754 [ 7119329322] - remaining: 42327561290 [42327561290@21.3] - user time: 1532867s
+Time:  33060s, Mem: 1959.446GB - scanned:  7126397042 [ 7126623610] - remaining: 42366176753 [42366176753@21.3] - user time: 1534302s
+Time:  33090s, Mem: 1960.582GB - scanned:  7135382071 [ 7135608639] - remaining: 42374814986 [42374814986@21.3] - user time: 1535738s
+Time:  33120s, Mem: 1961.745GB - scanned:  7143795414 [ 7144021982] - remaining: 42386975392 [42386975392@21.3] - user time: 1537174s
+Time:  33150s, Mem: 1963.440GB - scanned:  7150743750 [ 7150970318] - remaining: 42428538341 [42428538341@21.3] - user time: 1538609s
+Time:  33180s, Mem: 1965.149GB - scanned:  7157871203 [ 7158097771] - remaining: 42469996499 [42469996499@21.3] - user time: 1540043s
+Time:  33210s, Mem: 1966.924GB - scanned:  7164363662 [ 7164590230] - remaining: 42517006518 [42517006518@21.3] - user time: 1541477s
+Time:  33240s, Mem: 1968.586GB - scanned:  7170446744 [ 7170673312] - remaining: 42561257760 [42561257760@21.3] - user time: 1542900s
+Time:  33270s, Mem: 1970.245GB - scanned:  7176728180 [ 7176954748] - remaining: 42604516496 [42604516496@21.3] - user time: 1544334s
+Time:  33300s, Mem: 1971.871GB - scanned:  7183024197 [ 7183250765] - remaining: 42645989061 [42645989061@21.3] - user time: 1545768s
+Time:  33330s, Mem: 1973.170GB - scanned:  7190682460 [ 7190909028] - remaining: 42667141584 [42667141584@21.3] - user time: 1547204s
+Time:  33360s, Mem: 1974.863GB - scanned:  7197615208 [ 7197841776] - remaining: 42709208321 [42709208321@21.3] - user time: 1548639s
+Time:  33390s, Mem: 1976.917GB - scanned:  7204175232 [ 7204401800] - remaining: 42768114916 [42768114916@21.3] - user time: 1550072s
+Time:  33420s, Mem: 1978.972GB - scanned:  7210512720 [ 7210739288] - remaining: 42828316860 [42828316860@21.3] - user time: 1551504s
+Time:  33450s, Mem: 1980.985GB - scanned:  7217021390 [ 7217247958] - remaining: 42885856457 [42885856457@21.3] - user time: 1552936s
+Time:  33480s, Mem: 1983.045GB - scanned:  7223683834 [ 7223910402] - remaining: 42944898800 [42944898800@21.3] - user time: 1554369s
+Time:  33510s, Mem: 1985.157GB - scanned:  7230038135 [ 7230264703] - remaining: 43007610663 [43007610663@21.3] - user time: 1555801s
+Time:  33540s, Mem: 1987.056GB - scanned:  7236357836 [ 7236584404] - remaining: 43060980411 [43060980411@21.3] - user time: 1557208s
+Time:  33570s, Mem: 1988.988GB - scanned:  7243302677 [ 7243529246] - remaining: 43112851711 [43112851711@21.3] - user time: 1558642s
+Time:  33600s, Mem: 1990.653GB - scanned:  7251468347 [ 7251694915] - remaining: 43147829099 [43147829099@21.3] - user time: 1560076s
+Time:  33630s, Mem: 1992.133GB - scanned:  7259603179 [ 7259882603] - remaining: 43174619751 [43174619751@21.3] - user time: 1561512s
+Time:  33660s, Mem: 1993.942GB - scanned:  7266730236 [ 7267009660] - remaining: 43220350794 [43220350794@21.3] - user time: 1562945s
+Time:  33690s, Mem: 1995.887GB - scanned:  7273042057 [ 7273321481] - remaining: 43275827503 [43275827503@21.3] - user time: 1564378s
+Time:  33720s, Mem: 1997.718GB - scanned:  7279261696 [ 7279541121] - remaining: 43327118464 [43327118464@21.3] - user time: 1565812s
+Time:  33750s, Mem: 1999.412GB - scanned:  7286540884 [ 7286820308] - remaining: 43367615225 [43367615225@21.3] - user time: 1567246s
+Time:  33780s, Mem: 2001.514GB - scanned:  7292802773 [ 7293082197] - remaining: 43430563226 [43430563226@21.3] - user time: 1568678s
+Time:  33810s, Mem: 2003.482GB - scanned:  7299129784 [ 7299409208] - remaining: 43486704251 [43486704251@21.3] - user time: 1570111s
+Time:  33840s, Mem: 2005.160GB - scanned:  7306484529 [ 7306787505] - remaining: 43524736677 [43524736677@21.3] - user time: 1571535s
+Time:  33870s, Mem: 2006.976GB - scanned:  7313262090 [ 7313577194] - remaining: 43572747222 [43572747222@21.3] - user time: 1572970s
+Time:  33900s, Mem: 2008.571GB - scanned:  7320371192 [ 7320687064] - remaining: 43605738055 [43605738055@21.3] - user time: 1574405s
+Time:  33930s, Mem: 2010.197GB - scanned:  7327268649 [ 7327584521] - remaining: 43642105033 [43642105033@21.3] - user time: 1575840s
+Time:  33960s, Mem: 2011.836GB - scanned:  7334305825 [ 7334621697] - remaining: 43680912580 [43680912580@21.3] - user time: 1577275s
+Time:  33990s, Mem: 2013.479GB - scanned:  7341719713 [ 7342035585] - remaining: 43717982592 [43717982592@21.3] - user time: 1578709s
+Time:  34020s, Mem: 2014.952GB - scanned:  7349234296 [ 7349550168] - remaining: 43747300226 [43747300226@21.3] - user time: 1580145s
+Time:  34050s, Mem: 2016.498GB - scanned:  7356391418 [ 7356707290] - remaining: 43779794226 [43779794226@21.3] - user time: 1581580s
+Time:  34080s, Mem: 2018.192GB - scanned:  7364246123 [ 7364561995] - remaining: 43811644930 [43811644930@21.3] - user time: 1583015s
+Time:  34110s, Mem: 2019.953GB - scanned:  7371765708 [ 7372081580] - remaining: 43847713013 [43847713013@21.3] - user time: 1584449s
+Time:  34140s, Mem: 2021.804GB - scanned:  7379328069 [ 7379643941] - remaining: 43887578834 [43887578834@21.3] - user time: 1585880s
+Time:  34170s, Mem: 2023.345GB - scanned:  7387712863 [ 7388028735] - remaining: 43910622553 [43910622553@21.3] - user time: 1587316s
+Time:  34200s, Mem: 2024.481GB - scanned:  7395268899 [ 7395584771] - remaining: 43923576770 [43923576770@21.3] - user time: 1588748s
+Time:  34230s, Mem: 2025.744GB - scanned:  7402872232 [ 7403188104] - remaining: 43943707908 [43943707908@21.3] - user time: 1590184s
+Time:  34260s, Mem: 2027.070GB - scanned:  7410210258 [ 7410526130] - remaining: 43967666657 [43967666657@21.3] - user time: 1591621s
+Time:  34290s, Mem: 2028.357GB - scanned:  7417233320 [ 7417549192] - remaining: 43991397614 [43991397614@21.3] - user time: 1593057s
+Time:  34320s, Mem: 2029.576GB - scanned:  7424790833 [ 7425106705] - remaining: 44009742023 [44009742023@21.3] - user time: 1594494s
+Time:  34350s, Mem: 2030.872GB - scanned:  7431752001 [ 7432067873] - remaining: 44034100189 [44034100189@21.3] - user time: 1595931s
+Time:  34380s, Mem: 2032.101GB - scanned:  7438204706 [ 7438520578] - remaining: 44057996526 [44057996526@21.3] - user time: 1597367s
+Time:  34410s, Mem: 2033.349GB - scanned:  7445689367 [ 7446005239] - remaining: 44078258632 [44078258632@21.3] - user time: 1598803s
+Time:  34440s, Mem: 2034.798GB - scanned:  7452692826 [ 7453008698] - remaining: 44109198970 [44109198970@21.3] - user time: 1600235s
+Time:  34470s, Mem: 2036.255GB - scanned:  7459460067 [ 7459775939] - remaining: 44141773519 [44141773519@21.3] - user time: 1601644s
+Time:  34501s, Mem: 2037.733GB - scanned:  7466369252 [ 7466685124] - remaining: 44174401742 [44174401742@21.3] - user time: 1603080s
+Time:  34531s, Mem: 2039.212GB - scanned:  7473517520 [ 7473833392] - remaining: 44206476239 [44206476239@21.3] - user time: 1604515s
+Time:  34561s, Mem: 2040.642GB - scanned:  7479683519 [ 7479999391] - remaining: 44240586286 [44240586286@21.3] - user time: 1605951s
+Time:  34591s, Mem: 2042.095GB - scanned:  7485910174 [ 7486226046] - remaining: 44275440744 [44275440744@21.3] - user time: 1607386s
+Time:  34621s, Mem: 2043.534GB - scanned:  7492276616 [ 7492592488] - remaining: 44308954582 [44308954582@21.3] - user time: 1608821s
+Time:  34651s, Mem: 2044.965GB - scanned:  7499007766 [ 7499323638] - remaining: 44340397613 [44340397613@21.3] - user time: 1610257s
+Time:  34681s, Mem: 2046.205GB - scanned:  7507031734 [ 7507347606] - remaining: 44357681246 [44357681246@21.3] - user time: 1611694s
+Time:  34711s, Mem: 2047.498GB - scanned:  7514444131 [ 7514760003] - remaining: 44379829050 [44379829050@21.3] - user time: 1613130s
+Time:  34741s, Mem: 2048.865GB - scanned:  7521736439 [ 7522052311] - remaining: 44406005465 [44406005465@21.3] - user time: 1614565s
+Time:  34771s, Mem: 2050.329GB - scanned:  7528375023 [ 7528690895] - remaining: 44439394351 [44439394351@21.3] - user time: 1616000s
+Time:  34801s, Mem: 2051.737GB - scanned:  7534694999 [ 7535010871] - remaining: 44471880406 [44471880406@21.3] - user time: 1617436s
+Time:  34831s, Mem: 2053.085GB - scanned:  7541062156 [ 7541378028] - remaining: 44501301483 [44501301483@21.3] - user time: 1618872s
+Time:  34861s, Mem: 2054.354GB - scanned:  7548019328 [ 7548335200] - remaining: 44524899579 [44524899579@21.3] - user time: 1620308s
+Time:  34891s, Mem: 2055.978GB - scanned:  7554992868 [ 7555308740] - remaining: 44564297664 [44564297664@21.3] - user time: 1621743s
+Time:  34921s, Mem: 2057.726GB - scanned:  7561603783 [ 7561919655] - remaining: 44610901328 [44610901328@21.3] - user time: 1623177s
+Time:  34951s, Mem: 2059.393GB - scanned:  7568214426 [ 7568530298] - remaining: 44653757589 [44653757589@21.3] - user time: 1624611s
+Time:  34981s, Mem: 2061.199GB - scanned:  7574755382 [ 7575071254] - remaining: 44703164174 [44703164174@21.3] - user time: 1626045s
+Time:  35011s, Mem: 2062.854GB - scanned:  7581367600 [ 7581683472] - remaining: 44745669409 [44745669409@21.3] - user time: 1627474s
+Time:  35041s, Mem: 2064.449GB - scanned:  7587889361 [ 7588205233] - remaining: 44785785109 [44785785109@21.3] - user time: 1628894s
+Time:  35071s, Mem: 2066.123GB - scanned:  7594570616 [ 7594886488] - remaining: 44828657783 [44828657783@21.3] - user time: 1630328s
+Time:  35101s, Mem: 2067.681GB - scanned:  7601720425 [ 7602036297] - remaining: 44864493551 [44864493551@21.3] - user time: 1631764s
+Time:  35131s, Mem: 2069.219GB - scanned:  7608973722 [ 7609289595] - remaining: 44898973673 [44898973673@21.3] - user time: 1633199s
+Time:  35161s, Mem: 2070.776GB - scanned:  7615634451 [ 7615950323] - remaining: 44936872693 [44936872693@21.3] - user time: 1634635s
+Time:  35191s, Mem: 2072.482GB - scanned:  7621675260 [ 7621991132] - remaining: 44984161109 [44984161109@21.3] - user time: 1636069s
+Time:  35221s, Mem: 2074.100GB - scanned:  7627793202 [ 7628109074] - remaining: 45027234817 [45027234817@21.3] - user time: 1637504s
+Time:  35251s, Mem: 2075.602GB - scanned:  7633966849 [ 7634282721] - remaining: 45064742965 [45064742965@21.3] - user time: 1638940s
+Time:  35281s, Mem: 2077.242GB - scanned:  7640094122 [ 7640409995] - remaining: 45108719984 [45108719984@21.3] - user time: 1640375s
+Time:  35311s, Mem: 2078.851GB - scanned:  7646245371 [ 7646561243] - remaining: 45151088554 [45151088554@21.3] - user time: 1641810s
+Time:  35341s, Mem: 2080.375GB - scanned:  7652538038 [ 7652853910] - remaining: 45189016556 [45189016556@21.3] - user time: 1643198s
+Time:  35371s, Mem: 2081.957GB - scanned:  7658796444 [ 7659112316] - remaining: 45229672788 [45229672788@21.3] - user time: 1644632s
+Time:  35401s, Mem: 2083.484GB - scanned:  7665193170 [ 7665509042] - remaining: 45267317462 [45267317462@21.3] - user time: 1646067s
+Time:  35431s, Mem: 2084.976GB - scanned:  7671833313 [ 7672149185] - remaining: 45302352850 [45302352850@21.3] - user time: 1647503s
+Time:  35461s, Mem: 2086.402GB - scanned:  7679965997 [ 7680281870] - remaining: 45327689602 [45327689602@21.3] - user time: 1648939s
+Time:  35491s, Mem: 2087.813GB - scanned:  7687261109 [ 7687576981] - remaining: 45356247799 [45356247799@21.3] - user time: 1650374s
+Time:  35521s, Mem: 2088.941GB - scanned:  7695735813 [ 7696051685] - remaining: 45367495622 [45367495622@21.3] - user time: 1651811s
+Time:  35551s, Mem: 2090.132GB - scanned:  7703389229 [ 7703705102] - remaining: 45384988257 [45384988257@21.3] - user time: 1653248s
+Time:  35581s, Mem: 2091.592GB - scanned:  7710635296 [ 7710951168] - remaining: 45416082851 [45416082851@21.3] - user time: 1654684s
+Time:  35611s, Mem: 2093.019GB - scanned:  7717515230 [ 7717831102] - remaining: 45447211279 [45447211279@21.3] - user time: 1656120s
+Time:  35641s, Mem: 2094.301GB - scanned:  7725352560 [ 7725668432] - remaining: 45467727581 [45467727581@21.3] - user time: 1657554s
+Time:  35671s, Mem: 2095.757GB - scanned:  7732831796 [ 7733204884] - remaining: 45497004028 [45497004028@21.3] - user time: 1658989s
+Time:  35701s, Mem: 2097.245GB - scanned:  7739741575 [ 7740114663] - remaining: 45530400436 [45530400436@21.3] - user time: 1660424s
+Time:  35731s, Mem: 2098.559GB - scanned:  7747215223 [ 7747609239] - remaining: 45553419022 [45553419022@21.3] - user time: 1661861s
+Time:  35761s, Mem: 2100.257GB - scanned:  7754144031 [ 7754541439] - remaining: 45596140960 [45596140960@21.3] - user time: 1663296s
+Time:  35791s, Mem: 2101.905GB - scanned:  7760734419 [ 7761131827] - remaining: 45638292157 [45638292157@21.3] - user time: 1664730s
+Time:  35821s, Mem: 2103.468GB - scanned:  7767454568 [ 7767851976] - remaining: 45676068550 [45676068550@21.3] - user time: 1666166s
+Time:  35851s, Mem: 2105.133GB - scanned:  7773728052 [ 7774125460] - remaining: 45720292065 [45720292065@21.3] - user time: 1667600s
+Time:  35881s, Mem: 2106.744GB - scanned:  7779784078 [ 7780181486] - remaining: 45763344798 [45763344798@21.3] - user time: 1669035s
+Time:  35911s, Mem: 2108.193GB - scanned:  7786232620 [ 7786630028] - remaining: 45797518192 [45797518192@21.3] - user time: 1670470s
+Time:  35941s, Mem: 2109.651GB - scanned:  7792644053 [ 7793041461] - remaining: 45832186648 [45832186648@21.3] - user time: 1671904s
+Time:  35971s, Mem: 2111.086GB - scanned:  7799371546 [ 7799768954] - remaining: 45864578539 [45864578539@21.3] - user time: 1673339s
+Time:  36001s, Mem: 2112.198GB - scanned:  7807205211 [ 7807602619] - remaining: 45877855069 [45877855069@21.3] - user time: 1674776s
+Time:  36031s, Mem: 2113.386GB - scanned:  7814814700 [ 7815215180] - remaining: 45895210875 [45895210875@21.3] - user time: 1676212s
+Time:  36061s, Mem: 2115.364GB - scanned:  7821019566 [ 7821420046] - remaining: 45953790283 [45953790283@21.3] - user time: 1677645s
+Time:  36091s, Mem: 2117.224GB - scanned:  7827443397 [ 7827843877] - remaining: 46005968270 [46005968270@21.3] - user time: 1679079s
+Time:  36121s, Mem: 2119.144GB - scanned:  7833620147 [ 7834020627] - remaining: 46061832776 [46061832776@21.3] - user time: 1680512s
+Time:  36151s, Mem: 2121.032GB - scanned:  7839616316 [ 7840016796] - remaining: 46117218824 [46117218824@21.3] - user time: 1681923s
+Time:  36181s, Mem: 2122.817GB - scanned:  7846011550 [ 7846412030] - remaining: 46166299855 [46166299855@21.3] - user time: 1683357s
+Time:  36211s, Mem: 2124.513GB - scanned:  7852807690 [ 7853208170] - remaining: 46209656054 [46209656054@21.3] - user time: 1684791s
+Time:  36241s, Mem: 2126.278GB - scanned:  7859384055 [ 7859784535] - remaining: 46257291656 [46257291656@21.3] - user time: 1686217s
+Time:  36271s, Mem: 2128.177GB - scanned:  7865483204 [ 7865883684] - remaining: 46312810494 [46312810494@21.3] - user time: 1687629s
+Time:  36301s, Mem: 2130.061GB - scanned:  7871641873 [ 7872042353] - remaining: 46367293353 [46367293353@21.3] - user time: 1689050s
+Time:  36331s, Mem: 2131.875GB - scanned:  7878039201 [ 7878439681] - remaining: 46417427883 [46417427883@21.3] - user time: 1690484s
+Time:  36361s, Mem: 2133.724GB - scanned:  7884403388 [ 7884803868] - remaining: 46469454100 [46469454100@21.3] - user time: 1691917s
+Time:  36391s, Mem: 2135.426GB - scanned:  7890501241 [ 7890901721] - remaining: 46516168805 [46516168805@21.3] - user time: 1693351s
+Time:  36421s, Mem: 2137.201GB - scanned:  7896652777 [ 7897053257] - remaining: 46565984107 [46565984107@21.3] - user time: 1694785s
+Time:  36451s, Mem: 2139.041GB - scanned:  7903280447 [ 7903680927] - remaining: 46616400200 [46616400200@21.3] - user time: 1696218s
+Time:  36481s, Mem: 2140.807GB - scanned:  7909773208 [ 7910173688] - remaining: 46664065082 [46664065082@21.3] - user time: 1697653s
+Time:  36511s, Mem: 2142.539GB - scanned:  7916077916 [ 7916478396] - remaining: 46711142523 [46711142523@21.3] - user time: 1699087s
+Time:  36541s, Mem: 2144.274GB - scanned:  7922463996 [ 7922864476] - remaining: 46758198535 [46758198535@21.3] - user time: 1700520s
+Time:  36571s, Mem: 2146.001GB - scanned:  7928943576 [ 7929344056] - remaining: 46804505103 [46804505103@21.3] - user time: 1701954s
+Time:  36601s, Mem: 2147.585GB - scanned:  7935909089 [ 7936309569] - remaining: 46842329924 [46842329924@21.3] - user time: 1703387s
+Time:  36631s, Mem: 2149.341GB - scanned:  7943483530 [ 7943884011] - remaining: 46884651433 [46884651433@21.3] - user time: 1704822s
+Time:  36661s, Mem: 2150.969GB - scanned:  7950783605 [ 7951184085] - remaining: 46922591468 [46922591468@21.3] - user time: 1706256s
+Time:  36691s, Mem: 2152.375GB - scanned:  7958793253 [ 7959193733] - remaining: 46948234844 [46948234844@21.3] - user time: 1707692s
+Time:  36721s, Mem: 2153.646GB - scanned:  7967138820 [ 7967539300] - remaining: 46967012189 [46967012189@21.3] - user time: 1709128s
+Time:  36751s, Mem: 2155.197GB - scanned:  7974085888 [ 7974486368] - remaining: 47003291220 [47003291220@21.3] - user time: 1710563s
+Time:  36781s, Mem: 2156.642GB - scanned:  7981840476 [ 7982240956] - remaining: 47031568487 [47031568487@21.3] - user time: 1711999s
+Time:  36811s, Mem: 2158.331GB - scanned:  7988959148 [ 7989359628] - remaining: 47073193426 [47073193426@21.3] - user time: 1713433s
+Time:  36841s, Mem: 2160.019GB - scanned:  7996113471 [ 7996513951] - remaining: 47114544783 [47114544783@21.3] - user time: 1714857s
+Time:  36871s, Mem: 2161.749GB - scanned:  8003080075 [ 8003480555] - remaining: 47158572350 [47158572350@21.3] - user time: 1716291s
+Time:  36901s, Mem: 2163.421GB - scanned:  8010037171 [ 8010437651] - remaining: 47200164208 [47200164208@21.3] - user time: 1717725s
+Time:  36931s, Mem: 2164.900GB - scanned:  8017560638 [ 8017961118] - remaining: 47231215417 [47231215417@21.3] - user time: 1719160s
+Time:  36961s, Mem: 2166.254GB - scanned:  8025331136 [ 8025731616] - remaining: 47256005676 [47256005676@21.3] - user time: 1720596s
+Time:  36991s, Mem: 2167.265GB - scanned:  8034045186 [ 8034571810] - remaining: 47261122783 [47261122783@21.3] - user time: 1722033s
+Time:  37021s, Mem: 2168.813GB - scanned:  8040945455 [ 8041472079] - remaining: 47297703792 [47297703792@21.3] - user time: 1723469s
+Time:  37051s, Mem: 2170.383GB - scanned:  8047394935 [ 8047921559] - remaining: 47337262857 [47337262857@21.3] - user time: 1724904s
+Time:  37081s, Mem: 2171.718GB - scanned:  8054402098 [ 8054961790] - remaining: 47364466948 [47364466948@21.3] - user time: 1726340s
+Time:  37111s, Mem: 2173.546GB - scanned:  8061076346 [ 8061636038] - remaining: 47414206008 [47414206008@21.3] - user time: 1727774s
+Time:  37141s, Mem: 2175.227GB - scanned:  8067705767 [ 8068265459] - remaining: 47457905828 [47457905828@21.3] - user time: 1729206s
+Time:  37171s, Mem: 2176.515GB - scanned:  8075136429 [ 8075698937] - remaining: 47481148666 [47481148666@21.3] - user time: 1730643s
+Time:  37201s, Mem: 2178.085GB - scanned:  8082845907 [ 8083585235] - remaining: 47514593834 [47514593834@21.3] - user time: 1732077s
+Time:  37231s, Mem: 2179.813GB - scanned:  8090121094 [ 8091013550] - remaining: 47556410105 [47556410105@21.3] - user time: 1733512s
+Time:  37261s, Mem: 2181.615GB - scanned:  8096785552 [ 8097678008] - remaining: 47605519524 [47605519524@21.3] - user time: 1734946s
+Time:  37291s, Mem: 2183.260GB - scanned:  8103958153 [ 8104850609] - remaining: 47645489763 [47645489763@21.3] - user time: 1736381s
+Time:  37321s, Mem: 2184.709GB - scanned:  8112174700 [ 8113067156] - remaining: 47670786636 [47670786636@21.3] - user time: 1737816s
+Time:  37351s, Mem: 2185.912GB - scanned:  8120253202 [ 8121170298] - remaining: 47688928842 [47688928842@21.3] - user time: 1739253s
+Time:  37381s, Mem: 2187.424GB - scanned:  8127526437 [ 8128482933] - remaining: 47722124080 [47722124080@21.3] - user time: 1740688s
+Time:  37411s, Mem: 2188.704GB - scanned:  8135526501 [ 8136876449] - remaining: 47741099804 [47741099804@21.3] - user time: 1742123s
+Time:  37441s, Mem: 2190.634GB - scanned:  8141770526 [ 8143120474] - remaining: 47797044761 [47797044761@21.3] - user time: 1743546s
+Time:  37471s, Mem: 2192.432GB - scanned:  8148081441 [ 8149431389] - remaining: 47847163349 [47847163349@21.3] - user time: 1744980s
+Time:  37501s, Mem: 2194.039GB - scanned:  8154544968 [ 8155894916] - remaining: 47887681453 [47887681453@21.3] - user time: 1746414s
+Time:  37531s, Mem: 2195.475GB - scanned:  8161859315 [ 8163209263] - remaining: 47918526734 [47918526734@21.3] - user time: 1747850s
+Time:  37561s, Mem: 2196.779GB - scanned:  8169393640 [ 8170748772] - remaining: 47942070168 [47942070168@21.3] - user time: 1749286s
+Time:  37591s, Mem: 2198.145GB - scanned:  8176848247 [ 8178233139] - remaining: 47968590048 [47968590048@21.3] - user time: 1750722s
+Time:  37621s, Mem: 2199.677GB - scanned:  8183805214 [ 8185190106] - remaining: 48004113419 [48004113419@21.3] - user time: 1752157s
+Time:  37651s, Mem: 2200.942GB - scanned:  8190879722 [ 8192283862] - remaining: 48027745913 [48027745913@21.3] - user time: 1753547s
+Time:  37681s, Mem: 2202.251GB - scanned:  8197985490 [ 8199391610] - remaining: 48053260779 [48053260779@21.3] - user time: 1754983s
+Time:  37711s, Mem: 2203.672GB - scanned:  8205216466 [ 8206626786] - remaining: 48082981204 [48082981204@21.3] - user time: 1756418s
+Time:  37741s, Mem: 2204.909GB - scanned:  8212803786 [ 8214256258] - remaining: 48103276973 [48103276973@21.3] - user time: 1757836s
+Time:  37771s, Mem: 2206.513GB - scanned:  8219388682 [ 8220929274] - remaining: 48143207869 [48143207869@21.3] - user time: 1759271s
+Time:  37801s, Mem: 2208.531GB - scanned:  8225223107 [ 8226763699] - remaining: 48205357125 [48205357125@21.3] - user time: 1760703s
+Time:  37831s, Mem: 2210.527GB - scanned:  8231172637 [ 8232713229] - remaining: 48265817469 [48265817469@21.3] - user time: 1762136s
+Time:  37861s, Mem: 2212.468GB - scanned:  8237426308 [ 8238966900] - remaining: 48321073545 [48321073545@21.3] - user time: 1763569s
+Time:  37891s, Mem: 2214.614GB - scanned:  8243732248 [ 8245272840] - remaining: 48384580668 [48384580668@21.3] - user time: 1765001s
+Time:  37921s, Mem: 2216.730GB - scanned:  8250050532 [ 8251591124] - remaining: 48446636278 [48446636278@21.3] - user time: 1766433s
+Time:  37951s, Mem: 2218.755GB - scanned:  8256446619 [ 8257987211] - remaining: 48504471667 [48504471667@21.3] - user time: 1767866s
+Time:  37981s, Mem: 2220.765GB - scanned:  8262880421 [ 8264421013] - remaining: 48560696478 [48560696478@21.3] - user time: 1769298s
+Time:  38011s, Mem: 2222.710GB - scanned:  8269173177 [ 8270713769] - remaining: 48616801721 [48616801721@21.3] - user time: 1770731s
+Time:  38041s, Mem: 2224.711GB - scanned:  8275439593 [ 8276980185] - remaining: 48674488692 [48674488692@21.3] - user time: 1772155s
+Time:  38071s, Mem: 2226.699GB - scanned:  8281999547 [ 8283540140] - remaining: 48730125085 [48730125085@21.3] - user time: 1773587s
+Time:  38101s, Mem: 2228.663GB - scanned:  8288805107 [ 8290345699] - remaining: 48783176523 [48783176523@21.3] - user time: 1775021s
+Time:  38131s, Mem: 2230.612GB - scanned:  8296011922 [ 8297552514] - remaining: 48830626260 [48830626260@21.3] - user time: 1776454s
+Time:  38161s, Mem: 2232.424GB - scanned:  8303002003 [ 8304542595] - remaining: 48875714857 [48875714857@21.3] - user time: 1777888s
+Time:  38191s, Mem: 2234.388GB - scanned:  8310517851 [ 8312058443] - remaining: 48922496242 [48922496242@21.3] - user time: 1779321s
+Time:  38221s, Mem: 2236.250GB - scanned:  8317549156 [ 8319089748] - remaining: 48971198463 [48971198463@21.3] - user time: 1780754s
+Time:  38251s, Mem: 2238.290GB - scanned:  8324178145 [ 8325718737] - remaining: 49028992485 [49028992485@21.3] - user time: 1782187s
+Time:  38281s, Mem: 2240.038GB - scanned:  8331574296 [ 8333114888] - remaining: 49071469776 [49071469776@21.3] - user time: 1783621s
+Time:  38311s, Mem: 2241.613GB - scanned:  8339472496 [ 8341229184] - remaining: 49103534712 [49103534712@21.3] - user time: 1785056s
+Time:  38341s, Mem: 2243.489GB - scanned:  8345716528 [ 8347473216] - remaining: 49156510163 [49156510163@21.3] - user time: 1786488s
+Time:  38371s, Mem: 2245.069GB - scanned:  8352728473 [ 8354542085] - remaining: 49193687326 [49193687326@21.3] - user time: 1787922s
+Time:  38401s, Mem: 2247.116GB - scanned:  8359204730 [ 8361018342] - remaining: 49253182443 [49253182443@21.3] - user time: 1789355s
+Time:  38431s, Mem: 2249.147GB - scanned:  8365697158 [ 8367510770] - remaining: 49312147648 [49312147648@21.3] - user time: 1790785s
+Time:  38461s, Mem: 2251.007GB - scanned:  8372402171 [ 8374215783] - remaining: 49363128235 [49363128235@21.3] - user time: 1792218s
+Time:  38491s, Mem: 2252.595GB - scanned:  8380151712 [ 8382058148] - remaining: 49397531235 [49397531235@21.3] - user time: 1793653s
+Time:  38521s, Mem: 2254.093GB - scanned:  8387545520 [ 8389597452] - remaining: 49429394283 [49429394283@21.3] - user time: 1795089s
+Time:  38551s, Mem: 2255.964GB - scanned:  8393820650 [ 8395872582] - remaining: 49482885774 [49482885774@21.3] - user time: 1796522s
+Time:  38581s, Mem: 2257.578GB - scanned:  8400570361 [ 8402667302] - remaining: 49523383625 [49523383625@21.3] - user time: 1797957s
+Time:  38611s, Mem: 2259.280GB - scanned:  8407408544 [ 8409521929] - remaining: 49567427506 [49567427506@21.3] - user time: 1799391s
+Time:  38641s, Mem: 2260.943GB - scanned:  8414832084 [ 8416967421] - remaining: 49605121063 [49605121063@21.3] - user time: 1800810s
+Time:  38671s, Mem: 2262.692GB - scanned:  8422840360 [ 8425195417] - remaining: 49641857384 [49641857384@21.3] - user time: 1802245s
+Time:  38701s, Mem: 2264.581GB - scanned:  8430176036 [ 8432710077] - remaining: 49690273550 [49690273550@21.3] - user time: 1803677s
+Time:  38731s, Mem: 2266.173GB - scanned:  8438417261 [ 8441130966] - remaining: 49721453858 [49721453858@21.3] - user time: 1805112s
+Time:  38761s, Mem: 2267.766GB - scanned:  8445848742 [ 8448630343] - remaining: 49756632311 [49756632311@21.3] - user time: 1806547s
+Time:  38791s, Mem: 2269.390GB - scanned:  8454162207 [ 8457798778] - remaining: 49786527925 [49786527925@21.3] - user time: 1807982s
+Time:  38821s, Mem: 2270.825GB - scanned:  8461919989 [ 8466333900] - remaining: 49811959710 [49811959710@21.3] - user time: 1809418s
+Time:  38851s, Mem: 2272.475GB - scanned:  8468787060 [ 8473209999] - remaining: 49853556042 [49853556042@21.3] - user time: 1810852s
+Time:  38881s, Mem: 2274.229GB - scanned:  8475629988 [ 8480059312] - remaining: 49899310030 [49899310030@21.3] - user time: 1812286s
+Time:  38911s, Mem: 2275.784GB - scanned:  8482528081 [ 8487027818] - remaining: 49936714757 [49936714757@21.3] - user time: 1813720s
+Time:  38941s, Mem: 2277.464GB - scanned:  8489254392 [ 8493770001] - remaining: 49980312107 [49980312107@21.3] - user time: 1815154s
+Time:  38971s, Mem: 2278.905GB - scanned:  8496157036 [ 8500705687] - remaining: 50013212377 [50013212377@21.3] - user time: 1816589s
+Time:  39001s, Mem: 2280.427GB - scanned:  8503482335 [ 8508168525] - remaining: 50047356233 [50047356233@21.3] - user time: 1818025s
+Time:  39031s, Mem: 2282.144GB - scanned:  8509961537 [ 8514821107] - remaining: 50092577712 [50092577712@21.3] - user time: 1819459s
+Time:  39061s, Mem: 2283.397GB - scanned:  8514572896 [ 8519432466] - remaining: 50113815723 [50113815723@21.3] - user time: 1820893s
+Time:  39091s, Mem: 2283.940GB - scanned:  8518804103 [ 8523663673] - remaining: 50107956285 [50107956285@21.3] - user time: 1822332s
+Time:  39121s, Mem: 2284.879GB - scanned:  8523712952 [ 8528572522] - remaining: 50124461452 [50124461452@21.3] - user time: 1823768s
+Time:  39151s, Mem: 2286.017GB - scanned:  8528977619 [ 8533837189] - remaining: 50148780695 [50148780695@21.3] - user time: 1825205s
+Time:  39181s, Mem: 2287.574GB - scanned:  8534505238 [ 8539364808] - remaining: 50187880279 [50187880279@21.3] - user time: 1826639s
+Time:  39211s, Mem: 2288.965GB - scanned:  8539793902 [ 8544653472] - remaining: 50210949541 [50210949541@21.3] - user time: 1828074s
+Time:  39241s, Mem: 2289.795GB - scanned:  8544628555 [ 8549488125] - remaining: 50203826667 [50203826667@21.3] - user time: 1829497s
+Time:  39271s, Mem: 2290.376GB - scanned:  8549352326 [ 8554211896] - remaining: 50190074243 [50190074243@21.3] - user time: 1830934s
+Time:  39301s, Mem: 2291.390GB - scanned:  8555110158 [ 8559969728] - remaining: 50192768463 [50192768463@21.3] - user time: 1832370s
+Time:  39331s, Mem: 2292.923GB - scanned:  8561458867 [ 8566327109] - remaining: 50220307992 [50220307992@21.3] - user time: 1833804s
+Time:  39361s, Mem: 2294.002GB - scanned:  8567099620 [ 8571967862] - remaining: 50238369543 [50238369543@21.3] - user time: 1835240s
+Time:  39391s, Mem: 2295.209GB - scanned:  8573322549 [ 8578200040] - remaining: 50254980426 [50254980426@21.3] - user time: 1836676s
+Time:  39421s, Mem: 2296.331GB - scanned:  8579238432 [ 8584117155] - remaining: 50270221250 [50270221250@21.3] - user time: 1838112s
+Time:  39451s, Mem: 2413.032GB - scanned:  8585037057 [ 8589935108] - remaining: 50295788506 [50295788506@21.3] - user time: 1839510s
+Time:  39483s, Mem: 2501.188GB - scanned:  8585037057 [ 8589935108] - remaining: 50295788506 [50295788506@21.3] - user time: 1839517s
+Time:  39513s, Mem: 2501.188GB - scanned:  8585037057 [ 8589935108] - remaining: 50295788506 [50295788506@21.3] - user time: 1839517s
