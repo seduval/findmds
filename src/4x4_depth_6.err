@@ -1,6 +1,0 @@
-Time:     30s, Mem: 0.623GB - scanned:     1305126 [    1305126] - remaining:    16577136 [     903070@53.5] - user time: 119s
-Time:     60s, Mem: 1.214GB - scanned:     2439178 [    2439178] - remaining:    33961289 [    3560253@53.6] - user time: 238s
-Time:     90s, Mem: 1.684GB - scanned:     3782791 [    3782791] - remaining:    46066027 [    2114273@54.5] - user time: 357s
-Time:    120s, Mem: 2.279GB - scanned:     4783712 [    4783712] - remaining:    61014772 [    6365320@54.6] - user time: 474s
-Time:    150s, Mem: 2.762GB - scanned:     5855265 [    5855265] - remaining:    77433651 [    7799016@54.6] - user time: 593s
-Time:    180s, Mem: 3.281GB - scanned:     7000920 [    7000920] - remaining:    95119503 [    9900644@54.6] - user time: 712s
