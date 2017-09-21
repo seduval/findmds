@@ -1,0 +1,845 @@
+g++ -Wall -Wextra -I boost_1_64_0 -march=native -std=gnu++0x -O3 -g -fopenmp -gstabs+ -g3 -I tbb-2017_U7/include -L tbb-2017_U7/build/linux_release/  -Wl,-rpath=tbb-2017_U7/build/linux_release/  find_mds.cpp  -ltbb -o find_mds
+Parameters: MAX_WEIGHT=(1 + 8*8 + 5*1) MAX_DEPTH=4 NB_INPUTS=4 NB_REGISTERS=5 XOR_WEIGHT=8 MUL_WEIGHT=1 CPY_WEIGHT=0
+Size: AlgoState:16 algo_op:3 matrix:80
+Options:
+New weight : 0.0
+Number of distinct ids : 0/0(1/0.0)
+Scanned size : 0
+New weight : 0.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 0.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 1.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 2.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 3.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 4.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 5.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 6.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 7.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 8.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 9.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 9.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 9.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 9.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 10.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 10.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 10.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 10.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 11.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 11.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 11.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 11.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 12.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 12.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 12.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 12.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 13.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 13.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 13.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 13.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 14.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 14.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 14.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 14.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 15.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 15.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 15.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 15.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 16.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 16.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 16.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 16.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 17.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 17.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 17.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 17.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 18.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 18.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 18.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 18.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 19.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 19.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 19.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 19.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 20.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 20.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 20.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 20.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 21.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 21.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 21.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 21.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 22.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 22.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 22.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 22.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 23.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 23.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 23.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 23.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 24.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 24.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 24.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 24.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 25.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 25.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 25.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 25.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 26.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 26.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 26.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 26.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 27.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 27.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 27.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 27.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 28.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 28.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 28.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 28.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 29.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 29.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 29.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 29.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 30.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 30.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 30.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 30.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 31.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 31.1
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 31.2
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 31.3
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 32.0
+Number of distinct ids : 1/1(1/1.0)
+Scanned size : 1
+New weight : 32.1
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 32.2
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 32.3
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 33.0
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 33.1
+Number of distinct ids : 2/5(1/2.5)
+Scanned size : 2
+New weight : 33.2
+Number of distinct ids : 6/17(1/2.8)
+Scanned size : 6
+New weight : 33.3
+Number of distinct ids : 6/17(1/2.8)
+Scanned size : 6
+New weight : 34.0
+Number of distinct ids : 6/17(1/2.8)
+Scanned size : 6
+New weight : 34.1
+Number of distinct ids : 6/17(1/2.8)
+Scanned size : 6
+New weight : 34.2
+Number of distinct ids : 10/33(1/3.3)
+Scanned size : 10
+New weight : 34.3
+Number of distinct ids : 15/48(1/3.2)
+Scanned size : 15
+New weight : 35.0
+Number of distinct ids : 15/48(1/3.2)
+Scanned size : 15
+New weight : 35.1
+Number of distinct ids : 15/48(1/3.2)
+Scanned size : 15
+New weight : 35.2
+Number of distinct ids : 19/61(1/3.2)
+Scanned size : 19
+New weight : 35.3
+Number of distinct ids : 26/92(1/3.5)
+Scanned size : 26
+New weight : 36.0
+Number of distinct ids : 32/107(1/3.3)
+Scanned size : 32
+New weight : 36.1
+Number of distinct ids : 32/107(1/3.3)
+Scanned size : 32
+New weight : 36.2
+Number of distinct ids : 35/116(1/3.3)
+Scanned size : 35
+New weight : 36.3
+Number of distinct ids : 47/162(1/3.4)
+Scanned size : 47
+New weight : 37.0
+Number of distinct ids : 55/200(1/3.6)
+Scanned size : 55
+New weight : 37.1
+Number of distinct ids : 55/200(1/3.6)
+Scanned size : 55
+New weight : 37.2
+Number of distinct ids : 55/201(1/3.7)
+Scanned size : 55
+New weight : 37.3
+Number of distinct ids : 68/262(1/3.9)
+Scanned size : 68
+New weight : 38.0
+Number of distinct ids : 85/332(1/3.9)
+Scanned size : 85
+New weight : 38.1
+Number of distinct ids : 85/332(1/3.9)
+Scanned size : 85
+New weight : 38.2
+Number of distinct ids : 85/332(1/3.9)
+Scanned size : 85
+New weight : 38.3
+Number of distinct ids : 96/386(1/4.0)
+Scanned size : 96
+New weight : 39.0
+Number of distinct ids : 120/505(1/4.2)
+Scanned size : 120
+New weight : 39.1
+Number of distinct ids : 120/505(1/4.2)
+Scanned size : 120
+New weight : 39.2
+Number of distinct ids : 120/505(1/4.2)
+Scanned size : 120
+New weight : 39.3
+Number of distinct ids : 126/535(1/4.2)
+Scanned size : 126
+New weight : 40.0
+Number of distinct ids : 153/674(1/4.4)
+Scanned size : 153
+New weight : 40.1
+Number of distinct ids : 153/674(1/4.4)
+Scanned size : 153
+New weight : 40.2
+Number of distinct ids : 158/701(1/4.4)
+Scanned size : 158
+New weight : 40.3
+Number of distinct ids : 162/720(1/4.4)
+Scanned size : 162
+New weight : 41.0
+Number of distinct ids : 188/843(1/4.5)
+Scanned size : 188
+New weight : 41.1
+Number of distinct ids : 188/843(1/4.5)
+Scanned size : 188
+New weight : 41.2
+Number of distinct ids : 201/902(1/4.5)
+Scanned size : 201
+New weight : 41.3
+Number of distinct ids : 225/977(1/4.3)
+Scanned size : 225
+New weight : 42.0
+Number of distinct ids : 249/1092(1/4.4)
+Scanned size : 249
+New weight : 42.1
+Number of distinct ids : 249/1092(1/4.4)
+Scanned size : 249
+New weight : 42.2
+Number of distinct ids : 264/1151(1/4.4)
+Scanned size : 264
+New weight : 42.3
+Number of distinct ids : 336/1436(1/4.3)
+Scanned size : 336
+New weight : 43.0
+Number of distinct ids : 404/1705(1/4.2)
+Scanned size : 404
+New weight : 43.1
+Number of distinct ids : 404/1705(1/4.2)
+Scanned size : 404
+New weight : 43.2
+Number of distinct ids : 412/1738(1/4.2)
+Scanned size : 412
+New weight : 43.3
+Number of distinct ids : 556/2343(1/4.2)
+Scanned size : 556
+New weight : 44.0
+Number of distinct ids : 709/2983(1/4.2)
+Scanned size : 709
+New weight : 44.1
+Number of distinct ids : 709/2983(1/4.2)
+Scanned size : 709
+New weight : 44.2
+Number of distinct ids : 710/2987(1/4.2)
+Scanned size : 710
+New weight : 44.3
+Number of distinct ids : 880/3812(1/4.3)
+Scanned size : 880
+New weight : 45.0
+Number of distinct ids : 1236/5359(1/4.3)
+Scanned size : 1236
+New weight : 45.1
+Number of distinct ids : 1236/5359(1/4.3)
+Scanned size : 1236
+New weight : 45.2
+Number of distinct ids : 1236/5359(1/4.3)
+Scanned size : 1236
+New weight : 45.3
+Number of distinct ids : 1384/6124(1/4.4)
+Scanned size : 1384
+New weight : 46.0
+Number of distinct ids : 1970/8954(1/4.5)
+Scanned size : 1970
+New weight : 46.1
+Number of distinct ids : 1970/8954(1/4.5)
+Scanned size : 1970
+New weight : 46.2
+Number of distinct ids : 1970/8954(1/4.5)
+Scanned size : 1970
+New weight : 46.3
+Number of distinct ids : 2051/9384(1/4.6)
+Scanned size : 2051
+New weight : 47.0
+Number of distinct ids : 2796/13318(1/4.8)
+Scanned size : 2796
+New weight : 47.1
+Number of distinct ids : 2796/13318(1/4.8)
+Scanned size : 2796
+New weight : 47.2
+Number of distinct ids : 2796/13318(1/4.8)
+Scanned size : 2796
+New weight : 47.3
+Number of distinct ids : 2829/13481(1/4.8)
+Scanned size : 2829
+New weight : 48.0
+Number of distinct ids : 3578/17725(1/5.0)
+Scanned size : 3578
+New weight : 48.1
+Number of distinct ids : 3578/17725(1/5.0)
+Scanned size : 3578
+New weight : 48.2
+Number of distinct ids : 3593/17781(1/4.9)
+Scanned size : 3593
+New weight : 48.3
+Number of distinct ids : 3619/17876(1/4.9)
+Scanned size : 3619
+New weight : 49.0
+Number of distinct ids : 4250/21590(1/5.1)
+Scanned size : 4250
+New weight : 49.1
+Number of distinct ids : 4250/21590(1/5.1)
+Scanned size : 4250
+New weight : 49.2
+Number of distinct ids : 4285/21697(1/5.1)
+Scanned size : 4285
+New weight : 49.3
+Number of distinct ids : 4535/22629(1/5.0)
+Scanned size : 4535
+New weight : 50.0
+Number of distinct ids : 5249/26304(1/5.0)
+Scanned size : 5249
+New weight : 50.1
+Number of distinct ids : 5249/26304(1/5.0)
+Scanned size : 5249
+New weight : 50.2
+Number of distinct ids : 5273/26391(1/5.0)
+Scanned size : 5273
+New weight : 50.3
+Number of distinct ids : 6126/29707(1/4.8)
+Scanned size : 6126
+New weight : 51.0
+Number of distinct ids : 8245/38498(1/4.7)
+Scanned size : 8245
+New weight : 51.1
+Number of distinct ids : 8245/38498(1/4.7)
+Scanned size : 8245
+New weight : 51.2
+Number of distinct ids : 8248/38508(1/4.7)
+Scanned size : 8248
+New weight : 51.3
+Number of distinct ids : 9696/44676(1/4.6)
+Scanned size : 9696
+New weight : 52.0
+Number of distinct ids : 15734/69844(1/4.4)
+Scanned size : 15734
+New weight : 52.1
+Number of distinct ids : 15734/69844(1/4.4)
+Scanned size : 15734
+New weight : 52.2
+Number of distinct ids : 15734/69844(1/4.4)
+Scanned size : 15734
+New weight : 52.3
+Number of distinct ids : 17273/77038(1/4.5)
+Scanned size : 17273
+New weight : 53.0
+Number of distinct ids : 29511/131680(1/4.5)
+Scanned size : 29511
+New weight : 53.1
+Number of distinct ids : 29511/131680(1/4.5)
+Scanned size : 29511
+New weight : 53.2
+Number of distinct ids : 29511/131680(1/4.5)
+Scanned size : 29511
+New weight : 53.3
+Number of distinct ids : 30503/136682(1/4.5)
+Scanned size : 30503
+New weight : 54.0
+Number of distinct ids : 48449/222971(1/4.6)
+Scanned size : 48449
+New weight : 54.1
+Number of distinct ids : 48449/222971(1/4.6)
+Scanned size : 48449
+New weight : 54.2
+Number of distinct ids : 48449/222971(1/4.6)
+Scanned size : 48449
+New weight : 54.3
+Number of distinct ids : 48851/225049(1/4.6)
+Scanned size : 48851
+New weight : 55.0
+Number of distinct ids : 68720/327156(1/4.8)
+Scanned size : 68720
+New weight : 55.1
+Number of distinct ids : 68720/327156(1/4.8)
+Scanned size : 68720
+New weight : 55.2
+Number of distinct ids : 68720/327156(1/4.8)
+Scanned size : 68720
+New weight : 55.3
+Number of distinct ids : 68792/327459(1/4.8)
+Scanned size : 68792
+New weight : 56.0
+Number of distinct ids : 85780/419635(1/4.9)
+Scanned size : 85780
+New weight : 56.1
+Number of distinct ids : 85780/419635(1/4.9)
+Scanned size : 85780
+New weight : 56.2
+Number of distinct ids : 85804/419724(1/4.9)
+Scanned size : 85804
+New weight : 56.3
+Number of distinct ids : 85904/420189(1/4.9)
+Scanned size : 85904
+New weight : 57.0
+Number of distinct ids : 96968/482810(1/5.0)
+Scanned size : 96968
+New weight : 57.1
+Number of distinct ids : 96968/482810(1/5.0)
+Scanned size : 96968
+New weight : 57.2
+Number of distinct ids : 97000/482901(1/5.0)
+Scanned size : 97000
+New weight : 57.3
+Number of distinct ids : 98469/488753(1/5.0)
+Scanned size : 98469
+New weight : 58.0
+Number of distinct ids : 107455/534716(1/5.0)
+Scanned size : 107455
+New weight : 58.1
+Number of distinct ids : 107455/534716(1/5.0)
+Scanned size : 107455
+New weight : 58.2
+Number of distinct ids : 107462/534731(1/5.0)
+Scanned size : 107462
+New weight : 58.3
+Number of distinct ids : 112663/555611(1/4.9)
+Scanned size : 112663
+New weight : 59.0
+Number of distinct ids : 143569/683483(1/4.8)
+Scanned size : 143569
+New weight : 59.1
+Number of distinct ids : 143569/683483(1/4.8)
+Scanned size : 143569
+New weight : 59.2
+Number of distinct ids : 143569/683483(1/4.8)
+Scanned size : 143569
+New weight : 59.3
+Number of distinct ids : 151984/718972(1/4.7)
+Scanned size : 151984
+New weight : 60.0
+Number of distinct ids : 255438/1148623(1/4.5)
+Scanned size : 255438
+New weight : 60.1
+Number of distinct ids : 255438/1148623(1/4.5)
+Scanned size : 255438
+New weight : 60.2
+Number of distinct ids : 255438/1148623(1/4.5)
+Scanned size : 255438
+New weight : 60.3
+Number of distinct ids : 262919/1181553(1/4.5)
+Scanned size : 262919
+New weight : 61.0
+Number of distinct ids : 477879/2119248(1/4.4)
+Scanned size : 477879
+New weight : 61.1
+Number of distinct ids : 477879/2119248(1/4.4)
+Scanned size : 477879
+New weight : 61.2
+Number of distinct ids : 477879/2119248(1/4.4)
+Scanned size : 477879
+New weight : 61.3
+Number of distinct ids : 481526/2135712(1/4.4)
+Scanned size : 481526
+New weight : 62.0
+Number of distinct ids : 784212/3527395(1/4.5)
+Scanned size : 784212
+New weight : 62.1
+Number of distinct ids : 784212/3527395(1/4.5)
+Scanned size : 784212
+New weight : 62.2
+Number of distinct ids : 784212/3527395(1/4.5)
+Scanned size : 784212
+New weight : 62.3
+Number of distinct ids : 785080/3531014(1/4.5)
+Scanned size : 785080
+New weight : 63.0
+Number of distinct ids : 1093101/5011015(1/4.6)
+Scanned size : 1093101
+New weight : 63.1
+Number of distinct ids : 1093101/5011015(1/4.6)
+Scanned size : 1093101
+New weight : 63.2
+Number of distinct ids : 1093101/5011015(1/4.6)
+Scanned size : 1093101
+New weight : 63.3
+Number of distinct ids : 1093182/5011337(1/4.6)
+Scanned size : 1093182
+New weight : 64.0
+Number of distinct ids : 1321825/6147461(1/4.7)
+Scanned size : 1321825
+New weight : 64.1
+Number of distinct ids : 1321825/6147461(1/4.7)
+Scanned size : 1321825
+New weight : 64.2
+Number of distinct ids : 1321829/6147479(1/4.7)
+Scanned size : 1321829
+New weight : 64.3
+Number of distinct ids : 1321934/6148182(1/4.7)
+Scanned size : 1321934
+New weight : 65.0
+Number of distinct ids : 1446716/6780884(1/4.7)
+Scanned size : 1446716
+New weight : 65.1
+Number of distinct ids : 1446716/6780884(1/4.7)
+Scanned size : 1446716
+New weight : 65.2
+Number of distinct ids : 1446720/6780888(1/4.7)
+Scanned size : 1446720
+New weight : 65.3
+Number of distinct ids : 1450257/6796123(1/4.7)
+Scanned size : 1450257
+New weight : 66.0
+Number of distinct ids : 1514340/7112661(1/4.7)
+Scanned size : 1514340
+New weight : 66.1
+Number of distinct ids : 1514340/7112661(1/4.7)
+Scanned size : 1514340
+New weight : 66.2
+Number of distinct ids : 1514340/7112661(1/4.7)
+Scanned size : 1514340
+New weight : 66.3
+Number of distinct ids : 1530555/7177381(1/4.7)
+Scanned size : 1530555
+New weight : 67.0
+Number of distinct ids : 1741422/8070616(1/4.6)
+Scanned size : 1741422
+New weight : 67.1
+Number of distinct ids : 1741422/8070616(1/4.6)
+Scanned size : 1741422
+New weight : 67.2
+Number of distinct ids : 1741422/8070616(1/4.6)
+Scanned size : 1741422
+New weight : 67.3
+Number of distinct ids : 1767174/8171045(1/4.6)
+Scanned size : 1767174
+New weight : 68.0
+Number of distinct ids : 2648646/11803115(1/4.5)
+Scanned size : 2648646
+New weight : 68.1
+Number of distinct ids : 2648646/11803115(1/4.5)
+Scanned size : 2648646
+New weight : 68.2
+Number of distinct ids : 2648646/11803115(1/4.5)
+Scanned size : 2648646
+New weight : 68.3
+Number of distinct ids : 2667512/11874167(1/4.5)
+Scanned size : 2667512
+New weight : 69.0
+Number of distinct ids : 4687481/20277257(1/4.3)
+Scanned size : 4687481
+New weight : 69.1
+Number of distinct ids : 4687481/20277257(1/4.3)
+Scanned size : 4687481
+New weight : 69.2
+Number of distinct ids : 4687481/20277257(1/4.3)
+Scanned size : 4687481
+New weight : 69.3
+Number of distinct ids : 4693867/20299338(1/4.3)
+Scanned size : 4693867
+Reached MAX_WEIGHT
