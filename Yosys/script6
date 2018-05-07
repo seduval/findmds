@@ -1,0 +1,10 @@
+read_verilog mul2.v
+read_verilog MDS6.v
+hierarchy -check -top MDS6
+flatten
+proc; opt; fsm; opt; memory; opt
+techmap; opt
+dfflibmap -liberty vsclib013.lib
+abc -liberty vsclib013.lib
+clean
+stat

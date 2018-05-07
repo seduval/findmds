@@ -1,0 +1,4 @@
+1. Installer ou compiler Yosys
+2. Modifier MDS6.v et script6
+3. Lancer yosys
+4. Taper script script6
