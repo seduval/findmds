@@ -37,7 +37,7 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 4*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_WEIGHT (1 + 3*XOR_WEIGHT + 0*MUL_WEIGHT)
 #define MAX_DEPTH 7
 
 // Optimize depth first, rather than weight
