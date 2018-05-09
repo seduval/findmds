@@ -29,7 +29,7 @@
  *                         CONFIGURATION                               *
  ***********************************************************************/
 
-#define NB_INPUTS 4
+#define NB_INPUTS 3
 #define NB_REGISTERS (NB_INPUTS+1)
 
 #define XOR_WEIGHT 4
@@ -37,14 +37,14 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 5*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_WEIGHT (1 + 7*XOR_WEIGHT + 3*MUL_WEIGHT)
 #define MAX_DEPTH 7
 
 // Optimize depth first, rather than weight
 // #define DEPTH_FIRST      // Should not matter if the maxima are well set.
 
 // Uncomment to activate options
-// #define KEEP_INPUTS      // RO_IN in the article
+ #define KEEP_INPUTS      // RO_IN in the article
 // #define TRY_DIV          // INV in the article
  #define INDEP_MUL        // INDEP
 // #define DIFFERENT_MUL    // MAX_POW=2 in the article
