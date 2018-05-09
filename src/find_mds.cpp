@@ -29,6 +29,9 @@
  *                         CONFIGURATION                               *
  ***********************************************************************/
 
+#define ALMOST_MDS true // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
+
+
 #define NB_INPUTS 3
 #define NB_REGISTERS (NB_INPUTS+1)
 
@@ -49,7 +52,6 @@
  #define INDEP_MUL        // INDEP
 // #define DIFFERENT_MUL    // MAX_POW=2 in the article
 
-#define ALMOST_MDS true
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
