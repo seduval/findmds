@@ -32,12 +32,12 @@
 #define NB_INPUTS 4
 #define NB_REGISTERS (NB_INPUTS+1)
 
-#define XOR_WEIGHT 2
+#define XOR_WEIGHT 4
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_WEIGHT (1 + 5*XOR_WEIGHT + 3*MUL_WEIGHT)
 #define MAX_DEPTH 7
 
 // Optimize depth first, rather than weight
@@ -46,8 +46,10 @@
 // Uncomment to activate options
 // #define KEEP_INPUTS      // RO_IN in the article
 // #define TRY_DIV          // INV in the article
-// #define INDEP_MUL        // INDEP
+ #define INDEP_MUL        // INDEP
 // #define DIFFERENT_MUL    // MAX_POW=2 in the article
+
+#define ALMOST_MDS true
 
 // You should leave this on
 #define COMPUTE_ID_FIRST
@@ -119,7 +121,7 @@ class AlgoState {
 public:
     char weight, weight_to_MDS, nb_mul;
 
-    AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, NB_INPUTS*XOR_WEIGHT, 0) {};
+    AlgoState(): AlgoState(NULL, (algo_op){NONE, 0, 0}, 0, (ALMOST_MDS?0:NB_INPUTS*XOR_WEIGHT), 0) {};
     AlgoState(AlgoState *_pred, algo_op _op, int _weight, int _weight_to_MDS, int _nb_mul): pred(_pred), op(_op), weight(_weight), weight_to_MDS(_weight_to_MDS), nb_mul(_nb_mul) {};
 
     matrix branch_vals(bool &overflow);
@@ -372,9 +374,12 @@ matrix compute_id (matrix id) {
     return max;
 }
 
-// With zero == true:  returns smallest zero minor OF BEST SQUARE MATRIX
-// With zero == false: returns largest non-zero minor
-int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
+// With mds == true: test for mds matrices
+//      With zero == true:  returns smallest zero minor OF BEST SQUARE MATRIX
+//      With zero == false: returns largest non-zero minor
+// With mds == false: test for almost-mds matrices:
+//      returns smallest zero minor of best nx(n+1) matrix
+int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
     /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
@@ -395,9 +400,9 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
     for (line1=0; line1<NB_REGISTERS; line1++) {
         for (column1=0; column1<NB_INPUTS; column1++) {
             MM[line1][column1] = _mm_set_epi32(0, 0, 0, M[line1][column1]);
-            if (!zero && M[line1][column1])
+            if (mds && !zero && M[line1][column1])
                 max = std::max(max, 1);
-            if (zero && !M[line1][column1]) {
+            if (mds && zero && !M[line1][column1]) {
                 for (int skip = 0; skip<NB_REGISTERS; skip++) {
                     if (skip != line1)
                         maybeMDSwithout[skip] = false;
@@ -405,10 +410,29 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
 	    }
         }
     }
-    if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+    if (mds && zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
         return 1;
     
-    if (NB_INPUTS > 1) {
+    if (!mds && NB_INPUTS > 1) {
+        for (line1=0; line1<NB_REGISTERS; line1++) {
+            for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                for (column1=0; column1<NB_INPUTS; column1++) {
+                    if (!(M[line1][column1] | M[line2][column1])) {
+                        for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                            if (skip != line1 && skip != line2)
+                                maybeMDSwithout[skip] = false;
+                        }
+                        column1 = NB_INPUTS;
+                    }
+                }
+            }
+        }
+        
+        if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+            return 1;
+    }
+    
+    if (NB_INPUTS > 1 + (mds?0:1)) {
         /* Dimension 2 determinants != 0. */
         for (line1=0; line1<NB_REGISTERS; line1++) {
             for (line2=line1+1; line2<NB_REGISTERS; line2++) {
@@ -416,9 +440,9 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
                     for (column2=column1+1; column2<NB_INPUTS; column2++) {
                         dim2det[line1][line2][column1][column2] = _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], MM[line2][column2], 0x00) , \
                                                                                 _mm_clmulepi64_si128(MM[line1][column2], MM[line2][column1], 0x00));
-                        if (!zero && !_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
+                        if (mds && !zero && !_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) // Test if det is zero.
                             max = std::max(max, 2);
-                        if (zero && _mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) {
+                        if (mds && zero && _mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2])) {
                             for (int skip = 0; skip<NB_REGISTERS; skip++) {
                                 if (skip != line1 && skip != line2)
                                     maybeMDSwithout[skip] = false;
@@ -428,11 +452,36 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
                 }
             }
         }
-        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+        if (mds && zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 2;
+        
+        if (!mds) {
+            for (line1=0; line1<NB_REGISTERS; line1++) {
+                for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                    for (line3=line2+1; line3<NB_REGISTERS; line3++) {
+                        for (column1=0; column1<NB_INPUTS; column1++) {
+                            for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                                if (_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2]) \
+                                    && _mm_testz_si128(dim2det[line1][line3][column1][column2], dim2det[line1][line3][column1][column2]) \
+                                    && _mm_testz_si128(dim2det[line2][line3][column1][column2], dim2det[line2][line3][column1][column2])) {
+                                    for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                        if (skip != line1 && skip != line2 && skip != line3)
+                                            maybeMDSwithout[skip] = false;
+                                    }
+                                    column1 = NB_INPUTS; column2 = NB_INPUTS;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+                return 2;
+        }
     }
         
-    if (NB_INPUTS > 2) {
+    if (NB_INPUTS > 2 + (mds?0:1)) {
         /* Dimension 3 determinants != 0. */
         for (line1=0; line1<NB_REGISTERS; line1++) {
             for (line2=line1+1; line2<NB_REGISTERS; line2++) {
@@ -444,9 +493,9 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
                                                                                                         _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], dim2det[line2][line3][column2][column3], 0x00), \
                                                                                                                       _mm_clmulepi64_si128(MM[line1][column2], dim2det[line2][line3][column1][column3], 0x00)), \
                                                                                                         _mm_clmulepi64_si128(MM[line1][column3], dim2det[line2][line3][column1][column2], 0x00));
-                                if (!zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
+                                if (mds && !zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
                                     max = std::max(max, 3);
-                                if (zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) {
+                                if (mds && zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) {
                                     for (int skip = 0; skip<NB_REGISTERS; skip++) {
                                         if (skip != line1 && skip != line2 && skip != line3)
                                             maybeMDSwithout[skip] = false;
@@ -459,10 +508,37 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
             }
         }
 
-        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+        if (mds && zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 3;
+        
+        if (!mds) {
+            for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                int lines[4];
+                for (int i=0; i<4; i++)
+                    lines[i] = i<skip? i: i+1;
+                
+                for (column1=0; column1<NB_INPUTS; column1++) {
+                    for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                        for (column3=column2+1; column3<NB_INPUTS; column3++) {
+                            if (_mm_testz_si128(dim3det[lines[0]][lines[1]][lines[2]][column1][column2][column3], dim3det[lines[0]][lines[1]][lines[2]][column1][column2][column3]) \
+                                && _mm_testz_si128(dim3det[lines[0]][lines[1]][lines[3]][column1][column2][column3], dim3det[lines[0]][lines[1]][lines[3]][column1][column2][column3]) \
+                                && _mm_testz_si128(dim3det[lines[1]][lines[2]][lines[3]][column1][column2][column3], dim3det[lines[1]][lines[2]][lines[3]][column1][column2][column3]) \
+                                && _mm_testz_si128(dim3det[lines[0]][lines[2]][lines[3]][column1][column2][column3], dim3det[lines[0]][lines[2]][lines[3]][column1][column2][column3])) {
+                                    maybeMDSwithout[skip] = false;
+                                    column1 = NB_INPUTS; column2 = NB_INPUTS; column3 = NB_INPUTS;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+                return 3;
+            else
+                return 4;
+        }
     }
-    if (NB_INPUTS > 3) {
+    if (NB_INPUTS > 3 + (mds?0:1)) {
         /* Dimension 4 determinant != 0. */
         for (int skip = 0; skip<NB_REGISTERS; skip++) {
             int lines[4];
@@ -504,17 +580,17 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
 
-            if (!zero && !_mm_testz_si128(det4, det4))
+            if (mds && !zero && !_mm_testz_si128(det4, det4))
                 max = std::max(max, 4);
-            if (zero && _mm_testz_si128(det4, det4))
+            if (mds && zero && _mm_testz_si128(det4, det4))
                 maybeMDSwithout[skip] = false;
         }
 
-        if (zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
+        if (mds && zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 4;
     }
 
-    if (zero)
+    if (mds && zero)
         return NB_INPUTS+1;
     else
         return max;
@@ -522,7 +598,7 @@ int test_minors (bool zero, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
 
 // rank is largest non-zero minor
 int rank (matrix M) {
-    return test_minors(false, M);
+    return test_minors(false, true, M);
 }
 
 #define shift(x,n) ((n)>0? shiftl(x,n): shiftr(x,-n))
@@ -628,8 +704,8 @@ matrix AlgoState::branch_vals() {
     return branch_vals(ignore_overflow);
 }
 
-bool test_restrictions_MDS (matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
-    return test_minors(true, M, maybeMDSwithout) == NB_INPUTS+1;
+bool test_restrictions_MDS (matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL, bool mds = true) {
+    return test_minors(true, mds, M, maybeMDSwithout) == NB_INPUTS + (mds?1:0);
 }
 
 /*
@@ -637,6 +713,8 @@ bool test_restrictions_MDS (matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL)
  * More generally, we consider the rank of columns without zeroes
  */
 char min_dist_to_MDS (matrix M) {
+    // TODO Change. Adapt to near-MDS.
+    return 0;
     // Clear columns that contain a zero
     for (int i=0; i<NB_REGISTERS; i++) {
         bool has_zero = false;
@@ -879,10 +957,10 @@ int main () {
                     if (is_new) { // Current state not scanned yet (even up to input/output reordering).
                         nb_scanned++;
                         bool maybeMDSwithout[NB_REGISTERS];
-                        if (current_state.weight_to_MDS == 0 && test_restrictions_MDS(bv, maybeMDSwithout)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
+                        if (current_state.weight_to_MDS == 0 && test_restrictions_MDS(bv, maybeMDSwithout, !ALMOST_MDS)) { // Test if any restriction to 4 output branches is MDS. If so, prints and ends.
 #pragma omp critical
                             {
-                                printf ("Found MDS !!! (weight:%i) (depth:%i)\n", current_state.weight, current_state.depth());
+                                printf ("Found %sMDS !!! (weight:%i) (depth:%i)\n", (ALMOST_MDS?"near-":""), current_state.weight, current_state.depth());
                                 // printf ("Number of distinct ids (weight=%3d, depth=%3d) : %" PRIu32 "/%" PRIu32 "(1/%.1f)\n",
                                 //         current_weight, current_state.depth(), nb_scanned, nb_tested, (nb_scanned?(float)nb_tested/nb_scanned:0));
                                 current_state.print_state(maybeMDSwithout);
