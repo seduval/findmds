@@ -1,0 +1,16 @@
+Time:     30s, Mem: 2.591GB - scanned:     4976893 [    4976893] - remaining:    74386638 [    3484718@18.3] - user time: 356s
+Time:     60s, Mem: 5.018GB - scanned:     8386538 [    8386538] - remaining:   161779311 [   38581945@19.3] - user time: 713s
+Time:     90s, Mem: 7.723GB - scanned:    10837455 [   10837455] - remaining:   259774317 [   61212805@19.3] - user time: 1069s
+Time:    120s, Mem: 9.294GB - scanned:    17338448 [   17338448] - remaining:   263190617 [   28794467@19.4] - user time: 1427s
+Time:    150s, Mem: 12.032GB - scanned:    19824375 [   19824375] - remaining:   379085453 [   66226483@19.4] - user time: 1783s
+Time:    180s, Mem: 14.495GB - scanned:    22203224 [   22203224] - remaining:   475717893 [   89509255@19.4] - user time: 2140s
+Time:    210s, Mem: 15.920GB - scanned:    30511219 [   30511219] - remaining:   462935184 [   17594357@19.4] - user time: 2496s
+Time:    240s, Mem: 17.578GB - scanned:    33448798 [   33448798] - remaining:   543961031 [   43215750@19.5] - user time: 2855s
+Time:    270s, Mem: 20.392GB - scanned:    39366599 [   39366599] - remaining:   586022853 [   17810912@19.5] - user time: 3210s
+Time:    300s, Mem: 21.625GB - scanned:    45544166 [   45544167] - remaining:   607469295 [    5482817@22.3] - user time: 3568s
+Time:    330s, Mem: 23.095GB - scanned:    51104124 [   59369176] - remaining:   571552785 [   84322236@23.3] - user time: 3927s
+Time:    360s, Mem: 28.359GB - scanned:    51104124 [  101752579] - remaining:   394167180 [  134542941@23.4] - user time: 4284s
+Time:    390s, Mem: 31.500GB - scanned:    51104124 [  133886819] - remaining:   213515249 [  132549790@23.5] - user time: 4641s
+Time:    420s, Mem: 37.436GB - scanned:    51104124 [  175158418] - remaining:    36657311 [   36657311@23.6] - user time: 4997s
+Time:    450s, Mem: 38.083GB - scanned:    51104124 [  180862662] - remaining:           0 [          0@0.-1] - user time: 5068s
+Time:    480s, Mem: 38.083GB - scanned:    51104124 [  180862662] - remaining:           0 [          0@0.-1] - user time: 5092s
