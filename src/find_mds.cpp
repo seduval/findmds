@@ -382,6 +382,9 @@ matrix compute_id (matrix id) {
 int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
     /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
+    if (!mds && NB_INPUTS <= 1)
+        return 0;
+    
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
     __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
     
@@ -430,6 +433,8 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
         
         if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 1;
+        if (NB_INPUTS == 2)
+            return 2;
     }
     
     if (NB_INPUTS > 1 + (mds?0:1)) {
@@ -478,6 +483,8 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
             
             if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
                 return 2;
+            if (NB_INPUTS == 3)
+                return 3;
         }
     }
         
