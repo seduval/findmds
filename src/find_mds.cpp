@@ -2,6 +2,7 @@
    This codes makes some assumptions:
    - NB_INPUTS is 3 or 4
    - NB_REGISTERS is less than 8
+   - NB_REGISTERS = NB_INPUTS + 1
 */
 
 #define __STDC_FORMAT_MACROS 1
@@ -32,7 +33,7 @@
 #define ALMOST_MDS true // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
 
 
-#define NB_INPUTS 3
+#define NB_INPUTS 4
 #define NB_REGISTERS (NB_INPUTS+1)
 
 #define XOR_WEIGHT 4
@@ -40,16 +41,16 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 3*XOR_WEIGHT + 0*MUL_WEIGHT)
-#define MAX_DEPTH 7
+#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 0*MUL_WEIGHT)
+#define MAX_DEPTH 3
 
 // Optimize depth first, rather than weight
 // #define DEPTH_FIRST      // Should not matter if the maxima are well set.
 
 // Uncomment to activate options
- #define KEEP_INPUTS      // RO_IN in the article
+// #define KEEP_INPUTS      // RO_IN in the article
 // #define TRY_DIV          // INV in the article
- #define INDEP_MUL        // INDEP
+// #define INDEP_MUL        // INDEP
 // #define DIFFERENT_MUL    // MAX_POW=2 in the article
 
 
@@ -361,7 +362,7 @@ matrix compute_id (matrix id) {
     }
     for (int order=0; order<fact(NB_INPUTS); order++) {
         if (max_cols[order_permutations[NB_INPUTS][order][0]] == 0)
-            continue; // Max coefficient not in forst column
+            continue; // Max coefficient not in first column
         matrix tmp;
         for (int i=0; i<NB_REGISTERS; i++) {
             for (int j=0; j<NB_INPUTS; j++) {
@@ -382,13 +383,33 @@ matrix compute_id (matrix id) {
 // With mds == false: test for almost-mds matrices:
 //      returns smallest zero minor of best nx(n+1) matrix
 int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
-    /* Note that this function assumes that we have a N x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
+    /* Note that this function assumes that we have a 5 x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
-    if (!mds && NB_INPUTS <= 1)
-        return 0;
+    matrix to_find = init_matrix();
+    for (int i=0; i<NB_REGISTERS; i++)
+        for (int j=0; j<NB_INPUTS; j++)
+            to_find[i][j] = !to_find[i][j];
+    matrix A = compute_id(to_find);
+    matrix B = compute_id(M);
+    bool is_to_find = true;
+    for (int i=0; i<NB_REGISTERS && is_to_find; i++)
+        for (int j=0; j<NB_INPUTS && is_to_find; j++)
+            if (A[i][j] != B[i][j])
+                is_to_find = false;
+    if (is_to_find) printf ("Right Matrix\n");
+    
+    if ((NB_INPUTS<1 || NB_INPUTS > 4) && mds) {
+        fprintf(stderr, "MDS test not supported for matrices of sizes other than 3x3 and 4x4\n");
+        exit(-1);
+    }
+    if ((NB_INPUTS<1 || NB_INPUTS > 5) && !mds) {
+        fprintf(stderr, "near-MDS test not supported for matrices of sizes other than 3x3, 4x4 and 5x5\n");
+        exit(-1);
+    }
     
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
     __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
+    __m128i dim4det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS]; // Defined to be compatible with NB_INPUTS==5: the 2 registers are the lines which are skipped, the input is the column which is skipped.
     
     __m128i MM[NB_REGISTERS][NB_INPUTS];
 
@@ -438,6 +459,9 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
         if (NB_INPUTS == 2)
             return 2;
     }
+    
+    
+    if (is_to_find) printf ("Passed 1\n");
     
     if (NB_INPUTS > 1 + (mds?0:1)) {
         /* Dimension 2 determinants != 0. */
@@ -489,6 +513,8 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                 return 3;
         }
     }
+    
+    if (is_to_find) printf ("Passed 2\n");
         
     if (NB_INPUTS > 2 + (mds?0:1)) {
         /* Dimension 3 determinants != 0. */
@@ -502,9 +528,9 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                                                                                                         _mm_xor_si128(_mm_clmulepi64_si128(MM[line1][column1], dim2det[line2][line3][column2][column3], 0x00), \
                                                                                                                       _mm_clmulepi64_si128(MM[line1][column2], dim2det[line2][line3][column1][column3], 0x00)), \
                                                                                                         _mm_clmulepi64_si128(MM[line1][column3], dim2det[line2][line3][column1][column2], 0x00));
-                                if (mds && !zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is zero.
+                                if (mds && !zero && !_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) // Test if det is non-zero.
                                     max = std::max(max, 3);
-                                if (mds && zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) {
+                                if (mds && zero && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3])) { // Test if det is zero.
                                     for (int skip = 0; skip<NB_REGISTERS; skip++) {
                                         if (skip != line1 && skip != line2 && skip != line3)
                                             maybeMDSwithout[skip] = false;
@@ -541,18 +567,37 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                 }
             }
             
+            if (is_to_find && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0)) printf ("Branch number 3\n");
+            else
+                printf ("Branch number 4\n");
             if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
                 return 3;
-            else
+            if (NB_INPUTS == 4)
                 return 4;
         }
     }
+
     if (NB_INPUTS > 3 + (mds?0:1)) {
+        int lines[4];
+        int cols[4];
+        
         /* Dimension 4 determinant != 0. */
         for (int skip = 0; skip<NB_REGISTERS; skip++) {
-            int lines[4];
-            for (int i=0; i<4; i++)
-                lines[i] = i<skip? i: i+1;
+            int skip2 = skip, skip_col = NB_INPUTS;
+#if NB_INPUTS==5
+            for (skip2=skip+1; skip2<NB_REGISTERS; skip2++) {
+                for (skip_col=0; skip_col<NB_INPUTS; skip_col++) {
+#endif
+                    for (int i=0; i<4; i++)
+                        lines[i] = i<skip? i: (i<skip2? i+1 : i+2);
+                    for (int i=0; i<4; i++)
+                        cols[i] = i<skip_col? i: i+1;
+#if NB_INPUTS==5
+                }
+            }
+#else
+            skip_col = 0;
+#endif
 
             /* Multiplying a 32-bit word with a 96-bit word takes work.
              * We use: Let u the 32-bit word, v||w the 96-bit word, with v on 32 bits, w on 64 bits.
@@ -561,42 +606,67 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
             __m128i det4 = _mm_setzero_si128();
             __m64 zero64 = _mm_setzero_si64();
             __m128i v, w;
-            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][1][2][3], 1));
-            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][1][2][3], 0));
-            __m128i mul1 = _mm_clmulepi64_si128(MM[lines[0]][0], w, 0x00);
-            __m128i mul2 = _mm_clmulepi64_si128(MM[lines[0]][0], v, 0x00);
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[1]][cols[2]][cols[3]], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[1]][cols[2]][cols[3]], 0));
+            __m128i mul1 = _mm_clmulepi64_si128(MM[lines[0]][cols[0]], w, 0x00);
+            __m128i mul2 = _mm_clmulepi64_si128(MM[lines[0]][cols[0]], v, 0x00);
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
             
-            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][2][3], 1));
-            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][2][3], 0));
-            mul1 = _mm_clmulepi64_si128(MM[lines[0]][1], w, 0x00);
-            mul2 = _mm_clmulepi64_si128(MM[lines[0]][1], v, 0x00);
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[2]][cols[3]], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[2]][cols[3]], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][cols[1]], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][cols[1]], v, 0x00);
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
             
-            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][3], 1));
-            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][3], 0));
-            mul1 = _mm_clmulepi64_si128(MM[lines[0]][2], w, 0x00);
-            mul2 = _mm_clmulepi64_si128(MM[lines[0]][2], v, 0x00);
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[1]][cols[3]], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[1]][cols[3]], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][cols[2]], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][cols[2]], v, 0x00);
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
             
-            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][2], 1));
-            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][0][1][2], 0));
-            mul1 = _mm_clmulepi64_si128(MM[lines[0]][3], w, 0x00);
-            mul2 = _mm_clmulepi64_si128(MM[lines[0]][3], v, 0x00);
+            v = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[1]][cols[2]], 1));
+            w = _mm_set_epi64(zero64, (__m64)_mm_extract_epi64(dim3det[lines[1]][lines[2]][lines[3]][cols[0]][cols[1]][cols[2]], 0));
+            mul1 = _mm_clmulepi64_si128(MM[lines[0]][cols[3]], w, 0x00);
+            mul2 = _mm_clmulepi64_si128(MM[lines[0]][cols[3]], v, 0x00);
             mul2 = _mm_slli_si128(mul2, 8); // Shift left 64 bits.
             det4 = _mm_xor_si128(det4, _mm_xor_si128(mul1, mul2));
+            
+            dim4det[skip][skip2][skip_col] = det4;
 
             if (mds && !zero && !_mm_testz_si128(det4, det4))
                 max = std::max(max, 4);
-            if (mds && zero && _mm_testz_si128(det4, det4))
+            if (mds && zero && _mm_testz_si128(det4, det4)) {
                 maybeMDSwithout[skip] = false;
+                maybeMDSwithout[skip2] = false;
+            }
         }
 
         if (mds && zero && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
             return 4;
+    }
+    
+    if (NB_INPUTS > 4 && !mds) { // For near-MDS matrices of size 5x5, we only need to test the values of the 4x4 determinants.
+        // We have a 6x5 matrix. Looking for a register to delete so that at least one 4x4 determinant is non-zero.
+        for (int skip=0; skip<NB_REGISTERS; skip++) { // Delete register. We are left with a 5x5 matrix.
+            int all_determinants_zero = 1;
+            for (int skip_line=0; skip_line<NB_REGISTERS; skip_line++) { // Line not considered for the 4x4 determinant.
+                if (skip_line == skip)
+                    continue;
+                for (int skip_col=0; skip_col<NB_INPUTS; skip_col++) { // Column not considered for the 4x4 determinant.
+                    all_determinants_zero &= _mm_testz_si128(dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col], dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col]);
+                }
+            }
+            if (all_determinants_zero) { // If all determinants are zero, this choice of deleted register gives branch number strictly less than 5.
+                maybeMDSwithout[skip] = false;
+            }
+        }
+        if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0)) // If no choice of deleted register gives a branch number of 5 or more.
+            return 4;
+        else
+            return 5;
     }
 
     if (mds && zero)
