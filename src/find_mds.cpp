@@ -41,7 +41,7 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 0*MUL_WEIGHT)
+#define MAX_WEIGHT (1 + 6*XOR_WEIGHT + 0*MUL_WEIGHT)
 #define MAX_DEPTH 3
 
 // Optimize depth first, rather than weight
@@ -386,9 +386,11 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
     /* Note that this function assumes that we have a 5 x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
     matrix to_find = init_matrix();
-    for (int i=0; i<NB_REGISTERS; i++)
-        for (int j=0; j<NB_INPUTS; j++)
+    for (int i=0; i<NB_INPUTS; i++) {
+        for (int j=0; j<NB_INPUTS; j++) {
             to_find[i][j] = !to_find[i][j];
+        }
+    }
     matrix A = compute_id(to_find);
     matrix B = compute_id(M);
     bool is_to_find = true;
@@ -793,7 +795,9 @@ bool test_restrictions_MDS (matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL,
  */
 char min_dist_to_MDS (matrix M) {
     // TODO Change. Adapt to near-MDS.
+#if ALMOST_MDS
     return 0;
+#endif
     // Clear columns that contain a zero
     for (int i=0; i<NB_REGISTERS; i++) {
         bool has_zero = false;
