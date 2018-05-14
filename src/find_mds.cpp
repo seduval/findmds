@@ -42,7 +42,7 @@
 
 // Note: MAX is excluded
 #define MAX_WEIGHT (1 + 6*XOR_WEIGHT + 0*MUL_WEIGHT)
-#define MAX_DEPTH 3
+#define MAX_DEPTH (1 + 3)
 
 // Optimize depth first, rather than weight
 // #define DEPTH_FIRST      // Should not matter if the maxima are well set.
@@ -401,11 +401,11 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
     if (is_to_find) printf ("Right Matrix\n");
     
     if ((NB_INPUTS<1 || NB_INPUTS > 4) && mds) {
-        fprintf(stderr, "MDS test not supported for matrices of sizes other than 3x3 and 4x4\n");
+        fprintf(stderr, "MDS test not supported for matrices of sizes other than 1x1, 2x2, 3x3 and 4x4\n");
         exit(-1);
     }
     if ((NB_INPUTS<1 || NB_INPUTS > 5) && !mds) {
-        fprintf(stderr, "near-MDS test not supported for matrices of sizes other than 3x3, 4x4 and 5x5\n");
+        fprintf(stderr, "near-MDS test not supported for matrices of sizes other than 1x1, 2x2, 3x3, 4x4 and 5x5\n");
         exit(-1);
     }
     
