@@ -33,7 +33,7 @@
 #define ALMOST_MDS true // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
 
 
-#define NB_INPUTS 4
+#define NB_INPUTS 5
 #define NB_REGISTERS (NB_INPUTS+1)
 
 #define XOR_WEIGHT 4
@@ -41,8 +41,8 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 6*XOR_WEIGHT + 0*MUL_WEIGHT)
-#define MAX_DEPTH (1 + 3)
+#define MAX_WEIGHT (1 + 9*XOR_WEIGHT + 0*MUL_WEIGHT)
+#define MAX_DEPTH (1 + 4)
 
 // Optimize depth first, rather than weight
 // #define DEPTH_FIRST      // Should not matter if the maxima are well set.
@@ -385,30 +385,6 @@ matrix compute_id (matrix id) {
 int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTERS] = NULL) {
     /* Note that this function assumes that we have a 5 x 4 matrix M, and we select 4 lines, yielding a 4 x 4 matrix. */
     
-    matrix to_find = init_matrix();
-    for (int i=0; i<NB_INPUTS; i++) {
-        for (int j=0; j<NB_INPUTS; j++) {
-            to_find[i][j] = !to_find[i][j];
-        }
-    }
-    matrix A = compute_id(to_find);
-    matrix B = compute_id(M);
-    bool is_to_find = true;
-    for (int i=0; i<NB_REGISTERS && is_to_find; i++)
-        for (int j=0; j<NB_INPUTS && is_to_find; j++)
-            if (A[i][j] != B[i][j])
-                is_to_find = false;
-    if (is_to_find) printf ("Right Matrix\n");
-    
-    if ((NB_INPUTS<1 || NB_INPUTS > 4) && mds) {
-        fprintf(stderr, "MDS test not supported for matrices of sizes other than 1x1, 2x2, 3x3 and 4x4\n");
-        exit(-1);
-    }
-    if ((NB_INPUTS<1 || NB_INPUTS > 5) && !mds) {
-        fprintf(stderr, "near-MDS test not supported for matrices of sizes other than 1x1, 2x2, 3x3, 4x4 and 5x5\n");
-        exit(-1);
-    }
-    
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
     __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
     __m128i dim4det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS]; // Defined to be compatible with NB_INPUTS==5: the 2 registers are the lines which are skipped, the input is the column which is skipped.
@@ -462,9 +438,6 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
             return 2;
     }
     
-    
-    if (is_to_find) printf ("Passed 1\n");
-    
     if (NB_INPUTS > 1 + (mds?0:1)) {
         /* Dimension 2 determinants != 0. */
         for (line1=0; line1<NB_REGISTERS; line1++) {
@@ -515,8 +488,6 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                 return 3;
         }
     }
-    
-    if (is_to_find) printf ("Passed 2\n");
         
     if (NB_INPUTS > 2 + (mds?0:1)) {
         /* Dimension 3 determinants != 0. */
@@ -569,9 +540,6 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                 }
             }
             
-            if (is_to_find && !std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0)) printf ("Branch number 3\n");
-            else
-                printf ("Branch number 4\n");
             if (!std::accumulate(maybeMDSwithout, maybeMDSwithout+NB_REGISTERS, 0))
                 return 3;
             if (NB_INPUTS == 4)
