@@ -20,6 +20,6 @@ tbb-2017_U7:
 	make -C tbb-2017_U7 work_dir=build/linux MAKE="make RTM_KEY=''" # Old 'as' on cluster doesn't support rtm
 
 clean:
-	rm -fr tbb-2017_U7 boost_1_64_0 findmds
+	rm -fr tbb-2017_U7 boost_1_64_0 find_mds
 
 .PHONY: all clean
