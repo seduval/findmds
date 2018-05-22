@@ -391,7 +391,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
     
     __m128i MM[NB_REGISTERS][NB_INPUTS];
 
-    int line1, line2, line3, column1, column2, column3;    
+    int line1, line2, line3, line4, column1, column2, column3, column4;    
     int max = 0;
 
     if (maybeMDSwithout == NULL)
