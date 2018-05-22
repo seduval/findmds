@@ -418,6 +418,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
         return 1;
     
     if (!mds && NB_INPUTS > 1) {
+        // Diff
         for (line1=0; line1<NB_REGISTERS; line1++) {
             for (line2=line1+1; line2<NB_REGISTERS; line2++) {
                 for (column1=0; column1<NB_INPUTS; column1++) {
@@ -427,6 +428,21 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                                 maybeMDSwithout[skip] = false;
                         }
                         column1 = NB_INPUTS;
+                    }
+                }
+            }
+        }
+        // Lin
+        for (line1=0; line1<NB_REGISTERS; line1++) {
+            for (column1=0; column1<NB_INPUTS; column1++) {
+                for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                    if (!(M[line1][column1] | M[line1][column2])) {
+                        for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                            if (skip != line1)
+                                maybeMDSwithout[skip] = false;
+                        }
+                        column1 = NB_INPUTS;
+                        column2 = NB_INPUTS;
                     }
                 }
             }
@@ -462,6 +478,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
             return 2;
         
         if (!mds) {
+            // Diff
             for (line1=0; line1<NB_REGISTERS; line1++) {
                 for (line2=line1+1; line2<NB_REGISTERS; line2++) {
                     for (line3=line2+1; line3<NB_REGISTERS; line3++) {
@@ -475,6 +492,26 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                                             maybeMDSwithout[skip] = false;
                                     }
                                     column1 = NB_INPUTS; column2 = NB_INPUTS;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // Lin
+            for (line1=0; line1<NB_REGISTERS; line1++) {
+                for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                    for (column1=0; column1<NB_INPUTS; column1++) {
+                        for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                            for (column3=column2+1; column3<NB_INPUTS; column3++) {
+                                if (_mm_testz_si128(dim2det[line1][line2][column1][column2], dim2det[line1][line2][column1][column2]) \
+                                    && _mm_testz_si128(dim2det[line1][line2][column1][column3], dim2det[line1][line2][column1][column3]) \
+                                    && _mm_testz_si128(dim2det[line2][line2][column2][column3], dim2det[line2][line2][column2][column3])) {
+                                    for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                        if (skip != line1 && skip != line2)
+                                            maybeMDSwithout[skip] = false;
+                                    }
+                                    column1 = NB_INPUTS; column2 = NB_INPUTS; column3 = NB_INPUTS;
                                 }
                             }
                         }
@@ -520,20 +557,51 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
             return 3;
         
         if (!mds) {
-            for (int skip = 0; skip<NB_REGISTERS; skip++) {
-                int lines[4];
-                for (int i=0; i<4; i++)
-                    lines[i] = i<skip? i: i+1;
-                
-                for (column1=0; column1<NB_INPUTS; column1++) {
-                    for (column2=column1+1; column2<NB_INPUTS; column2++) {
-                        for (column3=column2+1; column3<NB_INPUTS; column3++) {
-                            if (_mm_testz_si128(dim3det[lines[0]][lines[1]][lines[2]][column1][column2][column3], dim3det[lines[0]][lines[1]][lines[2]][column1][column2][column3]) \
-                                && _mm_testz_si128(dim3det[lines[0]][lines[1]][lines[3]][column1][column2][column3], dim3det[lines[0]][lines[1]][lines[3]][column1][column2][column3]) \
-                                && _mm_testz_si128(dim3det[lines[1]][lines[2]][lines[3]][column1][column2][column3], dim3det[lines[1]][lines[2]][lines[3]][column1][column2][column3]) \
-                                && _mm_testz_si128(dim3det[lines[0]][lines[2]][lines[3]][column1][column2][column3], dim3det[lines[0]][lines[2]][lines[3]][column1][column2][column3])) {
-                                    maybeMDSwithout[skip] = false;
-                                    column1 = NB_INPUTS; column2 = NB_INPUTS; column3 = NB_INPUTS;
+            // Diff
+            for (line1=0; line1<NB_REGISTERS; line1++) {
+                for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                    for (line3=line2+1; line3<NB_REGISTERS; line3++) {
+                        for (line4=line3+1; line4<NB_REGISTERS; line4++) {
+                            for (column1=0; column1<NB_INPUTS; column1++) {
+                                for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                                    for (column3=column2+1; column3<NB_INPUTS; column3++) {
+                                        if (_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3]) \
+                                            && _mm_testz_si128(dim3det[line1][line2][line4][column1][column2][column3], dim3det[line1][line2][line4][column1][column2][column3]) \
+                                            && _mm_testz_si128(dim3det[line2][line3][line4][column1][column2][column3], dim3det[line2][line3][line4][column1][column2][column3]) \
+                                            && _mm_testz_si128(dim3det[line1][line3][line4][column1][column2][column3], dim3det[line1][line3][line4][column1][column2][column3])) {
+                                                for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                                    if (skip != line1 && skip != line2 && skip != line3 && skip != line4)
+                                                        maybeMDSwithout[skip] = false;
+                                                }
+                                                column1 = NB_INPUTS; column2 = NB_INPUTS; column3 = NB_INPUTS;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // Lin                
+            for (line1=0; line1<NB_REGISTERS; line1++) {
+                for (line2=line1+1; line2<NB_REGISTERS; line2++) {
+                    for (line3=line2+1; line3<NB_REGISTERS; line3++) {
+                        for (column1=0; column1<NB_INPUTS; column1++) {
+                            for (column2=column1+1; column2<NB_INPUTS; column2++) {
+                                for (column3=column2+1; column3<NB_INPUTS; column3++) {
+                                    for (column4=column3+1; column4<NB_INPUTS; column4++) {
+                                        if (_mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column3], dim3det[line1][line2][line3][column1][column2][column3]) \
+                                            && _mm_testz_si128(dim3det[line1][line2][line3][column1][column2][column4], dim3det[line1][line2][line3][column1][column2][column4]) \
+                                            && _mm_testz_si128(dim3det[line1][line2][line3][column1][column3][column4], dim3det[line1][line2][line3][column1][column3][column4]) \
+                                            && _mm_testz_si128(dim3det[line1][line2][line3][column2][column3][column4], dim3det[line1][line2][line3][column2][column3][column4])) {
+                                                for (int skip = 0; skip<NB_REGISTERS; skip++) {
+                                                    if (skip != line1 && skip != line2 && skip != line3)
+                                                        maybeMDSwithout[skip] = false;
+                                                }
+                                                column1 = NB_INPUTS; column2 = NB_INPUTS; column3 = NB_INPUTS; column4 = NB_INPUTS;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -619,17 +687,34 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
     }
     
     if (NB_INPUTS > 4 && !mds) { // For near-MDS matrices of size 5x5, we only need to test the values of the 4x4 determinants.
-        // We have a 6x5 matrix. Looking for a register to delete so that at least one 4x4 determinant is non-zero.
+        // We have a 6x5 matrix. Looking for a register to delete so that at least one 4x4 determinant is non-zero for every choice of 4 lines.
         for (int skip=0; skip<NB_REGISTERS; skip++) { // Delete register. We are left with a 5x5 matrix.
-            int all_determinants_zero = 1;
+            // Diff
+            int all_lines_ok = 1;
             for (int skip_line=0; skip_line<NB_REGISTERS; skip_line++) { // Line not considered for the 4x4 determinant.
                 if (skip_line == skip)
                     continue;
+                int at_least_one_not_zero = 0;
                 for (int skip_col=0; skip_col<NB_INPUTS; skip_col++) { // Column not considered for the 4x4 determinant.
-                    all_determinants_zero &= _mm_testz_si128(dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col], dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col]);
+                    at_least_one_not_zero |= !_mm_testz_si128(dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col], dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col]);
                 }
+                all_lines_ok &= at_least_one_not_zero;
             }
-            if (all_determinants_zero) { // If all determinants are zero, this choice of deleted register gives branch number strictly less than 5.
+            if (!all_lines_ok) { // If all determinants are zero for one choice of 4 lines, this choice of deleted register gives differential branch number strictly less than 5.
+                maybeMDSwithout[skip] = false;
+            }
+            // Lin
+            int all_cols_ok = 1;
+            for (int skip_col=0; skip_col<NB_INPUTS; skip_col++) { // Column not considered for the 4x4 determinant.
+                int at_least_one_not_zero = 0;
+                for (int skip_line=0; skip_line<NB_REGISTERS; skip_line++) { // Line not considered for the 4x4 determinant.
+                    if (skip_line == skip)
+                        continue;
+                    at_least_one_not_zero |= !_mm_testz_si128(dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col], dim4det[std::min(skip,skip_line)][std::max(skip,skip_line)][skip_col]);
+                }
+                all_cols_ok &= at_least_one_not_zero;
+            }
+            if (!all_cols_ok) { // If all determinants are zero for one choice of 4 lines, this choice of deleted register gives differential branch number strictly less than 5.
                 maybeMDSwithout[skip] = false;
             }
         }
