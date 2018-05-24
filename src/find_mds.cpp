@@ -33,10 +33,10 @@
 #define ALMOST_MDS true // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
 
 
-#define NB_INPUTS 5
+#define NB_INPUTS 3
 #define NB_REGISTERS (NB_INPUTS+1)
 
-#define XOR_WEIGHT 2
+#define XOR_WEIGHT 4
 #define MUL_WEIGHT 1
 #define CPY_WEIGHT 0
 
