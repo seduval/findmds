@@ -387,7 +387,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
     
     __m128i dim2det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS];
     __m128i dim3det[NB_REGISTERS][NB_REGISTERS][NB_REGISTERS][NB_INPUTS][NB_INPUTS][NB_INPUTS];
-    __m128i dim4det[NB_REGISTERS][NB_REGISTERS][NB_INPUTS]; // Defined to be compatible with NB_INPUTS==5: the 2 registers are the lines which are skipped, the input is the column which is skipped.
+    __m128i dim4det[NB_REGISTERS][(mds?1:NB_REGISTERS)][(mds?1:NB_INPUTS)]; // Defined to be compatible with NB_INPUTS==5: the 2 registers are the lines which are skipped, the input is the column which is skipped.
     
     __m128i MM[NB_REGISTERS][NB_INPUTS];
 
@@ -621,7 +621,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
         
         /* Dimension 4 determinant != 0. */
         for (int skip = 0; skip<NB_REGISTERS; skip++) {
-            int skip2 = skip, skip_col = NB_INPUTS;
+            int skip2 = NB_REGISTERS, skip_col = NB_INPUTS;
 #if NB_INPUTS==5
             for (skip2=skip+1; skip2<NB_REGISTERS; skip2++) {
                 for (skip_col=0; skip_col<NB_INPUTS; skip_col++) {
@@ -634,7 +634,7 @@ int test_minors (bool zero, bool mds, matrix M, bool maybeMDSwithout[NB_REGISTER
                 }
             }
 #else
-            skip_col = 0;
+            skip_col = 0; skip2=skip;
 #endif
 
             /* Multiplying a 32-bit word with a 96-bit word takes work.
