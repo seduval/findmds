@@ -30,10 +30,10 @@
  *                         CONFIGURATION                               *
  ***********************************************************************/
 
-#define ALMOST_MDS false // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
+#define ALMOST_MDS true // As a bonus. if true, look for almost-MDS matrices, if false, look for MDS matrices.
 
 
-#define NB_INPUTS 4
+#define NB_INPUTS 5
 #define NB_REGISTERS (NB_INPUTS+1)
 
 #define XOR_WEIGHT 2
@@ -41,7 +41,7 @@
 #define CPY_WEIGHT 0
 
 // Note: MAX is excluded
-#define MAX_WEIGHT (1 + 8*XOR_WEIGHT + 3*MUL_WEIGHT)
+#define MAX_WEIGHT (1 + 12*XOR_WEIGHT + 0*MUL_WEIGHT)
 #define MAX_DEPTH (1 + 5)
 
 // Optimize depth first, rather than weight
@@ -50,7 +50,7 @@
 // Uncomment to activate options
 // #define KEEP_INPUTS      // RO_IN in the article
 // #define TRY_DIV          // INV in the article
- #define INDEP_MUL        // INDEP
+// #define INDEP_MUL        // INDEP
 // #define DIFFERENT_MUL    // MAX_POW=2 in the article
 
 
