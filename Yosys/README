@@ -1,4 +1,4 @@
-1. Installer ou compiler Yosys
-2. Modifier MDS6.v et script6
-3. Lancer yosys
-4. Taper script script6
+1. Install or compile Yosys
+2. Modify MDS6.v and script6
+3. Launch yosys
+4. Write script script6
